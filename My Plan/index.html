@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Plan · Level UP 2BAC</title>
+<style>
+:root{--bg:#edf4fa;--navy:#123d70;--blue1:#0c4f96;--blue2:#147fc9;--ink:#10243e;--muted:#5b6b80;--card:#fff;--line:#d6e3f0;
+--ok:#1f9d55;--okbg:#e6f6ec;--mid:#d97706;--midbg:#fff4e0;--bad:#d64545;--badbg:#fdecec;--none:#eef2f6}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;display:flex;flex-direction:column;min-height:100dvh}
+button{font:inherit;cursor:pointer}
+.head{position:sticky;top:0;z-index:5;background:#eaf4ff}
+.head .in{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 16px}
+.head img{width:56px;height:56px;object-fit:contain}
+.head .in{padding:6px 16px}
+main{transform-origin:top center}
+.head .tt{text-align:center;flex:1}
+.head .tt b{display:block;font-size:22px;color:var(--navy);letter-spacing:.5px}
+.head .tt span{display:block;font-size:14px;color:var(--muted)}
+.bar{background:var(--navy);color:#fff;text-transform:uppercase;font-size:13px;font-weight:700;letter-spacing:.6px;text-align:center;padding:7px 12px}
+main{flex:1;width:100%;max-width:1100px;margin:0 auto;padding:16px 16px 96px}
+.card-ins{background:linear-gradient(135deg,var(--blue1),var(--blue2));color:#fff;border-radius:20px;padding:14px 18px;font-weight:800;text-transform:uppercase;font-size:18px;text-align:center;margin-bottom:14px}
+.pill{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--navy);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700;margin:0 0 12px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:12px}
+.muted{color:var(--muted);font-size:14px}
+.q{font-size:19px;font-weight:600;text-align:center;margin:10px 0 16px;line-height:1.45}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{background:#fff;border:2px solid var(--line);border-radius:16px;padding:14px 10px;font-weight:700;font-size:16px;color:var(--ink);text-align:center}
+.opt:hover{border-color:var(--blue2)}
+.opt.ok{background:var(--okbg);border-color:var(--ok)}
+.opt.bad{background:var(--badbg);border-color:var(--bad)}
+.opt[disabled]{cursor:default}
+.btn{background:var(--blue2);color:#fff;border:0;border-radius:12px;padding:12px 18px;font-weight:800;font-size:16px}
+.btn.navy{background:var(--navy)}
+.btn.ghost{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.btn.small{padding:8px 12px;font-size:14px;border-radius:10px}
+.row{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap}
+.nav{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;margin-top:16px}
+.nav .btn{width:100%}
+.units{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.units button{background:#fff;border:2px solid var(--line);border-radius:14px;padding:14px 0;font-size:18px;font-weight:800;color:var(--navy);white-space:nowrap}
+.units button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.big{font-size:44px;font-weight:900;color:var(--navy);text-align:center}
+.big small{font-size:20px;color:var(--muted)}
+.sk{display:grid;grid-template-columns:110px 1fr 52px;gap:10px;align-items:center;margin:8px 0;font-weight:700}
+.meter{height:12px;background:var(--none);border-radius:99px;overflow:hidden}
+.meter i{display:block;height:100%;border-radius:99px}
+.tasks{display:grid;grid-template-columns:1fr;column-gap:10px}
+@media (min-width:760px){.tasks.two{grid-template-columns:1fr 1fr}}
+.tasks.two .task{padding:7px 10px;margin-bottom:6px}
+.tasks.two .task .ic{width:28px;height:28px;flex-basis:28px}
+.task{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-bottom:8px}
+.task .ic{width:34px;height:34px;flex:0 0 34px;border-radius:50%;display:grid;place-items:center;font-weight:900;background:var(--none);color:var(--muted)}
+.task.done .ic{background:var(--ok);color:#fff}
+.task .tx{flex:1;min-width:0}
+.task .tx b{display:block;font-size:15px}
+.task .tx span{display:block;font-size:13px;color:var(--muted)}
+.task .why{color:var(--mid);font-weight:700}
+.grid{width:100%;border-collapse:separate;border-spacing:4px}
+.grid th{font-size:12px;color:var(--muted);font-weight:800}
+.grid td{text-align:center;border-radius:8px;padding:5px 0;font-weight:800;font-size:13px;background:var(--none);color:var(--muted)}
+.grid td.u{background:var(--navy);color:#fff;cursor:pointer}
+.c-ok{background:var(--okbg)!important;color:var(--ok)!important}
+.c-mid{background:var(--midbg)!important;color:var(--mid)!important}
+.c-bad{background:var(--badbg)!important;color:var(--bad)!important}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted);justify-content:center;margin-top:6px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:4px;vertical-align:-2px;margin-right:4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip{background:#fff;border:2px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:700;color:var(--ink)}
+.chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.yn{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+.yn:first-of-type{border-top:0}
+.yn p{flex:1;margin:0;font-weight:600;font-size:15px}
+.yn .hint{display:block;font-weight:500;font-size:13px;color:var(--mid);margin-top:3px}
+.yn button{border:2px solid var(--line);background:#fff;border-radius:10px;padding:7px 12px;font-weight:800}
+.yn button.y.on{background:var(--ok);border-color:var(--ok);color:#fff}
+.yn button.n.on{background:var(--bad);border-color:var(--bad);color:#fff}
+textarea{width:100%;min-height:84px;height:84px;border:2px solid var(--line);border-radius:14px;padding:12px;font:inherit;font-size:15px;resize:vertical}
+.bands{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.bands button{border:2px solid var(--line);background:#fff;border-radius:12px;padding:10px 4px;font-weight:800;font-size:14px}
+.dock{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);z-index:6;padding-bottom:env(safe-area-inset-bottom)}
+.dock .in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.dock button{background:none;border:0;padding:9px 0 8px;font-weight:800;font-size:13px;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:2px}
+.dock button i{font-style:normal;font-size:20px}
+.dock button.on{color:var(--navy)}
+.dock button.on i{transform:scale(1.12)}
+.frame{position:fixed;inset:0;z-index:20;background:#fff;display:flex;flex-direction:column}
+.frame .fb{background:var(--navy);display:flex;align-items:center;gap:10px;padding:6px 10px}
+.frame .fb button{background:#fff;color:var(--navy);border:0;border-radius:10px;padding:7px 12px;font-weight:800}
+.frame .fb span{color:#fff;font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.frame iframe{flex:1;border:0;width:100%}
+.tip{border-left:4px solid var(--mid);background:var(--midbg);border-radius:10px;padding:8px 12px;margin:6px 0;font-size:14px}
+h3{margin:4px 0 10px;color:var(--navy)}
+.back{background:none;border:0;color:var(--navy);font-weight:800;font-size:15px;padding:2px 0;margin:0 0 8px;text-decoration:underline;text-underline-offset:3px}
+.step{margin:0 0 8px;font-weight:800;color:var(--navy);font-size:15px;text-align:center}
+.step.miss{color:var(--bad)}
+.warn{background:var(--badbg);color:var(--bad);border-radius:10px;padding:8px 12px;font-weight:700;text-align:center;margin:0 0 10px}
+.tests{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tcard{background:#fff;border:2px solid var(--line);border-radius:16px;padding:12px;text-align:center}
+.tcard b{display:block;color:var(--navy);font-size:17px}
+.tcard span{display:block;font-size:13px;color:var(--muted);margin:4px 0 8px}
+.tcard.done{border-color:var(--ok)}
+@media (max-width:600px){
+ .head img{width:44px;height:44px}.head .tt b{font-size:16px}.head .tt span{font-size:11px}
+ .bar{font-size:11.5px}
+ main{padding:12px 12px 90px}
+ .card-ins{font-size:15px;padding:12px 14px;border-radius:16px}
+ .q{font-size:17px}
+ .opt{font-size:15px;padding:12px 8px}
+ .sk{grid-template-columns:90px 1fr 44px;font-size:14px}
+ .grid td{padding:6px 0;font-size:12px}
+ textarea{height:70px;min-height:70px}
+ .units button{font-size:14px;padding:12px 0;border-radius:12px}
+ .units{gap:6px}
+ .chip{padding:6px 10px;font-size:14px}.chips{gap:6px}.step{margin-bottom:6px}
+}
+</style>
+</head>
+<body>
+<header class="head"><div class="in">
+  <img src="../teacher.png" alt="Teacher Soufiane" onerror="this.style.visibility='hidden'">
+  <div class="tt"><b>LEVEL UP 2BAC</b><span>My Plan · Teacher Soufiane</span></div>
+  <img src="../logo.png" alt="Level UP 2BAC logo" onerror="this.style.visibility='hidden'">
+</div><div class="bar" id="bar">MY PLAN | WEEKLY PLAN</div></header>
+<main id="app" aria-live="polite"></main>
+<nav class="dock" aria-label="Sections"><div class="in" id="dock"></div></nav>
+
+<script>
+(function () {
+'use strict';
+/* ===== Where the quizzes are, relative to this page. This page sits in "Quizzes by Unit/My Plan/". ===== */
+var QUIZ_BASE = '../';
+var STORE = 'lu2bac-myplan-v1';
+var DAY = 86400000;
+var SKILLS = ['Vocabulary', 'Functions', 'Grammar', 'Reading', 'Listening', 'Writing'];
+var SHORT = { Vocabulary: 'V', Functions: 'F', Grammar: 'G', Reading: 'R', Listening: 'L', Writing: 'W' };
+
+/* ===== Every quiz: unit, skill, folder, how it saves (e), its storage key (k / b), out of (m) =====
+   e: vocab = k+'-stats' {attempts,best} in points; core = k is JSON {attempts,best,last} in points;
+   appjs = k is JSON {best} in hundredths (Grammar and Writing engines); flat = b is one localStorage item holding the best score in points;
+   manual = the student taps how it went (this quiz saves no score we can read).
+   Checked against every quiz folder on 2026-11-20 (after the Grammar, Writing, Listening and Reading rebuilds). */
+var Q = [
+{u:1,s:'Functions',p:'Unit1/Functions/',e:'vocab',k:'levelup-2bac-u1-functions-q1-v1',m:20},
+{u:1,s:'Grammar',p:'Unit1/Grammar 1 - Gerund and Infinitive/',e:'appjs',k:'levelup-2bac-u1-gerund-infinitive-q1-v1',m:20},
+{u:1,s:'Grammar',p:'Unit1/Grammar 2 - Gerund and Infinitive/',e:'appjs',k:'levelup-2bac-u1-gerund-infinitive-q2-v1',m:20},
+{u:1,s:'Listening',p:'Unit1/Listening/',e:'flat',b:'quizBestScore',m:20},
+{u:1,s:'Reading',p:'Unit1/Reading - Generation Gap/',e:'flat',b:'generationGapBestScore',m:15},
+{u:1,s:'Vocabulary',p:'Unit1/Vocabulary 1/',e:'vocab',k:'levelup-2bac-u1-vocab-q1-v1',m:20},
+{u:1,s:'Vocabulary',p:'Unit1/Vocabulary 2/',e:'vocab',k:'levelup-2bac-u1-vocab-q2-v1',m:20},
+{u:1,s:'Writing',p:'Unit1/Writing - Paragraph/',e:'appjs',k:'levelup-2bac-u1-writing-paragraph-q1-v2',m:15},
+{u:2,s:'Functions',p:'Unit2/Functions/',e:'vocab',k:'levelup-2bac-u2-functions-q1-v1',m:20},
+{u:2,s:'Grammar',p:'Unit2/Grammar 1 - Modal Verbs/',e:'appjs',k:'levelup-2bac-u2-modal-verbs-q1-v1',m:20},
+{u:2,s:'Grammar',p:'Unit2/Grammar 2 - Modal Verbs/',e:'appjs',k:'levelup-2bac-u2-modal-verbs-q2-v1',m:20},
+{u:2,s:'Listening',p:'Unit2/Listening/',e:'flat',b:'quizBest',m:33},
+{u:2,s:'Reading',p:'Unit2/Reading - Humour/',e:'flat',b:'humourBestScore',m:15},
+{u:2,s:'Vocabulary',p:'Unit2/Vocabulary 1 - Humour/',e:'vocab',k:'levelup-2bac-u2-vocab-q1-v1',m:20},
+{u:2,s:'Vocabulary',p:'Unit2/Vocabulary 2/',e:'vocab',k:'levelup-2bac-u2-vocab-q2-v2',m:20},
+{u:2,s:'Writing',p:'Unit2/Writing - Biography/',e:'appjs',k:'levelup-2bac-u2-writing-biography-q1-v2',m:20},
+{u:3,s:'Functions',p:'Unit3/Functions - Expressing Purpose/',e:'vocab',k:'levelup-2bac-u3-functions-q1-v1',m:20},
+{u:3,s:'Grammar',p:'Unit3/Grammar 1 - Past Simple/',e:'appjs',k:'levelup-2bac-u3-past-simple-q1-v1',m:20},
+{u:3,s:'Grammar',p:'Unit3/Grammar 2 - Past Perfect Simple/',e:'appjs',k:'levelup-2bac-u3-past-perfect-simple-q2-v1',m:20},
+{u:3,s:'Grammar',p:'Unit3/Grammar 3 - Past Perfect Continuous/',e:'appjs',k:'levelup-2bac-u3-past-perfect-continuous-q3-v1',m:20},
+{u:3,s:'Grammar',p:'Unit3/Grammar 4 - 3-Tense Mastery/',e:'appjs',k:'levelup-2bac-u3-three-tense-mastery-q4-v1',m:20},
+{u:3,s:'Listening',p:'Unit3/Listening - Expressing Purpose/',e:'flat',b:'u3_best',m:48},
+{u:3,s:'Reading',p:'Unit3/Reading/',e:'flat',b:'educationBestScore',m:15},
+{u:3,s:'Vocabulary',p:'Unit3/Vocabulary 1 - Education/',e:'vocab',k:'levelup-2bac-u3-vocab-q1-v1',m:20},
+{u:3,s:'Vocabulary',p:'Unit3/Vocabulary 2 - Education/',e:'vocab',k:'levelup-2bac-u3-vocab-q2-v1',m:20},
+{u:3,s:'Writing',p:'Unit3/Writing - Report/',e:'appjs',k:'levelup-2bac-u3-writing-report-q1-v2',m:20},
+{u:4,s:'Functions',p:'Unit4/Functions - Cause and Effect/',e:'vocab',k:'levelup-2bac-u4-functions-q1-v1',m:20},
+{u:4,s:'Grammar',p:'Unit4/Grammar 1 - Will vs Be Going To/',e:'appjs',k:'levelup-2bac-u4-will-going-to-q1-v1',m:20},
+{u:4,s:'Grammar',p:'Unit4/Grammar 2 - Future Perfect Simple/',e:'appjs',k:'levelup-2bac-u4-future-perfect-q2-v1',m:20},
+{u:4,s:'Grammar',p:'Unit4/Grammar 3 - Future Simple vs Future Perfect/',e:'appjs',k:'levelup-2bac-u4-future-simple-vs-perfect-q3-v1',m:20},
+{u:4,s:'Listening',p:'Unit4/Listening - Cause and Effect/',e:'flat',b:'causeQuizBest',m:48},
+{u:4,s:'Reading',p:'Unit4/Reading - Sustainability/',e:'flat',b:'sustainabilityBestScore',m:15},
+{u:4,s:'Vocabulary',p:'Unit4/Vocabulary 1 - Sustainable Development/',e:'vocab',k:'levelup-2bac-u4-vocab-q1-v1',m:20},
+{u:4,s:'Vocabulary',p:'Unit4/Vocabulary 2 - Sustainable Development/',e:'vocab',k:'levelup-2bac-u4-vocab-q2-v1',m:20},
+{u:4,s:'Writing',p:'Unit4/Writing - Formal Email/',e:'appjs',k:'levelup-2bac-u4-writing-formal-email-q1-v2',m:20},
+{u:5,s:'Functions',p:'Unit5/Functions 1/',e:'vocab',k:'levelup-2bac-u5-functions-q1-v1',m:20},
+{u:5,s:'Functions',p:'Unit5/Functions 2/',e:'vocab',k:'levelup-2bac-u5-functions-q2-v1',m:20},
+{u:5,s:'Grammar',p:'Unit5/Grammar 1/',t:'Grammar 1 - The Passive Voice',e:'appjs',k:'levelup-2bac-u5-passive-voice-q1-v1',m:20},
+{u:5,s:'Grammar',p:'Unit5/Grammar 2/',t:'Grammar 2 - The Passive Voice',e:'appjs',k:'levelup-2bac-u5-passive-voice-q2-v1',m:20},
+{u:5,s:'Listening',p:'Unit5/Listening - Expressing Concession/',e:'flat',b:'concessionBest',m:48},
+{u:5,s:'Reading',p:'Unit5/Reading - Women and Power/',e:'flat',b:'womenPowerBestScore',m:15},
+{u:5,s:'Vocabulary',p:'Unit5/Vocabulary 1 - Women and Power/',e:'vocab',k:'levelup-2bac-u5-vocab-q1-v1',m:20},
+{u:5,s:'Vocabulary',p:'Unit5/Vocabulary 2 - Women and Power/',e:'vocab',k:'levelup-2bac-u5-vocab-q2-v1',m:20},
+{u:5,s:'Writing',p:'Unit5/Writing - Book Review/',e:'appjs',k:'levelup-2bac-u5-writing-book-review-q1-v2',m:20},
+{u:6,s:'Functions',p:'Unit6/Functions - Complaining and Apologising/',e:'vocab',k:'levelup-2bac-u6-functions-q1-v1',m:20},
+{u:6,s:'Grammar',p:'Unit6/Grammar 1 - Phrasal Verbs Quiz 1/',e:'appjs',k:'levelup-2bac-u6-phrasal-verbs-q1-v1',m:20},
+{u:6,s:'Grammar',p:'Unit6/Grammar 2 - Phrasal Verbs Quiz 2/',e:'appjs',k:'levelup-2bac-u6-phrasal-verbs-q2-v1',m:20},
+{u:6,s:'Grammar',p:'Unit6/Grammar - Phrasal Verbs Hub (6 games)/',e:'manual'},
+{u:6,s:'Listening',p:'Unit6/Listening - Apologizing and Complaining/',e:'core',k:'quiz:unit6-listening-1',m:48},
+{u:6,s:'Reading',p:'Unit6/Reading - Culture Shock/',e:'flat',b:'unit6-reading-quizBestScore',m:15},
+{u:6,s:'Vocabulary',p:'Unit6/Vocabulary 1 - Cultural Issues and Values/',e:'vocab',k:'levelup-2bac-u6-vocab-q1-v1',m:20},
+{u:6,s:'Vocabulary',p:'Unit6/Vocabulary 2 - Cultural Issues and Values/',e:'vocab',k:'levelup-2bac-u6-vocab-q2-v1',m:20},
+{u:6,s:'Writing',p:'Unit6/Writing 1 - Informal Email/',e:'appjs',k:'levelup-2bac-u6-writing-informal-email-q1-v2',m:20},
+{u:6,s:'Writing',p:'Unit6/Writing 2 - Formal vs Informal Email/',e:'appjs',k:'levelup-2bac-u6-writing-formal-informal-email-q2-v2',m:20},
+{u:7,s:'Functions',p:'Unit7/Functions - Asking for and Giving Advice/',e:'vocab',k:'levelup-2bac-u7-functions-q1-v1',m:20},
+{u:7,s:'Grammar',p:'Unit7/Grammar 1 - Reported Speech Changes/',e:'appjs',k:'levelup-2bac-u7-reported-changes-q1-v2',m:20},
+{u:7,s:'Grammar',p:'Unit7/Grammar 2 - Reported Speech Statements/',e:'appjs',k:'levelup-2bac-u7-reported-statements-q2-v2',m:20},
+{u:7,s:'Grammar',p:'Unit7/Grammar 3 - Reported Speech Questions/',e:'appjs',k:'levelup-2bac-u7-reported-questions-q3-v2',m:20},
+{u:7,s:'Grammar',p:'Unit7/Grammar 4 - Reported Speech Functions/',e:'appjs',k:'levelup-2bac-u7-reported-functions-q4-v2',m:20},
+{u:7,s:'Grammar',p:'Unit7/Grammar 5 - Reported Speech Mixed/',e:'appjs',k:'levelup-2bac-u7-reported-mixed-q5-v2',m:20},
+{u:7,s:'Listening',p:'Unit7/Listening - Asking for and Giving Advice/',e:'core',k:'quiz:unit7-advice-listening-1',m:48},
+{u:7,s:'Reading',p:'Unit7/Reading - Voluntary Work/',e:'flat',b:'unit7-reading-quizBestScore',m:15},
+{u:7,s:'Vocabulary',p:'Unit7/Vocabulary 1 - Citizenship/',e:'vocab',k:'levelup-2bac-u7-vocab-q1-v1',m:20},
+{u:7,s:'Vocabulary',p:'Unit7/Vocabulary 2 - Citizenship/',e:'vocab',k:'levelup-2bac-u7-vocab-q2-v1',m:20},
+{u:7,s:'Writing',p:'Unit7/Writing - Story/',e:'appjs',k:'levelup-2bac-u7-writing-story-q1-v2',m:20},
+{u:8,s:'Functions',p:'Unit8/Functions 1/',e:'vocab',k:'levelup-2bac-u8-functions-q1-v1',m:20},
+{u:8,s:'Functions',p:'Unit8/Functions 2/',e:'vocab',k:'levelup-2bac-u8-functions-q2-v1',m:20},
+{u:8,s:'Grammar',p:'Unit8/Grammar 1 - Linking Words/',e:'appjs',k:'levelup-2bac-u8-linking-words-q1-v2',m:20},
+{u:8,s:'Grammar',p:'Unit8/Grammar 2 - Linking Words Level Up/',e:'appjs',k:'levelup-2bac-u8-linking-words-q2-v2',m:20},
+{u:8,s:'Listening',p:'Unit8/Listening - Good News and Bad News/',e:'core',k:'quiz:unit8-listening-1',m:48},
+{u:8,s:'Reading',p:'Unit8/Reading - International Organizations/',e:'flat',b:'unit8-reading-quizBestScore',m:15},
+{u:8,s:'Vocabulary',p:'Unit8/Vocabulary 1 - International Organizations/',e:'vocab',k:'levelup-2bac-u8-vocab-q1-v2',m:20},
+{u:8,s:'Vocabulary',p:'Unit8/Vocabulary 2 - International Organizations/',e:'vocab',k:'levelup-2bac-u8-vocab-q2-v2',m:20},
+{u:8,s:'Writing',p:'Unit8/Writing - Blog Post/',e:'appjs',k:'levelup-2bac-u8-writing-blog-post-q1-v2',m:20},
+{u:9,s:'Functions',p:'Unit9/Functions - Certainty and Uncertainty/',e:'vocab',k:'levelup-2bac-u9-functions-q1-v1',m:20},
+{u:9,s:'Grammar',p:'Unit9/Grammar 1 - Zero Conditional/',e:'appjs',k:'levelup-2bac-u9-zero-conditional-q1-v2',m:10},
+{u:9,s:'Grammar',p:'Unit9/Grammar 2 - First Conditional/',e:'appjs',k:'levelup-2bac-u9-first-conditional-q2-v2',m:10},
+{u:9,s:'Grammar',p:'Unit9/Grammar 3 - Second Conditional/',e:'appjs',k:'levelup-2bac-u9-second-conditional-q3-v2',m:20},
+{u:9,s:'Grammar',p:'Unit9/Grammar 4 - Third Conditional/',e:'appjs',k:'levelup-2bac-u9-third-conditional-q4-v2',m:20},
+{u:9,s:'Listening',p:'Unit9/Listening - Certainty and Uncertainty/',e:'core',k:'quiz:unit9-listening-1',m:48},
+{u:9,s:'Reading',p:'Unit9/Reading - Science and Technology/',e:'flat',b:'unit9-reading-quizBestScore',m:15},
+{u:9,s:'Vocabulary',p:'Unit9/Vocabulary 1 - Science and Technology/',e:'vocab',k:'levelup-2bac-u9-vocab-q1-v2',m:20},
+{u:9,s:'Vocabulary',p:'Unit9/Vocabulary 2 - Science and Technology/',e:'vocab',k:'levelup-2bac-u9-vocab-q2-v2',m:20},
+{u:9,s:'Writing',p:'Unit9/Writing - Article (Point-by-Point)/',e:'appjs',k:'levelup-2bac-u9-writing-article-q1-v1',m:20},
+{u:10,s:'Functions',p:'Unit10/Functions - Expressing Regrets/',e:'vocab',k:'levelup-2bac-u10-functions-q1-v1',m:20},
+{u:10,s:'Grammar',p:'Unit10/Grammar 1 - Relative Pronouns/',e:'appjs',k:'levelup-2bac-u10-relative-pronouns-q1-v1',m:20},
+{u:10,s:'Grammar',p:'Unit10/Grammar 2 - Relative Clauses/',e:'appjs',k:'levelup-2bac-u10-relative-clauses-q2-v1',m:20},
+{u:10,s:'Listening',p:'Unit10/Listening - Expressing Regret/',e:'core',k:'quiz:unit10-listening-1',m:48},
+{u:10,s:'Reading',p:'Unit10/Reading - Brain Drain/',e:'flat',b:'unit10-reading-quizBestScore',m:15},
+{u:10,s:'Vocabulary',p:'Unit10/Vocabulary 1 - Brain Drain/',e:'vocab',k:'levelup-2bac-u10-vocab-q1-v7',m:20},
+{u:10,s:'Vocabulary',p:'Unit10/Vocabulary 2 - Brain Drain/',e:'vocab',k:'levelup-2bac-u10-vocab-q2-v5',m:20},
+{u:10,s:'Writing',p:'Unit10/Writing - Article (Block Method)/',e:'appjs',k:'levelup-2bac-u10-writing-article-block-q1-v1',m:20}
+];
+Q.forEach(function (q) { q.id = q.p + (q.q || ''); if (!q.t) q.t = q.p.split('/')[1]; });
+var BYID = {}; Q.forEach(function (q) { BYID[q.id] = q; });
+var TOPIC = ['', 'The Gifts of Youth', 'Humour', 'Education', 'Sustainable Development', 'Women and Power',
+  'Cultural Issues and Values', 'Citizenship', 'International Organizations', 'Science and Technology', 'Brain Drain'];
+
+/* ===== Level tests (teacher 2026-11-20): 4 different tests, 20 items each, 2 per unit, 1 point each.
+   The student picks one, then can try the others. In every item o[0] is the right answer (the options are dealt on screen). ===== */
+var TEST = [
+{u:1,s:'Grammar',q:'She avoided ___ the same mistake twice.',o:['making','to make','make','made'],a:0},
+{u:1,s:'Vocabulary',q:'The difference in values between parents and their children is called the generation ___.',o:['gap','wall','line','step'],a:0},
+{u:2,s:'Grammar',q:'You ___ have told me earlier! Now it is too late to help.',o:['should','must','can','may'],a:0},
+{u:2,s:'Functions',q:'"Sorry, I didn\'t catch that. ___?"',o:['Could you say that again','Could you agree with me','Would you like some help','Do you mind if I leave'],a:0},
+{u:3,s:'Grammar',q:'When we arrived at the station, the train ___.',o:['had already left','has already left','already leaves','will already leave'],a:0},
+{u:3,s:'Vocabulary',q:'Education that trains students for a specific job or trade is called ___ education.',o:['vocational','formal','higher','distance'],a:0},
+{u:4,s:'Grammar',q:'By 2030, scientists ___ a cure for this disease.',o:['will have found','will be find','have found','are finding'],a:0},
+{u:4,s:'Functions',q:'Many forests were cut down; ___, many animals lost their homes.',o:['as a result','because of','due to','so that'],a:0},
+{u:5,s:'Grammar',q:'The new hospital ___ by the minister next week.',o:['will be opened','will be opening','is going to open','has been opening'],a:0},
+{u:5,s:'Functions',q:'___ she was very tired, she finished her report.',o:['Although','Despite','However','In addition'],a:0},
+{u:6,s:'Grammar',q:'Please ___ your shoes before you enter the room.',o:['take off','take after','put up with','look after'],a:0},
+{u:6,s:'Vocabulary',q:'Moroccans are famous for their ___: they welcome guests warmly.',o:['hospitality','punctuality','curiosity','modesty'],a:0},
+{u:7,s:'Grammar',q:'She said, "I am tired." → She said that she ___ tired.',o:['was','is','will be','has been'],a:0},
+{u:7,s:'Functions',q:'"If I were you, I ___ talk to your teacher about it."',o:['would','will','am going to','did'],a:0},
+{u:8,s:'Grammar',q:'___ the heavy rain, the match was not cancelled.',o:['Despite','Although','Because','However'],a:0},
+{u:8,s:'Vocabulary',q:'Which UN agency protects children\'s rights around the world?',o:['UNICEF','WHO','UNESCO','FAO'],a:0},
+{u:9,s:'Grammar',q:'If I ___ more free time, I would learn another language.',o:['had','have','will have','would have'],a:0},
+{u:9,s:'Functions',q:'"I\'m not sure, but it ___ rain later. Take an umbrella."',o:['might','must','can\'t','will surely'],a:0},
+{u:10,s:'Grammar',q:'The man ___ car was stolen called the police.',o:['whose','who','which','whom'],a:0},
+{u:10,s:'Functions',q:'I failed the exam. I wish I ___ harder.',o:['had studied','studied','have studied','would study'],a:0}
+];
+var TEST2 = [
+{u:1,s:'Grammar',q:'I\'m looking forward to ___ you next summer.',o:['seeing','see','to see','saw']},
+{u:1,s:'Functions',q:'Which sentence gives a strong opinion?',o:['I firmly believe that teenagers should vote.','Teenagers can vote in some countries now.','Could you tell me when teenagers vote?','I wonder whether teenagers vote at all.']},
+{u:2,s:'Grammar',q:'Ali isn\'t answering his phone. He ___ be asleep.',o:['must','mustn\'t','needn\'t','shouldn\'t']},
+{u:2,s:'Vocabulary',q:'A short funny story that people tell to make others laugh is a ___.',o:['joke','proverb','rumour','speech']},
+{u:3,s:'Grammar',q:'She ___ for two hours when the teacher finally arrived.',o:['had been waiting','has been waiting','was waited','is waiting']},
+{u:3,s:'Functions',q:'He studies hard ___ he can get a scholarship.',o:['so that','in order to','so as to','because of']},
+{u:4,s:'Grammar',q:'Look at those dark clouds! It ___ rain.',o:['is going to','will have','has been','would have']},
+{u:4,s:'Vocabulary',q:'Energy from the sun and the wind is called ___ energy.',o:['renewable','nuclear','fossil','limited']},
+{u:5,s:'Grammar',q:'English ___ all over the world.',o:['is spoken','speaks','is speaking','has spoken']},
+{u:5,s:'Functions',q:'The test was very difficult. ___, most students passed it.',o:['Nevertheless','Therefore','Because','For example']},
+{u:6,s:'Grammar',q:'The meeting was ___ because the manager was ill.',o:['called off','put on','looked up','got over']},
+{u:6,s:'Functions',q:'Which sentence is a polite complaint?',o:['I\'m afraid the room you gave me is noisy.','Sorry, could you repeat the question?','Thank you so much for your kind help.','Would you like to join us for dinner?']},
+{u:7,s:'Grammar',q:'"Where do you live?" he asked me. → He asked me where ___.',o:['I lived','did I live','do I live','lived I']},
+{u:7,s:'Vocabulary',q:'People who give their time to help others without being paid are ___.',o:['volunteers','employees','customers','tourists']},
+{u:8,s:'Grammar',q:'She stayed at home ___ she was ill.',o:['because','despite','although','however']},
+{u:8,s:'Vocabulary',q:'Which UN agency works for people\'s health around the world?',o:['WHO','UNICEF','FAO','UNESCO']},
+{u:9,s:'Grammar',q:'If you heat ice, it ___.',o:['melts','melted','would melt','had melted']},
+{u:9,s:'Vocabulary',q:'A new machine that someone creates for the first time is an ___.',o:['invention','discovery','experiment','opinion']},
+{u:10,s:'Grammar',q:'This is the town ___ I was born.',o:['where','which','who','whose']},
+{u:10,s:'Vocabulary',q:'When skilled people leave their country to work abroad, it is called brain ___.',o:['drain','storm','wash','power']}
+];
+var TEST3 = [
+{u:1,s:'Grammar',q:'It\'s no use ___ about the past.',o:['worrying','worry','worried','to worried']},
+{u:1,s:'Vocabulary',q:'A person who believes that things will go well is ___.',o:['optimistic','pessimistic','jealous','selfish']},
+{u:2,s:'Grammar',q:'Students ___ use their phones during the exam. It\'s forbidden.',o:['mustn\'t','don\'t have to','needn\'t','can']},
+{u:2,s:'Functions',q:'Which question asks for clarification?',o:['What do you mean by "soon"?','When did you arrive at school?','Would you like a cup of tea?','Why don\'t we go to the cinema?']},
+{u:3,s:'Grammar',q:'I ___ my keys, so I couldn\'t open the door.',o:['had lost','have lost','lose','am losing']},
+{u:3,s:'Vocabulary',q:'Money given to an excellent student to pay for his or her studies is a ___.',o:['scholarship','salary','fine','tax']},
+{u:4,s:'Grammar',q:'This time next year, I ___ my studies.',o:['will have finished','will finishing','have finished','am finish']},
+{u:4,s:'Functions',q:'The roads were flooded ___ the heavy rain.',o:['because of','because','so','as a result']},
+{u:5,s:'Grammar',q:'The letter ___ yesterday by my brother.',o:['was posted','posted','has posted','is posting']},
+{u:5,s:'Vocabulary',q:'Equal rights and chances for women and men are called gender ___.',o:['equality','poverty','violence','identity']},
+{u:6,s:'Grammar',q:'My grandmother ___ me when my parents were abroad.',o:['looked after','looked up','turned down','gave up']},
+{u:6,s:'Vocabulary',q:'Saying "please" and "thank you" shows good ___.',o:['manners','prices','weather','results']},
+{u:7,s:'Grammar',q:'She told me, "Don\'t touch the oven." → She told me ___ the oven.',o:['not to touch','to not touched','don\'t touch','not touching']},
+{u:7,s:'Functions',q:'Which sentence gives advice?',o:['You had better see a doctor.','I used to see a doctor.','I saw a doctor yesterday.','Have you seen a doctor?']},
+{u:8,s:'Grammar',q:'___ he is rich, he lives in a small flat.',o:['Although','Despite','Because','So']},
+{u:8,s:'Vocabulary',q:'The countries that join an international organization are its ___ states.',o:['member','foreign','capital','private']},
+{u:9,s:'Grammar',q:'If I had known about the party, I ___.',o:['would have come','would come','will come','had come']},
+{u:9,s:'Functions',q:'He has trained every day for a year. I\'m ___ he will win.',o:['certain','doubtful','unlikely','impossible']},
+{u:10,s:'Grammar',q:'The woman ___ lives next door is a doctor.',o:['who','which','whose','where']},
+{u:10,s:'Functions',q:'I spent all my money. If only I ___ some of it.',o:['had saved','saved','have saved','would save']}
+];
+var TEST4 = [
+{u:1,s:'Grammar',q:'My parents allowed me ___ to the concert.',o:['to go','going','go','gone']},
+{u:1,s:'Vocabulary',q:'The influence of friends of your own age is called ___ pressure.',o:['peer','time','blood','air']},
+{u:2,s:'Grammar',q:'You ___ have bought milk. We already had two bottles.',o:['needn\'t','mustn\'t','couldn\'t','wouldn\'t']},
+{u:2,s:'Vocabulary',q:'Someone whose job is to make people laugh on stage is a ___.',o:['comedian','lawyer','surgeon','librarian']},
+{u:3,s:'Grammar',q:'Yesterday, I ___ my grandparents after school.',o:['visited','had visiting','have visited','visit']},
+{u:3,s:'Functions',q:'I went to the library ___ borrow a book.',o:['to','for','so that','because']},
+{u:4,s:'Grammar',q:'Don\'t worry, I ___ help you with your homework tonight.',o:['will','had','was','have']},
+{u:4,s:'Vocabulary',q:'Cutting down large areas of forest is called ___.',o:['deforestation','recycling','irrigation','renovation']},
+{u:5,s:'Grammar',q:'A new school ___ in our village at the moment.',o:['is being built','is building','has built','builds']},
+{u:5,s:'Functions',q:'___ being tired, she kept working.',o:['Despite','Although','However','Even']},
+{u:6,s:'Grammar',q:'I can\'t ___ this noise any longer!',o:['put up with','put off','look for','take after']},
+{u:6,s:'Functions',q:'Which reply accepts an apology?',o:['Never mind, it doesn\'t matter.','I\'m sorry to hear that news.','I\'m afraid I can\'t come today.','Excuse me, where is the bank?']},
+{u:7,s:'Grammar',q:'He asked, "Can you help me?" → He asked me ___ help him.',o:['if I could','could I','that I can','whether can I']},
+{u:7,s:'Vocabulary',q:'Choosing your leaders in an election means you ___.',o:['vote','travel','borrow','retire']},
+{u:8,s:'Grammar',q:'The hotel was cheap. ___, it was close to the beach.',o:['Moreover','However','Unless','Although']},
+{u:8,s:'Vocabulary',q:'Food and tents sent quickly to people after an earthquake are ___ aid.',o:['humanitarian','military','digital','private']},
+{u:9,s:'Grammar',q:'Unless you hurry, you ___ the bus.',o:['will miss','would miss','missed','had missed']},
+{u:9,s:'Vocabulary',q:'A scientist tests an idea in a laboratory by doing an ___.',o:['experiment','invention','opinion','interview']},
+{u:10,s:'Grammar',q:'The students, ___ were tired, went home early.',o:['who','which','whose','that']},
+{u:10,s:'Functions',q:'I regret ___ to my friend so rudely.',o:['speaking','to speak','speak','spoken']}
+];
+var TESTS = [TEST, TEST2, TEST3, TEST4];
+TESTS.forEach(function (L) { L.forEach(function (t) { t.a = 0; }); });
+
+/* ===== storage ===== */
+var memStore = {};
+function lsGet(k) { try { return window.localStorage.getItem(k); } catch (e) { return Object.prototype.hasOwnProperty.call(memStore, k) ? memStore[k] : null; } }
+function lsSet(k, v) { try { window.localStorage.setItem(k, v); } catch (e) { memStore[k] = v; } }
+function jget(k) { try { return JSON.parse(lsGet(k) || 'null'); } catch (e) { return null; } }
+var S = jget(STORE) || {};
+S.manual = S.manual || {}; S.coach = S.coach || []; S.plans = S.plans || [];
+/* 4 level tests (2026-11-20): S.tests[n] = last result of test n {ans, last, best, tries, date}; S.test = the test in progress {id,…};
+   S.tskip = the student skipped the test; S.tpat[n] = last letter pattern (so the answers move on every try).
+   A result saved before 2026-11-20 (one test only) becomes Level test 1. */
+S.tests = S.tests || {}; S.tpat = S.tpat || {};
+if (S.test && !S.test.id) {
+  if (S.test.skipped) S.tskip = true;
+  else if (S.test.done) { var sc0 = TEST.filter(function (t, i) { return S.test.ans[i] === t.a; }).length; S.tests[1] = { ans: S.test.ans, last: sc0, best: sc0, tries: 1, date: S.test.date || Date.now() }; }
+  S.test = null;
+}
+function testsTaken() { return Object.keys(S.tests).length; }
+function save() { lsSet(STORE, JSON.stringify(S)); }
+
+/* ===== read a quiz's saved result: {done, pct, sig} ===== */
+function result(q) {
+  var r = { done: false, pct: null, sig: '' }, v, b;
+  if (q.e === 'vocab') { v = jget(q.k + '-stats'); if (v && v.attempts > 0) { r.done = true; r.pct = (v.best || 0) / q.m; r.sig = 'a' + v.attempts; } }
+  else if (q.e === 'core') { v = jget(q.k); if (v && v.attempts > 0) { r.done = true; r.pct = (v.best || 0) / q.m; r.sig = 'a' + v.attempts; } }
+  else if (q.e === 'appjs') { v = jget(q.k); if (v && v.best !== null && v.best !== undefined) { r.done = true; r.pct = v.best / (q.m * 100); r.sig = 'b' + v.best + (v.att && v.att.done ? 'd' + JSON.stringify(v.att).length : ''); } }
+  else if (q.e === 'flat') { v = lsGet(q.b); if (v !== null && v !== '' && !isNaN(+v)) { r.done = true; r.pct = +v / q.m; var ak = /^quizBest/.test(q.b) ? '' : q.b.replace(/Best(Score)?$/, 'Attempts').replace(/best$/, 'attempts'); /* Unit 1 and 2 Listening share "quizAttempts": not used */
+    r.sig = 'f' + v + '|' + (ak && ak !== q.b ? lsGet(ak) || '' : ''); } }
+  else if (q.e === 'phrasal') { v = jget(q.k); b = v && v.q && v.q[q.n]; if (b && b.best !== null && b.best !== undefined) { r.done = true; r.pct = b.best / (q.m * 100); r.sig = 'b' + b.best + (b.att && b.att.done ? 'd' + JSON.stringify(b.att).length : ''); } }
+  var mn = S.manual[q.id];
+  if (mn) { if (!r.done || mn.t > 0) { r.done = true; r.pct = Math.max(r.pct || 0, mn.pct); } r.sig += '|m' + mn.t; }
+  if (r.pct !== null) r.pct = Math.max(0, Math.min(1, r.pct));
+  return r;
+}
+function cls(p) { return p === null ? '' : p >= 0.7 ? 'c-ok' : p >= 0.5 ? 'c-mid' : 'c-bad'; }
+function col(p) { return p >= 0.7 ? 'var(--ok)' : p >= 0.5 ? 'var(--mid)' : 'var(--bad)'; }
+function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+
+/* ===== placement test results ===== */
+/* weak points and skill scores use the last try of every level test taken */
+function eachTestAnswer(fn) { Object.keys(S.tests).forEach(function (n) { var L = TESTS[n - 1], R = S.tests[n]; if (L && R) L.forEach(function (t, i) { fn(t, R.ans[i] === t.a); }); }); }
+function testWeak() { var w = {}; eachTestAnswer(function (t, ok) { if (!ok) w[t.u + '|' + t.s] = true; }); return w; }
+function skillStats() {
+  var st = {};
+  SKILLS.forEach(function (s) { st[s] = { sum: 0, n: 0 }; });
+  Q.forEach(function (q) { var r = result(q); if (r.done && r.pct !== null) { st[q.s].sum += r.pct; st[q.s].n++; } });
+  eachTestAnswer(function (t, ok) { st[t.s].sum += ok ? 1 : 0; st[t.s].n++; });
+  return st;
+}
+/* deal a test's answers (same rules as the quizzes): spread over A–D, never the same letter twice in a row,
+   question 1 never A / 2 never B / 3 never C / 4 never D, and a letter pattern that changes on every try */
+function dealTest(n) {
+  var L = TESTS[n - 1], order, pos, pat, tries = 0;
+  do {
+    order = shuffle(L.map(function (_, i) { return i; })); pos = []; pat = '';
+    var bag = [], prev = -1;
+    order.forEach(function (k, slot) {
+      if (!bag.length) bag = shuffle([0, 1, 2, 3]);
+      var i = 0; while (i < bag.length && (bag[i] === prev || bag[i] === slot)) i++;
+      var p = i < bag.length ? bag.splice(i, 1)[0] : [0, 1, 2, 3].filter(function (x) { return x !== prev && x !== slot; })[Math.floor(Math.random() * 2)];
+      pos.push(p); pat += p; prev = p;
+    });
+    tries++;
+  } while (pat === S.tpat[n] && tries < 30);
+  S.tpat[n] = pat;
+  var opt = {};
+  order.forEach(function (k, slot) { var rest = shuffle([1, 2, 3]); rest.splice(pos[slot], 0, 0); opt[k] = rest; });
+  return { id: n, order: order, opt: opt, ans: {}, i: 0 };
+}
+
+/* ===== weekly plan ===== */
+var PLAN_SIZE = 6;
+function makePlan() {
+  var top = S.unit || 10, weak = testWeak(), st = skillStats(), cands = [];
+  Q.forEach(function (q) {
+    if (q.u > top) return;
+    var r = result(q), sc = -1, why = '';
+    if (r.done && r.pct >= 0.7) return;
+    if (!r.done && weak[q.u + '|' + q.s]) { sc = 100; why = 'Level test: weak point'; }
+    else if (r.done) { sc = 80 + (0.7 - r.pct) * 20; why = 'Your best is ' + Math.round(r.pct * 100) + '%: aim for 70%+'; }
+    else {
+      var s = st[q.s], acc = s.n ? s.sum / s.n : null;
+      sc = acc !== null && acc < 0.6 ? 60 : 40; why = acc !== null && acc < 0.6 ? q.s + ' is your weak skill' : 'Not done yet';
+    }
+    if (q.u === top) sc += 10; else if (q.u === top - 1) sc += 5;
+    sc -= (top - q.u) * 0.5;
+    cands.push({ q: q, sc: sc, why: why });
+  });
+  cands.sort(function (a, b) { return b.sc - a.sc; });
+  var pick = [], per = {};
+  function add(c) { if (pick.indexOf(c) < 0 && pick.length < PLAN_SIZE && (per[c.q.s] || 0) < 2) { pick.push(c); per[c.q.s] = (per[c.q.s] || 0) + 1; } }
+  ['Reading', 'Writing'].forEach(function (s) { for (var i = 0; i < cands.length; i++) if (cands[i].q.s === s) { add(cands[i]); break; } });
+  cands.forEach(add);
+  if (pick.length < PLAN_SIZE) cands.forEach(function (c) { if (pick.indexOf(c) < 0 && pick.length < PLAN_SIZE) pick.push(c); });
+  pick.sort(function (a, b) { return b.sc - a.sc; });
+  var plan = { start: Date.now(), items: pick.map(function (c) { return { id: c.q.id, why: c.why, sig: result(c.q).sig }; }) };
+  S.plans.push(plan); save();
+  return plan;
+}
+function curPlan() {
+  var p = S.plans[S.plans.length - 1];
+  if (!p || Date.now() - p.start >= 7 * DAY) p = makePlan();
+  return p;
+}
+function itemDone(it) { var q = BYID[it.id]; return q ? result(q).sig !== it.sig : true; }
+
+/* ===== quiz opener (stays inside this page, so progress is read in the same place) ===== */
+function quizUrl(q) { return QUIZ_BASE + q.p.split('/').map(encodeURIComponent).join('/') + 'index.html' + (q.q || ''); }
+function openQuiz(id) {
+  var q = BYID[id]; if (!q) return;
+  var f = document.createElement('div'); f.className = 'frame';
+  f.innerHTML = '<div class="fb"><button type="button">← My Plan</button><span>Unit ' + q.u + ' · ' + esc(q.t) + '</span></div><iframe title="' + esc(q.t) + '" allow="autoplay; fullscreen"></iframe>';
+  f.querySelector('iframe').src = quizUrl(q);
+  f.querySelector('button').onclick = function () { document.body.removeChild(f); document.body.style.overflow = ''; afterQuiz(id); };
+  document.body.appendChild(f); document.body.style.overflow = 'hidden';
+}
+function afterQuiz(id) {
+  var q = BYID[id];
+  if (q && q.e === 'manual') { view = { tab: view.tab, ask: id, back: view }; }
+  render();
+}
+
+/* ===== views ===== */
+var view = { tab: 'plan' };
+var app = document.getElementById('app');
+function setBar(t) { document.getElementById('bar').textContent = t; }
+
+/* 2026-11-20 (teacher): every screen a student can open "just to look" has a way back (← button at the top) */
+function backBtn(act, label) { return '<button type="button" class="back" data-act="' + act + '">← ' + label + '</button>'; }
+function renderStart() {
+  setBar('MY PLAN | START');
+  var h = (view.chunit && S.unit ? backBtn('unitback', 'Back to my plan') : '') + '<div class="card-ins">Which unit are you studying in class?</div><div class="units">';
+  for (var u = 1; u <= 10; u++) h += '<button type="button" data-unit="' + u + '" class="' + (S.unit === u ? 'on' : '') + '">Unit ' + u + '</button>';
+  h += '</div><p class="muted" style="text-align:center;margin-top:14px">Your plan uses Units 1 to the unit you choose. You can change it later.</p>';
+  app.innerHTML = h;
+}
+
+function renderPlan() {
+  if (!S.unit || view.chunit) return renderStart();
+  if (!testsTaken() && !S.tskip) {
+    setBar('MY PLAN | WELCOME');
+    app.innerHTML = backBtn('chunit', 'Change unit (' + S.unit + ')') + '<div class="card-ins">First, a level test</div>' +
+      '<div class="box"><p style="margin:0 0 8px;font-weight:700">Choose one of 4 level tests: 20 questions, about 10 minutes, grammar, vocabulary and functions from Units 1–10.</p>' +
+      '<p class="muted" style="margin:0">Your answers show your weak points. Then you get a plan for this week, built for you. Take the other tests later to check your level again.</p></div>' +
+      '<div class="row"><button class="btn" data-act="starttest">Start the test</button><button class="btn ghost" data-act="skiptest">Skip, make my plan</button></div>';
+    return;
+  }
+  var p = curPlan(), week = S.plans.length, done = p.items.filter(itemDone).length;
+  setBar('MY PLAN | WEEK ' + week + ' | UNIT ' + S.unit);
+  var h = '<div class="card-ins">Your plan for this week</div>';
+  h += '<span class="pill">Week ' + week + ' · ' + done + ' / ' + p.items.length + ' done · new plan in ' + Math.max(1, 7 - Math.floor((Date.now() - p.start) / DAY)) + ' day(s)</span><div class="tasks two">';
+  p.items.forEach(function (it) {
+    var q = BYID[it.id]; if (!q) return;
+    var ok = itemDone(it), r = result(q);
+    h += '<div class="task' + (ok ? ' done' : '') + '"><div class="ic">' + (ok ? '✓' : SHORT[q.s]) + '</div><div class="tx"><b>Unit ' + q.u + ' · ' + esc(q.t) + '</b><span>' + q.s +
+      (r.done && r.pct !== null ? ' · best ' + Math.round(r.pct * 100) + '%' : '') + ' · <span class="why">' + esc(it.why) + '</span></span></div>' +
+      '<button class="btn small' + (ok ? ' ghost' : '') + '" data-open="' + esc(q.id) + '">' + (ok ? 'Again' : 'Start') + '</button></div>';
+  });
+  h += '</div>';
+  if (!p.items.length) h += '<div class="box"><b>Everything up to Unit ' + S.unit + ' is at 70% or more. Excellent!</b><p class="muted">Choose a higher unit, or use the Writing coach.</p></div>';
+  h += '<div class="row" style="margin-top:12px">' + (done === p.items.length ? '<button class="btn" data-act="newplan">Give me a new plan</button>' : '') +
+    '<button class="btn ghost small" data-act="chunit">Change unit (' + S.unit + ')</button></div>';
+  app.innerHTML = h;
+}
+
+function renderTestMenu() {
+  setBar('LEVEL TESTS | CHOOSE A TEST');
+  var fresh = !testsTaken() && !S.tskip;
+  var h = backBtn('toplan', fresh ? 'Back' : 'Back to my plan') + '<div class="card-ins">Choose a level test</div><p class="muted" style="text-align:center;margin:0 0 12px">4 different tests · 20 questions each · Units 1–10. Take one, then try the others.</p><div class="tests">';
+  TESTS.forEach(function (_, i) {
+    var n = i + 1, R = S.tests[n], go = S.test && S.test.id === n;
+    h += '<div class="tcard' + (R ? ' done' : '') + '"><b>Level test ' + n + '</b><span>' + (go ? 'Stopped at question ' + (S.test.i + 1) + ' of 20' : R ? 'Last ' + R.last + '/20 · best ' + R.best + '/20' : 'Not taken yet') + '</span>' +
+      '<button class="btn small' + (R && !go ? ' ghost' : '') + '" data-test="' + n + '">' + (go ? 'Continue' : R ? 'Try again' : 'Start') + '</button></div>';
+  });
+  h += '</div>';
+  if (fresh) h += '<div class="row" style="margin-top:12px"><button class="btn ghost small" data-act="skiptest">Skip the test, make my plan</button></div>';
+  app.innerHTML = h;
+}
+function renderTest() {
+  var T = S.test;
+  if (view.tres) return renderTestResult(view.tres);
+  if (!T || !view.play) return renderTestMenu();
+  var L = TESTS[T.id - 1], k = T.order[T.i], t = L[k], picked = T.ans[k];
+  setBar('LEVEL TEST ' + T.id + ' | QUESTION ' + (T.i + 1) + ' OF 20');
+  var h = backBtn('tleave', 'Leave the test') + '<div class="card-ins">Choose the correct answer.</div><span class="pill">Test ' + T.id + ' · Unit ' + t.u + ' · ' + t.s + ' · 1 pt</span>';
+  h += '<p class="q">' + esc(t.q) + '</p><div class="opts">';
+  var long = t.o.some(function (o) { return o.length > 22; });
+  T.opt[k].forEach(function (oi) {
+    var c = picked === undefined ? '' : oi === t.a ? ' ok' : oi === picked ? ' bad' : '';
+    h += '<button type="button" class="opt' + c + '" data-pick="' + oi + '"' + (picked !== undefined ? ' disabled' : '') + (long ? ' style="grid-column:1/-1"' : '') + '>' + esc(t.o[oi]) + '</button>';
+  });
+  h += '</div><div class="nav"><button class="btn navy" data-act="tprev"' + (T.i === 0 ? ' disabled style="opacity:.4"' : '') + '>Previous</button><span class="muted">' + (T.i + 1) + ' / 20</span>' +
+    '<button class="btn navy" data-act="tnext"' + (picked === undefined ? ' disabled style="opacity:.4"' : '') + '>' + (T.i === 19 ? 'Finish' : 'Next') + '</button></div>';
+  app.innerHTML = h;
+}
+function renderTestResult(n) {
+  var L = TESTS[n - 1], R = S.tests[n], score = 0, by = {};
+  if (!R) { view.tres = null; return renderTestMenu(); }
+  L.forEach(function (t, i) { var ok = R.ans[i] === t.a; if (ok) score++; by[t.s] = by[t.s] || { ok: 0, n: 0 }; by[t.s].n++; if (ok) by[t.s].ok++; });
+  setBar('LEVEL TEST ' + n + ' | RESULT');
+  var lvl = score >= 16 ? 'Strong' : score >= 12 ? 'Good' : score >= 8 ? 'Average' : 'Needs work';
+  var h = '<div class="card-ins">Level test ' + n + ' · your result</div><div class="big">' + score + '<small> / 20</small></div><p style="text-align:center;font-weight:800;color:var(--navy);margin:2px 0 8px">' + lvl + (R.tries > 1 ? ' · best ' + R.best + '/20 in ' + R.tries + ' tries' : '') + '</p><div class="box">';
+  Object.keys(by).forEach(function (s) { var p = by[s].ok / by[s].n; h += '<div class="sk"><span>' + s + '</span><div class="meter"><i style="width:' + Math.round(p * 100) + '%;background:' + col(p) + '"></i></div><span>' + by[s].ok + '/' + by[s].n + '</span></div>'; });
+  h += '</div>';
+  var wrong = L.filter(function (t, i) { return R.ans[i] !== t.a; });
+  if (wrong.length) h += '<p class="muted" style="text-align:center">Weak points: ' + wrong.map(function (t) { return 'Unit ' + t.u + ' ' + t.s; }).join(' · ') + '</p>';
+  var next = [1, 2, 3, 4].filter(function (x) { return !S.tests[x]; })[0];
+  h += '<div class="row"><button class="btn" data-act="toplan">See my plan</button>' + (next ? '<button class="btn navy" data-test="' + next + '">Try Level test ' + next + '</button>' : '') + '<button class="btn ghost small" data-act="tmenu">All tests</button></div>';
+  app.innerHTML = h;
+}
+
+function renderProgress() {
+  if (view.unit) return renderUnit(view.unit);
+  setBar('MY PROGRESS | ALL UNITS');
+  var all = 0, n = 0, h = '<div class="card-ins">My progress</div><div class="box" style="padding:8px"><table class="grid"><tr><th>Unit</th>';
+  SKILLS.forEach(function (s) { h += '<th title="' + s + '">' + SHORT[s] + '</th>'; });
+  h += '</tr>';
+  for (var u = 1; u <= 10; u++) {
+    h += '<tr><td class="u" data-unit-open="' + u + '">' + u + '</td>';
+    SKILLS.forEach(function (s) {
+      var qs = Q.filter(function (q) { return q.u === u && q.s === s; }), sum = 0, d = 0;
+      qs.forEach(function (q) { var r = result(q); if (r.done && r.pct !== null) { sum += r.pct; d++; } });
+      if (!qs.length) h += '<td style="opacity:.35">·</td>';
+      else if (!d) h += '<td>–</td>';
+      else { var p = sum / d; all += p; n++; h += '<td class="' + cls(p) + '" data-unit-open="' + u + '">' + Math.round(p * 100) + '</td>'; }
+    });
+    h += '</tr>';
+  }
+  h += '</table><div class="legend"><span><i style="background:var(--okbg);border:1px solid var(--ok)"></i>70%+</span><span><i style="background:var(--midbg);border:1px solid var(--mid)"></i>50–69%</span><span><i style="background:var(--badbg);border:1px solid var(--bad)"></i>under 50%</span><span>– not done</span></div></div>';
+  var doneN = Q.filter(function (q) { return result(q).done; }).length;
+  h += '<p class="muted" style="text-align:center">' + doneN + ' of ' + Q.length + ' quizzes done' + (n ? ' · average ' + Math.round(all / n * 100) + '%' : '') +
+    (S.coach.length ? ' · last writing check ' + S.coach[S.coach.length - 1].score + ' / ' + S.coach[S.coach.length - 1].max : '') + '. Tap a unit to see its quizzes.</p>';
+  app.innerHTML = h;
+}
+function renderUnit(u) {
+  setBar('MY PROGRESS | UNIT ' + u);
+  var h = '<div class="card-ins">Unit ' + u + ' · ' + TOPIC[u] + '</div><div class="tasks two">';
+  Q.filter(function (q) { return q.u === u; }).forEach(function (q) {
+    var r = result(q);
+    h += '<div class="task' + (r.done ? ' done' : '') + '"><div class="ic">' + (r.done ? '✓' : SHORT[q.s]) + '</div><div class="tx"><b>' + esc(q.t) + '</b><span>' + q.s +
+      (r.done && r.pct !== null ? ' · best ' + Math.round(r.pct * 100) + '%' : ' · not done') + '</span></div><button class="btn small' + (r.done ? ' ghost' : '') + '" data-open="' + esc(q.id) + '">' + (r.done ? 'Again' : 'Start') + '</button></div>';
+  });
+  h += '</div><div class="nav"><button class="btn navy" data-unit-open="' + (u > 1 ? u - 1 : 10) + '">Previous</button><button class="btn ghost small" data-act="allunits">All units</button><button class="btn navy" data-unit-open="' + (u < 10 ? u + 1 : 1) + '">Next</button></div>';
+  app.innerHTML = h;
+}
+
+function renderAsk(id) {
+  var q = BYID[id];
+  setBar('UNIT ' + q.u + ' | ' + q.s.toUpperCase());
+  app.innerHTML = '<div class="card-ins">Did you finish this quiz?</div><div class="box"><b>Unit ' + q.u + ' · ' + esc(q.t) + '</b><p class="muted">This quiz cannot send its score here. Tap how it went:</p>' +
+    '<div class="bands"><button data-band="0.4">Under 10 / 20</button><button data-band="0.6">10 to 14</button><button data-band="0.85">15 to 20</button></div></div>' +
+    '<div class="row"><button class="btn ghost small" data-act="notyet">Not finished yet</button></div>';
+}
+
+/* ===== writing coach (self-check on the national exam grid) ===== */
+var GRID = {
+  1: { max: 4, c: [{ n: 'Relevance of content to the task', p: 2 }, { n: 'Appropriateness and variety of vocabulary', p: 1 }, { n: 'Grammar and mechanics', p: 1 }] },
+  2: { max: 6, c: [{ n: 'Relevance of content to the task', p: 3 }, { n: 'Appropriateness and variety of vocabulary', p: 2 }, { n: 'Grammar and mechanics', p: 1 }] }
+};
+var TYPES = ['Paragraph', 'Email (formal)', 'Email (informal)', 'Article', 'Story', 'Blog post', 'Report', 'Review', 'Biography'];
+var LINKERS = ['first', 'firstly', 'second', 'secondly', 'then', 'next', 'finally', 'lastly', 'however', 'moreover', 'furthermore', 'in addition', 'besides', 'although', 'though', 'even though', 'despite', 'in spite of', 'because', 'since', 'as a result', 'therefore', 'consequently', 'so', 'thus', 'for example', 'for instance', 'such as', 'in conclusion', 'to sum up', 'on the other hand', 'whereas', 'while', 'unless', 'in order to', 'so that'];
+var STOP = 'the a an and or but to of in on at for with is are was were be been it this that these those i you he she we they my your his her our their me him us them not do does did have has had will would can could should as by from so if than then there here what which who whom whose when where why how all also very just more most some any no its am about into up out'.split(' ');
+function analyse(text) {
+  var a = { words: 0, linkers: [], repeats: [], caps: 0, ends: 0, lowI: 0 };
+  if (!text.trim()) return null;
+  var low = text.toLowerCase(), ws = low.match(/[a-z']+/g) || [];
+  a.words = ws.length;
+  LINKERS.forEach(function (l) { if (new RegExp('\\b' + l.replace(/ /g, '\\s+') + '\\b').test(low)) a.linkers.push(l); });
+  var cnt = {}; ws.forEach(function (w) { if (w.length > 3 && STOP.indexOf(w) < 0) cnt[w] = (cnt[w] || 0) + 1; });
+  a.repeats = Object.keys(cnt).filter(function (w) { return cnt[w] >= 4; }).sort(function (x, y) { return cnt[y] - cnt[x]; }).slice(0, 4).map(function (w) { return w + ' ×' + cnt[w]; });
+  var sents = text.replace(/([.!?])\s+/g, '$1\n').split('\n').map(function (s) { return s.trim(); }).filter(Boolean);
+  sents.forEach(function (s) { if (/^[a-z]/.test(s)) a.caps++; });
+  if (!/[.!?]["')\]]?\s*$/.test(text.trim())) a.ends = 1;
+  a.lowI = (text.match(/(^|\s)i(\s|')/g) || []).length;
+  return a;
+}
+function coachItems(task, type, an) {
+  var rel = [
+    { t: 'I answered every point asked in the task.', tip: 'Underline each point of the instructions and check that every one has a sentence in your text.' },
+    { t: 'My text has the form of: ' + type + ' (layout, greeting or title, ending).', tip: 'Check the model for this text type: greeting and signature for an email, a title for an article or a blog post.' },
+    { t: 'All my ideas stay on the topic.', tip: 'Delete any sentence that does not answer the question, even if it is correct English.' }
+  ];
+  if (task === 2) rel.push({ t: 'My text has an introduction, a body and a conclusion.', tip: 'Start with one sentence that presents the topic and end with one sentence that sums up your point.' });
+  var voc = [
+    { t: 'I used words and expressions from the unit.', tip: 'Reuse 3 or 4 words from the unit\'s vocabulary list. They show the examiner you know the topic.' },
+    { t: 'I did not repeat the same words again and again.', tip: 'Replace a repeated word with a synonym or a pronoun.', hint: an ? (an.repeats.length ? 'Repeated in your text: ' + an.repeats.join(', ') : 'No word repeated 4 times or more.') : '' },
+    { t: 'I used linking words to connect my ideas.', tip: 'Add linkers such as first, moreover, however, as a result, in conclusion.', hint: an ? (an.linkers.length ? 'Found: ' + an.linkers.slice(0, 6).join(', ') : 'No linking word found.') : '' },
+    { t: 'My words fit the style (formal or informal).', tip: 'Formal: no contractions or slang. Informal: friendly words are fine.' }
+  ];
+  var gr = [
+    { t: 'My tenses are correct.', tip: 'Check each verb: past for finished events, present for facts, future for plans.' },
+    { t: 'Subjects and verbs agree (he goes, they go).', tip: 'Look at every he, she or it: the present simple verb needs -s.' },
+    { t: 'Every sentence starts with a capital letter and ends with a full stop.', tip: 'Read your text sentence by sentence and fix capitals and full stops.', hint: an ? ((an.caps || an.ends || an.lowI) ? [an.caps ? an.caps + ' sentence(s) start with a small letter' : '', an.ends ? 'the text does not end with a full stop' : '', an.lowI ? '"i" written small ' + an.lowI + ' time(s)' : ''].filter(Boolean).join(' · ') : 'Capitals and full stops look fine.') : '' },
+    { t: 'I checked my spelling.', tip: 'Read your text once only for spelling, slowly, word by word.' }
+  ];
+  return [rel, voc, gr];
+}
+function renderCoach() {
+  var C = view.coach || (view.coach = { step: 0, task: 0, type: '', text: '', yn: {} });
+  if (C.step === 0) {
+    setBar('WRITING COACH | NATIONAL EXAM GRID');
+    /* 2026-11-20 (teacher): the button used to stay locked, silently, until a task and a type were chosen.
+       Now it always answers: if something is missing, it says what and marks the step in red. */
+    var missT = C.warn && !C.task, missY = C.warn && !C.type;
+    var h = '<div class="card-ins">Check your writing with the Bac grid</div><div class="box">' +
+      '<p class="step' + (missT ? ' miss' : '') + '">1. Choose the task</p><div class="chips">' +
+      '<button class="chip' + (C.task === 1 ? ' on' : '') + '" data-task="1">Task 1 · 4 pts</button><button class="chip' + (C.task === 2 ? ' on' : '') + '" data-task="2">Task 2 · 6 pts</button></div>' +
+      '<p class="step' + (missY ? ' miss' : '') + '" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--line)">2. Choose the type of text</p><div class="chips">';
+    TYPES.forEach(function (t) { h += '<button class="chip' + (C.type === t ? ' on' : '') + '" data-type="' + esc(t) + '">' + esc(t) + '</button>'; });
+    h += '</div></div><div class="box"><b>3. Your text (optional)</b> <span class="muted">paste it for automatic hints, or keep it on paper</span><textarea id="ctext" style="margin-top:6px" placeholder="Paste or type your text here…">' + esc(C.text) + '</textarea></div>' +
+      (C.warn && (!C.task || !C.type) ? '<p class="warn">First choose ' + (!C.task && !C.type ? 'the task (1) and the type of text (2)' : !C.task ? 'the task (1)' : 'the type of text (2)') + '.</p>' : '') +
+      '<div class="row"><button class="btn" data-act="cgo">Check my writing</button></div>';
+    if (S.coach.length) h += '<p class="muted" style="text-align:center">Last checks: ' + S.coach.slice(-4).map(function (c) { return c.score + '/' + c.max; }).join(' · ') + '</p>';
+    app.innerHTML = h; return;
+  }
+  var g = GRID[C.task], an = analyse(C.text), items = coachItems(C.task, C.type, an);
+  if (C.step <= 3) {
+    var ci = C.step - 1, cr = g.c[ci];
+    setBar('WRITING COACH | ' + (ci + 1) + ' OF 3');
+    var h2 = '<div class="card-ins">' + cr.n + '</div><span class="pill">Task ' + C.task + ' · ' + cr.p + ' pt' + (cr.p > 1 ? 's' : '') + (an ? ' · ' + an.words + ' words' : '') + '</span><div class="box">';
+    items[ci].forEach(function (it, j) {
+      var key = ci + '-' + j, v = C.yn[key];
+      h2 += '<div class="yn"><p>' + esc(it.t) + (it.hint ? '<span class="hint">' + esc(it.hint) + '</span>' : '') + '</p><button class="y' + (v === 1 ? ' on' : '') + '" data-yn="' + key + '" data-v="1">Yes</button><button class="n' + (v === 0 ? ' on' : '') + '" data-yn="' + key + '" data-v="0">No</button></div>';
+    });
+    var all = items[ci].every(function (_, j) { return C.yn[ci + '-' + j] !== undefined; });
+    h2 += '</div><div class="nav"><button class="btn navy" data-act="cprev">Previous</button><span class="muted">' + (ci + 1) + ' / 3</span><button class="btn navy" data-act="cnext"' + (all ? '' : ' disabled style="opacity:.4"') + '>' + (ci === 2 ? 'My mark' : 'Next') + '</button></div>';
+    app.innerHTML = h2; return;
+  }
+  setBar('WRITING COACH | ESTIMATED MARK');
+  var total = 0, rows = '', tips = [];
+  g.c.forEach(function (cr, ci) {
+    var its = items[ci], yes = its.filter(function (_, j) { return C.yn[ci + '-' + j] === 1; }).length;
+    var pts = Math.floor(cr.p * yes / its.length * 2) / 2; total += pts;
+    rows += '<div class="sk"><span style="font-size:13px">' + cr.n.split(' ')[0] + (ci === 1 ? ' (vocab)' : ci === 2 ? ' (grammar)' : '') + '</span><div class="meter"><i style="width:' + Math.round(pts / cr.p * 100) + '%;background:' + col(pts / cr.p) + '"></i></div><span>' + pts + '/' + cr.p + '</span></div>';
+    for (var j = 0; j < its.length; j++) if (C.yn[ci + '-' + j] === 0) { tips.push(its[j].tip); break; } /* one tip per criterion keeps it on one screen */
+  });
+  if (!C.saved) { S.coach.push({ d: Date.now(), task: C.task, type: C.type, score: total, max: g.max }); save(); C.saved = true; }
+  var h3 = '<div class="card-ins">Estimated mark · Task ' + C.task + '</div><div class="big">' + total + '<small> / ' + g.max + '</small></div><div class="box">' + rows + '</div>';
+  if (tips.length) h3 += '<div class="box"><h3>How to improve</h3>' + tips.map(function (t) { return '<div class="tip">' + esc(t) + '</div>'; }).join('') + '</div>';
+  else h3 += '<div class="box"><b>Every point is respected. Well done!</b></div>';
+  h3 += '<p class="muted" style="text-align:center">This is your own check against the official grid. Your teacher\'s mark can be different.</p><div class="row"><button class="btn" data-act="cnew">Check another text</button><button class="btn ghost small" data-act="cfix">Change my answers</button></div>';
+  app.innerHTML = h3;
+}
+
+/* ===== dock + render ===== */
+var TABS = [['plan', '📅', 'Plan'], ['progress', '📊', 'Progress'], ['test', '🎯', 'Level test'], ['writing', '✍️', 'Writing']];
+function renderDock() {
+  document.getElementById('dock').innerHTML = TABS.map(function (t) { return '<button type="button" data-tab="' + t[0] + '" class="' + (view.tab === t[0] ? 'on' : '') + '" aria-current="' + (view.tab === t[0]) + '"><i>' + t[1] + '</i>' + t[2] + '</button>'; }).join('');
+}
+function render() {
+  renderDock();
+  if (view.ask) return renderAsk(view.ask);
+  if (view.tab === 'plan') renderPlan();
+  else if (view.tab === 'progress') renderProgress();
+  else if (view.tab === 'test') renderTest();
+  else renderCoach();
+  window.scrollTo(0, 0);
+}
+var fitQueued = false;
+new MutationObserver(function () { if (fitQueued) return; fitQueued = true; setTimeout(function () { fitQueued = false; fit(); }, 0); }).observe(app, { childList: true });
+/* FIT: a screen taller than the window is shrunk (never below 0.8), so each screen stays one screen */
+function fit() {
+  app.style.zoom = '';
+  var head = document.querySelector('.head').offsetHeight, dock = document.querySelector('.dock').offsetHeight;
+  var pb = parseFloat(getComputedStyle(app).paddingBottom) || 0;
+  var room = window.innerHeight - head - dock - 6, need = app.scrollHeight - pb;
+  if (need > room) app.style.zoom = Math.max(0.8, room / need).toFixed(3);
+}
+window.addEventListener('resize', function () { fit(); });
+
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('button,td[data-unit-open]'); if (!b || b.disabled) return;
+  var d = b.dataset, C = view.coach;
+  if (d.tab) { view = { tab: d.tab }; return render(); }
+  if (d.unit) { S.unit = +d.unit; save(); if (S.plans.length) S.plans.pop(); save(); view = { tab: 'plan' }; return render(); }
+  if (d.open) return openQuiz(d.open);
+  if (d.unitOpen) { view = { tab: 'progress', unit: +d.unitOpen }; return render(); }
+  if (d.band) { var id = view.ask; S.manual[id] = { pct: +d.band, t: Date.now() }; save(); view = view.back || { tab: 'plan' }; view.ask = null; return render(); }
+  /* a stopped test continues where it was; any other test starts fresh */
+  if (d.test) { if (!(S.test && S.test.id === +d.test)) S.test = dealTest(+d.test); save(); view = { tab: 'test', play: true }; return render(); }
+  if (d.pick !== undefined) { var T = S.test, k = T.order[T.i]; if (T.ans[k] === undefined) { T.ans[k] = +d.pick; save(); renderTest(); } return; }
+  if (d.task) { C.task = +d.task; return renderCoach(); }
+  if (d.type) { C.text = (document.getElementById('ctext') || {}).value || C.text; C.type = d.type; return renderCoach(); }
+  if (d.yn) { C.yn[d.yn] = +d.v; return renderCoach(); }
+  switch (d.act) {
+    case 'starttest': view = { tab: 'test' }; return render();
+    case 'skiptest': S.tskip = true; save(); view = { tab: 'plan' }; return render();
+    case 'tmenu': view = { tab: 'test' }; return render();
+    case 'tprev': if (S.test.i > 0) { S.test.i--; save(); } return renderTest();
+    case 'tnext':
+      if (S.test.i < 19) { S.test.i++; save(); return renderTest(); }
+      var T = S.test, L = TESTS[T.id - 1], sc = L.filter(function (t, i) { return T.ans[i] === t.a; }).length, old = S.tests[T.id];
+      S.tests[T.id] = { ans: T.ans, last: sc, best: Math.max(sc, old ? old.best : 0), tries: (old ? old.tries : 0) + 1, date: Date.now() };
+      S.test = null;
+      if (S.plans.length && Date.now() - S.plans[S.plans.length - 1].start < 7 * DAY) S.plans.pop();
+      save(); view = { tab: 'test', tres: T.id }; return render();
+    case 'toplan': view = { tab: 'plan' }; return render();
+    case 'newplan': makePlan(); return render();
+    case 'chunit': view = { tab: 'plan', chunit: true }; return render();
+    case 'unitback': view = { tab: 'plan' }; return render();
+    case 'tleave': view = { tab: 'test' }; return render();
+    case 'allunits': view = { tab: 'progress' }; return render();
+    case 'notyet': view = view.back || { tab: 'plan' }; view.ask = null; return render();
+    case 'cgo': C.text = (document.getElementById('ctext') || {}).value || ''; if (!C.task || !C.type) { C.warn = true; return renderCoach(); } C.warn = false; C.step = 1; return renderCoach();
+    case 'cprev': C.step = Math.max(0, C.step - 1); return renderCoach();
+    case 'cnext': C.step++; return renderCoach();
+    case 'cnew': view.coach = null; return renderCoach();
+    case 'cfix': C.step = 1; C.saved = false; S.coach.pop(); save(); return renderCoach();
+  }
+});
+document.addEventListener('input', function (ev) { if (ev.target.id === 'ctext' && view.coach) view.coach.text = ev.target.value; });
+
+/* ?unit=N opens that unit's quizzes (for the QR codes in the book); ?tab=writing|test|progress opens a section */
+var mU = /[?&]unit=(\d+)/.exec(location.search), mT = /[?&]tab=(\w+)/.exec(location.search);
+if (mU && +mU[1] >= 1 && +mU[1] <= 10) view = { tab: 'progress', unit: +mU[1] };
+else if (mT && ['plan', 'progress', 'test', 'writing'].indexOf(mT[1]) >= 0) view = { tab: mT[1] };
+render();
+})();
+</script>
+</body>
+</html>
