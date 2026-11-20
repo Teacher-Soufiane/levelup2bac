@@ -1,0 +1,1457 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expressing Cause and Effect — Listening Quiz 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&amp;family=Poppins:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#1e3a5f;--blue:#2563eb;--green:#15803d;--red:#b91c1c;--line:#d9e3ef}
+    *{box-sizing:border-box}
+    body{width:100%;margin:0;color:#213349;font-family:Poppins,sans-serif}
+    button{cursor:pointer}
+    button:disabled{cursor:not-allowed;opacity:.48}
+    button:focus-visible,[tabindex]:focus-visible{outline:3px solid #2563eb;outline-offset:3px}
+    .quiz-header{background-color:#eaf4ff;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px;padding:12px 24px}
+    .header-teacher-img,.header-logo-img{height:64px;width:auto;max-width:none;object-fit:contain}
+    @media(min-width:600px){.header-teacher-img,.header-logo-img{height:80px}}
+    @media(min-width:1024px){.header-teacher-img,.header-logo-img{height:96px}}
+    @media(max-width:640px){
+      .header-teacher-img,.header-logo-img{height:45px}
+      .quiz-header{padding:8px 12px;gap:5px}
+      .title-line1{font-size:26px!important}
+      .title-line2{font-size:18px!important}
+      .title-line3{font-size:14px!important}
+      .header-title{transform:scale(.63);width:158%;margin-left:-29%;white-space:nowrap}
+      .info-bar{font-size:10px!important;gap:5px}
+      .info-bar>*{min-width:0;overflow-wrap:anywhere}
+    }
+    .header-title{text-align:center;line-height:1.2}
+    .title-line1{font-family:Poppins,sans-serif;font-size:26px;font-weight:800;color:#1e3a5f}
+    .title-line2{font-family:Poppins,sans-serif;font-size:18px;font-weight:400;color:#2563eb}
+    .title-line3{font-family:Poppins,sans-serif;font-size:14px;font-weight:400;color:#64748b}
+    .info-bar{display:grid;grid-template-columns:1fr 1.6fr 1fr;align-items:center;text-align:center;gap:12px;background:#fff;border-bottom:1px solid var(--line);padding:12px 14px;font-size:13px;font-weight:700;color:var(--navy)}
+    .info-bar>:first-child{text-align:left}.info-bar>:last-child{text-align:right}
+    .main-shell{max-width:1020px;margin:auto;padding:22px 16px 45px}
+    .phase{background:#dbeafe;border-left:5px solid var(--blue);padding:13px 17px;font-weight:800;color:var(--navy);border-radius:8px;margin-bottom:14px}
+    .card{background:white;border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 30px #15304a0c;padding:20px;margin-bottom:15px}
+    .instruction{background:var(--navy);color:white;padding:16px 20px;border-radius:10px;font-weight:800;letter-spacing:.025em;margin-bottom:17px}
+    .task-text{font-size:19px;line-height:1.55;font-weight:600;margin-bottom:20px;white-space:pre-wrap}
+    .answer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+    .choice,.chip,.order-item{border:2px solid var(--line);border-radius:10px;background:#f8fbff;color:#213349;padding:12px;text-align:left;font:inherit;overflow-wrap:anywhere}
+    .choice:hover:not(:disabled),.chip:hover,.order-item:hover{border-color:#60a5fa}
+    .choice.selected,.tile.selected{background:#dbeafe;border-color:var(--blue)}
+    .correct{background:#dcfce7!important;border-color:var(--green)!important;color:#14532d!important}
+    .incorrect{background:#fee2e2!important;border-color:var(--red)!important;color:#7f1d1d!important}
+    .neutral{background:#e5e7eb!important;border-color:#cbd5e1!important}
+    .feedback{margin-top:16px;padding:13px;border-radius:9px;background:#eff6ff;line-height:1.5}
+    .primary,.secondary{border:0;border-radius:9px;padding:11px 18px;font:600 14px Poppins,sans-serif}
+    .primary{background:var(--blue);color:white}.secondary{background:#e8eff7;color:var(--navy)}
+    .nav-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:18px 0 10px}
+    .stats{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 14px;border-top:1px solid var(--line);padding-top:14px;font-size:13px;font-weight:600}
+    .audio-panel{padding:15px;text-align:center}
+    .avatars{display:flex;justify-content:center;gap:35px;margin-bottom:10px}
+    .avatar span{display:grid;place-items:center;border-radius:50%;background:#eaf4ff;width:48px;height:48px;font-size:29px}
+    .avatar small{display:block;margin-top:4px}
+    .controls{display:flex;justify-content:center;gap:12px}
+    .controls button{min-width:72px}
+    .progress{height:5px;border-radius:20px;background:#dce8f5;margin:15px 0 5px;overflow:hidden}
+    .progress-fill{width:0;height:100%;background:var(--blue)}
+    .audio-error{color:var(--red);font-size:13px;margin-top:10px}
+    .matching-layout{display:grid;grid-template-columns:minmax(0,2fr) minmax(175px,1fr);gap:15px}
+    .match-rows,.chip-tray,.order-list{display:flex;flex-direction:column;gap:9px;min-width:0}
+    .match-row{border:1px solid var(--line);border-radius:10px;padding:11px;min-width:0;overflow-wrap:anywhere}
+    .drop-slot{min-height:52px;border:2px dashed #9db6d1;border-radius:8px;margin-top:9px;padding:5px}
+    .chip{touch-action:none;user-select:none;cursor:grab;width:100%;font-size:14px}
+    .chip.dragging,.order-item.dragging{z-index:10;position:relative;pointer-events:none;opacity:.85;box-shadow:0 10px 25px #152b4950}
+    .chip-tray{border:1px dashed #9db6d1;border-radius:10px;padding:9px;min-height:72px}
+    .order-item{display:flex;align-items:center;gap:8px;touch-action:none;user-select:none}
+    .order-label{flex:1;min-width:0}
+    .move-buttons{display:flex;gap:4px}
+    .move-buttons button{touch-action:manipulation;border:0;background:#e1ecfa;border-radius:5px;padding:5px 9px}
+    .badge{width:166px;height:166px;border-radius:50%;border:11px solid #bfdbfe;display:grid;place-content:center;margin:18px auto;background:#eff6ff;color:var(--navy);text-align:center;font-size:26px;font-weight:800}
+    .summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+    .summary-grid div{background:#f1f6fc;padding:13px;border-radius:9px}
+    .breakdown-row,.review-row{border-bottom:1px solid var(--line);padding:10px 0}
+    details{border:1px solid var(--line);border-radius:10px;padding:12px;margin:15px 0}
+    summary{cursor:pointer;font-weight:700}
+    .transcript-line{margin:10px 0;line-height:1.5}
+    .result-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+    .confetti-piece{position:fixed;top:-20px;width:9px;height:14px;pointer-events:none;animation:fall 3s linear forwards;z-index:50}
+    @keyframes fall{to{transform:translateY(calc(110 * min(var(--vh, 1vh), 1vh))) rotate(720deg);opacity:0}}
+    @media(max-width:640px){
+      .main-shell{padding:12px 10px 30px}.card{padding:14px}
+      .answer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .matching-layout{grid-template-columns:1fr}
+      .chip-tray{flex-direction:row;flex-wrap:wrap}.chip-tray .chip{width:auto;max-width:100%}
+      .summary-grid{grid-template-columns:repeat(2,1fr)}
+      .stats{justify-content:center;font-size:11px}
+      .task-text{font-size:16px}
+      .choice{font-size:13px;padding:9px}
+    }
+    @media print{
+      .quiz-header,.info-bar,.result-actions,.audio-panel,.nav-row{display:none!important}
+      body{background:white!important}.card{box-shadow:none;border:0}
+      .print-transcript{display:block!important}details{display:block}details>*{display:block!important}
+    }
+  </style>
+  <script>
+/* MIXPOS-2026-11-19 (teacher): the right answer is spread over A, B, C, D (least-used place first), never in the same
+   letter as the question before, and never where it was in the last attempt (remembered in this browser per question). */
+(function () {
+  var count = {}, prev = -1, memo = {};   /* memo: a page that builds the same order several times while loading keeps one place */
+  function shuf(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function hash(s) { var h = 5381; for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0; return (h >>> 0).toString(36); }
+  window.__mixPlace = function (list, isAns, tag) {
+    var n = list.length, ai = -1, i, min = Infinity, cand = [], last = null;
+    for (i = 0; i < n; i++) if (ai < 0 && isAns(list[i])) ai = i;
+    if (ai < 0 || n < 2) return shuf(list);
+    var key = 'mixpos:' + location.pathname + ':' + (tag || hash(list.map(function (x) { return typeof x === 'object' ? (x.text || JSON.stringify(x)) : String(x); }).join('|')));
+    var mm = memo[key], now = Date.now(), rest0;
+    if (mm && now - mm.t < 1500) { rest0 = shuf(list.filter(function (x, k) { return k !== ai; })); rest0.splice(mm.p, 0, list[ai]); return rest0; }
+    try { last = localStorage.getItem(key); } catch (e) {}
+    /* the last two places are avoided: some pages build the order twice, and the one the student saw must still move */
+    var hist = last ? String(last).split(',') : [], recent = hist.length ? hist[hist.length - 1] : null;
+    var bad = function (p) { return hist.indexOf(String(p)) > -1 || p === prev; };
+    for (i = 0; i < n; i++) if (!bad(i)) min = Math.min(min, count[i] || 0);
+    for (i = 0; i < n; i++) if (!bad(i) && (count[i] || 0) === min) cand.push(i);
+    if (!cand.length) for (i = 0; i < n; i++) if (String(i) !== recent && i !== prev) cand.push(i);
+    if (!cand.length) for (i = 0; i < n; i++) if (String(i) !== recent) cand.push(i);
+    if (!cand.length) cand = [0];
+    var p = cand[Math.floor(Math.random() * cand.length)];
+    count[p] = (count[p] || 0) + 1; prev = p; memo[key] = { p: p, t: now };
+    try { localStorage.setItem(key, (recent !== null ? recent + ',' : '') + p); } catch (e) {}
+    var rest = shuf(list.filter(function (x, k) { return k !== ai; })); rest.splice(p, 0, list[ai]); return rest;
+  };
+})();
+</script><script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  
+  
+  
+ <script>(function(){var ok=true;try{window.localStorage.getItem("__t")}catch(e){ok=false}
+if(!ok){var m={};try{Object.defineProperty(window,"localStorage",{configurable:true,value:{
+getItem:function(k){return Object.prototype.hasOwnProperty.call(m,k)?m[k]:null},
+setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]},clear:function(){m={}}}})}catch(e2){}}})();</script></head>
+ <body class="w-full">
+  <header class="quiz-header"><img class="header-teacher-img" loading="lazy" src="teacher.png" alt="Teacher Soufiane">
+   <div class="header-title">
+    <div class="title-line1">
+     English2BAC Quizzes
+    </div>
+    <div class="title-line2">
+     Learn • Practice • Succeed
+    </div>
+    <div class="title-line3">
+     with Teacher.Soufiane
+    </div>
+   </div><img class="header-logo-img" loading="lazy" src="logo.png" alt="Level-UP 2BAC">
+  </header>
+  <div class="info-bar" aria-label="Quiz information"><span class="">UNIT: 4</span> <span class="">EXPRESSING CAUSE AND EFFECT</span> <span class="">LISTENING - QUIZ 1</span>
+  </div>
+  <main class="main-shell">
+   <section id="quiz-view">
+    <div id="phase-banner" class="phase" aria-live="polite"></div>
+    <section id="audio-panel" class="card audio-panel" hidden="" aria-label="Conversation audio player">
+     <div class="avatars">
+      <div class="avatar">
+       <span aria-hidden="true">👨</span><small>Adam</small>
+      </div>
+      <div class="avatar">
+       <span aria-hidden="true">👩</span><small>Malak</small>
+      </div>
+     </div>
+     <div class="controls" id="audio-controls" tabindex="0" aria-label="Audio controls: Space plays or pauses; left and right arrows skip ten seconds"><button id="back-ten" class="secondary" type="button" aria-label="Skip back 10 seconds">◀◀ 10</button> <button id="play-pause" class="primary" type="button" aria-label="Play or pause">▶</button> <button id="forward-ten" class="secondary" type="button" aria-label="Skip forward 10 seconds">10 ▶▶</button>
+     </div>
+     <div class="progress" role="progressbar" aria-label="Audio progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="progress-fill" id="progress-fill"></div>
+     </div>
+     <div id="audio-error" class="audio-error" hidden="">
+      Audio couldn't be loaded — ask your teacher for the printed transcript.
+     </div>
+    </section>
+    <section class="card" aria-label="Current question">
+     <div id="instruction" class="instruction"></div>
+     <div id="task-text" class="task-text"></div>
+     <div id="answer-area"></div>
+     <div id="feedback" class="feedback" hidden="" role="status"></div>
+     <div class="nav-row"><button id="previous" class="secondary" type="button">◀ Previous</button> <strong id="counter"></strong> <button id="next" class="primary" type="button">Next ▶</button>
+     </div>
+     <div class="stats" aria-live="polite"><span id="correct-stat"></span><span id="wrong-stat"></span><span id="remaining-stat"></span><span id="score-stat"></span><span id="timer-stat"></span>
+     </div>
+    </section>
+   </section>
+   <section id="result-view" class="card" hidden=""></section>
+   <section id="review-view" class="card" hidden=""></section>
+  </main>
+  <script>
+  'use strict';
+  // Configuration and question content are logic data, not editor presentation.
+  const quizConfig={
+    unit:"4",title:"EXPRESSING CAUSE AND EFFECT",lesson:"LISTENING - QUIZ 1",
+    totalPoints:48,randomizeQuestions:false,randomizeChoices:true,
+    audioFileUrl:"audio/Unit4_Expressing_Cause_and_Effect_Quiz1_Final.mp3",
+    audioTranscript:[
+      ["Adam","Hey Malak, have you noticed how much plastic rubbish there is in our schoolyard lately?"],
+      ["Malak","Yes, especially after the break. Students leave bottles and food wrappers everywhere because there aren't enough people putting rubbish in the bins."],
+      ["Adam","I think that's part of the problem. Some students also throw rubbish on the ground even when a bin is nearby."],
+      ["Malak","Exactly. As a result, the schoolyard looks dirty, and nobody really wants to sit there during the break."],
+      ["Adam","It's not just about appearance, though. Plastic waste can also harm animals if they swallow it."],
+      ["Malak","That's true. I read that some birds and stray animals mistake small pieces of plastic for food, so they can become seriously ill."],
+      ["Adam","And when it rains heavily, plastic bags can block drainage systems."],
+      ["Malak","Really? So that can cause flooding in the streets?"],
+      ["Adam","Yes, especially in areas where rubbish collects near drains. Consequently, water can't flow away properly."],
+      ["Malak","Now I understand why the streets near our school sometimes become flooded after heavy rain."],
+      ["Adam","Exactly. Due to careless waste disposal, a small problem can become much more serious."],
+      ["Malak","But why do people use so many plastic bottles and bags in the first place?"],
+      ["Adam","They're cheap and convenient, so people often choose them instead of reusable alternatives."],
+      ["Malak","I see. And because many of these products are used only once, they create a lot of waste."],
+      ["Adam","That's right. Some plastic takes a very long time to break down, therefore it can remain in the environment for years."],
+      ["Malak","That's worrying. What can we do to reduce the amount of plastic rubbish at school?"],
+      ["Adam","We could encourage students to bring reusable water bottles instead of buying new plastic ones every day."],
+      ["Malak","Good idea. If more students do that, we'll produce less plastic waste."],
+      ["Adam","We could also put clearly labelled recycling bins around the school."],
+      ["Malak","Yes, because students are more likely to recycle when they know exactly where to put their rubbish."],
+      ["Adam","We should also organise a clean-up campaign to make students more aware of the consequences of littering."],
+      ["Malak","I agree. As a result, students might become more responsible for keeping their school clean."],
+      ["Adam","We could prepare posters explaining how plastic pollution affects animals and the environment, too."],
+      ["Malak","That's a great idea. People sometimes change their behaviour when they understand the consequences of their actions."],
+      ["Adam","Exactly. We shouldn't just complain about the problem; we should do something about it."],
+      ["Malak","So, let's talk to our English teacher and suggest a school campaign."],
+      ["Adam","Perfect. I'll prepare a few ideas for the posters, and you can suggest activities for the campaign."],
+      ["Malak","Deal! Hopefully, our efforts will make a difference because a cleaner school benefits everyone."]
+    ]
+  };
+  const single=(label,question,task,choices,correct,explanation)=>({type:"single-choice",taskLabel:label,question,task,choices,correctAnswer:correct,explanation,points:1});
+  const match=(label,question,task,rows,chips,explanation)=>({type:"matching",taskLabel:label,question,task,rows:rows.map((text,i)=>({id:"r"+(i+1),text})),chips:chips.map((text,i)=>({id:"c"+(i+1),text,matchesRowId:"r"+(i+1)})),explanation,points:rows.length});
+  const questions=[
+    single("Task 1 — Complete the Sentence","COMPLETE THE SENTENCE.","The schoolyard is dirty ______ students leave bottles everywhere.",["because","as a result","therefore","consequently"],"because","'Because' introduces the cause (students leave bottles everywhere) of the result in the first clause."),
+    single("Task 1 — Complete the Sentence","COMPLETE THE SENTENCE.","The streets flooded ______ the heavy rain.",["so","because of","as a result","therefore"],"because of","'Because of' is followed by a noun phrase (the heavy rain) and introduces a cause."),
+    single("Task 1 — Complete the Sentence","COMPLETE THE SENTENCE.","Plastic takes years to break down. ______, it stays in the environment.",["Because","Due to","Therefore","Because of"],"Therefore","'Therefore' introduces a result and starts a new sentence after a comma."),
+    single("Task 1 — Complete the Sentence","COMPLETE THE SENTENCE.","He forgot his reusable bottle, ______ he bought a new plastic one.",["because","due to","because of","so"],"so","'So' links a cause (he forgot his bottle) to its result (he bought a new one)."),
+    match("Task 2 — Match the Word with its Meaning","MATCH THE WORD WITH ITS MEANING.","Drag or tap each word to the meaning it matches.",["Things that people throw away","A pipe or channel that carries water away","Too much water covering land that is usually dry","Able to be used many times","Easy to use and saving time"],["rubbish","drain","flooding","reusable","convenient"],"These five words appear in the conversation: rubbish, drain, flooding, reusable and convenient."),
+    {type:"multi-select-exact",taskLabel:"Task 3 — Predict the Listening",question:"PREDICT THE LISTENING.",task:"You are going to hear two students talking about a problem at their school. Which topics are you most likely to hear? Select THREE.",options:["Plastic rubbish in the schoolyard","A basketball tournament","The effects of plastic on animals","A new cafeteria menu","Flooding in the streets","A school trip to Marrakesh"],correctOptions:["Plastic rubbish in the schoolyard","The effects of plastic on animals","Flooding in the streets"],explanation:"The students discuss plastic rubbish in the schoolyard, its effects on animals, and flooding in the streets. A basketball tournament, a new cafeteria menu and a school trip are unrelated.",points:3},
+    single("Task 4 — Choose the Best Summary","CHOOSE THE BEST SUMMARY.","What is the conversation mainly about?",["Two students argue about who should clean the schoolyard every day.","Two students discuss the causes and effects of plastic pollution at school.","Two students plan a weekend trip to a beach near their city.","Two students compare the prices of reusable bottles in shops."],"Two students discuss the causes and effects of plastic pollution at school.","Adam and Malak talk about why plastic rubbish is a problem at their school, what it causes, and how to reduce it."),
+    single("Task 5 — Identify the Final Decision","IDENTIFY THE FINAL DECISION.","What do Adam and Malak decide to do at the end of the conversation?",["Write a letter to the mayor about blocked drains","Buy new rubbish bins for the neighbouring streets","Talk to their English teacher about a school campaign","Stop using plastic bottles for one whole month"],"Talk to their English teacher about a school campaign","Malak says: 'let's talk to our English teacher and suggest a school campaign.'"),
+    match("Task 6 — Match the Cause with its Effect","MATCH THE CAUSE WITH ITS EFFECT.","Drag or tap each effect to the cause it belongs to.",["Birds and stray animals swallow small pieces of plastic.","Plastic bags block the drainage systems.","Rubbish is left on the ground in the schoolyard.","Plastic takes a very long time to break down."],["They can become seriously ill.","Water can't flow away and the streets flood.","The schoolyard looks dirty.","It stays in the environment for years."],"Each cause mentioned in the conversation leads to a specific effect: animals become ill, streets flood, the schoolyard looks dirty, and plastic remains for years."),
+    single("Task 7 — Understand the Reason","UNDERSTAND THE REASON.","Why do people use so many plastic bottles and bags?",["They are healthier than any reusable alternative.","They are given free in most local shops.","They are required by the school regulations.","They are cheap and convenient to use."],"They are cheap and convenient to use.","Adam says: 'They're cheap and convenient, so people often choose them instead of reusable alternatives.'"),
+    single("Task 8 — Understand the Cause","UNDERSTAND THE CAUSE.","Why do many plastic products create a lot of waste?",["Because they are used only once","Because they are made in large factories","Because they are sold in very big sizes","Because people buy them mostly in summer"],"Because they are used only once","Malak says: 'because many of these products are used only once, they create a lot of waste.'"),
+    single("Task 9 — Listen for a Detail","LISTEN FOR A DETAIL.","Which animals does Malak say can be harmed by plastic?",["Fish and sea turtles","Cows and sheep on farms","Birds and stray animals","Pets kept inside houses"],"Birds and stray animals","Malak says some birds and stray animals mistake small pieces of plastic for food."),
+    single("Task 10 — Understand the Solution","UNDERSTAND THE SOLUTION.","What does Adam suggest to reduce plastic bottles at school?",["Selling cheaper bottles in the cafeteria","Bringing reusable water bottles to school","Banning all food inside the classrooms","Collecting old bottles from nearby streets"],"Bringing reusable water bottles to school","Adam suggests encouraging students to bring reusable water bottles instead of buying new plastic ones every day."),
+    single("Task 11 — True or False","CHOOSE TRUE OR FALSE.","Some students throw rubbish on the ground even when a bin is nearby.",["True","False"],"True","Adam says some students throw rubbish on the ground even when a bin is nearby."),
+    single("Task 11 — True or False","CHOOSE TRUE OR FALSE.","Animals can become ill because they mistake plastic for food.",["True","False"],"True","Malak says animals can become seriously ill because they mistake small pieces of plastic for food."),
+    single("Task 11 — True or False","CHOOSE TRUE OR FALSE.","Adam says plastic breaks down very quickly in the environment.",["True","False"],"False","Adam says some plastic takes a very long time to break down and can remain in the environment for years."),
+    single("Task 11 — True or False","CHOOSE TRUE OR FALSE.","Adam and Malak decide only to complain about the problem.",["True","False"],"False","Adam says they shouldn't just complain; they should do something, so they plan a school campaign."),
+    single("Task 12 — Identify the Expression","IDENTIFY THE EXPRESSION.","\"Students leave bottles and food wrappers everywhere because there aren't enough people putting rubbish in the bins.\" Which expression of cause or effect is used?",["as a result","because","consequently","therefore"],"because","The sentence uses 'because' to introduce the cause."),
+    single("Task 12 — Identify the Expression","IDENTIFY THE EXPRESSION.","\"As a result, the schoolyard looks dirty, and nobody really wants to sit there during the break.\" Which expression of cause or effect is used?",["because","due to","as a result","so"],"as a result","The sentence begins with 'As a result' to introduce the effect."),
+    single("Task 12 — Identify the Expression","IDENTIFY THE EXPRESSION.","\"Consequently, water can't flow away properly.\" Which expression of cause or effect is used?",["because","therefore","due to","consequently"],"consequently","The sentence begins with 'Consequently' to introduce the effect."),
+    single("Task 12 — Identify the Expression","IDENTIFY THE EXPRESSION.","\"Due to careless waste disposal, a small problem can become much more serious.\" Which expression of cause or effect is used?",["due to","as a result","consequently","therefore"],"due to","The sentence uses 'Due to' followed by a noun phrase to introduce the cause."),
+    single("Task 13 — Identify the Effect","IDENTIFY THE EFFECT.","\"Plastic bags can block drainage systems. Consequently, water can't flow away properly.\" What is the effect?",["Plastic bags block the drains.","Water can't flow away properly.","It rains heavily in the area.","People throw rubbish near drains."],"Water can't flow away properly.","'Consequently' introduces the effect: water can't flow away properly."),
+    single("Task 14 — Identify the Cause","IDENTIFY THE CAUSE.","\"Because many of these products are used only once, they create a lot of waste.\" Which part gives the cause?",["They create a lot of waste.","Plastic is very easy to recycle.","Many products are used only once.","Plastic is cheap and convenient."],"Many products are used only once.","The clause after 'Because' gives the cause; 'they create a lot of waste' is the effect."),
+    single("Task 15 — Choose the Correct Expression","CHOOSE THE CORRECT EXPRESSION.","The bins were full. ______, rubbish was left on the ground.",["Because","Due to","As a result","Because of"],"As a result","'As a result' introduces the effect in a new sentence."),
+    single("Task 15 — Choose the Correct Expression","CHOOSE THE CORRECT EXPRESSION.","The match was cancelled ______ the heavy rain.",["because","because of","therefore","as a result"],"because of","'Because of' is followed by a noun phrase (the heavy rain)."),
+    single("Task 15 — Choose the Correct Expression","CHOOSE THE CORRECT EXPRESSION.","Many students bring reusable bottles ______ they want to produce less waste.",["because","because of","due to","consequently"],"because","'Because' is followed by a full clause (they want to produce less waste)."),
+    single("Task 15 — Choose the Correct Expression","CHOOSE THE CORRECT EXPRESSION.","There was a lot of litter, ______ the students organised a clean-up campaign.",["due to","because","because of","so"],"so","'So' introduces the result after a comma."),
+    single("Task 16 — Choose the Correct Sentence","CHOOSE THE CORRECT SENTENCE.","Which sentence is grammatically correct?",["Because the heavy rain, the streets were flooded.","Due to it rained heavily, the streets were flooded.","Due to the heavy rain, the streets were flooded.","As a result the heavy rain, the streets were flooded."],"Due to the heavy rain, the streets were flooded.","'Due to' must be followed by a noun phrase (the heavy rain)."),
+    single("Task 17 — Choose the Sentence with the Same Meaning","CHOOSE THE SENTENCE WITH THE SAME MEANING.","\"Plastic bags blocked the drains. As a result, the street flooded.\"",["The street flooded so plastic bags blocked the drains.","The street flooded because plastic bags blocked the drains.","Plastic bags blocked the drains because the street flooded.","The street flooded although plastic bags blocked the drains."],"The street flooded because plastic bags blocked the drains.","Blocked drains are the cause and flooding is the effect, so 'because' links them correctly."),
+    {type:"ordering",taskLabel:"Task 18 — Put the Ideas in Order",question:"PUT THE IDEAS IN ORDER.",task:"Put the ideas in the order in which they are discussed in the conversation.",items:["The schoolyard looks dirty","Animals swallow plastic and become ill","Blocked drains cause flooding","Single-use plastic creates a lot of waste","Reusable bottles can reduce plastic waste"].map((text,i)=>({id:"i"+(i+1),text,correctPosition:i+1})),explanation:"The students first talk about the dirty schoolyard, then harm to animals, then blocked drains and flooding, then why single-use plastic creates waste, and finally reusable bottles as a solution.",points:5},
+    match("Task 19 — Match the Problem with the Solution","MATCH THE PROBLEM WITH THE SOLUTION.","Drag or tap each solution to the problem it solves.",["Students buy new plastic bottles every day.","Students don't know where to put their rubbish.","Students aren't aware of the consequences of littering.","People don't understand how plastic harms animals."],["Bring reusable water bottles instead","Put clearly labelled recycling bins around school","Organise a clean-up campaign at school","Prepare posters explaining the effects on animals"],"Each problem has a matching solution suggested in the conversation: reusable bottles, labelled bins, a clean-up campaign, and posters."),
+    single("Task 20 — Overall Listening Check","OVERALL LISTENING CHECK.","Why does Malak hope their efforts will make a difference?",["Because the teacher will give them extra marks","Because plastic will disappear within a few weeks","Because a cleaner school benefits everyone","Because the town will install new street bins"],"Because a cleaner school benefits everyone","Malak ends by saying: 'Hopefully, our efforts will make a difference because a cleaner school benefits everyone.'")
+  ];
+  /* SPLIT-2026-11-13: a matching task with 4 or more pairs becomes two parts (2+2, 3+2, 3+3) so that each part fits one screen.
+   Same pairs, same wording; each part is worth its own pairs, so the total does not change. */
+(function (list, type) {
+  /* each question remembers its place before the split: the phase banner and the audio player still follow it */
+  list.forEach(function (x, i) { if (x && x.__orig == null) x.__orig = i; });
+  for (var i = list.length - 1; i >= 0; i--) {
+    var it = list[i]; if (!it || it.type !== type || !it.rows || it.rows.length < 4) continue;
+    var n = it.rows.length, a = Math.ceil(n / 2), made = [];
+    [[0, a], [a, n]].forEach(function (pr, pi) {
+      var o = {}, k; for (k in it) o[k] = it[k];
+      var rows = it.rows.slice(pr[0], pr[1]), chips;
+      if (typeof it.rows[0] === 'string') chips = it.chips.slice(pr[0], pr[1]);
+      else if (Array.isArray(it.rows[0])) { var ids = rows.map(function (r) { return r[0]; }); chips = it.chips.filter(function (c) { return ids.indexOf(c[2]) >= 0; }); }
+      else { var ids2 = rows.map(function (r) { return r.id; }); chips = it.chips.filter(function (c) { return ids2.indexOf(c.matchesRowId) >= 0; }); }
+      o.rows = rows; o.chips = chips; o.points = it.points * rows.length / n;
+      /* the task label stays the same, so the results still add both parts into one task; the on-screen task line says which part */
+      var tag = ' (part ' + (pi + 1) + ' of 2)';
+      if (typeof o.task === 'string' && o.task) o.task = o.task.replace(/\s*$/, tag); else if (typeof o.question === 'string') o.question += tag;
+      made.push(o);
+    });
+    list.splice.apply(list, [i, 1].concat(made));
+  }
+})(questions, 'matching');
+  const $=id=>document.getElementById(id);
+  const node=(tag,text,className)=>{const el=document.createElement(tag);if(text!==null)el.textContent=text;if(className)el.className=className;return el};
+  const shuffleDifferent=(items,identity)=>{let copy=items.slice();for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]]}if(identity&&copy.every((x,i)=>x.id===identity[i].id))[copy[0],copy[1]]=[copy[1],copy[0]];return copy};
+  let index=0,states=[],view="quiz",reviewIndex=0,completed=false;
+  const freshStates=()=>questions.map(()=>({locked:false,earned:0,selected:null,selectedSet:new Set(),slots:{},order:null,shuffledChoices:null,shuffledOptions:null,shuffledChips:null,selectionTimer:null}));
+  states=freshStates();
+  // The count-up timer is independent of question rendering.
+  const timer={
+    seconds:0,interval:null,
+    start(){if(this.interval)return;this.interval=setInterval(()=>{this.seconds++;$("timer-stat").textContent="Timer: "+this.format()},1000)},
+    pause(){clearInterval(this.interval);this.interval=null},
+    reset(){this.pause();this.seconds=0},
+    format(){return `${String(Math.floor(this.seconds/60)).padStart(2,"0")}:${String(this.seconds%60).padStart(2,"0")}`}
+  };
+  // Web Audio persists across listening phases. A single fetch/decode begins at Q7.
+  // Canva's iframe blocks external <audio> playback, so decoded audio is played through Web Audio.
+  const audioPlayer={
+    context:null,buffer:null,source:null,loaded:false,loading:false,failed:false,playing:false,offset:0,startedAt:0,raf:null,
+    prepare(){
+      if(this.loading||this.loaded||this.failed)return;
+      this.loading=true;
+      fetch(quizConfig.audioFileUrl).then(r=>{if(!r.ok)throw Error("Audio download failed");return r.arrayBuffer()})
+        .then(bytes=>{this.context=this.context||new (window.AudioContext||window.webkitAudioContext)();return this.context.decodeAudioData(bytes)})
+        .then(buffer=>{this.buffer=buffer;this.loaded=true;this.loading=false})
+        .catch(error=>{console.error(error);this.failed=true;this.loading=false;this.showError()});
+    },
+    showError(){
+      $("audio-error").hidden=false;
+      ["back-ten","play-pause","forward-ten"].forEach(id=>$(id).disabled=true);
+    },
+    time(){return this.playing?Math.min(this.buffer.duration,this.offset+this.context.currentTime-this.startedAt):this.offset},
+    update(){
+      const percent=this.buffer?Math.min(100,this.time()/this.buffer.duration*100):0;
+      $("progress-fill").style.width=percent+"%";
+      document.querySelector(".progress").setAttribute("aria-valuenow",String(Math.round(percent)));
+      if(this.playing)this.raf=requestAnimationFrame(()=>this.update());
+    },
+    startSource(){
+      if(!this.buffer)return;
+      const source=this.context.createBufferSource();
+      source.buffer=this.buffer;source.connect(this.context.destination);
+      if(this.offset>=this.buffer.duration)this.offset=0;
+      this.startedAt=this.context.currentTime;
+      this.source=source;
+      source.onended=()=>{if(this.source!==source)return;this.source=null;this.playing=false;this.offset=this.buffer.duration;$("play-pause").textContent="▶";cancelAnimationFrame(this.raf);this.update()};
+      source.start(0,this.offset);
+      this.playing=true;$("play-pause").textContent="⏸";this.update();
+    },
+    play(){
+      if(this.failed)return;
+      if(!this.loaded){this.prepare();return}
+      // resume() and source.start() run directly inside the student's click handler.
+      try{
+        const resumed=this.context.resume();
+        this.startSource();
+        resumed.catch(error=>{console.error(error);this.pause()});
+      }catch(error){console.error(error);this.pause()}
+    },
+    pause(){
+      if(!this.playing)return;
+      this.offset=this.time();
+      const source=this.source;this.source=null;this.playing=false;
+      if(source)source.stop();
+      cancelAnimationFrame(this.raf);$("play-pause").textContent="▶";this.update();
+    },
+    toggle(){if(this.playing)this.pause();else this.play()},
+    seek(time){
+      if(!this.buffer)return;
+      const wasPlaying=this.playing;
+      if(wasPlaying)this.pause();
+      this.offset=Math.min(this.buffer.duration,Math.max(0,time));
+      this.update();
+      if(wasPlaying)this.play();
+    },
+    reset(){this.pause();this.offset=0;this.update()}
+  };
+  /* LISTEN-FIRST-2026-11-18 (Unit 10 rule): the While-listening answers stay locked until the student has listened to
+     the whole conversation once. Only seconds really played count (skips do not); it unlocks when the audio ends with
+     at least 90% heard. Then replays are free. If the audio cannot load, nothing is locked. Restart locks again. */
+  let heard=false,seen=new Set(),lastT=0,wasPlaying=false;
+  const isWhile=i=>{const o=questions[i]&&questions[i].__orig!=null?questions[i].__orig:i;return o>=6&&o<23};
+  function gated(){return !heard&&isWhile(index)&&!states[index].locked}
+  function lockPct(){const b=audioPlayer.buffer;return b?Math.min(100,Math.round(100*seen.size/Math.ceil(b.duration))):0}
+  function applyLock(){
+    const area=$("answer-area");area.classList.remove("lock-wrap");area.inert=false;
+    if(!gated())return;
+    area.classList.add("lock-wrap");area.inert=true;area.querySelectorAll("button").forEach(b=>b.disabled=true);
+    const box=node("div","🎧 Listen to the whole conversation first. Then you can answer.","listen-lock");box.setAttribute("role","status");
+    const pct=node("span",`Listened: ${lockPct()}%`);pct.id="lockPct";box.append(pct);area.append(box);
+  }
+  function unlock(){if(heard)return;heard=true;if(isWhile(index)&&view==="quiz")renderQuestion()}
+  function trackListening(){
+    const p=audioPlayer;
+    if(p.playing&&p.buffer){const t=p.time(),dt=t-lastT;if(dt>0&&dt<=1.5)for(let k=Math.floor(lastT);k<Math.floor(t);k++)seen.add(k);lastT=t}
+    else{
+      if(wasPlaying&&p.buffer&&p.offset>=p.buffer.duration-0.05){
+        const t=p.buffer.duration;if(t-lastT>0&&t-lastT<=1.5)for(let k=Math.floor(lastT);k<Math.ceil(t);k++)seen.add(k);
+        if(seen.size>=0.9*Math.ceil(t))unlock();
+      }
+      lastT=p.offset;
+    }
+    wasPlaying=p.playing;
+    const el=document.getElementById("lockPct");if(el)el.textContent=`Listened: ${lockPct()}%`;
+  }
+  setInterval(trackListening,250);
+  {const showError=audioPlayer.showError;audioPlayer.showError=function(){showError.call(this);unlock()}}
+  // Phase updates share the Q7 trigger with the single audio preparation.
+  const __o4=()=>(questions[index]&&questions[index].__orig!=null?questions[index].__orig:index);function updatePhase(index=__o4()){
+    const phase=index<6?"PRE-LISTENING":index<8?"WHILE-LISTENING — First Listening: General Understanding":index<17?"WHILE-LISTENING — Second Listening: Specific Information":index<23?"WHILE-LISTENING — Third Listening: Understanding the Function":"POST-LISTENING";
+    $("phase-banner").textContent=phase;
+    $("audio-panel").hidden=index<6;
+    if(index>=6)audioPlayer.prepare();
+  }
+  const effects=(()=>{
+    let context;
+    return (kind)=>{
+      if(audioPlayer.playing)return;
+      try{
+        context=context||new (window.AudioContext||window.webkitAudioContext)();
+        const oscillator=context.createOscillator(),gain=context.createGain(),now=context.currentTime;
+        oscillator.type="sine";
+        oscillator.frequency.setValueAtTime(kind==="wrong"?240:kind==="click"?440:kind==="finish"?600:520,now);
+        if(kind==="correct"||kind==="finish")oscillator.frequency.exponentialRampToValueAtTime(kind==="finish"?950:720,now+.13);
+        gain.gain.setValueAtTime(.0001,now);gain.gain.exponentialRampToValueAtTime(.045,now+.01);gain.gain.exponentialRampToValueAtTime(.0001,now+.18);
+        oscillator.connect(gain);gain.connect(context.destination);oscillator.start(now);oscillator.stop(now+.2);
+      }catch(_){}
+    }
+  })();
+  function score(){return states.reduce((sum,s)=>sum+s.earned,0)}
+  function stats(){
+    const done=states.filter(s=>s.locked),correct=done.filter((s,i)=>s.earned===questions[states.indexOf(s)].points).length;
+    $("correct-stat").textContent="✅ Correct: "+correct;
+    $("wrong-stat").textContent="❌ Wrong: "+(done.length-correct);
+    $("remaining-stat").textContent="Remaining: "+(questions.length-done.length);
+    $("score-stat").textContent="Score: "+score().toFixed(2)+" /48";
+    $("timer-stat").textContent="Timer: "+timer.format();
+  }
+  /* U10RULES-2026-11-18: matching and ordering show the correct answer on screen, so they get no explanation box */
+  const noExplain=q=>q.type==="matching"||q.type==="ordering";
+  /* ACTROW-2026-11-18: Reset | Check row above Previous | page | Next (data-fit navrow keeps the sight script from moving Check) */
+  function actRow(area,onReset,onCheck){
+    const row=node("div",null,"act-row");row.dataset.fit="navrow actrow";
+    const reset=node("button","↺ Reset","act-btn act-reset"),check=node("button","Check","act-btn act-check");
+    reset.type=check.type="button";reset.addEventListener("click",onReset);check.addEventListener("click",onCheck);
+    row.append(reset,check);area.append(row);return check;
+  }
+  function lock(earned,answer){
+    const s=states[index],q=questions[index];
+    if(s.locked||gated())return;
+    s.locked=true;s.earned=earned;s.answer=answer;
+    effects(earned===q.points?"correct":"wrong");
+    $("feedback").hidden=noExplain(q);
+    if(noExplain(q)){$("next").disabled=false;stats();return}
+    $("feedback").textContent=(earned===q.points?["Great work!","Well done!","Excellent!"][Math.floor(Math.random()*3)]:"Keep practising!")+" "+q.explanation;
+    $("next").disabled=false;
+    stats();
+  }
+  function renderSingle(q,s,area){
+    if(!s.shuffledChoices)s.shuffledChoices=window.__mixPlace(q.choices,x=>x===q.correctAnswer);
+    const grid=node("div",null,"answer-grid");area.append(grid);
+    s.shuffledChoices.forEach(choice=>{
+      const button=node("button",choice,"choice");button.type="button";button.disabled=s.locked;
+      if(s.locked){if(choice===q.correctAnswer)button.classList.add("correct");else if(choice===s.answer)button.classList.add("incorrect")}
+      button.addEventListener("click",()=>{
+        if(s.locked)return;
+        lock(choice===q.correctAnswer?1:0,choice);
+        grid.querySelectorAll("button").forEach(b=>{b.disabled=true;if(b.textContent===q.correctAnswer)b.classList.add("correct");else if(b===button)b.classList.add("incorrect")});
+      });
+      grid.append(button);
+    });
+  }
+  // TYPE C: Pointer Events move chips freely between slots; only Check Answers grades.
+  function renderMatching(q,s,area){
+    if(!s.shuffledChips)s.shuffledChips=shuffleDifferent(q.chips,q.chips);
+    const layout=node("div",null,"matching-layout"),rows=node("div",null,"match-rows"),tray=node("div",null,"chip-tray bank-top");
+    let check=null;
+    tray.setAttribute("aria-label","Draggable answer chips");
+    const chipElements=new Map(),slots=new Map();
+    q.rows.forEach(row=>{
+      const box=node("div",null,"match-row"),label=node("div",row.text),slot=node("div",null,"drop-slot");
+      slot.dataset.rowId=row.id;slots.set(row.id,slot);box.append(label,slot);rows.append(box);
+    });
+    s.shuffledChips.forEach(chip=>{
+      const button=node("button",chip.text,"chip");button.type="button";button.dataset.chipId=chip.id;
+      button.setAttribute("aria-label",chip.text+"; drag to a row");
+      chipElements.set(chip.id,button);tray.append(button);
+      if(!s.locked)pointerDrag(button,(x,y)=>{
+        const target=document.elementFromPoint(x,y)?.closest(".drop-slot");
+        if(!target||!layout.contains(target))return;
+        const destination=target.dataset.rowId;
+        const occupied=s.slots[destination];
+        const old=Object.keys(s.slots).find(id=>s.slots[id]===chip.id);
+        if(old)delete s.slots[old];
+        if(occupied&&occupied!==chip.id)delete s.slots[destination];
+        s.slots[destination]=chip.id;
+        place();
+        effects("click");
+      });
+    });
+    function place(){
+      s.shuffledChips.forEach(chip=>{
+        const row=Object.keys(s.slots).find(id=>s.slots[id]===chip.id);
+        (row?slots.get(row):tray).append(chipElements.get(chip.id));
+      });
+      if(check)check.disabled=Object.keys(s.slots).length!==q.rows.length||s.locked;
+    }
+    layout.append(tray,rows);area.append(layout);
+    if(!s.locked)check=actRow(area,()=>{s.slots={};renderQuestion()},()=>{
+      if(s.locked||Object.keys(s.slots).length!==q.rows.length)return;
+      const answer={...s.slots};
+      const earned=q.rows.filter(row=>q.chips.find(c=>c.id===answer[row.id])?.matchesRowId===row.id).length;
+      lock(earned,answer);renderQuestion();
+    });
+    place();
+    if(s.locked)chipElements.forEach(button=>button.disabled=true);
+    if(s.locked){
+      q.rows.forEach(row=>{
+        const right=q.chips.find(c=>c.matchesRowId===row.id),slot=slots.get(row.id);
+        const ok=s.answer[row.id]===right.id;
+        slot.classList.add(ok?"correct":"incorrect");
+        if(!ok)slot.append(node("div","Correct: "+right.text));
+      });
+    }
+  }
+  // TYPE D: a single Set is read on each click. Three selections start a short evaluation window.
+  function renderMulti(q,s,area){
+    if(!s.shuffledOptions)s.shuffledOptions=shuffleDifferent(q.options);
+    const grid=node("div",null,"answer-grid");area.append(grid);
+    function paint(){
+      [...grid.children].forEach(button=>{
+        const value=button.dataset.value;
+        button.className="choice tile";
+        if(s.locked){
+          button.disabled=true;
+          if(q.correctOptions.includes(value))button.classList.add("correct");
+          else if(s.selectedSet.has(value))button.classList.add("incorrect");
+          else button.classList.add("neutral");
+        }else if(s.selectedSet.has(value))button.classList.add("selected");
+      });
+    }
+    s.shuffledOptions.forEach(option=>{
+      const button=node("button",option,"choice tile");button.type="button";button.dataset.value=option;
+      button.addEventListener("click",()=>{
+        if(s.locked)return;
+        clearTimeout(s.selectionTimer);
+        if(s.selectedSet.has(option))s.selectedSet.delete(option);
+        else if(s.selectedSet.size<3)s.selectedSet.add(option);
+        effects("click");paint();
+        if(check)check.disabled=s.selectedSet.size!==3;
+      });
+      grid.append(button);
+    });
+    paint();
+    /* no auto-marking after the 3rd choice: the student presses Check */
+    let check=null;
+    if(!s.locked){
+      check=actRow(area,()=>{s.selectedSet.clear();paint();check.disabled=true},()=>{
+        if(s.locked||s.selectedSet.size!==3)return;
+        const exact=q.correctOptions.every(value=>s.selectedSet.has(value));
+        lock(exact?3:0,[...s.selectedSet]);renderQuestion();
+      });
+      check.disabled=s.selectedSet.size!==3;
+    }
+  }
+  // TYPE E: drag and ▲/▼ mutate the same order; Check Answers grades each position once.
+  function renderOrdering(q,s,area){
+    if(!s.order)s.order=shuffleDifferent(q.items,q.items).map(item=>item.id);
+    const list=node("div",null,"order-list");area.append(list);
+    function draw(){
+      list.replaceChildren();
+      s.order.forEach((id,position)=>{
+        const item=q.items.find(x=>x.id===id),row=node("div",null,"order-item");
+        row.dataset.itemId=id;
+        row.append(node("span",item.text,"order-label"));
+        if(s.locked)row.classList.add(item.correctPosition===position+1?"correct":"incorrect");
+        else{
+          const controls=node("div",null,"move-buttons");
+          [["▲",-1],["▼",1]].forEach(([symbol,direction])=>{
+            const button=node("button",symbol);button.type="button";
+            button.setAttribute("aria-label",direction<0?"Move up":"Move down");
+            button.disabled=position+direction<0||position+direction>=s.order.length;
+            button.addEventListener("click",event=>{event.stopPropagation();move(position,position+direction)});
+            controls.append(button);
+          });
+          row.append(controls);
+          pointerDrag(row,(x,y)=>{
+            const target=document.elementFromPoint(x,y)?.closest(".order-item");
+            if(!target||!list.contains(target))return;
+            move(s.order.indexOf(id),s.order.indexOf(target.dataset.itemId));
+          },event=>event.target.closest(".move-buttons"));
+        }
+        list.append(row);
+      });
+    }
+    function move(from,to){if(from===to||to<0||to>=s.order.length)return;const [id]=s.order.splice(from,1);s.order.splice(to,0,id);effects("click");draw()}
+    draw();
+    if(!s.start)s.start=[...s.order];
+    if(!s.locked)actRow(area,()=>{s.order=[...s.start];draw()},()=>{
+      if(s.locked)return;
+      const earned=s.order.filter((id,i)=>q.items.find(item=>item.id===id).correctPosition===i+1).length;
+      lock(earned,[...s.order]);renderQuestion();
+    });
+    if(s.locked)area.append(node("p","Correct order: "+q.items.map(item=>item.text).join(" → "),"feedback"));
+  }
+  // Pointer capture keeps mouse and touch dragging consistent. A movement threshold
+  // leaves ordering arrow buttons clickable without initiating a drag.
+  function pointerDrag(element,onDrop,ignore=()=>false){
+    element.addEventListener("pointerdown",event=>{
+      if(event.button!==0||ignore(event))return;
+      const startX=event.clientX,startY=event.clientY,id=event.pointerId;
+      let active=false,lastX=startX,lastY=startY;
+      element.setPointerCapture(id);
+      function move(e){
+        if(e.pointerId!==id)return;
+        lastX=e.clientX;lastY=e.clientY;
+        if(Math.hypot(lastX-startX,lastY-startY)>5)active=true;
+        if(active){element.classList.add("dragging");element.style.transform=`translate(${lastX-startX}px,${lastY-startY}px)`}
+      }
+      function end(e){
+        if(e.pointerId!==id)return;
+        element.removeEventListener("pointermove",move);
+        element.removeEventListener("pointerup",end);
+        element.removeEventListener("pointercancel",cancel);
+        element.classList.remove("dragging");element.style.transform="";
+        if(active&&e.type==="pointerup")onDrop(lastX,lastY);
+      }
+      function cancel(e){end(e)}
+      element.addEventListener("pointermove",move);
+      element.addEventListener("pointerup",end);
+      element.addEventListener("pointercancel",cancel);
+    });
+  }
+  function renderQuestion(){
+    view="quiz";$("quiz-view").hidden=false;$("result-view").hidden=true;$("review-view").hidden=true;
+    const q=questions[index],s=states[index];
+    updatePhase();
+    $("instruction").textContent=q.question;
+    $("task-text").textContent=q.task;
+    $("counter").textContent=(index+1)+" / "+questions.length;
+    $("previous").disabled=index===0;
+    $("next").disabled=!s.locked;
+    $("next").textContent=index===questions.length-1?"See Results ▶":"Next ▶";
+    const area=$("answer-area");area.replaceChildren();
+    const feedback=$("feedback");feedback.hidden=!s.locked||noExplain(q);feedback.textContent=s.locked&&!noExplain(q)?(s.earned===q.points?"Well done! ":"Keep practising! ")+q.explanation:"";
+    if(q.type==="single-choice")renderSingle(q,s,area);
+    if(q.type==="matching")renderMatching(q,s,area);
+    if(q.type==="multi-select-exact")renderMulti(q,s,area);
+    if(q.type==="ordering")renderOrdering(q,s,area);
+    applyLock();
+    stats();
+  }
+  function transcript(){
+    const details=node("details"),summary=node("summary","Show Transcript");
+    details.append(summary);
+    quizConfig.audioTranscript.forEach(([speaker,text])=>{
+      const line=node("p",null,"transcript-line"),strong=node("strong",speaker+": ");
+      line.append(strong,document.createTextNode(text));details.append(line);
+    });
+    return details;
+  }
+  const storedNumber=key=>{try{return Number(localStorage.getItem(key))||0}catch(_){return 0}};
+  const saveLocal=(key,value)=>{try{localStorage.setItem(key,String(value))}catch(_){}};
+  function breakdown(){
+    const taskMap=new Map();
+    questions.forEach((q,i)=>{
+      if(!taskMap.has(q.taskLabel))taskMap.set(q.taskLabel,{earned:0,total:0});
+      const item=taskMap.get(q.taskLabel);item.earned+=states[i].earned;item.total+=q.points;
+    });
+    return taskMap;
+  }
+  function remark(value){return value<24?"Fail":value<28.8?"Pass":value<33.6?"Fairly Good":value<38.4?"Good":value<43.2?"Very Good":"Excellent!"}
+  function confetti(){
+    for(let i=0;i<75;i++){
+      const piece=node("div",null,"confetti-piece");
+      piece.style.left=Math.random()*100+"%";
+      piece.style.background=["#2563eb","#22c55e","#facc15","#f97316"][i%4];
+      piece.style.animationDelay=Math.random()*1.3+"s";
+      document.body.append(piece);setTimeout(()=>piece.remove(),4400);
+    }
+  }
+  function finish(){
+    if(completed)return;
+    completed=true;timer.pause();audioPlayer.pause();view="result";
+    const final=score(),attempts=storedNumber("causeQuizAttempts")+1,best=Math.max(final,storedNumber("causeQuizBest"));
+    saveLocal("causeQuizAttempts",attempts);saveLocal("causeQuizBest",best);
+    saveLocal("causeQuizLast",final);saveLocal("causeQuizTime",timer.format());
+    $("quiz-view").hidden=true;$("review-view").hidden=true;
+    const result=$("result-view");result.hidden=false;result.replaceChildren();
+    result.append(node("h1","UNIT: 4 — EXPRESSING CAUSE AND EFFECT"),node("h2","LISTENING - QUIZ 1"));
+    const badge=node("div",final.toFixed(2)+" /48","badge"),animated=node("h2","Fail");
+    animated.style.textAlign="center";result.append(badge,animated);
+    const labels=["Fail","Pass","Fairly Good","Good","Very Good","Excellent!"];
+    let ticks=0;const cycle=setInterval(()=>{animated.textContent=labels[ticks%labels.length];if(++ticks>=18){clearInterval(cycle);animated.textContent=remark(final)}},165);
+    const done=states.filter(s=>s.locked).length,correct=states.filter((s,i)=>s.earned===questions[i].points).length;
+    const summary=node("div",null,"summary-grid");
+    [
+      ["Final Score",final.toFixed(2)+" /48"],["Correct Answers",String(correct)],
+      ["Wrong Answers",String(done-correct)],["Accuracy",((correct/done)*100).toFixed(1)+"%"],
+      ["Time Taken",timer.format()],["Attempts",String(attempts)],["Best Score",best.toFixed(2)+" /48"],
+      ["Total Time Taken",timer.format()]
+    ].forEach(([label,value])=>{const box=node("div");box.append(node("strong",label),node("div",value));summary.append(box)});
+    result.append(summary,node("h2","Per-task breakdown"));
+    breakdown().forEach((value,label)=>result.append(node("div",`${label}: ${value.earned}/${value.total}`,"breakdown-row")));
+    result.append(transcript());
+    const actions=node("div",null,"result-actions");
+    [["Review My Answers",()=>renderReview(0)],["Restart Quiz",restart],["Print Results",()=>window.print()],["Save Results",downloadResults]].forEach(([label,handler])=>{
+      const button=node("button",label,label==="Review My Answers"?"primary":"secondary");button.type="button";button.addEventListener("click",handler);actions.append(button);
+    });
+    result.append(actions);
+    if(final>=38.4)confetti();
+    effects("finish");
+  }
+  function renderReview(position){
+    reviewIndex=position;view="review";$("quiz-view").hidden=true;$("result-view").hidden=true;
+    const review=$("review-view");review.hidden=false;review.replaceChildren();
+    review.append(node("h1","Review My Answers"),transcript());
+    const q=questions[position],s=states[position];
+    review.append(node("h2",q.taskLabel),node("p",`Question ${position+1} / ${questions.length}`),node("h3",q.question),node("p",q.task));
+    if(q.type==="single-choice"){
+      review.append(node("div","Student Answer: "+s.answer,s.answer===q.correctAnswer?"review-row correct":"review-row incorrect"));
+      review.append(node("div","Correct Answer: "+q.correctAnswer,"review-row correct"));
+    }else if(q.type==="multi-select-exact"){
+      review.append(node("div","Your selections: "+s.answer.join("; "),"review-row "+(s.earned?"correct":"incorrect")));
+      review.append(node("div","Correct selections: "+q.correctOptions.join("; "),"review-row correct"));
+    }else if(q.type==="matching"){
+      q.rows.forEach(row=>{
+        const actual=q.chips.find(chip=>chip.id===s.answer[row.id]);
+        const correct=q.chips.find(chip=>chip.matchesRowId===row.id);
+        review.append(node("div",`${row.text} — Yours: ${actual?.text||"None"} | Correct: ${correct.text}`,"review-row "+(actual?.id===correct.id?"correct":"incorrect")));
+      });
+    }else{
+      s.answer.forEach((id,i)=>{
+        const actual=q.items.find(item=>item.id===id);
+        review.append(node("div",`${i+1}. Yours: ${actual.text} | Correct: ${q.items[i].text}`,"review-row "+(actual.correctPosition===i+1?"correct":"incorrect")));
+      });
+    }
+    review.append(node("p","Explanation: "+q.explanation,"feedback"));
+    const nav=node("div",null,"nav-row");
+    const prev=node("button","◀ Previous","secondary"),count=node("strong",`${position+1} / ${questions.length}`),next=node("button","Next ▶","primary");
+    prev.type=next.type="button";prev.disabled=position===0;next.disabled=position===questions.length-1;
+    prev.onclick=()=>renderReview(position-1);next.onclick=()=>renderReview(position+1);
+    nav.append(prev,count,next);review.append(nav);
+    const back=node("button","Back to Results","secondary");back.type="button";back.onclick=()=>{view="result";review.hidden=true;$("result-view").hidden=false};review.append(back);
+  }
+  function report(){
+    const lines=["UNIT: 4","EXPRESSING CAUSE AND EFFECT","LISTENING - QUIZ 1",`Final Score: ${score().toFixed(2)} /48`,`Time Taken: ${timer.format()}`,"", "Per-task breakdown:"];
+    breakdown().forEach((value,label)=>lines.push(`${label}: ${value.earned}/${value.total}`));
+    lines.push("","Transcript:");
+    quizConfig.audioTranscript.forEach(([speaker,text])=>lines.push(`${speaker}: ${text}`));
+    return lines.join("\n");
+  }
+  function downloadResults(){
+    const blob=new Blob([report()],{type:"text/plain;charset=utf-8"});
+    const url=URL.createObjectURL(blob),link=document.createElement("a");
+    link.href=url;link.download="listening-quiz-1-results.txt";document.body.append(link);link.click();link.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+  }
+  function restart(){
+    states.forEach(s=>clearTimeout(s.selectionTimer));
+    heard=false;seen=new Set();lastT=0;
+    states=freshStates();index=0;completed=false;timer.reset();audioPlayer.reset();
+    timer.start();renderQuestion();
+  }
+  $("previous").addEventListener("click",()=>{if(index>0){index--;renderQuestion()}});
+  $("next").addEventListener("click",()=>{if(!states[index].locked)return;if(index===questions.length-1)finish();else{index++;renderQuestion()}});
+  $("play-pause").addEventListener("click",()=>audioPlayer.toggle());
+  $("back-ten").addEventListener("click",()=>{
+    if(!audioPlayer.buffer)return;
+    audioPlayer.seek(Math.max(0,audioPlayer.time()-10));
+  });
+  $("forward-ten").addEventListener("click",()=>{
+    if(!audioPlayer.buffer)return;
+    audioPlayer.seek(Math.min(audioPlayer.buffer.duration,audioPlayer.time()+10));
+  });
+  document.addEventListener("keydown",event=>{
+    if(view!=="quiz"||event.altKey||event.ctrlKey||event.metaKey)return;
+    const audioFocused=$("audio-controls").contains(document.activeElement)||document.activeElement===$("audio-controls");
+    if(audioFocused){
+      if(event.key===" "){event.preventDefault();audioPlayer.toggle()}
+      if(event.key==="ArrowLeft"){event.preventDefault();$("back-ten").click()}
+      if(event.key==="ArrowRight"){event.preventDefault();$("forward-ten").click()}
+      return;
+    }
+    if(event.target.closest("button, input, textarea, select, summary"))return;
+    if(event.key==="ArrowLeft"){event.preventDefault();$("previous").click()}
+    if(event.key==="ArrowRight"){event.preventDefault();$("next").click()}
+    const q=questions[index],buttons=$("answer-area").querySelectorAll(".choice");
+    if(/^[1-6]$/.test(event.key)&&["single-choice","multi-select-exact"].includes(q.type)){
+      const button=buttons[Number(event.key)-1];if(button){event.preventDefault();button.click()}
+    }
+    if(event.key==="Enter"&&states[index].locked){event.preventDefault();$("next").click()}
+    if(event.key===" "&&["matching","ordering"].includes(q.type)){
+      const check=$("answer-area").querySelector(".primary");if(check&&!check.disabled){event.preventDefault();check.click()}
+    }
+  });
+  timer.start();renderQuestion();
+  </script>
+ 
+<!-- FIT-LAYER-BEGIN -->
+<!-- STYLE-2026-11-13 / SIGHT-2026-11-13 (Units 1-5): one look, fit one screen, keep the question in sight -->
+<style id="style-2026-11-13">
+[data-fit~="col"]{max-width:760px!important;margin-left:auto!important;margin-right:auto!important}
+[data-fit~="opts"]{gap:8px!important}
+[data-fit~="opt"]{min-height:44px!important;height:auto!important;border-radius:10px!important;text-align:left!important;font-weight:500!important;line-height:1.35!important}
+[data-fit~="optp"]{padding-top:9px!important;padding-bottom:9px!important}
+[data-fit~="fb"]{min-height:0!important;padding:10px 12px!important;margin-top:8px!important;margin-bottom:0!important;line-height:1.4!important}
+[data-fit~="nomin"]{min-height:0!important}
+[data-fit~="navrow"]{display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:space-between!important;gap:8px!important}
+[data-fit~="navrow"]>[data-fit~="chk"]{margin:0 auto!important;order:0}
+[data-fit~="navrow"]>[data-fit~="nav"],[data-fit~="navrow"]>[data-fit~="chk"]{white-space:nowrap!important;min-width:0!important}
+[data-fit~="nav"],[data-fit~="chk"]{min-height:44px!important;border-radius:10px!important;font-weight:600!important}
+/* Previous and Next: identical dark blue buttons, same width, label centred (teacher, 13 Nov 2026) */
+[data-fit~="nav"]{background:#1e3a5f!important;border:2px solid #1e3a5f!important;color:#fff!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;font-weight:700!important;box-shadow:none!important}
+[data-fit~="navrow"]>[data-fit~="nav"]{flex:0 0 auto!important;max-width:260px!important}
+[data-fit~="nav"][data-fit-w]{overflow:hidden!important;text-overflow:clip!important}
+/* Next in a box of its own, Previous outside it: no extra spacing on that box, so the two stay level */
+[data-fit~="navrow"][data-fit~="navsolo"]{margin-top:0!important;margin-bottom:0!important;padding-top:0!important;padding-bottom:0!important}
+[data-fit~="chk"]{background:#2563eb!important;border-color:#2563eb!important;color:#fff!important}
+[data-fit~="nav"]:disabled,[data-fit~="chk"]:disabled{opacity:.45!important}
+/* listening matching: sentence on the left, answer slot on the right */
+.match-rows,.matching-rows{gap:6px!important}
+.match-row{padding:6px 8px!important;gap:6px!important;margin:0!important}
+.match-row>:first-child{font-size:14px!important;line-height:1.35!important;margin-top:0!important}
+.match-row[data-fit~="mside"]{display:grid!important;grid-template-columns:minmax(0,3fr) minmax(0,2fr)!important;align-items:center!important;gap:8px!important}
+.match-row[data-fit~="mside"]>:first-child{margin:0!important}
+.match-row[data-fit~="mside"]>:nth-child(n+3){grid-column:1/-1!important}
+.match-row .drop-slot,.match-row [class*="slot"]{min-height:44px!important;padding:3px!important;margin:0!important}
+/* listening: put the ideas in order - compact rows, arrows at the side */
+.order-list{gap:6px!important}
+.order-list>.order-item{display:flex!important;align-items:center!important;gap:8px!important;padding:7px 10px!important;line-height:1.35!important;margin:0!important}
+.order-list>.order-item>span:first-child{flex:1 1 auto!important;min-width:0!important}
+@media (max-width:640px){
+  .order-list>.order-item{font-size:14.5px!important}
+  .order-item .order-actions,.order-item .move-buttons{display:flex!important;flex-direction:row!important;gap:4px!important;flex:0 0 auto!important}
+  .order-item .order-actions button,.order-item .move-buttons button{width:36px!important;height:36px!important;min-height:0!important;padding:0!important}
+}
+/* paragraph choices (Writing): letter tabs show one paragraph at a time */
+[data-fit~="para"]>[data-fit~="opt"]{font-size:14.5px!important;line-height:1.45!important}
+[data-fit-tabbed]{grid-template-columns:1fr!important}
+[data-fit-tabbed]>[data-fit~="opt"]:not([data-fit~="pshow"]){display:none!important}
+[data-fit-tabs]{display:flex;align-items:center;gap:6px;margin:0 0 8px}
+[data-fit-tabs]>button{width:44px;height:44px;flex:0 0 44px;padding:0;border-radius:10px;border:2px solid #cbd5e1;background:#fff;color:#1e293b;font:700 16px/1 inherit;cursor:pointer}
+[data-fit-tabs]>button[aria-pressed="true"]{border-color:#2563eb;box-shadow:0 0 0 2px #bfdbfe}
+[data-fit-tabs]>button[data-st="sel"]{background:#2563eb;border-color:#2563eb;color:#fff}
+[data-fit-tabs]>button[data-st="good"]{background:#dcfce7;border-color:#16a34a;color:#166534}
+[data-fit-tabs]>button[data-st="bad"]{background:#fee2e2;border-color:#dc2626;color:#991b1b}
+[data-fit-tabs]>span{font-size:12.5px;line-height:1.3;color:#475569;margin-left:4px}
+@media (min-width:641px){
+  [data-fit~="opt"]{font-size:16px!important;padding:10px 14px!important;margin:0!important}
+  [data-fit~="opts2"]{display:grid!important;grid-template-columns:1fr 1fr!important}
+  [data-fit~="fb"]{font-size:14.5px!important}
+  [data-fit~="task"]{padding:12px 16px!important}
+  [data-fit~="gap"]{margin-top:0!important;margin-bottom:10px!important}
+  [data-fit~="navrow"]{padding-top:8px!important;padding-bottom:8px!important;margin-top:8px!important}
+  [data-fit~="hint"]{margin-top:0!important;margin-bottom:8px!important;min-height:0!important}
+}
+@media (max-width:640px){
+  [data-fit~="opt"]{font-size:15px!important;padding:7px 10px!important;gap:8px!important;margin:0!important;line-height:1.3!important}
+  [data-fit~="optl"]>[data-fit~="opt"]{font-size:14px!important}
+  [data-fit~="navrow"]{padding-top:6px!important;padding-bottom:6px!important;margin-top:6px!important}
+  [data-fit~="hint"]{margin-top:0!important;margin-bottom:6px!important;min-height:0!important}
+  [data-fit~="key"]{width:24px!important;min-width:24px!important;height:24px!important;flex:0 0 24px!important;font-size:12px!important;margin:0!important}
+  [data-fit~="opts1"]{grid-template-columns:1fr!important}
+  [data-fit~="fb"]{font-size:13.5px!important;padding:8px 10px!important}
+  [data-fit~="fb"] *{margin-top:0!important;margin-bottom:2px!important}
+  [data-fit~="task"]{padding:10px 12px!important;line-height:1.4!important}
+  [data-fit~="gap"]{margin-top:0!important;margin-bottom:8px!important}
+  [data-fit~="nav"],[data-fit~="chk"]{padding-left:12px!important;padding-right:12px!important;font-size:14px!important}
+  [data-fit~="navtight"]{gap:6px!important}
+  [data-fit~="navtight"]>button{padding-left:9px!important;padding-right:9px!important;font-size:13px!important}
+  [data-fit~="navhide"]>:not(button){display:none!important}
+  /* listening: speakers and audio buttons on one compact row */
+  .audio-box,.audio-panel{padding:8px 10px!important;margin-bottom:8px!important}
+  .avatars,.speakers{gap:16px!important;margin-bottom:6px!important;align-items:center!important}
+  .avatars .avatar,.speakers>*{display:flex!important;align-items:center!important;gap:6px!important;font-size:13px!important}
+  .avatar-icon,.avatar span,.avatar b,.speakers .avatar{width:32px!important;height:32px!important;min-width:32px!important;font-size:18px!important;margin:0!important}
+  .audio-box .controls,.audio-panel .controls{flex-wrap:nowrap!important;gap:8px!important}
+  .audio-btn{min-width:0!important;flex:1 1 0!important;padding:9px 6px!important}
+  .match-layout,.matching-layout{gap:10px!important}
+  .chip-tray{padding:8px!important;min-height:52px!important}
+  .match-row .chip,.chip-tray .chip,.drop-slot .chip{padding:7px 10px!important;line-height:1.3!important}
+  .bubble{padding:8px 10px!important;font-size:15px!important;line-height:1.35!important}
+  .chat,.dialogue{gap:6px!important}
+  .match-row .drop-slot,.match-row [class*="slot"]{min-height:44px!important;padding:3px!important}
+  .chip-tray{padding:8px!important;min-height:52px!important;align-items:flex-start!important}
+  .match-row .chip,.chip-tray .chip,.drop-slot .chip{padding:7px 10px!important;line-height:1.3!important}
+  /* answer chips as wide as their words, so short ones share a row and long ones take one or two lines */
+  .chip-tray .chip{flex:0 1 auto!important;max-width:100%!important;font-size:14.5px!important}
+  /* functions: classify tiles and columns */
+  .tile-pool{gap:6px!important;padding:8px!important;min-height:52px!important}
+  .tile-pool>.tile,.drop-zone>.tile,.drop-column .tile,.placed .tile{padding:7px 10px!important;min-height:40px!important;line-height:1.25!important}
+  .classify-grid,.drag-grid,.columns{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important}
+  .drop-zone,.drop-column{min-height:72px!important;padding:6px!important}
+}
+</style>
+<script id="sight-2026-11-13">
+(function () {
+  if (window.__fit20261113) return; window.__fit20261113 = true;
+  var NEXT = /^\W*(next|next question|suivant)\W*$/i, PREV = /^\W*(previous|prev|back|précédent)\W*$/i,
+      NAVT = /^\W*(next|previous|prev|back|finish|see (my )?results?|show results?|view results?|submit( quiz)?)\b/i,
+      CHK = /^\W*check\b/i,
+      FROZEN = 'header,[class*="header"],[class*="info-bar"],[class*="infobar"],.info,.meta-bar,[class*="instruction"],[id*="instruction"],[id^="instr"],.ibox,.instr-box,.question-box,[class*="stats"],[id*="stats"],[id="sts"],[class*="statistic"],[class*="dashboard"],[class*="passage"],[id*="passage"],audio,[class*="audio"],[class*="player"],[class*="phase"]',
+      ZONE = '[class*="drop"],[class*="zone"],[class*="slot"],[class*="column"],[class*="bucket"],[class*="pool"],[class*="tray"],textarea,input,select';
+  function vis(e) { if (!e || !e.getBoundingClientRect) return false; var r = e.getBoundingClientRect(); return r.width > 1 && r.height > 1 && getComputedStyle(e).visibility !== 'hidden'; }
+  function txt(e) { return (e.textContent || '').replace(/\s+/g, ' ').trim(); }
+  function add(e, t) { var v = (e.getAttribute('data-fit') || '').split(' '); if (v.indexOf(t) < 0) { v.push(t); e.setAttribute('data-fit', v.join(' ').trim()); } }
+  function btns() { return [].slice.call(document.querySelectorAll('button')).filter(vis); }
+  function navButtons() { return btns().filter(function (b) { return NAVT.test(txt(b)); }); }
+  function headerBottom() {
+    var y = 0, logo = document.querySelector('.header-logo-img');
+    if (logo) { var h = logo.closest('header,[class*="header"]') || logo.parentElement; y = h.getBoundingClientRect().bottom; }
+    [].slice.call(document.querySelectorAll('[class*="info-bar"],[class*="infobar"],.meta-bar')).filter(vis).forEach(function (b) { var r = b.getBoundingClientRect(); if (r.top < y + 80 && r.bottom > y) y = r.bottom; });
+    return y;
+  }
+  function card() {
+    var nb = navButtons()[0]; if (!nb) return null;
+    var hb = headerBottom(), a = nb;
+    while (a.parentElement && a.parentElement !== document.body && a.getBoundingClientRect().top > hb + 40) a = a.parentElement;
+    return a;
+  }
+  function label() {
+    btns().forEach(function (b) {
+      var t = txt(b);
+      if (b.children.length > 1 && (t.match(/[◀▶]/g) || []).length < 2) return;
+      if (NEXT.test(t) && t !== 'Next ▶') b.textContent = 'Next ▶';
+      else if (PREV.test(t) && t !== '◀ Previous') b.textContent = '◀ Previous';
+      else if (/^\W*check( my)? answers?\W*$/i.test(t) && b.closest('[data-fit~="navrow"]')) b.textContent = 'Check';
+    });
+  }
+  function mark() {
+    var c = card(); if (!c) return;
+    add(c, 'col');
+    var navs = navButtons(), row = null;
+    navs.forEach(function (b) { add(b, 'nav'); if (/^\W*(next|finish|see|show|view|submit)/i.test(txt(b))) add(b, 'next'); });
+    var nx = navs.filter(function (b) { return /^\W*(next|finish)/i.test(txt(b)); })[0] || navs[0];
+    if (nx) { row = nx.parentElement; add(row, 'navrow'); }
+    /* Check button into the Previous / Next row */
+    /* a moved Check whose original place was redrawn by the quiz belongs to an earlier question: remove it */
+    [].slice.call(document.querySelectorAll('[data-fit-moved]')).forEach(function (o) { if (!o.__fitHome || !o.__fitHome.isConnected) o.parentNode && o.parentNode.removeChild(o); });
+    var chk = btns().filter(function (b) { return CHK.test(txt(b)) && !b.closest('[data-fit~="navrow"]') && c.contains(b); });
+    if (row && chk.length === 1 && nx) {
+      [].slice.call(document.querySelectorAll('[data-fit-moved]')).forEach(function (o) { if (o !== chk[0]) o.parentNode.removeChild(o); });
+      var ph = document.createElement('span'); ph.hidden = true; ph.setAttribute('data-fit-ph', '1');
+      chk[0].parentNode.insertBefore(ph, chk[0]); chk[0].__fitHome = ph;
+      add(chk[0], 'chk'); chk[0].setAttribute('data-fit-moved', '1'); row.insertBefore(chk[0], nx);
+    }
+    if (row && innerWidth <= 640) {
+      var tall = function () { var bs = [].slice.call(row.children).filter(vis); if (bs.length < 2) return false; var t0 = bs[0].getBoundingClientRect().top; return bs.some(function (k) { return k.getBoundingClientRect().top > t0 + 20; }); };
+      if (tall()) { if (!/navtight/.test(row.getAttribute('data-fit'))) add(row, 'navtight'); else add(row, 'navhide'); }
+    }
+    same(navs, nx, row);
+    /* matching rows side by side only when every answer chip is short */
+    var chipsAll = [].slice.call(document.querySelectorAll('.chip')); if (chipsAll.length) { var mx = chipsAll.reduce(function (m, k) { return Math.max(m, txt(k).length); }, 0); [].slice.call(document.querySelectorAll('.match-row')).forEach(function (r) { if (mx <= 28) add(r, 'mside'); else if (r.hasAttribute('data-fit')) r.setAttribute('data-fit', r.getAttribute('data-fit').replace(/\bmside\b/, '').trim()); }); }
+    /* answer option groups */
+    var groups = new Map();
+    [].slice.call(c.querySelectorAll('button,[role="button"],[class*="choice"],[class*="answer-tile"],[class*="option"]')).forEach(function (b) {
+      if (!vis(b) || b.closest(FROZEN) || b.closest('[data-fit~="navrow"]') || b.closest('[data-fit-tabs]') || NAVT.test(txt(b)) || CHK.test(txt(b))) return;
+      if (b.closest(ZONE) || b.getAttribute('draggable') === 'true' || /chip/.test(b.className)) return;
+      if (b.parentElement && b.parentElement.closest('[data-fit~="opt"],button,[role="button"]')) return;
+      var p = b.parentElement; if (!p) return;
+      if (!groups.has(p)) groups.set(p, []); groups.get(p).push(b);
+    });
+    groups.forEach(function (list, p) {
+      if (list.length < 2) return;
+      var tag = list[0].tagName; if (!list.every(function (x) { return x.tagName === tag; })) return;
+      add(p, 'opts');
+      var avg = list.reduce(function (s, x) { return s + txt(x).length; }, 0) / list.length;
+      if (avg > 18) add(p, 'opts1');
+      if (avg > 45) add(p, 'optl');
+      var onlyOpts = [].slice.call(p.children).filter(vis).every(function (k) { return list.indexOf(k) >= 0; });
+      if (onlyOpts && list.length % 2 === 0 && avg <= 70) add(p, 'opts2');
+      /* whole paragraphs as choices: once they take more than the screen can spare, show one at a time behind letter tabs */
+      if (avg > 160 && onlyOpts) { add(p, 'para'); if (!p.hasAttribute('data-fit-tabbed') && p.getBoundingClientRect().height > innerHeight - 330) p.setAttribute('data-fit-tabbed', '1'); }
+      list.forEach(function (x) {
+        add(x, 'opt'); if (x.getBoundingClientRect().height > 64 && txt(x).length < 90) add(x, 'optp');
+        var k = x.firstElementChild; if (k && txt(k).length === 1 && k.getBoundingClientRect().width >= 24) add(k, 'key');
+      });
+      /* spacing of the blocks around the answers */
+      var body = p.parentElement, chain = [];
+      for (var an = p.parentElement; an && an !== c.parentElement; an = an.parentElement) chain.push(an);
+      chain.forEach(function (blk) { if (!blk || !c.contains(blk)) return; [].slice.call(blk.children).forEach(function (k) { if (vis(k) && !k.matches(FROZEN) && !k.closest(FROZEN) && !k.matches('[data-fit~="navrow"]')) add(k, 'gap'); }); });
+      [].slice.call(body.children).forEach(function (k) { var id = (k.id || '') + ' ' + (typeof k.className === 'string' ? k.className : ''); if (k !== p && /task|question-text|prompt|stem/i.test(id) && !k.querySelector('[data-fit~="opts"]') && !k.closest(FROZEN)) add(k, 'task'); if (/hint|utility/i.test(id) && !k.querySelector('[data-fit~="opts"]')) add(k, 'hint'); });
+    });
+    tabs(c);
+    /* feedback panels and fixed minimum heights */
+    [].slice.call(c.querySelectorAll('*')).forEach(function (e) {
+      if (!vis(e) || e.closest(FROZEN) || e.closest('[data-fit~="navrow"]')) return;
+      var id = (e.id || '') + ' ' + (typeof e.className === 'string' ? e.className : '');
+      if (/feedback|explanation|response|fbx/i.test(id) && !e.parentElement.closest('[data-fit~="fb"]') && e.tagName !== 'BUTTON') add(e, 'fb');
+      if (e.closest(ZONE) || e.tagName === 'BUTTON') return;
+      var mh = parseFloat(getComputedStyle(e).minHeight) || 0;
+      if (mh >= 56 && e.getBoundingClientRect().height <= mh + 2) add(e, 'nomin');
+    });
+  }
+  /* Previous and Next look identical (teacher, 13 Nov 2026): same dark blue, same width, label centred.
+     Inline !important so a quiz's own button colours cannot win; widths set here so the pair matches even in different parents. */
+  function same(navs, nx, row) {
+    navs.forEach(function (b) {
+      var s = b.style;
+      if (s.getPropertyValue('background-color') !== 'rgb(30, 58, 95)' || s.getPropertyPriority('background-color') !== 'important') {
+        s.setProperty('background', '#1e3a5f', 'important'); s.setProperty('border-color', '#1e3a5f', 'important'); s.setProperty('color', '#fff', 'important');
+        s.setProperty('justify-content', 'center', 'important'); s.setProperty('text-align', 'center', 'important'); s.setProperty('transition', 'opacity .2s', 'important');
+      }
+    });
+    var pv = navs.filter(function (b) { return PREV.test(txt(b)); })[0];
+    if (!pv || !nx || pv === nx) return;
+    if (row && nx.parentElement === row && !row.contains(pv)) add(row, 'navsolo');
+    var pair = [pv, nx];
+    pair.forEach(function (b) { ['width', 'min-width', 'height', 'padding-top', 'padding-bottom', 'margin-top', 'margin-bottom', 'vertical-align', 'align-self'].forEach(function (k) { b.style.removeProperty(k); }); b.removeAttribute('data-fit-w'); });
+    var w = Math.ceil(Math.max(pv.getBoundingClientRect().width, nx.getBoundingClientRect().width));
+    var h = Math.ceil(Math.max(44, pv.getBoundingClientRect().height, nx.getBoundingClientRect().height));
+    /* on a narrow row the pair shares what the other items (counter, Check) leave */
+    if (row && pv.parentElement === row && nx.parentElement === row) {
+      var cs = getComputedStyle(row), gap = parseFloat(cs.columnGap) || parseFloat(cs.gap) || 0, kids = [].slice.call(row.children).filter(vis);
+      var others = kids.filter(function (k) { return pair.indexOf(k) < 0; }).reduce(function (s, k) { return s + k.getBoundingClientRect().width; }, 0);
+      var room = Math.floor((row.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - others - gap * (kids.length - 1)) / 2) - 1;
+      if (room >= 84 && room < w) w = room;
+    }
+    w = Math.min(w, 260);
+    pair.forEach(function (b) { b.style.setProperty('width', w + 'px', 'important'); b.style.setProperty('min-width', w + 'px', 'important'); b.style.setProperty('flex', '0 0 auto', 'important'); b.style.setProperty('box-sizing', 'border-box', 'important');
+      b.style.setProperty('height', h + 'px', 'important'); b.style.setProperty('padding-top', '0', 'important'); b.style.setProperty('padding-bottom', '0', 'important');
+      b.style.setProperty('margin-top', '0', 'important'); b.style.setProperty('margin-bottom', '0', 'important'); b.style.setProperty('vertical-align', 'middle', 'important'); b.style.setProperty('align-self', 'center', 'important');
+      b.setAttribute('data-fit-w', w); });
+  }
+  /* letter tabs for paragraph choices: a tab only shows its paragraph; tapping the paragraph still chooses it */
+  function tabs(c) {
+    [].slice.call(document.querySelectorAll('[data-fit-tabs]')).forEach(function (bar) { var p = bar.__fitFor; if (!p || !p.isConnected || bar.nextElementSibling !== p) bar.parentNode && bar.parentNode.removeChild(bar); });
+    [].slice.call(c.querySelectorAll('[data-fit-tabbed]')).forEach(function (p) {
+      var opts = [].slice.call(p.children).filter(function (k) { return k.matches('[data-fit~="opt"]'); });
+      if (opts.length < 2) return;
+      var st = function (o) { var s = typeof o.className === 'string' ? o.className : ''; return /\b(correct|right|success|good|is-correct)\b/i.test(s) ? 'good' : /\b(wrong|incorrect|error|bad|is-wrong)\b/i.test(s) ? 'bad' : /\b(selected|chosen|picked|active)\b/i.test(s) || o.getAttribute('aria-pressed') === 'true' || o.getAttribute('aria-checked') === 'true' ? 'sel' : ''; };
+      if (p.__fitTab == null || p.__fitTab >= opts.length) { var pick = -1; opts.forEach(function (o, i) { if (pick < 0 && st(o) && st(o) !== 'good') pick = i; }); p.__fitTab = pick >= 0 ? pick : 0; }
+      var bar = p.previousElementSibling;
+      if (!bar || !bar.hasAttribute('data-fit-tabs')) { bar = document.createElement('div'); bar.setAttribute('data-fit-tabs', '1'); bar.__fitFor = p; p.parentNode.insertBefore(bar, p); }
+      if (bar.children.length !== opts.length + 1) {
+        bar.innerHTML = '';
+        opts.forEach(function (o, i) { var k = o.firstElementChild, l = k && /^[A-Z]$/.test(txt(k)) ? txt(k) : String.fromCharCode(65 + i); var b = document.createElement('button'); b.type = 'button'; b.textContent = l; b.setAttribute('aria-label', 'Show paragraph ' + l); b.onclick = function (e) { e.stopPropagation(); p.__fitTab = i; window.__fitApply(); }; bar.appendChild(b); });
+        var h = document.createElement('span'); h.textContent = 'Read each one, then tap your choice.'; bar.appendChild(h);
+      }
+      opts.forEach(function (o, i) {
+        var v = (o.getAttribute('data-fit') || '').split(' ').filter(function (x) { return x && x !== 'pshow'; }); if (i === p.__fitTab) v.push('pshow'); o.setAttribute('data-fit', v.join(' '));
+        var b = bar.children[i]; b.setAttribute('aria-pressed', i === p.__fitTab ? 'true' : 'false'); var s = st(o); if (s) b.setAttribute('data-st', s); else b.removeAttribute('data-st');
+      });
+    });
+  }
+  /* keep the question in sight after Next / Previous */
+  function sight() {
+    var c = card(); if (!c) return;
+    var navs = navButtons(), bottom = 0;
+    navs.forEach(function (b) { bottom = Math.max(bottom, b.getBoundingClientRect().bottom); });
+    var top = c.getBoundingClientRect().top;
+    if (top < 0 || bottom > innerHeight) window.scrollTo(0, Math.max(0, top + scrollY - 6));
+  }
+  /* after an answer or Check: bring the feedback and Next into view, keeping the chosen answer on screen */
+  function nudge(anchor) {
+    var navs = navButtons(); if (!navs.length) return;
+    var bottom = 0; navs.forEach(function (b) { bottom = Math.max(bottom, b.getBoundingClientRect().bottom); });
+    if (bottom <= innerHeight) return;
+    var limit = anchor && anchor.isConnected ? anchor.getBoundingClientRect().top - 8 : bottom - innerHeight + 8;
+    var by = Math.min(bottom - innerHeight + 8, Math.max(0, limit));
+    if (by > 0) window.scrollBy(0, by);
+  }
+  /* TAP-2026-11-13: matching with word chips - tap a chip to send it to the next empty box, in order; dragging still works.
+     The tap replays the quiz's own drag (press on the chip, release over the box), so the quiz scores it exactly as a drag. */
+  var CHIP = '.chip-tray .chip,.chip-tray .topic-chip,.chip-tray [data-chip]', HELD = '.chip,.topic-chip,[data-chip]';
+  /* a tap = press and release on the same chip without moving; the quiz's own drag code moves the chip on release,
+     so the browser sends no click - the tap is read from the press and the release */
+  var down = null;
+  document.addEventListener('pointerdown', function (e) {
+    var c = e.isTrusted && e.target && e.target.closest && e.target.closest(CHIP);
+    down = c && !c.disabled && !/\bplaced\b/.test(c.className) ? { c: c, x: e.clientX, y: e.clientY, t: Date.now() } : null;
+  }, true);
+  document.addEventListener('pointerup', function (e) {
+    var d = down; down = null; if (!d || !e.isTrusted) return;
+    if (Math.abs(e.clientX - d.x) + Math.abs(e.clientY - d.y) > 8 || Date.now() - d.t > 800) return; /* a drag or a long press */
+    setTimeout(function () { tapPlace(d.c); }, 0); /* after the quiz has handled the release */
+  }, true);
+  function tapPlace(chip) {
+    if (!chip.isConnected || chip.disabled || !chip.closest('.chip-tray')) return;
+    chip.classList.remove('dragging'); chip.style.transform = '';
+    var slots = emptySlots(chip.closest('.chip-tray')); if (slots.length) replayDrag(chip, slots[0]);
+  }
+  function emptySlots(tray) {
+    var scope = tray, list = [];
+    while (scope && scope !== document.body) {
+      list = [].slice.call(scope.querySelectorAll('.drop-slot,.slot'));
+      if (!list.length) list = [].slice.call(scope.querySelectorAll('[data-row]')).filter(function (r) { return !r.querySelector('[data-row]'); });
+      if (list.length) break;
+      scope = scope.parentElement;
+    }
+    return list.filter(function (s) { return vis(s) && !s.querySelector(HELD); });
+  }
+  function replayDrag(chip, slot) {
+    var a = chip.getBoundingClientRect(), b = slot.getBoundingClientRect();
+    var ax = a.left + a.width / 2, ay = a.top + a.height / 2, bx = b.left + b.width / 2, by = b.top + b.height / 2;
+    var P = Element.prototype, sc = P.setPointerCapture, rc = P.releasePointerCapture, hc = P.hasPointerCapture, efp = document.elementFromPoint;
+    P.setPointerCapture = function () {}; P.releasePointerCapture = function () {}; P.hasPointerCapture = function () { return true; };
+    document.elementFromPoint = function (x, y) { return Math.abs(x - bx) < 1 && Math.abs(y - by) < 1 ? slot : efp.call(document, x, y); };
+    var fire = function (type, x, y) { chip.dispatchEvent(new PointerEvent(type, { bubbles: true, cancelable: true, pointerId: 31, isPrimary: true, pointerType: 'mouse', button: type === 'pointermove' ? -1 : 0, buttons: type === 'pointerup' ? 0 : 1, clientX: x, clientY: y })); };
+    try { fire('pointerdown', ax, ay); fire('pointermove', (ax + bx) / 2, (ay + by) / 2); fire('pointermove', bx, by); fire('pointerup', bx, by); }
+    finally { P.setPointerCapture = sc; P.releasePointerCapture = rc; P.hasPointerCapture = hc; document.elementFromPoint = efp; }
+  }
+  /* keyboard (Enter / Space on a chip button) arrives as a click with no pointer: place it the same way */
+  document.addEventListener('click', function (e) {
+    if (e.detail) return; var chip = e.target && e.target.closest && e.target.closest(CHIP);
+    if (chip && !/\bplaced\b/.test(chip.className)) tapPlace(chip);
+  }, true);
+  var pend = false;
+  function run() { if (pend) return; pend = true; setTimeout(function () { pend = false; try { obs.disconnect(); label(); mark(); } catch (e) {} obs.observe(document.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['class', 'disabled', 'hidden', 'style'] }); }, 0); }
+  var obs = new MutationObserver(run);
+  window.__fitApply = function () { obs.disconnect(); try { label(); mark(); } catch (e) {} obs.observe(document.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['class', 'disabled', 'hidden', 'style'] }); };
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('button'); if (!b) return;
+    if (/^\W*(next|previous|prev|back|start)/i.test(txt(b))) { setTimeout(sight, 90); return; }
+    var opt = b.closest('[data-fit~="opt"]'), isChk = CHK.test(txt(b));
+    if (opt || isChk) { var idx = opt ? [].indexOf.call(opt.parentElement.children, opt) : -1, par = opt && opt.parentElement;
+      setTimeout(function () { var a = par && par.isConnected ? par.children[idx] : null; if (!a) { var o = document.querySelector('[data-fit~="opts"]'); a = o ? o.children[0] : null; } nudge(isChk ? card() : a); }, 160); }
+  }, true);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+  window.addEventListener('resize', run);
+})();
+</script>
+
+<!-- FIT-LAYER-END -->
+<script>/* BARFMT-2026-11-14: the bar under the heading reads "UNITn: SKILL | topic | QUIZ-n" (the topic is not changed) */
+(function () {
+  var SK = ['GRAMMAR', 'VOCABULARY', 'FUNCTIONS', 'LISTENING', 'READING', 'WRITING'];
+  function skillIn(s) { s = String(s || '').toUpperCase(); for (var j = 0; j < SK.length; j++) if (s.indexOf(SK[j]) >= 0) return SK[j]; return ''; }
+  function fix() {
+    var els = document.querySelectorAll('span,div');
+    for (var i = 0; i < els.length; i++) {
+      var e = els[i]; if (e.children.length) continue;
+      var m = /^\s*UNIT\s*:?\s*(\d+)\s*$/i.exec(e.textContent); if (!m) continue;
+      var kids = [].filter.call(e.parentElement.children, function (k) { return k.tagName !== 'SCRIPT'; });
+      if (kids.length < 3 || kids[0] !== e) continue;
+      var last = kids[kids.length - 1], r = last.textContent, sk = skillIn(r) || skillIn(document.title);
+      if (!sk && !r.trim()) return;                       /* the page has not filled the bar yet */
+      var q = /QUIZ\s*-?\s*(\d+)/i.exec(r);
+      e.textContent = 'UNIT' + m[1] + ': ' + (sk || 'QUIZ');
+      last.textContent = 'QUIZ-' + (q ? q[1] : '1');
+      return;
+    }
+  }
+  fix();
+  document.addEventListener('DOMContentLoaded', fix); window.addEventListener('load', fix);
+  [300, 1000, 2500].forEach(function (t) { setTimeout(fix, t); });
+  try { var wait = false; new MutationObserver(function () { if (wait) return; wait = true; setTimeout(function () { wait = false; fix(); }, 60); }).observe(document.documentElement, { childList: true, subtree: true, characterData: true }); } catch (x) {}
+})();</script>
+<style id="lu-common-2026-11-14">
+/* LU-COMMON-2026-11-14: the same header and info bar on every Level UP 2BAC quiz (all skills, Units 1-10).
+   Frozen header values (teacher's template) + the Units 6-10 navy info bar. Everything below the bar is set by the skill layer. */
+[data-look~="frame"]{background:transparent!important;box-shadow:none!important;border-color:transparent!important;border-radius:0!important;margin-top:0!important;padding-top:0!important}
+@media (min-width:900px){[data-look~="frame"]{overflow:visible!important}}
+body{margin-top:0!important;padding-top:0!important}
+[data-look~="hdr"]{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;flex-wrap:nowrap!important;background:#eaf4ff!important;padding:10px 14px!important;border:0!important;border-radius:0!important;box-shadow:none!important;min-height:0!important;height:auto!important;box-sizing:border-box!important;margin-top:0!important;margin-bottom:0!important;position:relative!important;top:auto!important}
+[data-look~="hdr"]>*{margin:0!important}
+[data-look~="htitle"]{flex:1 1 auto!important;min-width:0!important;text-align:center!important;line-height:1.2!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
+[data-look~="himg"]{height:96px!important;width:auto!important;max-width:none!important;object-fit:contain!important;flex:none!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important;background:none!important}
+[data-look~="hbox"]{flex:none!important;margin:0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important;width:auto!important;height:auto!important;min-width:0!important}
+[data-look~="t1"],[data-look~="t2"],[data-look~="t3"]{display:block!important;font-family:Poppins,Arial,sans-serif!important;line-height:1.2!important;margin:0!important;padding:0!important;text-align:center!important;letter-spacing:normal!important;text-transform:none!important;text-shadow:none!important;background:none!important}
+[data-look~="t1"]{font-size:26px!important;font-weight:800!important;color:#1e3a5f!important}
+[data-look~="t2"]{font-size:18px!important;font-weight:400!important;color:#2563eb!important}
+[data-look~="t3"]{font-size:14px!important;font-weight:400!important;color:#64748b!important}
+[data-look~="bar"]{display:flex!important;flex-direction:row!important;justify-content:space-between!important;align-items:center!important;gap:8px!important;flex-wrap:nowrap!important;background:#123d70!important;color:#fff!important;font:600 13px/1.5 Poppins,Arial,sans-serif!important;padding:8px 14px!important;border:0!important;border-radius:0!important;box-shadow:none!important;min-height:36px!important;height:auto!important;box-sizing:border-box!important;margin-top:0!important;margin-bottom:0!important;text-transform:uppercase!important;letter-spacing:normal!important;position:relative!important;top:auto!important}
+[data-look~="bar"]>*{color:#fff!important;font:inherit!important;background:none!important;padding:0!important;margin:0!important;border:0!important;box-shadow:none!important;text-transform:inherit!important;letter-spacing:normal!important;flex:0 0 auto!important;white-space:nowrap!important;text-align:left!important;width:auto!important}
+[data-look~="bar"]>:not(:first-child):not(:last-child){flex:1 1 auto!important;min-width:0!important;white-space:normal!important;text-align:center!important}
+[data-look~="bar"]>:last-child:not(:first-child){text-align:right!important}
+[data-look~="flat"]{box-shadow:none!important;border-color:transparent!important;background:transparent!important}
+@media (min-width:600px) and (max-width:1023px){[data-look~="himg"]{height:80px!important}}
+@media (max-width:640px){
+  [data-look~="himg"]{height:45px!important}
+  [data-look~="hdr"]{padding:8px 12px!important}
+  [data-look~="t1"]{font-size:16px!important}[data-look~="t2"]{font-size:12px!important}[data-look~="t3"]{font-size:10px!important}
+  [data-look~="bar"]{font-size:11.5px!important;padding:6px 10px!important;min-height:32px!important;gap:6px!important}
+}
+</style>
+<script id="lu-common-2026-11-14-js">
+(function () {
+  if (window.__luCommon) return; window.__luCommon = true;
+  var SHEET = 1100, d = document, H0 = d.documentElement;
+  function txt(e) { return (e.textContent || '').replace(/\s+/g, ' ').trim(); }
+  function add(e, t) { var v = (e.getAttribute('data-look') || '').split(' ').filter(Boolean); if (v.indexOf(t) < 0) { v.push(t); e.setAttribute('data-look', v.join(' ')); } }
+  function vis(e) { if (!e || !e.getBoundingClientRect) return false; var r = e.getBoundingClientRect(); return r.width > 1 && r.height > 1 && getComputedStyle(e).display !== 'none' && getComputedStyle(e).visibility !== 'hidden'; }
+  function imgs(re) { return [].slice.call(d.images).filter(function (i) { return re.test((i.getAttribute('src') || '') + ' ' + i.className + ' ' + (i.alt || '')); }); }
+  function header() {
+    var lg = d.querySelector('.header-logo-img') || imgs(/logo|XPOYllA/i)[0];
+    var tc = d.querySelector('.header-teacher-img') || imgs(/teacher|vvyZAnr/i)[0];
+    if (!lg || !tc) return null;
+    var h = lg.parentElement; while (h && h !== d.body && !h.contains(tc)) h = h.parentElement;
+    return h && h !== d.body ? { h: h, lg: lg, tc: tc } : null;
+  }
+  function bar() {
+    var els = d.querySelectorAll('span,div,p,strong,b');
+    for (var i = 0; i < els.length; i++) { var e = els[i]; if (e.children.length) continue; var m = /^\s*UNIT\s*(\d+)\s*:\s*([A-Z]*)/i.exec(e.textContent); if (m) { H0.setAttribute('data-lu-unit', m[1]); if (+m[1] <= 5) H0.setAttribute('data-lu-old', ''); var b = e.parentElement; while (b && b.children.length < 2) b = b.parentElement; return b; } }
+    return null;
+  }
+  function childOf(h, x) { while (x && x.parentElement !== h) x = x.parentElement; return x; }
+  function frameUp(el) { if (!H0.hasAttribute('data-lu-old')) return; for (var a = el.parentElement; a && a !== d.body && a !== H0; a = a.parentElement) add(a, 'frame'); }
+  function place(el) {
+    el.style.removeProperty('margin-left'); el.style.removeProperty('width'); el.style.removeProperty('max-width');
+    var p = el.parentElement, cs = getComputedStyle(p), pr = p.getBoundingClientRect();
+    var cl = pr.left + parseFloat(cs.paddingLeft) + parseFloat(cs.borderLeftWidth);
+    var vw = H0.clientWidth, w = Math.min(SHEET, vw), left = Math.max(0, (vw - w) / 2);
+    el.style.setProperty('margin-left', Math.round(left - cl) + 'px', 'important');
+    el.style.setProperty('margin-right', '0px', 'important');
+    el.style.setProperty('width', w + 'px', 'important');
+    el.style.setProperty('max-width', 'none', 'important');
+  }
+  function tidyTop(H) { var top = H.getBoundingClientRect().top + scrollY; if (Math.abs(top) > 0.5) H.style.setProperty('margin-top', (parseFloat(getComputedStyle(H).marginTop) - top) + 'px', 'important'); }
+  function joinBar(H, B) {
+    if (!B || H.contains(B)) return; B.style.removeProperty('margin-top');
+    var g = B.getBoundingClientRect().top - H.getBoundingClientRect().bottom;
+    if (Math.abs(g) > 0.5) B.style.setProperty('margin-top', (parseFloat(getComputedStyle(B).marginTop) - g) + 'px', 'important');
+  }
+  function firstTop(el) {
+    var best = Infinity, top0 = el.getBoundingClientRect().top, all = [el].concat([].slice.call(el.querySelectorAll('*')));
+    for (var i = 0; i < all.length && i < 400; i++) { var e = all[i]; if (!vis(e)) continue; var cs = getComputedStyle(e); var paint = e.children.length === 0 || cs.backgroundColor !== 'rgba(0, 0, 0, 0)' || cs.backgroundImage !== 'none' || cs.borderTopWidth !== '0px' || cs.boxShadow !== 'none' || e.tagName === 'BUTTON'; if (paint) best = Math.min(best, Math.max(top0, e.getBoundingClientRect().top)); } /* GAPFIX-2026-11-18: text scrolled out of sight inside a box (the passage) sits above the box; it must not push the box down */
+    return best;
+  }
+  function gapBelow(B) {
+    /* the skill layer sets --lu-gap: the space between the info bar and the first thing under it */
+    var G = parseFloat(getComputedStyle(H0).getPropertyValue('--lu-gap')); if (!isFinite(G)) return; if (!vis(B)) { var X0 = header(); B = X0 && X0.h; if (!B) return; } /* HIDDENBAR-2026-11-18: the bar is hidden (results page): measure from the header instead, so the results band keeps the same gap under the header and does not move with the scroll */
+    var x = B, n = null;
+    while (x && x !== d.body) { n = x.nextElementSibling; while (n && (!vis(n) || /^(SCRIPT|STYLE)$/.test(n.tagName))) n = n.nextElementSibling; if (n) break; x = x.parentElement; }
+    if (!n) return;
+    var cur = parseFloat(getComputedStyle(n).marginTop) || 0, t = firstTop(n); if (!isFinite(t)) return;
+    var g = t - B.getBoundingClientRect().bottom;
+    if (Math.abs(g - G) > 0.5) n.style.setProperty('margin-top', (cur + G - g) + 'px', 'important');
+  }
+  function title(H) {
+    var leaves = [].slice.call(H.querySelectorAll('*')).filter(function (e) { return e.children.length === 0 || [].every.call(e.children, function (k) { return /^(BR|SPAN|B|STRONG|EM)$/.test(k.tagName) && !k.children.length; }); });
+    var t1 = leaves.find(function (e) { return /^English2BAC Quizzes$/i.test(txt(e)); });
+    var t2 = leaves.find(function (e) { return /^Learn\s*•\s*Practice\s*•\s*Succeed$/i.test(txt(e)); });
+    var t3 = leaves.find(function (e) { return /^with Teacher\.?\s*Soufiane$/i.test(txt(e)); });
+    if (t1) add(t1, 't1'); if (t2) add(t2, 't2'); if (t3) add(t3, 't3');
+    var tb = t1 && childOf(H, t1); if (tb) add(tb, 'htitle');
+  }
+  function flatCards() {
+    /* Units 1-5 only: outer cards and page-wide wrappers lose their own frame, as on the reference quizzes */
+    if (!H0.hasAttribute('data-lu-old')) return;
+    var col = d.querySelector('[data-fit~="col"]'); if (col) { add(col, 'frame'); frameUp(col); }
+    var vw = H0.clientWidth, cw = Math.min(760, vw);
+    [].slice.call(d.body.querySelectorAll('div,section,article,main,form,aside')).forEach(function (e) {
+      if (e.closest('[data-look~="hdr"],[data-look~="bar"],[role="dialog"],[class*="modal"],[class*="overlay"],[data-lu-keep]')) return;
+      var cs = getComputedStyle(e); if (!/^(static|relative)$/.test(cs.position)) return;
+      var r = e.getBoundingClientRect();
+      if (vw >= 900 && r.width > 800 && r.height > 60) { add(e, 'frame'); return; }
+      if (cs.boxShadow !== 'none' && r.width >= cw * 0.9 - 30 && r.height > 120) add(e, 'flat');
+    });
+  }
+  var busy = false;
+  function run() {
+    if (busy) return; busy = true;
+    try {
+      var B = bar();
+      var X = header(); if (!X) return;
+      var H = X.h; add(H, 'hdr'); add(X.lg, 'himg'); add(X.tc, 'himg');
+      [X.lg, X.tc].forEach(function (im) { var c = childOf(H, im); if (c && c !== im) add(c, 'hbox'); });
+      title(H); frameUp(H);
+      if (B && !H.contains(B)) { add(B, 'bar'); frameUp(B); }
+      flatCards();
+      place(H); if (B && !H.contains(B)) place(B);
+      tidyTop(H); joinBar(H, B);
+      if (B && !H.contains(B)) gapBelow(B);
+    } catch (e) { } finally { busy = false; }
+  }
+  var timer = 0; function soon() { clearTimeout(timer); timer = setTimeout(run, 60); }
+  run();
+  d.addEventListener('DOMContentLoaded', run); window.addEventListener('load', run); window.addEventListener('resize', soon);
+  [300, 1000, 2500].forEach(function (t) { setTimeout(run, t); });
+  try { new MutationObserver(soon).observe(H0, { childList: true, subtree: true, characterData: true }); } catch (x) { }
+})();
+</script>
+<style id="lu-skin-listening-2026-11-14">
+/* LU-SKIN Listening 2026-11-14: one look for every Listening quiz.
+   Reference: Unit 10 Listening (Expressing Regret), values measured from it at 1366px and 360px.
+   Applies to Units 1-5 pages (html[data-lu-old], set by LU-COMMON); Units 6-10 Listening quizzes already have these values. */
+html[data-lu-old]{--lu-gap:14px;background:linear-gradient(90deg,#f4f7fb 0,#f4f7fb calc(50% - 550px),#fff calc(50% - 550px),#fff calc(50% + 550px),#f4f7fb calc(50% + 550px))!important;background-color:#fff!important}
+html[data-lu-old] body{background:transparent!important;color:#1e3a5f;min-height:100vh}
+html[data-lu-old] [data-fit~="col"]{max-width:760px!important;margin-left:auto!important;margin-right:auto!important}
+/* instruction strip: navy, rounded 10px, white capitals 16px/700, left */
+html[data-lu-old] :is(.instruction,.instruction-box,.ibox,.instr-box,.question-instruction){background:#123d70!important;color:#fff!important;border:0!important;border-radius:10px!important;padding:12px 14px!important;margin:0 0 12px!important;box-shadow:none!important;font-family:Poppins,Arial,sans-serif!important;font-size:16px!important;font-weight:700!important;line-height:24px!important;letter-spacing:normal!important;text-align:left!important;text-transform:uppercase!important;min-height:0!important}
+html[data-lu-old] :is(.instruction,.instruction-box,.ibox,.instr-box,.question-instruction) *{color:#fff!important;font-size:inherit!important;font-weight:inherit!important;line-height:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important;text-align:inherit!important;background:none!important;border:0!important;box-shadow:none!important;margin:0!important;padding:0!important}
+/* question: 16px/700, centred, no box (15px on a phone) */
+html[data-lu-old] :is(.task,.task-area,.task-text,.task-panel,#task-text,#taskText){background:none!important;border:0!important;box-shadow:none!important;padding:0!important;margin:6px 0 10px!important;font-family:Poppins,Arial,sans-serif!important;font-size:16px!important;font-weight:700!important;line-height:24px!important;color:#1e3a5f!important;text-align:center!important;min-height:0!important}
+html[data-lu-old] :is(.task,.task-area,.task-text,.task-panel,#task-text,#taskText) :is(span,strong,b,em){font-size:inherit!important;line-height:inherit!important;color:inherit!important;text-align:inherit!important}
+/* answers: two columns, gap 8px; long answers one column on a phone */
+html[data-lu-old] :is(.choices,.choice-list,.answer-grid,.choice-grid,#answerArea,.choices-grid,.answers-grid,.tiles):has(>button){display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;margin:0!important}
+html[data-lu-old] :is(.choices,.choice-list,.answer-grid,.choice-grid,#answerArea,.choices-grid,.answers-grid,.tiles)>button{border-radius:10px!important;border-width:2px!important;border-style:solid!important;padding:10px 12px!important;min-height:44px!important;height:auto!important;font-family:Poppins,Arial,sans-serif!important;font-size:16px!important;font-weight:500!important;line-height:1.35!important;text-align:left!important;margin:0!important;box-shadow:none!important;width:100%!important}
+html[data-lu-old] :is(.choices,.choice-list,.answer-grid,.choice-grid,#answerArea,.choices-grid,.answers-grid,.tiles)>button:not([class*="correct"]):not([class*="wrong"]):not([class*="right"]):not([class*="select"]):not([class*="active"]):not([class*="chosen"]):not([class*="picked"]):not([class*="error"]):not([class*="success"]):not([aria-pressed="true"]):not([style*="background"]):not([style*="border"]):not(.ok):not(.bad):not(.no):not(.yes):not([class*="good"]):not([class*="miss"]):not([class*="answer-"]):not([data-state]){background:#fff!important;border-color:#d8e5f4!important;color:#1e3a5f!important}
+/* word cards to drag or tap (pools and trays): rounded 12px */
+html[data-lu-old] :is(.tile-pool,.chip-tray,.tray,.pool)>button{border-radius:12px!important;border-width:2px!important;border-style:solid!important;padding:6px 12px!important;min-height:44px!important;font-family:Poppins,Arial,sans-serif!important;font-size:16px!important;font-weight:500!important;line-height:1.35!important;box-shadow:none!important}
+/* feedback, statistics, navigation row */
+html[data-lu-old] :is(.feedback,.feedback-panel,.feedback-box,.feedback-area,#explanationArea,#feedbackSlot,#single-feedback){margin-top:12px!important;padding:10px 12px!important;border-radius:10px!important;line-height:1.5!important}
+html[data-lu-old] :is(.stats,.stats-row,.stats-bar,.stats-card,.stat-row,#stats){display:flex!important;flex-wrap:nowrap!important;justify-content:space-between!important;align-items:center!important;gap:8px!important;margin-top:10px!important;padding:10px!important;background:#f1f5f9!important;border:0!important;border-radius:10px!important;box-shadow:none!important;font-family:Poppins,Arial,sans-serif!important;font-size:14px!important;font-weight:600!important;color:#1e3a5f!important;width:auto!important;min-height:0!important}
+html[data-lu-old] :is(.stats,.stats-row,.stats-bar,.stats-card,.stat-row,#stats) :is(div,span,strong,b,p,section){background:none!important;border:0!important;box-shadow:none!important;font-size:14px!important;color:inherit!important}
+html[data-lu-old] :is(.stats,.stats-row,.stats-bar,.stats-card,.stat-row,#stats)>*{padding:0!important;margin:0!important}
+html[data-lu-old] :is(.stats,.stats-row,.stats-bar,.stats-card,.stat-row,#stats) :is(.stats,.stats-row,.stat-row){padding:0!important;margin:0!important;background:none!important}
+html[data-lu-old] :is(.nav-row,.navigation,.navigation-row,.nav,.navrow,.bottom-nav){margin-top:10px!important}
+@media (max-width:640px){
+  html[data-lu-old] :is(.task,.task-area,.task-text,.task-panel,#task-text,#taskText){font-size:15px!important;line-height:20.25px!important}
+  html[data-lu-old] :is(.choices,.choice-list,.answer-grid,.choice-grid,#answerArea,.choices-grid,.answers-grid,.tiles)>button{font-size:15px!important;padding:10px 12px!important;min-height:44px!important}
+  html[data-lu-old] [data-fit~="opts1"]:is(.choices,.choice-list,.answer-grid,.choice-grid,#answerArea,.choices-grid,.answers-grid,.tiles){grid-template-columns:minmax(0,1fr)!important;gap:6px!important}
+  html[data-lu-old] [data-fit~="opts1"]>button{padding:8px 12px!important}
+  html[data-lu-old] :is(.tile-pool,.chip-tray,.tray,.pool)>button{padding:6px 9px!important;font-size:15px!important}
+  html[data-lu-old] :is(.stats,.stats-row,.stats-bar,.stats-card,.stat-row,#stats){flex-wrap:wrap!important;justify-content:center!important}
+}
+</style>
+<style id="u10rules-2026-11-18">
+/* U10RULES-2026-11-18: Unit 10 Listening rules applied to Unit 4 */
+/* MCQ: every option stays visible after an answer; the ones not chosen are only faded */
+.answer-grid>button.choice:disabled{opacity:.55!important}
+.answer-grid>button.choice.correct,.answer-grid>button.choice.incorrect{opacity:1!important}
+/* matching: the word bank sits above the sentences */
+.matching-layout{grid-template-columns:minmax(0,1fr)!important;gap:8px!important}
+.chip-tray.bank-top{flex-direction:row!important;flex-wrap:wrap!important;min-height:0!important;padding:6px 8px!important;gap:6px!important}
+.chip-tray.bank-top .chip{width:auto!important;flex:0 1 auto!important;max-width:100%!important}
+.chip-tray.bank-top:empty{display:none!important}
+.drop-slot>div:not(.chip){font-size:13px;color:#14532d;font-weight:600;margin-top:2px}
+/* listen-first lock */
+#answer-area.lock-wrap{position:relative}
+#answer-area.lock-wrap>:not(.listen-lock){opacity:.35!important;filter:grayscale(.4)}
+.listen-lock{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;width:min(92%,440px);background:#fff;border:2px solid #2563eb;border-radius:12px;padding:10px 14px;text-align:center;font:700 15px/1.4 Poppins,Arial,sans-serif;color:#123d70;box-shadow:0 6px 18px rgba(18,61,112,.18)}
+.listen-lock span{display:block;margin-top:4px;font-weight:600;font-size:13.5px;color:#475569}
+/* Reset | Check row above Previous | page | Next */
+.act-row{display:flex!important;justify-content:space-between!important;gap:10px!important;margin-top:8px!important;padding:0!important}
+.act-row>.act-btn{flex:1 1 0;max-width:260px;min-height:42px;border-radius:10px;font:700 15px/1 Poppins,Arial,sans-serif;cursor:pointer;border:2px solid #123d70;background:#fff;color:#123d70}
+.act-row>.act-check{background:#2563eb;border-color:#2563eb;color:#fff}
+.act-row>.act-btn:disabled{opacity:.45;cursor:not-allowed}
+/* FIT: compact blocks so each screen fits */
+#phase-banner{padding:6px 12px!important;margin-bottom:8px!important;font-size:14px!important;border-left-width:4px!important}
+#audio-panel{padding:6px 10px!important;margin-bottom:8px!important}
+#audio-panel .avatars{margin-bottom:4px!important;gap:30px!important}
+#audio-panel .avatar{display:flex!important;align-items:center!important;gap:6px!important}
+#audio-panel .avatar span{width:36px!important;height:36px!important;font-size:20px!important}
+#audio-panel .avatar small{margin:0!important}
+#audio-panel .controls button{min-height:36px!important;padding:6px 10px!important}
+#audio-panel .progress{margin:6px 0 2px!important}
+#quiz-view>.card:not(#audio-panel){padding:10px 12px!important;margin-bottom:0!important}
+html[data-lu-old] #instruction{padding:8px 12px!important;margin-bottom:6px!important}
+html[data-lu-old] #task-text{margin:4px 0 8px!important}
+.answer-grid>button.choice:disabled{padding-top:6px!important;padding-bottom:6px!important;min-height:38px!important}
+.order-list>.order-item.order-item>*{margin:0!important}
+html[data-lu-old] #feedback{margin-top:8px!important;padding:6px 10px!important;font-size:13.5px!important;line-height:1.4!important}
+html[data-lu-old] #quiz-view .nav-row{margin:8px 0 0!important;padding:0!important}
+html[data-lu-old] #quiz-view .stats{margin-top:8px!important;padding:6px 10px!important}
+html[data-lu-old] #quiz-view .stats *{font-size:13px!important}
+html[data-lu-old] .main-shell{padding-bottom:8px!important}
+@media (min-width:641px){
+  .order-list>.order-item.order-item{padding:3px 6px 3px 12px!important}
+  .order-item .move-buttons button{width:38px!important;height:32px!important;min-height:0!important;padding:0!important}
+}
+@media (max-width:640px){
+  #audio-panel .avatars{display:none!important}
+  html[data-lu-old] #instruction{font-size:14px!important;line-height:19px!important;padding:7px 10px!important}
+  html[data-lu-old] #task-text{font-size:14.5px!important;line-height:19px!important}
+  html[data-lu-old] .answer-grid>button.choice{font-size:13.5px!important;line-height:1.3!important;padding:6px 10px!important;min-height:40px!important}
+  html[data-lu-old] .answer-grid>button.choice:disabled{padding:4px 10px!important;min-height:34px!important}
+  html[data-lu-old] .answer-grid{gap:5px!important}
+  html[data-lu-old] #feedback{font-size:12.5px!important;line-height:1.35!important;padding:5px 8px!important}
+  html[data-lu-old] #quiz-view .stats{gap:4px 10px!important;padding:5px 8px!important}
+  html[data-lu-old] #quiz-view .stats *{font-size:12px!important}
+  .act-row>.act-btn{min-height:38px}
+  .listen-lock{font-size:14px;padding:8px 10px}
+  html[data-lu-old] .chip-tray.bank-top>button{padding:6px 9px!important;font-size:13.5px!important;min-height:38px!important}
+  .drop-slot .chip{font-size:13px!important;padding:5px 7px!important}
+  .order-list>.order-item.order-item{font-size:13.5px!important;line-height:1.3!important;padding:4px 6px 4px 10px!important}
+}
+</style>
+<script>
+/* PHONEFIT-2026-11-18 (from Unit 10 Listening): a screen a little taller than the screen is shrunk a little so it fits.
+   Never below 0.9, and only when that makes it fit completely. Body, header and info bar keep the full width. */
+(function(){
+  var app=document.getElementById('quiz-view'); if(!app) return;
+  var busy=false;
+  function fit(){
+    if(busy) return; busy=true;
+    var b=document.body, H=document.documentElement, bleed=document.querySelectorAll('[data-look~="hdr"],[data-look~="bar"]');
+    function apply(z){
+      b.style.zoom=z||''; b.style.width=z?(H.clientWidth/z)+'px':'';
+      [].forEach.call(bleed,function(e){ if(e.__w0===undefined||e.style.width!==e.__wSet){ if(!parseFloat(e.style.width)) return; e.__w0=e.style.width; } e.style.setProperty('width',z?(parseFloat(e.__w0)/z)+'px':e.__w0,'important'); e.__wSet=e.style.width; });
+    }
+    var z0=parseFloat(document.body.style.zoom)||0;
+    apply(0);
+    if(app.hidden){ busy=false; return; }
+    var need=H.scrollHeight, have=window.innerHeight;
+    if(need>have){ var z=Math.floor(have/need*1000)/1000, tries=[z,z-0.01,z-0.02,0.9], ok=false;
+      for(var t=0;t<tries.length&&!ok;t++){ if(tries[t]<0.9) continue; apply(tries[t]); ok=H.scrollHeight<=have; }
+      if(!ok) apply(0); else if(z0&&z0!==tries[t-1]&&Math.abs(tries[t-1]-z0)<=0.02){ var zk=tries[t-1]; apply(z0); if(H.scrollHeight>have) apply(zk); } } /* STEADY-2026-11-18: keep the zoom already in use when it still fits, so the header does not jitter */
+    busy=false;
+  }
+  window.__u4fit=fit;
+  new MutationObserver(function(){ setTimeout(fit,0); }).observe(document.querySelector('main.main-shell'),{childList:true,subtree:true,attributes:true,attributeFilter:['class','hidden']});
+  window.addEventListener('resize',function(){ setTimeout(fit,50); });
+  var mo=new MutationObserver(function(){ var again=false; [].forEach.call(document.querySelectorAll('[data-look~="hdr"],[data-look~="bar"]'),function(e){ if(e.__wSet!==undefined&&e.style.width!==e.__wSet) again=true; }); if(again) setTimeout(fit,0); });
+  setTimeout(function(){ [].forEach.call(document.querySelectorAll('[data-look~="hdr"],[data-look~="bar"]'),function(e){ mo.observe(e,{attributes:true,attributeFilter:['style']}); }); fit(); },1200);
+  fit();
+})();
+</script>
+<script>/* SPEAKERS-2026-11-18 config: who speaks when ([start, end, 0=boy/1=girl] in seconds of the audio this page plays). */
+window.__SPKCFG={panel:'#audio-panel',hide:'.avatars',people:function(){return [{name:"Adam",img:"speaker-adam.jpg"},{name:"Malak",img:"speaker-malak.jpg"}];},
+  turns:function(){ return [[14.69,19.67,0],[20.33,30.36,1],[30.94,37.43,0],[38.21,45.28,1],[46.03,51.45,0],[52.24,61.49,1],[62.15,66.17,0],[66.74,70.53,1],[71.11,77.96,0],[78.66,83.89,1],[84.53,90.27,0],[90.87,95.32,1],[95.90,102.25,0],[102.84,107.85,1],[108.46,115.58,0],[116.14,120.82,1],[121.59,128.15,0],[128.79,132.58,1],[133.14,136.39,0],[137.11,142.35,1],[142.98,149.10,0],[149.81,154.00,1],[154.75,159.32,0],[159.95,166.05,1],[166.87,171.29,0],[171.97,175.31,1],[176.03,181.87,0],[182.67,186.83,1]]; },
+  time:function(){ return audioPlayer.time(); }, playing:function(){ return !!audioPlayer.playing; }};</script>
+<style id="speakers-2026-11-18">
+/* SPEAKERS-2026-11-18 (teacher): two portraits beside the player, the boy on the left and the girl on the right.
+   The one who is speaking glows and shows sound bars; the other one is faded. During the intro nobody is highlighted. */
+.spk-hidden{display:none!important}
+.spk-stage{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px}
+.spk-mid{min-width:0}
+.spk-mid>*:first-child{margin-top:0!important}.spk-mid>*:last-child{margin-bottom:0!important}
+.spk{margin:0;display:flex;flex-direction:column;align-items:center;gap:3px;position:relative;width:84px}
+.spk img{display:block;width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid #dbeafe;background:#eaf4ff;transition:transform .2s,box-shadow .2s,filter .25s,opacity .25s,border-color .2s}
+.spk figcaption{font:700 13px/1.2 Poppins,Arial,sans-serif;color:#123d70;transition:color .2s;text-align:center;white-space:nowrap}
+.spk-stage.talking .spk:not(.on) img{opacity:.5;filter:grayscale(.6)}
+.spk-stage.talking .spk:not(.on) figcaption{color:#94a3b8}
+.spk.on img{border-color:#2563eb;transform:scale(1.07);animation:spkPulse 1.1s ease-out infinite}
+.spk.on figcaption{color:#2563eb}
+@keyframes spkPulse{0%{box-shadow:0 0 0 0 rgba(37,99,235,.55)}100%{box-shadow:0 0 0 13px rgba(37,99,235,0)}}
+.spk .waves{position:absolute;top:24px;display:flex;align-items:center;gap:2px;height:26px;opacity:0;transition:opacity .2s}
+.spk-left .waves{right:-10px}.spk-right .waves{left:-10px}
+.spk .waves i{display:block;width:3px;height:30%;border-radius:2px;background:#2563eb}
+.spk.on .waves{opacity:1}
+.spk.on .waves i{animation:spkBar .55s ease-in-out infinite alternate}
+.spk.on .waves i:nth-child(2){animation-delay:.18s}.spk.on .waves i:nth-child(3){animation-delay:.36s}
+@keyframes spkBar{from{height:25%}to{height:100%}}
+@media (max-width:640px){
+  .spk-stage{gap:6px}
+  .spk{width:58px;gap:1px}
+  .spk.on img{transform:scale(1.04)}
+  .spk img{width:50px;height:50px;border-width:2px}
+  .spk figcaption{font-size:11.5px}
+  .spk .waves{top:14px;height:22px}
+  .spk-left .waves{right:-6px}.spk-right .waves{left:-6px}
+  .spk-mid button{min-width:0!important;padding-left:6px!important;padding-right:6px!important;white-space:nowrap!important;font-size:13px!important;min-height:40px!important;height:auto!important}
+  .spk-mid [class*="controls"]{gap:5px!important;flex-wrap:nowrap!important}
+}
+@media (prefers-reduced-motion:reduce){.spk.on img,.spk.on .waves i{animation:none}}
+</style>
+<script>
+/* SPEAKERS-2026-11-18: needs window.__SPKCFG = {panel, hide, people(), turns(), time(), playing()} set before this script. */
+(function(){
+  var C=window.__SPKCFG; if(!C) return;
+  function fig(p,side,idx){
+    var f=document.createElement('figure'); f.className='spk spk-'+side; f.dataset.who=String(idx);
+    var im=document.createElement('img'); im.alt=p.name; im.src=p.img; im.onerror=function(){ f.style.visibility='hidden'; };
+    var w=document.createElement('span'); w.className='waves'; w.setAttribute('aria-hidden','true'); w.innerHTML='<i></i><i></i><i></i>';
+    var c=document.createElement('figcaption'); c.textContent=p.name;
+    f.appendChild(im); f.appendChild(w); f.appendChild(c); return f;
+  }
+  function build(){
+    var panel=document.querySelector(C.panel); if(!panel) return null;
+    var st=panel.querySelector(':scope > .spk-stage'); if(st) return st;
+    var ppl=C.people(); if(!ppl||ppl.length<2) return null;
+    var hide=C.hide?panel.querySelector(C.hide):null; if(hide) hide.classList.add('spk-hidden');
+    st=document.createElement('div'); st.className='spk-stage';
+    var mid=document.createElement('div'); mid.className='spk-mid';
+    [].slice.call(panel.children).forEach(function(ch){ if(ch===hide||ch.tagName==='AUDIO'||ch.tagName==='SCRIPT') return; mid.appendChild(ch); });
+    st.appendChild(fig(ppl[0],'left',0)); st.appendChild(mid); st.appendChild(fig(ppl[1],'right',1));
+    panel.appendChild(st); return st;
+  }
+  function who(t){ var T=C.turns()||[]; for(var i=0;i<T.length;i++){ var x=T[i]; if(t>=x[0]-0.15&&t<=x[1]+0.3) return x[2]; } return -1; }
+  var last='';
+  function paint(){
+    var st=build(); if(!st) return;
+    var w=-1; try{ if(C.playing()) w=who(C.time()||0); }catch(e){}
+    var key=w+'|'+(st.dataset.k||(st.dataset.k=String(Math.random()))); if(key===last) return; last=key;
+    st.classList.toggle('talking',w>=0);
+    [].forEach.call(st.querySelectorAll('.spk'),function(f){ f.classList.toggle('on',String(w)===f.dataset.who); });
+  }
+  setInterval(paint,100); paint();
+  window.__speakers={ who:who, paint:paint, build:build };
+})();
+</script>
+
+</body></html>

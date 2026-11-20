@@ -1,0 +1,1308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Women and Power — Vocabulary Quiz 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+/* Level UP 2BAC · Unit 2 Vocabulary Quiz 1 (teacher's Canva quiz, moved onto the Unit 10 vocabulary page 2026-11-16).
+   Header and info bar: the common values (LU-COMMON). Everything below the bar: the Vocabulary reference
+   (Unit 5 Vocabulary 2) values — gradient instruction card, pale definition box, white answer cards in two columns. */
+:root{--navy:#073b77;--blue:#2563eb;--ink:#17253b;--muted:#64748b;--line:#d9e3ef;--ok:#26a85b;--okbg:#e0f6e8;--okink:#116b37;--bad:#e15a5a;--badbg:#ffe8e8;--badink:#a92c2c}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#edf4fa;color:var(--ink);font-family:Poppins,Arial,sans-serif}
+button{font:inherit}
+button:focus-visible{outline:3px solid #f9c74f;outline-offset:3px}
+.sheet{max-width:1100px;margin:0 auto}
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#eaf4ff;padding:10px 14px}
+.hdr img{height:96px;width:auto;flex:none;display:block}
+.htitle{flex:1 1 auto;min-width:0;text-align:center;line-height:1.2}
+.t1{font-size:26px;font-weight:800;color:#1e3a5f}.t2{font-size:18px;color:#2563eb}.t3{font-size:14px;color:#64748b}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#123d70;color:#fff;font:600 13px/1.5 Poppins,Arial,sans-serif;padding:8px 14px;min-height:36px;text-transform:uppercase}
+.bar span{white-space:nowrap}.bar span:nth-child(2){flex:1 1 auto;min-width:0;white-space:normal;text-align:center}
+#app{max-width:760px;margin:34px auto 28px;padding:0 16px}
+.instr{background:linear-gradient(135deg,#0c4f96,#147fc9);color:#fff;border-radius:20px;padding:22px 30px;box-shadow:0 10px 22px rgba(18,104,189,.2);font-size:23.2px;font-weight:800;line-height:1.5;letter-spacing:.812px;text-transform:uppercase}
+.pill{display:inline-flex;align-items:center;gap:6px;margin-top:14px;border-radius:999px;background:#e6f2ff;color:var(--blue);padding:6px 12px;font-size:12.8px;font-weight:800}
+.taskbox{margin:14px 0;background:#f5f9fd;border:1px solid #d7e7f4;border-radius:18px;padding:14px 18px;font-size:20px;font-weight:600;line-height:34px}
+.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.choice{position:relative;min-height:66px;border:2px solid #d5e1ec;border-radius:16px;background:#fff;padding:14px 17px;text-align:left;color:var(--ink);font-size:16px;font-weight:700;line-height:24px;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .2s}
+.choice:hover:not(:disabled){transform:translateY(-2px);border-color:var(--blue);box-shadow:0 8px 18px rgba(18,104,189,.12)}
+.choice:disabled{cursor:default}
+.choice .lt{color:var(--blue);margin-right:6px}
+.choice.correct{background:var(--okbg);border-color:var(--ok);color:var(--okink)}.choice.correct .lt{color:var(--okink)}
+.choice.wrong{background:var(--badbg);border-color:var(--bad);color:var(--badink)}.choice.wrong .lt{color:var(--badink)}
+.choice .mk{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:20px;font-weight:800}
+.choice.correct,.choice.wrong{padding-right:38px}
+.feedback{margin-top:14px;border-radius:15px;padding:12px 17px;background:#edf6ff;border-left:5px solid var(--blue);font-size:16px;line-height:25.6px}
+.feedback.ok{background:#eaf8ef;border-left-color:var(--ok)}.feedback.bad{background:#fff1f1;border-left-color:var(--bad)}
+.feedback b{color:var(--navy)}
+/* word bank and drop gaps */
+.bank{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px;padding:10px;border:2px dashed #b9d3ea;border-radius:16px;background:#fff;min-height:66px;align-items:center}
+.bank .empty{color:var(--muted);font-size:14px;font-weight:600}
+.chip{border:2px solid #d5e1ec;border-radius:12px;background:#fff;padding:8px 14px;min-height:44px;font-size:16px;font-weight:700;line-height:1.3;color:var(--ink);cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+.chip:hover{border-color:var(--blue)}
+.chip.dragging{opacity:.35}
+.chip:disabled{cursor:default;border-color:#e2e8f0}.chip:disabled:hover{border-color:#e2e8f0}
+.chip.used{background:#eef2f6;color:#94a3b8;text-decoration:line-through;border-style:dashed}
+.taskbox.gapq{margin:12px 0 0}
+.taskbox.gapq .num{margin-right:2px}
+.gap .to{margin-left:6px;color:var(--okink);font-weight:800;white-space:nowrap}
+.mrow .gap.wrong{flex-wrap:wrap;justify-content:center;padding:2px 6px}
+.mrow{padding:3px 0}.mrow .gap{min-height:34px}
+.board+.feedback{margin-top:10px;padding-top:9px;padding-bottom:9px}
+.ghost{position:fixed;z-index:50;pointer-events:none;transform:translate(-50%,-50%) rotate(-2deg);box-shadow:0 10px 24px rgba(7,59,119,.25);border-color:var(--blue)!important;background:#fff}
+.board{margin:12px 0 0;background:#f5f9fd;border:1px solid #d7e7f4;border-radius:18px;padding:6px 16px;font-size:17px;font-weight:600;line-height:1.55}
+.srow{display:flex;gap:8px;padding:7px 0;border-bottom:1px solid #e3ebf2}.srow:last-child{border-bottom:0}
+.num{flex:none;font-weight:800;color:var(--navy);min-width:20px}
+.gap{display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;min-width:132px;min-height:36px;margin:1px 2px;padding:2px 10px;border:2px dashed #8fb5da;border-radius:10px;background:#fff;color:var(--navy);font-size:16px;font-weight:700;line-height:1.25;cursor:pointer}
+.gap.filled{border-style:solid;border-color:#2389d7;background:#d9efff;color:#075796}
+.gap.sel{box-shadow:0 0 0 3px #f9c74f}
+.gap.over{background:#fff6d1;border-color:#e0a800}
+.gap.correct{border-style:solid;border-color:var(--ok);background:var(--okbg);color:var(--okink);cursor:default}
+.gap.wrong{border-style:solid;border-color:var(--bad);background:var(--badbg);color:var(--badink);cursor:default}
+.gap.wrong .w{text-decoration:line-through}
+.fix{display:inline-block;margin-left:4px;padding:1px 8px;border-radius:8px;background:var(--okbg);color:var(--okink);border:2px solid var(--ok);font-size:15px;font-weight:700;vertical-align:middle}
+.why{display:block;margin-top:3px;font-size:13.5px;line-height:1.4;font-weight:500;color:#475569}
+.mrow{display:grid;grid-template-columns:minmax(0,1fr) 200px;gap:10px;align-items:center;padding:4px 0;border-bottom:1px solid #e3ebf2}.mrow:last-child{border-bottom:0}
+.mdef{font-size:15px;line-height:1.4;font-weight:500;display:flex;gap:8px}.mdef .num{min-width:18px}
+.mrow .gap{width:100%;min-width:0;margin:0}
+.mcell{display:flex;flex-direction:column;align-items:stretch;gap:3px}
+.mcell .fix{margin:0;text-align:center}
+/* navigation and stats */
+.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:8px;padding:8px 0}
+.navbtn{display:inline-flex;align-items:center;justify-content:center;min-width:140px;min-height:44px;border:1px solid #1e3a5f;border-radius:12px;background:#1e3a5f;color:#fff;padding:10px 17px;font-weight:800;cursor:pointer;white-space:nowrap}
+.navbtn:hover:not(:disabled){background:#16304f}
+.navbtn:disabled{opacity:.42;cursor:not-allowed}
+.navbtn.check{background:#2563eb;border-color:#2563eb}.navbtn.check:hover:not(:disabled){background:#1d4fd0}
+.counter{font-weight:800;color:var(--navy);white-space:nowrap}
+.stats{display:flex;align-items:center;gap:12px 18px;margin-top:24px;padding-top:18px;border-top:1px solid var(--line)}
+.stat{display:flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:12px;padding:8px 11px;background:#fff;font-size:12.2px;font-weight:700;white-space:nowrap}
+.stat b{font-size:16px;color:var(--navy)}
+.statgroup{display:flex;gap:10px;flex:1}
+.score{font-size:13.8px;color:var(--muted);font-weight:700;white-space:nowrap}.score b{color:var(--navy);font-size:16.8px}
+.timer{color:var(--navy);font-weight:800;font-size:17.6px;white-space:nowrap}
+.hint{margin:8px 0 0;color:var(--muted);font-size:13px;text-align:center}
+/* results */
+.hero{text-align:center}
+.kicker{margin:0;color:var(--blue);font-weight:800;letter-spacing:.12em;font-size:13px}
+.badge{width:136px;height:136px;margin:8px auto 12px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 30% 25%,#4bb7ff,#0b4d92);border:8px solid #d7efff;box-shadow:0 12px 28px rgba(7,59,119,.25);color:#fff;font-size:30px;font-weight:800}
+.badge small{display:block;font-size:15px;font-weight:700;opacity:.85;text-align:center}
+.slotwin{position:relative;display:inline-block;min-width:270px;height:62px;overflow:hidden;border-radius:16px;background:#0f2f57;border:4px solid #f6c94c;box-shadow:inset 0 8px 14px rgba(0,0,0,.35),0 8px 18px rgba(7,59,119,.2)}
+.slotwin:before,.slotwin:after{content:"";position:absolute;left:0;right:0;height:14px;z-index:2;pointer-events:none}
+.slotwin:before{top:0;background:linear-gradient(#0f2f57,transparent)}.slotwin:after{bottom:0;background:linear-gradient(transparent,#0f2f57)}
+.reel{display:block;color:#fff;font-size:30px;font-weight:800;line-height:54px;padding:0 18px;white-space:nowrap}
+.reel.tick{animation:roll .09s linear}
+@keyframes roll{from{transform:translateY(-60%);opacity:.4}to{transform:translateY(0);opacity:1}}
+.reel.land{animation:land .5s cubic-bezier(.2,1.6,.4,1)}
+@keyframes land{0%{transform:translateY(-40%) scale(.8)}100%{transform:none}}
+.slotwin.done.r0{border-color:var(--bad)}.slotwin.done.rhi{border-color:#31c46c;box-shadow:0 0 0 6px rgba(49,196,108,.18),0 8px 18px rgba(7,59,119,.2)}
+.sumgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.sum{padding:12px;border-radius:15px;background:#f5f9fd;border:1px solid #dbe8f2;text-align:center}
+.sum span{display:block;color:var(--muted);font-size:12px;font-weight:700}.sum b{font-size:18px;color:var(--navy)}
+.breakdown{margin-top:14px;padding:10px 16px;border-radius:17px;background:#f8fbfe;border:1px solid var(--line)}
+.brow{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid #e3ebf2;font-size:14.5px;font-weight:600}.brow:last-child{border:0}
+.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:18px}
+.abtn{border:0;border-radius:12px;padding:11px 18px;min-height:44px;font-weight:800;cursor:pointer;background:#2563eb;color:#fff}
+.abtn.sec{background:#e7eef5;color:#264861}
+.rgroup{margin-bottom:18px}
+.rgroup h3{margin:0;padding:10px 14px;background:var(--navy);color:#fff;border-radius:12px 12px 0 0;font-size:15px}
+.ritem{padding:12px 15px;background:#fff;border:1px solid var(--line);border-top:0;font-size:14.5px;line-height:1.5}
+.ritem:last-child{border-radius:0 0 12px 12px}
+.ritem p{margin:3px 0}
+.good{color:#11743b;font-weight:800}.badt{color:#bd3333;font-weight:800}
+.rq{font-weight:700;color:var(--ink)}
+#confetti{pointer-events:none;position:fixed;inset:0;overflow:hidden;z-index:40}
+.cf{position:absolute;top:-20px;width:9px;height:14px;animation:fall 3.8s linear forwards}
+@keyframes fall{to{transform:translate(var(--dx),110vh) rotate(760deg);opacity:0}}
+.fatal{padding:18px;border-radius:14px;background:#fff1f1;border:2px solid var(--bad);color:var(--badink);font-weight:700}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (min-width:600px) and (max-width:1023px){.hdr img{height:80px}}
+@media (max-width:640px){
+  .hdr{padding:8px 12px}.hdr img{height:45px}
+  .t1{font-size:16px}.t2{font-size:12px}.t3{font-size:10px}
+  .bar{font-size:11.5px;padding:6px 10px;min-height:32px;gap:6px}
+  #app{margin-top:16px;padding:0 12px}
+  .instr{padding:14px 18px;font-size:16px;letter-spacing:.56px;border-radius:18px}
+  .pill{margin-top:10px;font-size:11.5px;padding:5px 10px}
+  .taskbox{padding:12px 14px;font-size:16px;line-height:27.2px;margin:10px 0}
+  .choices{gap:9px}
+  .choice{padding:12px 10px;min-height:62px;font-size:13.28px;line-height:19.92px}
+  .choice.correct,.choice.wrong{padding-right:28px}.choice .mk{right:8px;font-size:16px}
+  .feedback{margin-top:10px;padding:10px 12px;font-size:14px;line-height:1.5}
+  .bank{gap:6px;padding:8px;margin-top:10px;min-height:56px}
+  .chip{padding:6px 10px;font-size:14.5px;min-height:40px}
+  .board{padding:2px 10px;font-size:14.5px;line-height:1.5;margin-top:10px}
+  .srow{padding:5px 0;gap:6px}
+  .gap{min-width:104px;min-height:32px;font-size:14px;padding:1px 8px}
+  .fix{font-size:13px;padding:0 6px}
+  .why{font-size:12px;line-height:1.35}
+  .mrow{grid-template-columns:minmax(0,1fr) 124px;gap:8px;padding:4px 0}
+  .mrow .gap{font-size:13px}
+  .hint{margin-top:6px;font-size:12px}
+  .mdef{font-size:12.5px;line-height:1.35;gap:5px}
+  .nav{gap:7px;margin-top:6px;padding:6px 0}
+  .navbtn{min-width:104px;padding:9px 10px;font-size:14px}
+  .counter{font-size:13px}
+  .stats{gap:6px;margin-top:10px;padding-top:10px;text-align:center}
+  .statgroup{gap:4px}
+  .stat{flex:1;display:block;padding:6px 3px;font-size:10px}.stat b{display:block;font-size:13.8px}
+  .score{font-size:10.5px}.score b{display:block;font-size:13px}
+  .timer{font-size:12.8px}
+  .badge{width:112px;height:112px;font-size:22px;margin:6px auto 10px;border-width:6px}.badge small{font-size:12px}
+  .slotwin{min-width:230px;height:54px}.reel{font-size:24px;line-height:46px}
+  .sumgrid{grid-template-columns:repeat(4,1fr);gap:6px;margin-top:12px}
+  .sum{padding:7px 4px}.sum span{font-size:10px;line-height:1.25}.sum b{font-size:14px}
+  .breakdown{padding:4px 12px;margin-top:10px}
+  .brow{font-size:12.5px;padding:6px 0}
+  .actions{margin-top:12px;gap:8px;flex-wrap:nowrap}.abtn{padding:10px 12px;font-size:14px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="hdr">
+    <img class="header-teacher-img" src="teacher.png" alt="Teacher Soufiane">
+    <div class="htitle"><div class="t1">English2BAC Quizzes</div><div class="t2">Learn • Practice • Succeed</div><div class="t3">with Teacher.Soufiane</div></div>
+    <img class="header-logo-img" src="logo.png" alt="Level-UP 2BAC">
+  </header>
+  <div class="bar"><span>UNIT5: VOCABULARY</span><span>WOMEN AND POWER</span><span>QUIZ-1</span></div>
+</div>
+<main id="app" aria-live="polite"></main>
+<div id="confetti" aria-hidden="true"></div>
+<p id="liveMsg" class="sr" aria-live="assertive"></p>
+<style>
+/* Shared vocabulary-engine additions: typed word-family chart, typed word-form sentences, two-line MCQ question */
+.wf{width:100%;border-collapse:separate;border-spacing:0;font-size:16px}
+.wf th{background:#e6f2ff;color:var(--navy);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:7px 6px;text-align:center}
+.wf th:first-child{border-radius:10px 0 0 10px}.wf th:last-child{border-radius:0 10px 10px 0}
+.wf td{padding:4px 5px;text-align:center;border-bottom:1px solid #e3ebf2;font-weight:600;color:var(--ink);vertical-align:middle}
+.wf tr:last-child td{border-bottom:0}
+.wf td.dash{color:#94a3b8}
+.tin{width:100%;min-width:0;height:38px;border:2px dashed #8fb5da;border-radius:10px;background:#fff;padding:2px 8px;font:700 15px Poppins,Arial,sans-serif;color:#075796;text-align:center}
+.tin:focus{outline:none;border-style:solid;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.18)}
+.tans{display:inline-block;min-width:80%;padding:4px 8px;border-radius:10px;border:2px solid;font-weight:700;line-height:1.25}
+.tans.correct{border-color:var(--ok);background:var(--okbg);color:var(--okink)}
+.tans.wrong{border-color:var(--bad);background:var(--badbg);color:var(--badink)}
+.tans.wrong .w{text-decoration:line-through}
+.tfix{display:block;margin-top:2px;color:var(--okink);font-weight:800;font-size:14px}
+.cue{color:var(--blue);font-weight:800;white-space:nowrap}
+.tin.inl{display:inline-block;width:190px;vertical-align:middle;margin:1px 2px}
+.taskbox .tans{min-width:0}
+.mq{display:block;font-size:15px;line-height:1.45;font-weight:700;color:var(--blue);margin-bottom:4px}
+.mgap{display:inline-block;min-width:90px;border-bottom:3px solid var(--navy);margin:0 3px;vertical-align:baseline;height:1em}
+.kbd{font-size:12px;color:var(--muted)}
+.taskbox:has(.mq){line-height:30px;padding-top:10px;padding-bottom:10px}
+/* story gaps that are not the current question */
+.ogap{display:inline-block;min-width:44px;padding:0 6px;border-bottom:2px dotted #8fb5da;color:#94a3b8;font-size:.8em;font-weight:700;text-align:center;line-height:1.3}
+/* 6-pair matching: two columns on a laptop; marked chart cells kept short */
+@media (min-width:641px){.board.two{display:grid;grid-template-columns:1fr 1fr;column-gap:20px}.board.two .mrow{grid-template-columns:minmax(0,1fr) 170px}.board.two .mrow:nth-last-child(2){border-bottom:0}}
+.wf .tans{padding:2px 6px;line-height:1.2;font-size:14px}.wf .tfix{font-size:13px;line-height:1.2}
+@media (max-width:640px){.wf .tans{font-size:12px;padding:1px 4px}.wf .tfix{font-size:11.5px}}
+/* progress bar above the navigation */
+.prog{height:6px;margin:12px 0 0;border-radius:6px;background:#e3ebf2;overflow:hidden}.prog i{display:block;height:100%;background:#26a85b;border-radius:6px;transition:width .3s}
+@media (max-width:640px){.prog{margin-top:9px;height:5px}}
+/* matching rows that hold a definition: smaller text */
+.mrow .mdef span:last-child{line-height:1.35}
+/* results: time taken, attempts, best score */
+.sumline{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;margin-top:10px;font-size:13.5px;font-weight:600;color:var(--muted)}
+.sumline b{color:var(--navy);font-size:15px}
+@media (max-width:640px){.sumline{font-size:12px;gap:4px 12px;margin-top:8px}.sumline b{font-size:13px}}
+/* two gaps per screen: small gap number, compact feedback lines */
+.gn{display:inline-block;margin:0 2px 0 4px;color:var(--blue);font-size:.7em;font-weight:800;vertical-align:super;line-height:1}
+.feedback.fb2{margin-top:6px;padding:6px 12px;font-size:14px;line-height:1.4}
+@media (max-width:640px){.feedback.fb2{font-size:12.5px;padding:5px 9px;margin-top:5px}}
+/* sorting game: a word bank and two category boxes */
+.sortnote{margin:8px 0 0;padding:6px 12px;border-radius:12px;background:#f5f9fd;border:1px solid #d7e7f4;font-size:13.5px;line-height:1.45;color:#334155}
+.sortnote b{color:var(--navy)}
+.cats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.cat{min-height:84px;border:2px dashed #8fb5da;border-radius:16px;background:#fff;padding:6px 8px;cursor:pointer;transition:background .15s,border-color .15s}
+.cat h4{margin:0 0 6px;font-size:13px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.03em;text-align:center}
+.cat .in{display:flex;flex-wrap:wrap;gap:5px;justify-content:center}
+.cat.ready{border-style:solid;border-color:#2563eb;background:#f2f8ff}
+.cat.over{background:#fff6d1;border-color:#e0a800}
+.cat:focus-visible{outline:3px solid #f9c74f;outline-offset:2px}
+.sc{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:10px;border:2px solid var(--ok);background:var(--okbg);color:var(--okink);font-size:13.5px;font-weight:700;line-height:1.25}
+.sc.late{border-color:var(--bad);background:#fff;color:var(--badink)}
+.chip.selc{border-color:#2563eb;background:#d9efff;color:#075796;box-shadow:0 0 0 3px #f9c74f}
+.chip.shake{border-color:var(--bad);background:var(--badbg);color:var(--badink);animation:shake .4s}
+@keyframes shake{0%,100%{transform:none}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+@media (min-width:641px){.tfix{display:inline-block;margin-left:6px}.wf td{padding:3px 5px}.wf .tans{min-width:0}.sortnote{font-size:13px;padding:5px 12px}.cat{min-height:72px}.cat h4{margin-bottom:4px}.cat .in{gap:4px}.sc{font-size:13px;padding:2px 8px}}
+@media (max-width:640px){
+  .bank .chip{font-size:13px;padding:5px 8px;min-height:36px}
+  .bank{gap:5px;padding:6px}
+  .wf{font-size:13px}.wf th{font-size:10.5px;padding:6px 3px}.wf td{padding:3px 3px}
+  .tin{height:34px;font-size:13.5px;padding:2px 4px}
+  .tans{padding:3px 4px;font-size:13px}.tfix{font-size:12px}
+  .tin.inl{width:150px}
+  .mq{font-size:13px}
+  .mgap{min-width:64px}
+  .sortnote{font-size:12px;padding:6px 10px;margin-top:8px}
+  .cats{gap:6px;margin-top:8px}
+  .cat{min-height:84px;padding:6px 4px;border-radius:14px}
+  .cat h4{font-size:10.5px;margin-bottom:4px}
+  .sc{font-size:12px;padding:2px 6px}
+  .cat .in{gap:4px}
+}
+/* PHONE-LAYOUT-2026-11-15 (teacher's notes): instruction and pill on one line each; a whole round on one screen;
+   the task fills the screen, and the stats with Previous / page / Next sit together at the bottom */
+.instr{white-space:nowrap;overflow:hidden;font-size:19px;padding:13px 22px;line-height:1.35;letter-spacing:.5px;border-radius:16px}
+.pill{display:flex;width:max-content;max-width:100%;white-space:nowrap;overflow:hidden;margin-top:10px}
+#app.playing{display:flex;flex-direction:column}
+.dock{margin-top:auto;padding-top:8px}
+.dock .stats{margin-top:0;padding-top:8px}
+.dock .stat{padding:5px 10px}
+.dock .prog{margin-top:8px}
+.dock .nav{margin-top:0;padding:6px 0 0}
+.sr{top:0;left:0;margin:0}
+/* sorting with Check: a placed word is neutral until Check */
+.sc.pend{border-color:#2389d7;background:#d9efff;color:#075796;cursor:pointer;font-family:inherit}
+.sc.pend:hover{border-color:var(--blue)}
+.sc small{font-size:.85em;font-weight:700;color:var(--okink)}
+/* long MCQ options: one list, A to D */
+.choices.list{grid-template-columns:minmax(0,1fr);gap:8px}
+.choices.list .choice{min-height:0;padding:10px 16px;line-height:1.4}
+.choices.list .choice.correct,.choices.list .choice.wrong{padding-right:38px}
+@media (max-width:640px){
+  .choices.list{gap:7px}
+  .choices.list .choice{padding:9px 12px;font-size:13.5px;line-height:1.35}
+  .choices.list .choice.correct,.choices.list .choice.wrong{padding-right:28px}
+}
+.board.rows{font-size:16px;line-height:1.45;padding:2px 16px}
+.board.rows .srow{padding:4px 0}
+.board.rows .gap{min-height:27px;min-width:104px;padding:0 10px;margin:1px 2px}
+.bank:has(+.board){margin-top:10px;padding:7px;min-height:0}
+.board~.hint{margin-top:5px}
+.dock{position:sticky;bottom:0;z-index:5;background:#edf4fa;padding-bottom:4px}
+.board.rows .srow>div{flex:1 1 auto;min-width:0}
+.board.rows .why{font-size:12.5px;margin-top:1px}
+.board.rows .fix{font-size:14px}
+/* Unit 1 (2026-11-16): three-synonyms question */
+.choice.picked{border-color:#2389d7;background:#d9efff;color:#075796}
+.taskbox.syn{text-align:center}.taskbox.syn .mq{margin-bottom:0}
+.taskbox.syn .target{display:block;font-size:28px;letter-spacing:.06em;color:var(--navy)}
+.choice .anti{display:block;font-size:.78em;font-weight:700;opacity:.8}
+.choices.multi .choice{overflow-wrap:anywhere;padding-right:30px}
+@media (max-width:640px){.taskbox.syn .target{font-size:22px}}
+/* Quiz 2 (2026-11-16): typed sentences in rows, the whole chart and ten collocations on one screen */
+.board.pick .gap{width:100%;min-width:0;margin:1px 0;min-height:26px;font-size:14px;padding:0 6px;border-radius:8px}
+.board.pick{margin-top:8px;padding:2px 12px}
+.board.pick .wf td{padding:1px 4px;line-height:1.2;font-size:14.5px}
+.board.pick .wf th{padding:3px 4px}
+.bank:has(+.board.pick){margin-top:8px;padding:6px;gap:6px}
+.bank:has(+.board.pick) .chip{min-height:32px;padding:2px 10px;font-size:14px}
+.board.pick~.hint{display:none}
+.board.pick .gap .to{display:block;margin:0;font-size:.92em}
+.board.pick .gap.wrong{flex-direction:column;padding:1px 4px;line-height:1.15}
+@media (max-width:640px){
+  .board.pick .gap{min-height:22px;font-size:12px;padding:0 3px;min-width:76px;border-radius:8px}
+  .board.pick{padding:1px 4px;margin-top:6px}
+  .board.pick .wf td{white-space:nowrap;font-size:12px;padding:1px 2px;line-height:1.15}
+  .board.pick .wf th{padding:2px 2px;font-size:10px}
+  .bank:has(+.board.pick){gap:4px;padding:4px;margin-top:6px}
+  .bank:has(+.board.pick) .chip{min-height:28px;padding:1px 8px;font-size:12.5px}
+  .board.pick~.hint{display:none}
+}
+@media (min-width:641px){
+  .wf td{padding:1px 5px}.wf th{padding:5px 6px}
+  .wf .tin{height:29px;font-size:14px}
+  .board .wf{font-size:15px}
+  .board.two .mrow{padding:2px 0}.board.two .mrow .gap{min-height:30px}
+  #app{margin-top:18px}
+}
+.board.rows .tin.inl{width:130px;height:30px;margin:1px 2px}
+.board.rows .tans{padding:1px 6px;font-size:14px;min-width:0;line-height:1.25}
+.board.rows .tans+.fix{margin-left:3px}
+.board.rows .cue{font-size:.92em}
+@media (max-width:640px){
+  .board.rows .tin.inl{width:104px;height:27px;font-size:13px}
+  .board.rows .tans{font-size:12.5px;padding:0 4px}
+  .wf .tin{height:30px}
+  .wf td{padding:2px 3px}
+  .board .mrow{padding:2px 0}
+  .board .mrow .gap{min-height:30px}
+  /* ten short collocations: two columns on the phone too */
+  .board.two{display:grid;grid-template-columns:1fr 1fr;column-gap:8px;padding:2px 8px}
+  .board.two .mrow{grid-template-columns:auto minmax(0,1fr);gap:4px;border-bottom:0;padding:3px 0}
+  .board.two .mdef{font-size:12px;gap:3px}.board.two .mdef .num{min-width:14px}
+  .board.two .mrow .gap{font-size:11.5px;padding:0 4px;min-height:30px}
+  .board.two .mrow .gap .to{margin-left:2px}
+  .wf th{padding:4px 3px}
+  .wf .tin{height:27px}
+  .wf td{padding:1px 3px}
+  .board.rows .srow{padding:2px 0}
+  .board.rows:has(.tin),.board.rows:has(.tans){line-height:1.34;font-size:13px}
+  .board.rows .cue{font-size:12px}
+}
+@media (max-width:640px){
+  #app{margin-bottom:8px}
+  .instr{font-size:14px;padding:9px 12px;letter-spacing:.3px;border-radius:12px}
+  .pill{margin-top:6px;font-size:11.5px;padding:4px 10px}
+  .bank:has(+.board){margin-top:8px;padding:5px;gap:5px;min-height:0}
+  .bank:has(+.board) .chip{min-height:34px;padding:4px 9px}
+  .board~.hint{margin-top:4px;font-size:11.5px}
+  .mrow{padding:3px 0}
+  .board.rows{font-size:13.5px;line-height:1.4;padding:0 10px;margin-top:8px}
+  .board.rows .srow{padding:4px 0}
+  .board.rows .gap{min-width:80px;min-height:26px;font-size:13px;padding:0 8px;margin:1px 2px}
+  .board.rows .fix{font-size:12px}
+  .board.rows .why{font-size:11.5px}
+  .board.rows~.hint{margin-top:4px;font-size:11.5px}
+  /* on a shorter phone the dock stays pinned to the bottom of the screen while the task scrolls under it */
+  .dock{padding-top:8px;position:sticky;bottom:0;z-index:5;background:#edf4fa;padding-bottom:4px}
+  .dock .stats{padding-top:6px}
+  .dock .stat{padding:4px 3px}
+  .dock .prog{margin-top:6px}
+  .dock .nav{margin-top:0;padding-top:6px}
+}
+</style>
+<script>
+/* ===== Quiz data: the teacher's Canva items, word for word (2026-11-16, moved onto the Unit 10 vocabulary page).
+   Every answer is worth 1 point. The word-bank task is one screen with a word list and Check. ===== */
+var QUIZ = {
+  key: 'levelup-2bac-u5-vocab-q1-v1',
+  tasks: [
+    { id: 1, name: 'Task 1 – Definitions', short: 'Definitions', pts: 4, instr: 'Choose the word that matches the definition.' },
+    { id: 2, name: 'Task 2 – Word Forms', short: 'Word Forms', pts: 4, instr: 'Put the word in brackets in its correct form.' },
+    { id: 3, name: 'Task 3 – Word Bank', short: 'Word Bank', pts: 4, instr: 'Fill in the gap with the appropriate word from the list.' },
+    { id: 4, name: 'Task 4 – Collocations', short: 'Collocations', pts: 4, instr: 'Choose the word that completes the collocation.' },
+    { id: 5, name: 'Task 5 – Synonyms Challenge', short: 'Synonyms Challenge', pts: 4, instr: 'Select the three words that are synonyms of the target word.' }
+  ],
+  banks: [
+    { label: 'Word Bank', words: ['independent', 'stereotypes', 'patriarchy', 'harassment'] }
+  ],
+  steps: [
+    { kind: 'mcq', task: 1, n: 1, pts: 1, q: 'Everyone having the same chances and treatment.', o: ['equal rights', 'freedom', 'family code', 'polygamy'], a: 'equal rights', why: 'Equal rights means everyone is given the same chances and treatment regardless of their differences.' },
+    { kind: 'mcq', task: 1, n: 2, pts: 1, q: 'Being free from control or restrictions.', o: ['freedom', 'equal rights', 'family code', 'polygamy'], a: 'freedom', why: 'Freedom is the state of being free from control or unnecessary restrictions.' },
+    { kind: 'mcq', task: 1, n: 3, pts: 1, q: 'Rules and laws about family relationships.', o: ['family code', 'equal rights', 'freedom', 'polygamy'], a: 'family code', why: 'The family code refers to the set of laws governing family relationships, such as marriage and divorce.' },
+    { kind: 'mcq', task: 1, n: 4, pts: 1, q: 'Being married to more than one person at the same time.', o: ['polygamy', 'family code', 'freedom', 'equal rights'], a: 'polygamy', why: 'Polygamy refers to the practice of being married to more than one spouse simultaneously.' },
+    { kind: 'mcq', task: 2, n: 1, pts: 1, q: '', sent: 'John is sometimes ___ and forgets to complete his assignments. (responsible)', o: ['irresponsible', 'responsible', 'responsibly', 'irresponsibility'], a: 'irresponsible', why: "We add the prefix 'ir-' to 'responsible' to form its opposite, 'irresponsible'." },
+    { kind: 'mcq', task: 2, n: 2, pts: 1, q: '', sent: 'Buying another pair of shoes was ___ because she already had so many. (necessary)', o: ['unnecessary', 'necessary', 'necessarily', 'unnecessity'], a: 'unnecessary', why: "We add the prefix 'un-' to 'necessary' to form its opposite, 'unnecessary'." },
+    { kind: 'mcq', task: 2, n: 3, pts: 1, q: '', sent: 'It seemed ___ to climb the mountain, but they did it. (possible)', o: ['impossible', 'possible', 'possibly', 'impossibility'], a: 'impossible', why: "We add the prefix 'im-' to 'possible' to form its opposite, 'impossible'." },
+    { kind: 'mcq', task: 2, n: 4, pts: 1, q: '', sent: 'It is ___ to park in this area without a permit. (legal)', o: ['illegal', 'legal', 'legally', 'illegality'], a: 'illegal', why: "We add the prefix 'il-' to 'legal' to form its opposite, 'illegal'." },
+    /* Task 3: the four sentences on one screen; a placed word leaves the list, Check marks all four */
+    { kind: 'gaps', rows: true, task: 3, bank: 0, pts: 1, items: [
+      { n: 1, s: 'Women are becoming more ___, which means they can make their own decisions without needing help from others.', a: 'independent', why: "'Independent' fits because the sentence describes making decisions without needing help from others." },
+      { n: 2, s: 'Many women face ___, such as the false belief that they are weaker than men.', a: 'stereotypes', why: "'Stereotypes' fits because it refers to false, oversimplified beliefs about a group of people." },
+      { n: 3, s: 'The fight against ___, a system where men traditionally hold more power, is helping women gain equality.', a: 'patriarchy', why: "'Patriarchy' fits because it refers to a social system where men hold most of the power." },
+      { n: 4, s: '___ such as unwanted comments or actions, is a challenge many women are working to stop.', a: 'harassment', why: "'Harassment' fits because it refers to unwanted comments or actions directed at someone." }
+    ] },
+    { kind: 'mcq', task: 4, n: 1, pts: 1, q: '', sent: 'Shouting insults and threats at someone is a form of verbal ___.', o: ['abuse', 'empowerment', 'equality', 'violence'], a: 'abuse', why: "'Verbal abuse' is the correct natural collocation meaning harmful language directed at someone." },
+    { kind: 'mcq', task: 4, n: 2, pts: 1, q: '', sent: "Education is one of the most effective tools for women's ___.", o: ['empowerment', 'abuse', 'equality', 'violence'], a: 'empowerment', why: "'Women's empowerment' is the correct natural collocation meaning giving women confidence and control over their lives." },
+    { kind: 'mcq', task: 4, n: 3, pts: 1, q: '', sent: 'Advocating for gender ___ remains a key objective for many human rights organizations.', o: ['equality', 'empowerment', 'abuse', 'violence'], a: 'equality', why: "'Gender equality' is the correct natural collocation meaning equal rights and treatment regardless of gender." },
+    { kind: 'mcq', task: 4, n: 4, pts: 1, q: '', sent: "Women's rights organizations protect victims of domestic ___.", o: ['violence', 'abuse', 'equality', 'empowerment'], a: 'violence', why: "'Domestic violence' is the correct natural collocation meaning violence that occurs within the home or family." },
+    { kind: 'multi', task: 5, n: 1, pts: 1, q: 'INDEPENDENT', o: ['self-sufficient', 'autonomous', 'free', 'dependent'], a: ['self-sufficient', 'autonomous', 'free'], why: "'Self-sufficient', 'autonomous', and 'free' all describe someone able to act without relying on others, like 'independent'. 'Dependent' means the opposite — relying on others." },
+    { kind: 'multi', task: 5, n: 2, pts: 1, q: 'FAIR', o: ['just', 'equitable', 'impartial', 'unfair'], a: ['just', 'equitable', 'impartial'], why: "'Just', 'equitable', and 'impartial' all describe treating people equally and without bias, like 'fair'. 'Unfair' means the opposite — treating people unequally or unjustly." },
+    { kind: 'multi', task: 5, n: 3, pts: 1, q: 'STRUGGLE', o: ['fight', 'battle', 'effort', 'ease'], a: ['fight', 'battle', 'effort'], why: "'Fight', 'battle', and 'effort' all describe working hard to overcome difficulty, like 'struggle'. 'Ease' means the opposite — doing something without difficulty." },
+    { kind: 'multi', task: 5, n: 4, pts: 1, q: 'EMPOWERED', o: ['confident', 'capable', 'strong', 'powerless'], a: ['confident', 'capable', 'strong'], why: "'Confident', 'capable', and 'strong' all describe having the ability and belief to control one's own life, like 'empowered'. 'Powerless' means the opposite — lacking control or influence." }
+  ],
+  bands: [[18, 'Excellent!'], [16, 'Very Good'], [14, 'Good'], [12, 'Fairly Good'], [10, 'Pass'], [0, 'Fail']],
+  remarks: ['Fail', 'Pass', 'Fairly Good', 'Good', 'Very Good', 'Excellent!']
+};
+
+(function () {
+  'use strict';
+  var S = QUIZ.steps, app = document.getElementById('app');
+  var store = null, storeOk = true, view = { page: 'play', flash: '' }, timerId = 0, drag = null, suppressClick = 0, sel = -1, selCard = '', slotAnim = 0;
+  var COLS = ['Verb', 'Adjective', 'Noun'];
+  /* chart parts list rows; each missing cell (null) becomes one scored item */
+  S.forEach(function (s) {
+    if (s.kind !== 'table' || !s.rows) return;
+    s.items = [];
+    s.rows.forEach(function (row, ri) {
+      var m = 0;
+      row.c.forEach(function (c, ci) { if (c !== null) return; var cell = (row.cells || [])[m++] || {}; s.items.push({ n: cell.n, row: ri, col: ci, a: cell.a, acc: cell.acc || [], why: cell.why, c: row.c }); });
+    });
+  });
+
+  function esc(t) { return String(t).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function say(t) { var m = document.getElementById('liveMsg'); if (m) m.textContent = t; }
+  function cap(w) { return w.charAt(0).toUpperCase() + w.slice(1); }
+  function hund(p) { return Math.round(p * 100); }
+  function fmt2(h) { return (h / 100).toFixed(2); }
+  function band(h) { var s = h / 100; for (var i = 0; i < QUIZ.bands.length; i++) if (s >= QUIZ.bands[i][0]) return QUIZ.bands[i][1]; return 'Fail'; }
+  function norm(x) { return String(x || '').toLowerCase().replace(/[’‘`]/g, "'").replace(/\s+/g, ' ').replace(/[.!,;:]+$/, '').trim(); }
+  function single(s) { return s.kind === 'gap'; }
+  function itemsList(i) { return single(S[i]) ? [S[i]] : S[i].items; }
+  function itemsOf(i) { return S[i].kind === 'mcq' || S[i].kind === 'multi' ? 1 : itemsList(i).length; }
+  function taskSteps(t) { return S.filter(function (s) { return s.task === t; }); }
+  function catName(s, id) { for (var c = 0; c < s.cats.length; c++) if (s.cats[c].id === id) return s.cats[c].name; return id; }
+  function catOne(s, id) { for (var c = 0; c < s.cats.length; c++) if (s.cats[c].id === id) return s.cats[c].one; return id; }
+  function storyText(t) { return esc(t).replace(/\{(\d+)\}/g, '<span class="ogap" aria-label="gap $1">$1</span>'); }
+  var TOTAL_ITEMS = S.reduce(function (n, s, i) { return n + itemsOf(i); }, 0);
+  function accepted(s, it, given) {
+    if (s.kind === 'gap' || s.kind === 'gaps') return given === it.a || (it.alt || []).indexOf(given) >= 0;
+    if (s.kind === 'type' || s.kind === 'table') { var g = norm(given); return !!g && it.acc.some(function (a) { return norm(a) === g; }); }
+    return given === it.a;
+  }
+
+  function fatal(msg) { app.innerHTML = '<div class="fatal" role="alert">' + esc(msg) + '</div>'; window.__u8vReady = true; }
+  function validate() {
+    var tot = 0, per = {}, bankUse = QUIZ.banks.map(function () { return {}; });
+    for (var i = 0; i < S.length; i++) {
+      var s = S[i], n = itemsOf(i);
+      if (!(s.pts > 0) || hund(s.pts) % 25) return 'Step ' + (i + 1) + ': each item needs a points value (a multiple of 0.25).';
+      if (s.kind === 'gaps') {
+        var GB = QUIZ.banks[s.bank]; if (!GB) return 'Step ' + (i + 1) + ': no word list.';
+        for (var g = 0; g < s.items.length; g++) {
+          var gi = s.items[g];
+          if (GB.words.indexOf(gi.a) < 0 || (gi.alt || []).some(function (x) { return GB.words.indexOf(x) < 0; })) return 'Gap ' + gi.n + ': an answer is not in the list.';
+          if (bankUse[s.bank][gi.a]) return 'The word “' + gi.a + '” answers two gaps.'; bankUse[s.bank][gi.a] = 1;
+          if (s.rows ? gi.s.split('___').length !== 2 : s.text.split('((' + gi.n + '))').length !== 2) return 'Gap ' + gi.n + ' must appear once' + (s.rows ? ' in its sentence.' : ' in the text.');
+        }
+      } else if (s.kind === 'gap') {
+        var B = QUIZ.banks[s.bank]; if (!B || B.words.indexOf(s.a) < 0) return 'Sentence ' + s.n + ': the answer “' + s.a + '” is not in the list.';
+        if ((s.alt || []).some(function (x) { return B.words.indexOf(x) < 0; })) return 'Sentence ' + s.n + ': an accepted answer is not in the list.';
+        if (bankUse[s.bank][s.a]) return 'The word “' + s.a + '” answers two gaps.'; bankUse[s.bank][s.a] = 1;
+        if (s.s.split('___').length !== 2) return 'Sentence ' + s.n + ' needs exactly one gap.';
+      } else if (s.kind === 'type') {
+        if (!s.items || !s.items.length) return 'Sentence ' + s.n + ' has no gap.';
+        for (var y = 0; y < s.items.length; y++) { var ty = s.items[y]; if (s.s.split('((' + ty.n + '))').length !== 2 || !ty.cue || ty.acc.indexOf(ty.a) < 0) return 'Gap ' + ty.n + ' is incomplete.'; }
+        if (s.s.split('((').length - 1 !== s.items.length) return 'Sentence ' + s.n + ': every gap needs an answer.';
+      } else if (s.kind === 'table') {
+        for (var rr = 0; rr < s.rows.length; rr++) { var row = s.rows[rr]; if (row.c.length !== 3 || row.c.filter(function (c) { return c === null; }).length !== (row.cells || []).length) return 'Chart part ' + s.part + ', row ' + (rr + 1) + ': one answer per missing cell is needed.'; }
+        for (var r = 0; r < s.items.length; r++) { var it = s.items[r]; if (!it.a || it.acc.indexOf(it.a) < 0) return 'Chart cell ' + it.n + ' is incomplete.'; }
+      } else if (s.kind === 'sort') {
+        var ids = s.cats.map(function (c) { return c.id; }), seen = {};
+        for (var q = 0; q < s.items.length; q++) { if (ids.indexOf(s.items[q].c) < 0) return 'Word “' + s.items[q].w + '” has no category.'; if (seen[s.items[q].w]) return 'Word “' + s.items[q].w + '” is listed twice.'; seen[s.items[q].w] = 1; }
+      } else if (s.kind === 'multi') {
+        if (s.o.length !== 4 || s.a.length !== 3 || s.a.some(function (x) { return s.o.indexOf(x) < 0; })) return 'Question ' + s.n + ': four words with three synonyms among them are needed.';
+      } else if (s.kind === 'mcq') {
+        if (s.o.length !== 4 || s.o.indexOf(s.a) < 0) return 'Question ' + s.n + ': four options with the answer among them are needed.';
+        if (s.sent && s.sent.split('___').length !== 2) return 'Question ' + s.n + ' needs exactly one gap.';
+      } else {
+        if (s.chips.length < s.items.length) return 'Step ' + (i + 1) + ': one card per pair is needed.';
+        var used = {};
+        for (var k = 0; k < s.items.length; k++) { var a = s.items[k].a; if (s.chips.indexOf(a) < 0 || used[a]) return 'Step ' + (i + 1) + ': the answer “' + a + '” is missing or repeated.'; used[a] = 1; }
+      }
+      tot += s.pts * n; per[s.task] = (per[s.task] || 0) + s.pts * n;
+    }
+    /* a word list may hold extra words that answer no gap (Round 2 keeps its full list after the repeated sentences were deleted) */
+    if (hund(tot) !== 2000) return 'The quiz adds up to ' + tot + ' points instead of 20.';
+    for (var t = 0; t < QUIZ.tasks.length; t++) if (hund(per[QUIZ.tasks[t].id] || 0) !== hund(QUIZ.tasks[t].pts)) return QUIZ.tasks[t].name + ' should be worth ' + QUIZ.tasks[t].pts + ' points.';
+    return '';
+  }
+
+  /* ---------- storage: one attempt, saved after every change ---------- */
+  function load() { try { var raw = window.localStorage.getItem(QUIZ.key); return raw ? JSON.parse(raw) : null; } catch (e) { storeOk = false; return null; } }
+  function save() { if (!storeOk) return; try { window.localStorage.setItem(QUIZ.key, JSON.stringify(store)); } catch (e) { storeOk = false; } }
+  function meta() { try { var m = JSON.parse(window.localStorage.getItem(QUIZ.key + '-stats') || 'null'); return m && typeof m.attempts === 'number' ? m : { attempts: 0, best: 0 }; } catch (e) { return { attempts: 0, best: 0 }; } }
+  function saveMeta(m) { try { window.localStorage.setItem(QUIZ.key + '-stats', JSON.stringify(m)); } catch (e) { /* storage blocked: shown for this attempt only */ } }
+  /* MIXPOS-2026-11-19 (teacher): the right answers are never "in order" and never all in A, and a new attempt never
+     shows them in the same places as the last one (prev = the attempt being replaced).
+     - MCQ: the right answer's place is spread over A, B, C, D (a shuffled bag), never the same letter twice in a row,
+       never the letter it had last time. Synonym picks never start with the answers and never keep last time's order.
+     - Word lists (chips, banks, five-word lists): tapping them in order never fills the gaps correctly (no answer lines
+       up with its row), and the list order changes from the last attempt. Row orders change from the last attempt. */
+  function fresh() { var st = fresh0(); try { mixFix(st, store); } catch (e) { /* keep the plain shuffle */ } return st; }
+  function mixFix(st, prev) {
+    var bags = {}, lastP = -1;
+    function pick(n, avoid) {
+      var bag = bags[n], i, c, ok;
+      if (!bag || !bag.length) bag = bags[n] = shuffle(range(n));
+      for (i = 0; i < bag.length; i++) if (bag[i] !== avoid && bag[i] !== lastP) break;
+      if (i < bag.length) c = bag.splice(i, 1)[0];
+      else {
+        ok = range(n).filter(function (x) { return x !== avoid && x !== lastP; });
+        if (!ok.length) ok = range(n).filter(function (x) { return x !== avoid; });
+        if (!ok.length) ok = range(n);
+        c = ok[Math.floor(Math.random() * ok.length)];
+      }
+      lastP = c; return c;
+    }
+    function same(a, b) { return !!a && !!b && a.length === b.length && a.join('\u0001') === b.join('\u0001'); }
+    function reroll(list, bad) { var x = list, t = 0; while (bad(x) && t++ < 300) x = shuffle(list); return x; }
+    /* true when the answers, in the order the list shows them, line up with the rows (tapping in order would be right) */
+    function lined(list, ans) { var f = list.filter(function (w) { return ans.indexOf(w) >= 0; }); return ans.length > 1 && f.some(function (w, k) { return w === ans[k]; }); }
+    function P(name, i) { return prev && prev[name] ? prev[name][i] : null; }
+    S.forEach(function (s, i) {
+      var n, rows = st.rowOrder ? st.rowOrder[i] : null;
+      if (rows && rows.length > 1) st.rowOrder[i] = rows = reroll(rows, function (x) { return same(x, P('rowOrder', i)); });
+      var shown = rows && s.items && (s.kind === 'place' || s.kind === 'gaps') ? rows.map(function (k) { return s.items[k].a; }) : s.items && s.kind === 'gaps' ? s.items.map(function (it) { return it.a; }) : null;
+      if (s.kind === 'mcq' && st.optOrder[i]) {
+        n = s.o.length; var was = P('optOrder', i) ? P('optOrder', i).indexOf(s.a) : -1;
+        var at = pick(n, was), rest = shuffle(s.o.filter(function (o) { return o !== s.a; })); rest.splice(at, 0, s.a); st.optOrder[i] = rest;
+      }
+      if (s.kind === 'multi' && st.optOrder[i]) st.optOrder[i] = reroll(st.optOrder[i], function (x) { return same(x, P('optOrder', i)) || s.a.every(function (a) { return x.indexOf(a) < s.a.length; }); });
+      if (st.chipOrder && st.chipOrder[i] && st.chipOrder[i].length > 1) st.chipOrder[i] = reroll(st.chipOrder[i], function (x) { return same(x, P('chipOrder', i)) || (shown && lined(x, shown)); });
+      if (st.gapChoices && st.gapChoices[i] && st.gapChoices[i].length > 1) st.gapChoices[i] = reroll(st.gapChoices[i], function (x) { return same(x, P('gapChoices', i)) || (shown && lined(x, shown)); });
+    });
+    if (st.bankOrder) st.bankOrder = st.bankOrder.map(function (b, bi) {
+      var ans = []; S.forEach(function (s, i) { if (s.kind === 'gaps' && s.bank === bi && s.items) (st.rowOrder && st.rowOrder[i] && s.rows ? st.rowOrder[i].map(function (k) { return s.items[k].a; }) : s.items.map(function (it) { return it.a; })).forEach(function (a) { ans.push(a); }); });
+      return b.length > 1 ? reroll(b, function (x) { return same(x, prev && prev.bankOrder ? prev.bankOrder[bi] : null) || lined(x, ans); }) : b;
+    });
+  }
+  function fresh0() {
+    return { v: 1, step: 0, phase: 'play', placed: {}, typed: {}, sorted: {}, msg: {}, picks: {}, done: {}, rec: {},
+      bankOrder: QUIZ.banks.map(function (b) { return shuffle(b.words); }),
+      gapChoices: pairChoices(),
+      chipOrder: S.map(function (s) { return s.kind === 'place' ? shuffle(s.chips) : s.kind === 'table' && s.pick ? shuffle(s.items.map(function (it) { return it.a; })) : s.kind === 'sort' ? shuffle(s.items.map(function (it) { return it.w; })) : null; }),
+      optOrder: S.map(function (s) { return s.kind === 'mcq' || s.kind === 'multi' ? shuffle(s.o) : null; }),
+      /* teacher (2026-11-16): a new attempt shows the rows in a new order too (matching pairs, chart rows, sentences), not only the word list */
+      rowOrder: S.map(function (s) { var n = rowCount(s); return n ? shuffle(range(n)) : null; }),
+      elapsed: 0, finishedAt: 0 };
+  }
+  /* teacher's rule (2026-11-15): questions go in pairs (1-2, 3-4, 5-6, 7-8) and each pair shares one list of five words:
+     both answers + 3 others, taken first from answers to later gaps, then earlier ones; never another accepted answer of the pair */
+  function pairChoices() {
+    return S.map(function (s, i) {
+      if (s.kind !== 'gaps') return null;
+      var keys = [], ok = [], later = [], earlier = [];
+      s.items.forEach(function (it) { keys.push(it.a); ok = ok.concat([it.a], it.alt || []); });
+      S.forEach(function (x, j) { if (j === i || x.kind !== 'gaps' || x.bank !== s.bank) return; x.items.forEach(function (it) { if (ok.indexOf(it.a) < 0) (j > i ? later : earlier).push(it.a); }); });
+      return shuffle(keys.concat(shuffle(later).concat(shuffle(earlier)).slice(0, 5 - keys.length)));
+    });
+  }
+  function okStore(x) { return x && x.v === 1 && x.gapChoices && x.gapChoices.length === S.length && x.typed && x.sorted && x.bankOrder && x.bankOrder.length === QUIZ.banks.length && x.chipOrder && x.chipOrder.length === S.length && x.optOrder && typeof x.step === 'number' && x.step >= 0 && x.step < S.length; }
+
+  /* ---------- scoring: from records only, each item recorded once (first try) ---------- */
+  function recId(i, k) { return i + '-' + k; }
+  function totals() {
+    var h = 0, ok = 0, bad = 0;
+    Object.keys(store.rec).forEach(function (id) { var r = store.rec[id]; if (r.ok) { ok++; h += hund(r.pts); } else bad++; });
+    return { h: Math.min(h, 2000), ok: ok, bad: bad, left: TOTAL_ITEMS - ok - bad };
+  }
+  function taskScore(t) { var h = 0; S.forEach(function (s, i) { if (s.task !== t) return; var n = itemsOf(i); for (var k = 0; k < n; k++) { var r = store.rec[recId(i, k)]; if (r && r.ok) h += hund(r.pts); } }); return h; }
+  function placedOf(i) { return store.placed[i] || (store.placed[i] = {}); }
+  function typedOf(i) { return store.typed[i] || (store.typed[i] = {}); }
+  function sortedOf(i) { return store.sorted[i] || (store.sorted[i] = {}); }
+  function bankOf(i) { var p = placedOf(i), used = {}; Object.keys(p).forEach(function (k) { used[p[k]] = 1; }); return store.chipOrder[i].filter(function (w) { return !used[w]; }); }
+  function allFilled(i) {
+    var s = S[i];
+    if ((s.kind === 'table' && !s.pick) || s.kind === 'type') { var t = typedOf(i); return itemsList(i).every(function (it, k) { return !!norm(t[k]); }); }
+    if (s.kind === 'sort') { var so = sortedOf(i); return s.items.every(function (it) { return !!so[it.w]; }); }
+    if (s.kind === 'multi') return (store.picks[i] || []).length === s.a.length;
+    var p = placedOf(i); return itemsList(i).every(function (it, k) { return !!p[k]; });
+  }
+
+  function check(i) {
+    if (store.done[i] || store.phase !== 'play' || !allFilled(i)) return;
+    if (S[i].kind === 'multi') {
+      /* three synonyms: one point only when the three chosen words are exactly the three synonyms */
+      var ms = S[i], mp = store.picks[i].slice(), mok = mp.length === ms.a.length && mp.every(function (x) { return ms.a.indexOf(x) >= 0; });
+      store.rec[recId(i, 0)] = { ok: mok, pts: ms.pts, given: mp.join(', ') }; store.done[i] = true; save(); render();
+      say(mok ? 'Correct.' : 'Not quite. The synonyms are ' + ms.a.join(', ') + '.'); return;
+    }
+    var s = S[i], typedKind = (s.kind === 'table' && !s.pick) || s.kind === 'type', src = typedKind ? typedOf(i) : placedOf(i), n = 0, so = s.kind === 'sort' ? sortedOf(i) : null;
+    itemsList(i).forEach(function (it, k) {
+      var id = recId(i, k); if (store.rec[id]) return;
+      var given = so ? catName(s, so[it.w]) : typedKind ? String(src[k]).trim() : src[k], ok = so ? so[it.w] === it.c : accepted(s, it, given); if (ok) n++;
+      store.rec[id] = { ok: ok, pts: s.pts, given: given };
+    });
+    store.done[i] = true; sel = -1; save(); render();
+    say(single(s) ? (n ? 'Correct.' : 'Wrong. The answer is ' + s.a + '.') : n + ' of ' + s.items.length + ' correct.');
+  }
+  /* sorting: the first placement of each word scores; a wrong word goes back to the bank and must be placed again */
+  function sortPlace(i, w, c) {
+    var s = S[i]; if (s.kind !== 'sort' || store.done[i] || store.phase !== 'play') return;
+    var k = -1; s.items.forEach(function (it, j) { if (it.w === w) k = j; }); if (k < 0) return;
+    /* teacher (2026-11-16): a placed word shows no result; it can be taken back; Check marks every word at once */
+    var so = sortedOf(i); so[w] = c; selCard = ''; view.flash = '';
+    save(); render();
+    say(esc(w) + ' is in ' + catName(s, c) + '.' + (allFilled(i) ? ' Every word is placed: press Check.' : ''));
+  }
+  function pick(i, opt) {
+    if (store.done[i] || store.phase !== 'play') return;
+    var s = S[i], ok = opt === s.a, id = recId(i, 0);
+    if (store.rec[id]) return;
+    store.picks[i] = opt; store.rec[id] = { ok: ok, pts: s.pts, given: opt }; store.done[i] = true; save(); render();
+    say(ok ? 'Correct.' : 'Wrong. The answer is ' + s.a + '.');
+  }
+  function place(i, k, w) {
+    if (store.done[i] || store.phase !== 'play') return;
+    var p = placedOf(i);
+    /* gap fill: the word is marked as soon as it lands in the gap (no Check button) */
+    if (S[i].kind === 'gap') { p[0] = w; check(i); return; }
+    if (S[i].kind === 'gaps' && !S[i].rows) { placeGaps(i, k, w); return; }
+    Object.keys(p).forEach(function (kk) { if (p[kk] === w) delete p[kk]; });
+    p[k] = w; sel = -1; save(); render();
+  }
+  /* two gaps on one screen: each gap is marked as soon as a word lands in it, and cannot be changed */
+  function placeGaps(i, k, w) {
+    var s = S[i], p = placedOf(i);
+    if (store.done[i] || store.phase !== 'play' || k < 0 || k >= s.items.length || p[k] || s.items.length === 0) return;
+    var it = s.items[k], ok = accepted(s, it, w);
+    p[k] = w; store.rec[recId(i, k)] = { ok: ok, pts: s.pts, given: w };
+    if (s.items.every(function (x, j) { return !!p[j]; })) store.done[i] = true;
+    sel = -1; save(); render();
+    say((ok ? 'Gap ' + it.n + ': correct.' : 'Gap ' + it.n + ': wrong. The answer is ' + it.a + '.'));
+  }
+  function range(n) { var a = []; for (var x = 0; x < n; x++) a.push(x); return a; }
+  function rowCount(s) { return s.kind === 'place' || (s.kind === 'gaps' && s.rows) ? s.items.length : s.kind === 'table' ? s.rows.length : s.kind === 'type' && s.rows ? s.s.split('\n').length : 0; }
+  function ord(i) { var o = store.rowOrder && store.rowOrder[i]; return o && o.length === rowCount(S[i]) ? o : range(rowCount(S[i])); }
+  /* the items in the order they are shown, so a tapped word goes to the next empty box on screen */
+  function shownItems(i) {
+    var s = S[i];
+    if (s.kind === 'table') { var out = []; ord(i).forEach(function (ri) { s.items.forEach(function (it, k) { if (it.row === ri) out.push(k); }); }); return out; }
+    return s.kind === 'place' || (s.kind === 'gaps' && s.rows) ? ord(i) : range(s.items.length);
+  }
+  function nextEmpty(i) { var p = placedOf(i); if (sel >= 0 && sel < S[i].items.length && !p[sel]) return sel; for (var j = 0; j < S[i].items.length; j++) if (!p[j]) return j; return -1; }
+  function unplace(i, k) {
+    if (S[i].kind === 'gaps' && !S[i].rows) { if (!store.done[i] && !placedOf(i)[k]) { sel = sel === k ? -1 : k; render(); } return; }
+    if (store.done[i] || (S[i].kind !== 'place' && !S[i].rows && !S[i].pick)) return; var p = placedOf(i); if (p[k]) { delete p[k]; sel = k; } else sel = (sel === k ? -1 : k); save(); render(); }
+  function tapChip(i, w) {
+    if (store.done[i]) return;
+    if (S[i].kind === 'gap') { place(i, 0, w); return; }
+    if (S[i].kind === 'gaps' && !S[i].rows) { placeGaps(i, nextEmpty(i), w); return; }
+    if (S[i].kind === 'sort') { selCard = selCard === w ? '' : w; view.flash = ''; render(); return; }
+    var p = placedOf(i), k = sel;
+    if (k < 0 || k >= S[i].items.length) { k = -1; shownItems(i).some(function (j) { if (!p[j]) { k = j; return true; } return false; }); }
+    if (k < 0) { say('Every box is full. Tap a box to take its word back.'); return; }
+    place(i, k, w);
+  }
+
+  /* ---------- timer: one handle ---------- */
+  function tick() { if (store.phase !== 'play') return; store.elapsed++; var t = document.getElementById('timer'); if (t) t.textContent = clock(store.elapsed); if (store.elapsed % 5 === 0) save(); }
+  function startTimer() { clearInterval(timerId); timerId = setInterval(tick, 1000); }
+  function clock(s) { var m = Math.floor(s / 60), x = s % 60; return (m < 10 ? '0' : '') + m + ':' + (x < 10 ? '0' : '') + x; }
+
+  /* ---------- views ---------- */
+  function statsRow() {
+    var T = totals();
+    return '<div class="stats"><div class="statgroup"><div class="stat">✅ Correct <b id="cOk">' + T.ok + '</b></div><div class="stat">❌ Wrong <b id="cBad">' + T.bad + '</b></div><div class="stat">Remaining <b id="cLeft">' + T.left + '</b></div></div>' +
+      '<div class="score">Score <b id="scoreNow">' + fmt2(T.h) + ' /20</b></div><div class="timer">⏱ <span id="timer">' + clock(store.elapsed) + '</span></div></div>';
+  }
+  function ptsLabel(p) { return p + (p > 1 ? ' pts' : ' pt'); }
+  function pill(s) {
+    /* phone layout (2026-11-15): no "Task N · name" prefix, one line */
+    var lab;
+    if (s.kind === 'place' && s.part) lab = 'Part ' + s.part + ' of ' + taskSteps(s.task).length + ' · ' + s.items.length + ' × ' + ptsLabel(s.pts);
+    else if (s.kind === 'place' || s.kind === 'sort') lab = s.items.length + ' × ' + ptsLabel(s.pts);
+    else if (s.kind === 'gap' && s.round) lab = s.round + ' · ' + s.n + '/' + S.filter(function (x) { return x.round === s.round; }).length + ' · ' + ptsLabel(s.pts);
+    else if (s.kind === 'gaps' && (s.round || s.rows)) lab = (s.round ? s.round + ' · ' : '') + s.items.length + ' × ' + ptsLabel(s.pts);
+    else if (s.kind === 'mcq' || s.kind === 'multi') lab = 'Question ' + s.n + '/' + taskSteps(s.task).length + ' · ' + ptsLabel(s.pts);
+    else if (s.kind === 'gaps') { var ng = taskSteps(s.task).reduce(function (n, x) { return n + x.items.length; }, 0); lab = 'Questions ' + s.items[0].n + '–' + s.items[s.items.length - 1].n + ' of ' + ng + ' · ' + ptsLabel(s.pts) + ' each'; }
+    else if (s.kind === 'table' && s.part) lab = 'Part ' + s.part + ' of ' + taskSteps(s.task).length + ' · ' + s.items.length + ' × ' + ptsLabel(s.pts);
+    else if (s.kind === 'table' || (s.kind === 'type' && s.rows)) lab = s.items.length + ' × ' + ptsLabel(s.pts);
+    else if (s.kind === 'type') lab = 'Section ' + s.sec + ' · ' + s.n + '/' + taskSteps(s.task).length + ' · ' + s.items.length + ' × ' + ptsLabel(s.pts);
+    else lab = s.n + '/' + taskSteps(s.task).length + ' · ' + ptsLabel(s.pts);
+    return '<div class="pill">' + esc(lab) + '</div>';
+  }
+  function navRow(i) {
+    var s = S[i], last = i === S.length - 1, done = !!store.done[i], right;
+    if ((s.kind === 'place' || s.kind === 'table' || s.kind === 'type' || s.kind === 'sort' || s.kind === 'multi' || s.rows) && !done) right = '<button class="navbtn check" data-act="check"' + (allFilled(i) ? '' : ' disabled') + '>Check ✓</button>';
+    else right = '<button class="navbtn" data-act="next"' + (done ? '' : ' disabled') + '>' + (last ? 'See Results ▶' : 'Next ▶') + '</button>';
+    var pct = Math.round(Object.keys(store.done).length / S.length * 100);
+    return '<div class="prog" role="progressbar" aria-label="Progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + pct + '"><i style="width:' + pct + '%"></i></div>' +
+      '<nav class="nav" aria-label="Question navigation"><button class="navbtn" data-act="prev"' + (i === 0 ? ' disabled' : '') + '>◀ Previous</button><span class="counter">' + (i + 1) + ' / ' + S.length + '</span>' + right + '</nav>';
+  }
+  function gapHtml(i, k, it, startCap) {
+    var p = placedOf(i), w = p[k], r = store.rec[recId(i, k)], done = store.done[i] || (S[i].kind === 'gaps' && !!r);
+    var shown = w ? (startCap ? cap(w) : w) : '', cls = 'gap', fix = '';
+    var inline = S[i].match;
+    if (done && r) { cls += r.ok ? ' correct' : ' wrong'; if (!r.ok) fix = inline ? ' <span class="to">→ ' + esc(it.a) + '</span>' : '<span class="fix">✓ ' + esc(startCap ? cap(it.a) : it.a) + '</span>'; }
+    else if (w) cls += ' filled';
+    if (!done && sel === k && S[i].kind !== 'gap') cls += ' sel';
+    var mark = done && r ? (r.ok ? ' ✓' : (inline ? '' : ' ✗')) : '';
+    var label = w ? 'Gap ' + it.n + ': ' + w + (done ? '' : '. Tap to take it back.') : 'Gap ' + it.n + ': empty';
+    var b = '<button class="' + cls + '" data-act="gap" data-k="' + k + '" aria-label="' + esc(label) + '"' + (done ? ' tabindex="-1"' : '') + '><span class="w">' + (shown ? esc(shown) : '&nbsp;') + '</span>' + mark + (inline ? fix : '') + '</button>';
+    return inline ? b : b + fix;
+  }
+  function verdict(s, r, it) {
+    if (r.ok) return '✓ <b>Correct!</b> ' + (norm(r.given) !== norm(it.a) ? 'The answer in the key is <b>' + esc(it.a) + '</b>, and yours is also correct. ' : '');
+    return '✗ <b>Not quite.</b> The answer is <b>' + esc(it.a) + '</b>. ';
+  }
+  function gapView(i) {
+    var s = S[i], done = store.done[i], p = placedOf(i), r = store.rec[recId(i, 0)];
+    var h = '<div class="bank" aria-label="' + esc(QUIZ.banks[s.bank].label) + '">';
+    /* every word of the bank stays selectable on every sentence (teacher's rule: "Keep all selectable") */
+    store.bankOrder[s.bank].forEach(function (w) {
+      if (p[0] === w && !done) return;
+      h += '<button class="chip" data-act="chip" data-w="' + esc(w) + '"' + (done ? ' disabled' : '') + '>' + esc(w) + '</button>';
+    });
+    h += '</div>';
+    var parts = s.s.split('___');
+    h += '<div class="taskbox gapq">' + (QUIZ.story ? '<span class="mq">' + esc(QUIZ.story) + '</span>' : '') + '<span class="num">' + s.n + '.</span> ' + storyText(parts[0]) + gapHtml(i, 0, s, parts[0] === '') + storyText(parts[1]) + '</div>';
+    if (done && r) h += '<div class="feedback ' + (r.ok ? 'ok' : 'bad') + '" role="status">' + verdict(s, r, s) + esc(s.why) + '</div>';
+    else h += '<p class="hint">Drag a word into the gap, or tap it. Your first choice is marked.</p>';
+    return h;
+  }
+  /* two questions per screen sharing one list of five words (teacher's rule, 2026-11-15) */
+  /* one round per screen: every word of the round in the list (all stay selectable), one row per sentence */
+  function roundView(i) {
+    /* teacher (2026-11-15): a placed word leaves the list; tap its gap to send it back; nothing is marked until Check */
+    var s = S[i], done = store.done[i], h = '', p = placedOf(i), used = {};
+    Object.keys(p).forEach(function (k) { used[p[k]] = 1; });
+    var left = store.bankOrder[s.bank].filter(function (w) { return !used[w]; });
+    if (!done) h += '<div class="bank" aria-label="' + esc(QUIZ.banks[s.bank].label) + '">' + (left.length ? left.map(function (w) {
+      return '<button class="chip" data-act="chip" data-w="' + esc(w) + '">' + esc(w) + '</button>';
+    }).join('') : '<span class="empty">All the gaps are filled. Press Check ✓, or tap a gap to change it.</span>') + '</div>';
+    h += '<div class="board rows">' + ord(i).map(function (k, pos) {
+      var it = s.items[k], parts = it.s.split('___'), r = store.rec[recId(i, k)];
+      return '<div class="srow"><span class="num">' + (pos + 1) + '.</span><div>' + storyText(parts[0]) + gapHtml(i, k, it, parts[0] === '') + storyText(parts[1]) +
+        '</div></div>';
+    }).join('') + '</div>';
+    if (done) {
+      var n = 0; s.items.forEach(function (it, k) { if (store.rec[recId(i, k)].ok) n++; });
+      var all = n === s.items.length;
+      h += '<div class="feedback fb2 ' + (all ? 'ok' : 'bad') + '" role="status">' + (all ? '✓ Excellent! ' : '') + '<b>' + n + ' / ' + s.items.length + ' correct</b> · +' + n * s.pts + ' pt' + (all ? '' : '. The correct word is shown in green.') + '</div>';
+    } else if (left.length) h += '<p class="hint">Tap a word (or drag it). Tap a gap to undo.</p>';
+    return h;
+  }
+  function gapsView(i) {
+    var s = S[i], done = store.done[i];
+    if (s.rows) return roundView(i);
+    /* once both gaps are answered the list has no further use, so it is hidden to keep the screen to one page */
+    var h = done ? '' : '<div class="bank" aria-label="' + esc(QUIZ.banks[s.bank].label) + '">' + store.gapChoices[i].map(function (w) {
+      return '<button class="chip" data-act="chip" data-w="' + esc(w) + '">' + esc(w) + '</button>';
+    }).join('') + '</div>';
+    var first = S.indexOf(taskSteps(s.task)[0]) === i;
+    var body = s.text.split(/\(\((\d+)\)\)/).map(function (seg, j) {
+      if (j % 2 === 0) return storyText(seg);
+      var k = -1; s.items.forEach(function (it, x) { if (it.n === +seg) k = x; });
+      return '<span class="gn">' + seg + '</span>' + gapHtml(i, k, s.items[k], false);
+    }).join('');
+    h += '<div class="taskbox gapq">' + (QUIZ.story && first ? '<span class="mq">' + esc(QUIZ.story) + '</span>' : '') + body + '</div>';
+    var fb = s.items.map(function (it, k) {
+      var r = store.rec[recId(i, k)]; if (!r) return '';
+      return '<div class="feedback fb2 ' + (r.ok ? 'ok' : 'bad') + '" role="status"><b>' + it.n + '.</b> ' + verdict(s, r, it) + esc(it.why) + '</div>';
+    }).join('');
+    h += fb || '<p class="hint">Tap a word to put it in the next empty gap (or tap a gap first), or drag it into a gap. Each answer is marked at once.</p>';
+    return h;
+  }
+  /* typed word formation: one sentence per screen, all of its gaps together, one Check */
+  function typeView(i) {
+    var s = S[i], done = store.done[i], t = typedOf(i), many = s.items.length > 1;
+    if (s.rows) return typeRows(i);
+    var body = s.s.split(/\(\((\d+)\)\)/).map(function (seg, j) {
+      if (j % 2 === 0) return esc(seg);
+      var k = -1; s.items.forEach(function (x, q) { if (x.n === +seg) k = q; });
+      var it = s.items[k], r = store.rec[recId(i, k)], cue = '<span class="cue">(' + esc(it.cue) + ')</span> ';
+      if (done && r) return cue + '<span class="tans ' + (r.ok ? 'correct' : 'wrong') + '"><span class="w">' + esc(r.given) + '</span>' + (r.ok ? ' ✓' : ' ✗') + '</span>' + (r.ok ? '' : '<span class="fix">✓ ' + esc(it.a) + '</span>');
+      return cue + '<input class="tin inl" id="tin' + k + '" data-k="' + k + '" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Gap ' + it.n + ': word formed from ' + esc(it.cue) + '" value="' + esc(t[k] || '') + '">';
+    }).join('');
+    var h = '<div class="taskbox gapq"><span class="num">' + s.n + '.</span> ' + body + '</div>';
+    if (done) h += s.items.map(function (it, k) { var r = store.rec[recId(i, k)]; return '<div class="feedback fb2 ' + (r.ok ? 'ok' : 'bad') + '" role="status">' + (many ? '<b>(' + esc(it.cue) + ')</b> ' : '') + verdict(s, r, it) + esc(it.why) + '</div>'; }).join('');
+    else h += '<p class="hint">Type ' + (many ? 'the ' + s.items.length + ' words' : 'the word') + ', then press Check or Enter. <span class="kbd">Spelling counts.</span></p>';
+    return h;
+  }
+  /* phone layout (2026-11-16): all the sentences of the task on one screen, one row each; nothing is marked until Check,
+     then only ✓ / ✗ and the correct word (no explanation lines) */
+  function typeRows(i) {
+    var s = S[i], done = store.done[i], t = typedOf(i);
+    var lines = s.s.split('\n');
+    var h = '<div class="board rows">' + ord(i).map(function (li, pos) {
+      var line = lines[li], num = pos + 1;
+      return '<div class="srow"><span class="num">' + num + '.</span><div>' + line.split(/\(\((\d+)\)\)/).map(function (seg, j) {
+        if (j % 2 === 0) return esc(seg);
+        var k = -1; s.items.forEach(function (x, q) { if (x.n === +seg) k = q; });
+        var it = s.items[k], r = store.rec[recId(i, k)], cue = '<span class="cue">(' + esc(it.cue) + ')</span> ';
+        if (done && r) return cue + '<span class="tans ' + (r.ok ? 'correct' : 'wrong') + '"><span class="w">' + esc(r.given) + '</span>' + (r.ok ? ' ✓' : ' ✗') + '</span>' + (r.ok ? '' : '<span class="fix">✓ ' + esc(it.a) + '</span>');
+        return cue + '<input class="tin inl" id="tin' + k + '" data-k="' + k + '" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Gap ' + it.n + ': word formed from ' + esc(it.cue) + '" value="' + esc(t[k] || '') + '">';
+      }).join('') + '</div></div>';
+    }).join('') + '</div>';
+    if (done) {
+      var n = 0; s.items.forEach(function (it, k) { if (store.rec[recId(i, k)].ok) n++; });
+      var all = n === s.items.length;
+      h += '<div class="feedback fb2 ' + (all ? 'ok' : 'bad') + '" role="status">' + (all ? '✓ Excellent! ' : '') + '<b>' + n + ' / ' + s.items.length + ' correct</b> · +' + n * s.pts + ' pt' + (all ? '' : '. The correct word is shown in green.') + '</div>';
+    } else h += '<p class="hint">Type each word, then press Check. <span class="kbd">Spelling counts.</span></p>';
+    return h;
+  }
+  function tableView(i) {
+    var s = S[i], done = store.done[i], t = typedOf(i), h = '', bank = s.pick ? bankOf(i) : [];
+    /* teacher (2026-11-16): no typing in the chart; the words are in a list, tap or drag them into the empty cells, then Check */
+    if (s.pick && !done) h += '<div class="bank" aria-label="Word list">' + (bank.length ? bank.map(function (w) { return '<button class="chip" data-act="chip" data-w="' + esc(w) + '">' + esc(w) + '</button>'; }).join('') : '<span class="empty">All the cells are filled. Press Check ✓, or tap a cell to change it.</span>') + '</div>';
+    h += '<div class="board' + (s.pick ? ' pick' : '') + '"><table class="wf"><thead><tr>' + COLS.map(function (c) { return '<th scope="col">' + c + '</th>'; }).join('') + '</tr></thead><tbody>';
+    ord(i).forEach(function (ri) {
+      var row = s.rows[ri];
+      h += '<tr>' + row.c.map(function (c, ci) {
+        if (c === null) {
+          var k = -1; s.items.forEach(function (x, q) { if (x.row === ri && x.col === ci) k = q; });
+          var it = s.items[k], r = store.rec[recId(i, k)];
+          if (s.pick) return '<td>' + gapHtml(i, k, it, false) + '</td>';
+          if (done && r) return '<td><span class="tans ' + (r.ok ? 'correct' : 'wrong') + '"><span class="w">' + esc(r.given) + '</span>' + (r.ok ? ' ✓' : ' ✗') + '</span>' + (r.ok ? '' : '<span class="tfix">✓ ' + esc(it.a) + '</span>') + '</td>';
+          return '<td><input class="tin" id="tin' + k + '" data-k="' + k + '" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="' + esc(COLS[ci] + ' for row ' + it.n) + '" value="' + esc(t[k] || '') + '"></td>';
+        }
+        return c ? '<td>' + esc(c) + '</td>' : '<td class="dash" aria-label="no word">—</td>';
+      }).join('') + '</tr>';
+    });
+    h += '</tbody></table></div>';
+    if (done) {
+      var n = 0; s.items.forEach(function (it, k) { if (store.rec[recId(i, k)].ok) n++; });
+      var all = n === s.items.length;
+      h += '<div class="feedback fb2 ' + (all ? 'ok' : 'bad') + '" role="status">' + (all ? '✓ Excellent! ' : '✗ ') + '<b>' + n + ' / ' + s.items.length + ' correct</b> · +' + (n * s.pts) + ' pt' + (all ? '' : '. The correct word is shown in green.') + '</div>';
+    } else if (s.pick) { if (bank.length) h += '<p class="hint">Tap a word (or drag it) into the next empty cell. Tap a cell to undo.</p>'; }
+    else h += '<p class="hint">Type the missing word in each white box, then press Check. <span class="kbd">Spelling counts.</span></p>';
+    return h;
+  }
+  function sortView(i) {
+    var s = S[i], done = store.done[i], so = sortedOf(i);
+    var bank = store.chipOrder[i].filter(function (w) { return !so[w]; });
+    var h = '<div class="sortnote">' + s.note + '</div>';
+    if (!done) h += '<div class="bank" aria-label="Words to sort">' + (bank.length ? bank.map(function (w) { return '<button class="chip' + (selCard === w ? ' selc' : '') + '" data-act="chip" data-w="' + esc(w) + '" aria-pressed="' + (selCard === w) + '">' + esc(w) + '</button>'; }).join('') : '<span class="empty">All the words are in a box. Press Check ✓, or tap a word to take it back.</span>') + '</div>';
+    h += '<div class="cats">' + s.cats.map(function (c) {
+      var inside = s.items.filter(function (it) { return so[it.w] === c.id; }).map(function (it) {
+        /* before Check: a neutral word that can be tapped to send it back; after Check: ✓ or ✗ with the right box */
+        if (!done) return '<button class="sc pend" data-act="unsort" data-w="' + esc(it.w) + '" aria-label="' + esc(it.w + ' in ' + c.name + '. Tap to take it back.') + '">' + esc(it.w) + '</button>';
+        var r = store.rec[recId(i, s.items.indexOf(it))], bad = r && !r.ok;
+        return '<span class="sc' + (bad ? ' late' : '') + '">' + esc(it.w) + (bad ? ' ✗ <small>→ ' + esc(catName(s, it.c)) + '</small>' : ' ✓') + '</span>'; }).join('');
+      return '<div class="cat' + (selCard ? ' ready' : '') + '" data-act="cat" data-c="' + c.id + '" role="button" tabindex="' + (done ? '-1' : '0') + '" aria-label="Put the word in ' + esc(c.name) + '"><h4>' + esc(c.name) + '</h4><div class="in">' + inside + '</div></div>';
+    }).join('') + '</div>';
+    if (done) {
+      var n = 0; s.items.forEach(function (it, k) { if (store.rec[recId(i, k)].ok) n++; });
+      h += '<div class="feedback fb2 ' + (n === s.items.length ? 'ok' : 'bad') + '" role="status">' + (n === s.items.length ? '✓ Excellent! ' : '') + '<b>' + n + ' / ' + s.items.length + ' correct</b> · +' + (n * s.pts) + ' pt' + (n === s.items.length ? '' : '. A word marked ✗ shows its right box.') + '</div>';
+    } else if (bank.length) h += '<p class="hint">Tap a word, then its box (or drag it). Tap a placed word to undo.</p>';
+    return h;
+  }
+  function placeView(i) {
+    var s = S[i], done = store.done[i], h = '';
+    var bank = bankOf(i);
+    h += '<div class="bank" aria-label="Word bank">' + (bank.length ? bank.map(function (w) { return '<button class="chip" data-act="chip" data-w="' + esc(w) + '">' + esc(w) + '</button>'; }).join('') : '<span class="empty">' + (done ? 'Checked.' : 'All the words are placed. Tap a box to take a word back, or press Check.') + '</span>') + '</div>';
+    /* teacher (2026-11-16): two columns read top to bottom, 1-5 on the left and 6-10 on the right, not across the rows */
+    h += '<div class="board' + (s.items.length > 5 ? ' two" style="grid-auto-flow:column;grid-template-rows:repeat(' + Math.ceil(s.items.length / 2) + ',auto)' : '') + '">';
+    ord(i).forEach(function (k, pos) {
+      var it = s.items[k];
+      h += '<div class="mrow"><div class="mdef"><span class="num">' + (pos + 1) + '.</span><span>' + esc(it.s) + '</span></div><div class="mcell">' + gapHtml(i, k, it, false) + '</div></div>';
+    });
+    h += '</div>';
+    if (done) {
+      var n = 0; s.items.forEach(function (it, k) { if (store.rec[recId(i, k)].ok) n++; });
+      var all = n === s.items.length;
+      h += '<div class="feedback ' + (all ? 'ok' : 'bad') + '" role="status">' + (all ? '✓ Excellent! ' : '✗ ') + '<b>' + n + ' / ' + s.items.length + ' correct</b> · +' + (n * s.pts) + ' pt' + (all ? '' : '. The correct word is shown in green.') + '</div>';
+    } else if (bank.length) h += '<p class="hint">Tap a word (or drag it) into the next empty box.</p>';
+    return h;
+  }
+  /* three synonyms (Unit 1): tap three words (tap again to undo), then Check */
+  function toggleMulti(i, o) {
+    if (store.done[i] || store.phase !== 'play') return;
+    var p = store.picks[i] || (store.picks[i] = []), at = p.indexOf(o);
+    if (at >= 0) p.splice(at, 1); else if (p.length < S[i].a.length) p.push(o); else { say('You have chosen three words. Tap one to change it.'); return; }
+    save(); render();
+  }
+  function multiView(i) {
+    var s = S[i], done = store.done[i], p = store.picks[i] || [];
+    var h = '<div class="taskbox syn"><span class="mq">Target word</span><b class="target">' + esc(s.q) + '</b></div><div class="choices multi">';
+    store.optOrder[i].forEach(function (o, k) {
+      var cls = 'choice', mk = '', syn = s.a.indexOf(o) >= 0, chose = p.indexOf(o) >= 0;
+      if (done) { if (syn) { cls += ' correct'; mk = '<span class="mk" aria-hidden="true">' + (chose ? '✓' : '') + '</span>'; } else if (chose) { cls += ' wrong'; mk = '<span class="mk" aria-hidden="true">✗</span>'; } }
+      else if (chose) cls += ' picked';
+      h += '<button class="' + cls + '" data-act="multi" data-k="' + k + '" aria-pressed="' + chose + '"' + (done ? ' disabled' : '') + '><span class="lt">' + 'ABCD'[k] + '.</span>' + esc(o) + (done && !syn ? ' <small class="anti">opposite</small>' : '') + mk + '</button>';
+    });
+    h += '</div>';
+    if (done) { var r = store.rec[recId(i, 0)]; h += '<div class="feedback fb2 ' + (r.ok ? 'ok' : 'bad') + '" role="status">' + (r.ok ? '✓ <b>Correct!</b> ' : '✗ <b>Not quite.</b> The synonyms are <b>' + esc(s.a.join(', ')) + '</b>. ') + esc(s.why) + '</div>'; }
+    else h += '<p class="hint">Tap three words (tap again to undo), then press Check. <b>' + p.length + ' / 3</b></p>';
+    return h;
+  }
+  function mcqQ(s) {
+    if (!s.sent) return esc(s.q);
+    var p = s.sent.split('___');
+    if (!s.q) return esc(p[0]) + '<span class="mgap" aria-label="gap"></span>' + esc(p[1]);
+    return '<span class="mq">' + esc(s.q) + '</span>' + esc(p[0]) + '<span class="mgap" aria-label="gap"></span>' + esc(p[1]);
+  }
+  function mcqView(i) {
+    /* MCQ options were rewritten on 2026-11-15 so the correct one is not always the longest (students guessed by length).
+       teacher (2026-11-15): long options (definitions) go one under another, A to D, not in a 2-column grid */
+    var long = S[i].o.some(function (o) { return o.length > 28; });
+    var s = S[i], done = store.done[i], picked = store.picks[i], h = '<div class="taskbox">' + mcqQ(s) + '</div><div class="choices' + (long ? ' list' : '') + '">';
+    store.optOrder[i].forEach(function (o, k) {
+      var cls = 'choice', mk = '';
+      if (done) { if (o === s.a) { cls += ' correct'; mk = '<span class="mk" aria-hidden="true">✓</span>'; } else if (o === picked) { cls += ' wrong'; mk = '<span class="mk" aria-hidden="true">✗</span>'; } }
+      h += '<button class="' + cls + '" data-act="opt" data-k="' + k + '"' + (done ? ' disabled' : '') + '><span class="lt">' + 'ABCD'[k] + '.</span>' + esc(o) + mk + '</button>';
+    });
+    h += '</div>';
+    if (done) {
+      var ok = picked === s.a, L = 'ABCD'[store.optOrder[i].indexOf(s.a)];
+      /* a long option is already shown in green above, so only its letter is repeated */
+      var key = s.a.length > 40 ? L : L + '. ' + esc(s.a);
+      h += '<div class="feedback fb2 ' + (ok ? 'ok' : 'bad') + '" role="status">' + (ok ? '✓ <b>Correct!</b> ' : '✗ <b>Not quite.</b> The answer is <b>' + key + '</b>. ') + esc(s.why) + '</div>';
+    }
+    return h;
+  }
+  function play() {
+    var i = store.step, s = S[i], body;
+    if (s.kind === 'mcq') body = mcqView(i); else if (s.kind === 'multi') body = multiView(i); else if (s.kind === 'gap') body = gapView(i); else if (s.kind === 'gaps') body = gapsView(i); else if (s.kind === 'type') body = typeView(i); else if (s.kind === 'table') body = tableView(i); else if (s.kind === 'sort') body = sortView(i); else body = placeView(i);
+    /* phone layout (2026-11-15): the task fills the screen; progress, stats and Previous / page / Next sit together at the bottom */
+    return '<div class="card" id="card"><div class="instr" id="instr">' + esc(QUIZ.tasks[s.task - 1].instr) + '</div>' + pill(s) + '<div class="tbody" id="tbody">' + body + '</div>' +
+      (storeOk ? '' : '<p class="hint">Your browser is blocking storage, so your answers will be lost if you leave this page.</p>') + '</div>' +
+      '<div class="dock" id="dock">' + statsRow() + navRow(i) + '</div>';
+  }
+  function results() {
+    var T = totals(), acc = Math.round(T.ok / TOTAL_ITEMS * 100);
+    var h = '<div class="hero"><p class="kicker">QUIZ COMPLETE</p><div class="badge" id="badge"><div>' + fmt2(T.h) + '<small>/20</small></div></div>' +
+      '<div class="slotwin" id="slotwin" role="img" aria-label="Final remark: ' + esc(band(T.h)) + '"><span class="reel" id="reel">' + esc(band(T.h)) + '</span></div></div>';
+    h += '<div class="sumgrid"><div class="sum"><span>Final score</span><b>' + fmt2(T.h) + ' /20</b></div><div class="sum"><span>Correct answers</span><b>' + T.ok + '</b></div><div class="sum"><span>Incorrect answers</span><b>' + T.bad + '</b></div><div class="sum"><span>Accuracy</span><b>' + acc + '%</b></div></div>';
+    var M = meta(), best = Math.max(M.best || 0, T.h), tries = Math.max(M.attempts || 0, store.attemptNo || 1);
+    h += '<div class="sumline"><span>⏱ Time taken <b>' + clock(store.elapsed) + '</b></span><span>Attempts <b>' + tries + '</b></span><span>Best score <b>' + fmt2(best) + ' /20</b></span></div>';
+    h += '<div class="breakdown">' + QUIZ.tasks.map(function (t) { return '<div class="brow"><span>' + esc('Task ' + t.id + ' · ' + (t.short || t.name)) + '</span><span>' + fmt2(taskScore(t.id)) + ' / ' + t.pts.toFixed(2) + '</span></div>'; }).join('') + '</div>';
+    h += '<div class="actions"><button class="abtn" data-act="review">Review My Answers</button><button class="abtn sec" data-act="restart">Restart Quiz</button></div>';
+    return h;
+  }
+  function ritem(q, r, key, why) {
+    return '<div class="ritem"><p class="rq">' + q + '</p><p>Your answer: <span class="' + (r.ok ? 'good' : 'badt') + '">' + esc(r.given || '—') + (r.ok ? ' ✓' : ' ✗') + '</span></p>' +
+      (r.ok && norm(r.given) === norm(key) ? '' : '<p>' + (r.ok ? 'Answer in the key' : 'Correct answer') + ': <span class="good">' + esc(key) + ' ✓</span></p>') + (why ? '<p>' + esc(why) + '</p>' : '') + '</div>';
+  }
+  function review() {
+    var h = '<div class="instr">Review my answers</div><div style="height:14px"></div>';
+    QUIZ.tasks.forEach(function (t) {
+      h += '<section class="rgroup"><h3>' + esc(t.name) + ' · ' + fmt2(taskScore(t.id)) + ' / ' + t.pts.toFixed(2) + '</h3>';
+      S.forEach(function (s, i) {
+        if (s.task !== t.id) return;
+        if (s.kind === 'multi') { var rm = store.rec[recId(i, 0)] || {}; h += ritem(s.n + '. Three synonyms of ' + esc(s.q), rm, s.a.join(', '), s.why); return; }
+        if (s.kind === 'mcq') { h += ritem(s.n + '. ' + esc(s.q) + (s.sent ? ' ' + esc(s.sent.replace('___', '_____')) : ''), store.rec[recId(i, 0)] || {}, s.a, s.why); return; }
+        itemsList(i).forEach(function (it, k) {
+          var r = store.rec[recId(i, k)] || {}, q, why = it.why, key = it.a;
+          if (s.kind === 'sort') { q = it.n + '. ' + esc(it.w); key = catName(s, it.c); }
+          else if (s.kind === 'place') { q = it.n + '. ' + esc(it.s) + (it.why ? '' : ' + ?'); why = it.why || it.s + ' ' + it.a + ' is the collocation.'; }
+          else if (s.kind === 'table') q = it.n + '. ' + it.c.map(function (c, ci) { return COLS[ci] + ': ' + (c === null ? (ci === it.col ? '_____' : '…') : c ? esc(c) : '—'); }).join(' · ');
+          else if (s.kind === 'type') q = it.n + '. ' + (s.rows ? s.s.split('\n').filter(function (l) { return l.indexOf('((' + it.n + '))') >= 0; })[0] : s.s).split(/\(\((\d+)\)\)/).map(function (seg, j) { if (j % 2 === 0) return esc(seg); var o = s.items.filter(function (x) { return x.n === +seg; })[0]; return '(' + esc(o.cue) + ') ' + (o === it ? '<b>' + esc(it.a) + '</b>' : '_____'); }).join('');
+          else { var parts = it.s.replace(/\{\d+\}/g, '_____').split('___'); q = it.n + '. ' + esc(parts[0]) + (s.kind === 'type' ? '(' + esc(s.cue) + ') ' : '') + '<b>' + esc(it.a) + '</b>' + esc(parts[1]); }
+          h += ritem(q, r, key, why);
+        });
+      });
+      h += '</section>';
+    });
+    h += '<div class="actions"><button class="abtn sec" data-act="back">Back to Results</button><button class="abtn" data-act="restart">Restart Quiz</button></div>';
+    return h;
+  }
+
+  /* FOCUS-2026-11-15: every redraw replaces #app, so the focused control is found again by a stable key;
+     a new results / review screen moves focus to its first heading; never on first load (an iframe must not steal focus) */
+  var lastScr = null;
+  function vKey(el) {
+    if (!el || !el.getAttribute || !app.contains(el)) return null;
+    if (el.classList && el.classList.contains('tin')) return 'tin:' + el.getAttribute('data-k');
+    var a = el.getAttribute('data-act'); if (!a) return null;
+    return a + ':' + (el.getAttribute('data-w') || el.getAttribute('data-c') || el.getAttribute('data-k') || '');
+  }
+  function vRestore(key) {
+    var el = null;
+    if (key) [].some.call(app.querySelectorAll('[data-act], .tin'), function (x) { if (!x.disabled && vKey(x) === key) { el = x; return true; } return false; });
+    if (!el && key) ['[data-act="check"]', '[data-act="next"]', '.bank .chip', '[data-act="opt"]', '.tin', '[data-act]'].some(function (s) { var x = app.querySelector(s); if (x && !x.disabled) { el = x; return true; } return false; });
+    if (el) try { el.focus({ preventScroll: true }); } catch (e) { }
+  }
+  function render() {
+    var key = vKey(document.activeElement), scr = store.phase === 'results' ? (view.page === 'review' ? 'review' : 'results') : 'play', first = lastScr === null;
+    if (store.phase === 'results') app.innerHTML = view.page === 'review' ? review() : results();
+    else app.innerHTML = play();
+    app.classList.toggle('playing', scr === 'play'); fitPage();
+    if (!first && scr !== lastScr && scr !== 'play') { var hd = app.querySelector('h1, h2, h3, .kicker, .instr'); if (hd) { hd.setAttribute('tabindex', '-1'); try { hd.focus({ preventScroll: true }); } catch (e) { } } }
+    else if (!first) vRestore(key);
+    lastScr = scr;
+  }
+  /* one-line instruction and pill: shrink the text a little if it would wrap; the play screen is at least one screen tall so the dock sits at the bottom */
+  function oneLine(el, min) {
+    if (!el) return; el.style.fontSize = '';
+    var f = parseFloat(getComputedStyle(el).fontSize);
+    while (el.scrollWidth > el.clientWidth + 1 && f > min) { f -= 0.5; el.style.fontSize = f + 'px'; }
+  }
+  /* FILL-2026-11-16 (teacher: "no empty space on the phone"): when a step leaves room above the dock, its body (word list, sentences,
+     answers, feedback) is enlarged until the screen is full. Room for the feedback is kept before answering, and the size chosen for
+     a step is kept after the answer, so the text does not jump. Never smaller than the normal size. */
+  var zoomOf = {};
+  function fillStep() {
+    var tb = document.getElementById('tbody'); if (!tb || !app.classList.contains('playing')) return;
+    var i = store.step, k = i + '@' + window.innerWidth + 'x' + window.innerHeight;
+    var avail = window.innerHeight - (app.getBoundingClientRect().top + window.scrollY) - (parseFloat(getComputedStyle(app).marginBottom) || 0);
+    function h() { return app.getBoundingClientRect().height; }
+    if (zoomOf[k]) { tb.style.zoom = zoomOf[k]; return; }
+    var s = S[i], reserve = store.done[i] ? 0 : 52, z = 1, probe = null;
+    /* PROBE-2026-11-16: for an MCQ or a synonyms step, the longest feedback it can show (wrong answer + explanation) is put in, hidden,
+       while the size is chosen, so long explanations still fit after the answer */
+    if (!store.done[i] && (s.kind === 'mcq' || s.kind === 'multi')) {
+      probe = document.createElement('div'); probe.className = 'feedback fb2 bad'; probe.style.visibility = 'hidden';
+      probe.innerHTML = '✗ <b>Not quite.</b> ' + (s.kind === 'mcq' ? 'The answer is <b>' + (s.a.length > 40 ? 'A' : 'A. ' + esc(s.a)) : 'The synonyms are <b>' + esc(s.a.join(', '))) + '</b>. ' + esc(s.why);
+      tb.appendChild(probe); reserve = 4;
+    }
+    tb.style.zoom = 1;
+    if (h() + reserve < avail - 8) {
+      for (var t = 1.04; t <= 1.4001; t += 0.04) { tb.style.zoom = t; if (h() + reserve > avail) break; z = t; }
+    }
+    if (probe) probe.remove();
+    tb.style.zoom = z; zoomOf[k] = z;
+  }
+  function fitPage() {
+    oneLine(app.querySelector('.instr'), 11); oneLine(app.querySelector('.pill'), 9.5);
+    app.style.minHeight = '';
+    if (!app.classList.contains('playing')) return;
+    fillStep();
+    var top = app.getBoundingClientRect().top + window.scrollY, mb = parseFloat(getComputedStyle(app).marginBottom) || 0;
+    app.style.minHeight = Math.max(0, window.innerHeight - top - mb) + 'px';
+  }
+  var fitW = window.innerWidth, fitH = window.innerHeight;
+  window.addEventListener('resize', function () { if (window.innerWidth !== fitW || Math.abs(window.innerHeight - fitH) > 80) { fitW = window.innerWidth; fitH = window.innerHeight; fitPage(); } });
+  window.addEventListener('load', fitPage);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitPage);
+  function sight() {
+    /* after a step change: show the whole step; if it cannot fit under the header, line the instruction card up with the top */
+    var c = document.getElementById('dock') || document.getElementById('card'), ins = document.getElementById('instr');
+    if (!c || !ins) { window.scrollTo(0, 0); return; }
+    var bottom = c.getBoundingClientRect().bottom + window.scrollY;
+    /* the sorting step grows as words land in the boxes, so it always starts lined up with the instruction card */
+    if (bottom <= window.innerHeight + 2 && S[store.step].kind !== 'sort') window.scrollTo(0, 0);
+    else window.scrollTo(0, Math.max(0, ins.getBoundingClientRect().top + window.scrollY - 6));
+  }
+  function go(i) { store.step = Math.max(0, Math.min(S.length - 1, i)); sel = -1; selCard = ''; view.flash = ''; save(); render(); sight(); say('Step ' + (store.step + 1) + ' of ' + S.length + '. ' + QUIZ.tasks[S[store.step].task - 1].instr); }
+
+  /* ---------- results: slot-machine remark, confetti at 16+ ---------- */
+  function finish() {
+    if (Object.keys(store.done).length < S.length) return;
+    store.phase = 'results'; store.finishedAt = Date.now(); clearInterval(timerId);
+    /* attempts and best score live beside the attempt, counted once per finished attempt */
+    var m = meta(); m.attempts = (m.attempts || 0) + 1; m.best = Math.max(m.best || 0, totals().h); store.attemptNo = m.attempts; saveMeta(m); save();
+    view.page = 'results'; render(); showResults(); spin(true);
+  }
+  function showResults() {
+    var acts = app.querySelector('.actions'); if (!acts) { window.scrollTo(0, 0); return; }
+    var bottom = acts.getBoundingClientRect().bottom + window.scrollY;
+    window.scrollTo(0, bottom + 12 <= window.innerHeight ? 0 : Math.max(0, app.getBoundingClientRect().top + window.scrollY - 6));
+  }
+  function spin(animate) {
+    var reel = document.getElementById('reel'), win = document.getElementById('slotwin'); if (!reel || !win) return;
+    var T = totals(), target = band(T.h), R = QUIZ.remarks, ti = R.indexOf(target), my = ++slotAnim;
+    function landed() { reel.textContent = target; reel.className = 'reel land'; win.className = 'slotwin done ' + (ti === 0 ? 'r0' : ti >= 4 ? 'rhi' : ''); if (T.h >= 1600) confetti(); say('Final remark: ' + target); }
+    if (!animate || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) { landed(); return; }
+    var steps = 3 * R.length + ti, k = 0;
+    (function next() {
+      if (my !== slotAnim || !document.getElementById('reel')) return;
+      if (k >= steps) { landed(); return; }
+      reel.textContent = R[k % R.length]; reel.className = 'reel'; void reel.offsetWidth; reel.className = 'reel tick';
+      k++;
+      var left = steps - k, d = left > 8 ? 70 : 70 + (8 - left) * (8 - left) * 9;
+      setTimeout(next, d);
+    })();
+  }
+  function confetti() {
+    var box = document.getElementById('confetti'), col = ['#1e3a5f', '#2563eb', '#26a85b', '#e15a5a', '#f6c94c', '#ffffff'];
+    box.innerHTML = '';
+    for (var i = 0; i < 90; i++) { var p = document.createElement('i'); p.className = 'cf'; p.style.left = Math.random() * 100 + 'vw'; p.style.background = col[i % col.length]; p.style.animationDelay = (Math.random() * 1.2) + 's'; p.style.setProperty('--dx', (Math.random() * 160 - 80) + 'px'); box.appendChild(p); }
+    setTimeout(function () { box.innerHTML = ''; }, 5600);
+  }
+  function restart() { slotAnim++; zoomOf = {}; document.getElementById('confetti').innerHTML = ''; store = fresh(); view.page = 'play'; view.flash = ''; sel = -1; selCard = ''; save(); render(); window.scrollTo(0, 0); startTimer(); }
+
+  /* ---------- events ---------- */
+  app.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-act]'); if (!b || b.disabled) return;
+    if (Date.now() < suppressClick) return;
+    var act = b.getAttribute('data-act'), i = store.step;
+    if (act === 'chip') tapChip(i, b.getAttribute('data-w'));
+    else if (act === 'unsort') { if (!store.done[i]) { delete sortedOf(i)[b.getAttribute('data-w')]; selCard = ''; save(); render(); } }
+    else if (act === 'cat') { if (selCard) sortPlace(i, selCard, b.getAttribute('data-c')); else say('Tap a word first.'); }
+    else if (act === 'gap') unplace(i, +b.getAttribute('data-k'));
+    else if (act === 'check') check(i);
+    else if (act === 'opt') pick(i, store.optOrder[i][+b.getAttribute('data-k')]);
+    else if (act === 'multi') toggleMulti(i, store.optOrder[i][+b.getAttribute('data-k')]);
+    else if (act === 'prev') go(i - 1);
+    else if (act === 'next') { if (!store.done[i]) return; if (i === S.length - 1) finish(); else go(i + 1); }
+    else if (act === 'review') { view.page = 'review'; render(); window.scrollTo(0, 0); }
+    else if (act === 'back') { view.page = 'results'; render(); showResults(); spin(false); }
+    else if (act === 'restart') restart();
+  });
+  /* typing: saved as the student types (no redraw, so the keyboard stays open); Enter checks when every box is filled */
+  app.addEventListener('input', function (e) {
+    var t = e.target; if (!t.classList || !t.classList.contains('tin')) return;
+    var i = store.step; if (store.done[i]) return;
+    typedOf(i)[+t.getAttribute('data-k')] = t.value; save();
+    var c = app.querySelector('[data-act="check"]'); if (c) c.disabled = !allFilled(i);
+  });
+  app.addEventListener('keydown', function (e) {
+    var t = e.target;
+    if ((e.key === 'Enter' || e.key === ' ') && t.getAttribute && t.getAttribute('role') === 'button' && t.hasAttribute('data-act')) { e.preventDefault(); t.click(); return; }
+    if (e.key !== 'Enter' || !t.classList || !t.classList.contains('tin')) return;
+    e.preventDefault(); var i = store.step;
+    if (allFilled(i)) { check(i); return; }
+    var ins = [].slice.call(app.querySelectorAll('.tin')), nx = ins.filter(function (x) { return !norm(x.value); })[0]; if (nx) nx.focus();
+  });
+  /* drag: pointer events on chips; a short press without movement is a tap (handled by click) */
+  app.addEventListener('pointerdown', function (e) {
+    var c = e.target.closest('.chip'); if (!c || c.disabled || store.done[store.step] || (e.button !== undefined && e.button !== 0)) return;
+    drag = { w: c.getAttribute('data-w'), src: c, x: e.clientX, y: e.clientY, on: false, ghost: null, over: null };
+  });
+  function overGap(x, y) { var el = document.elementFromPoint(x, y); return el ? el.closest('.gap,.cat') : null; }
+  document.addEventListener('pointermove', function (e) {
+    if (!drag) return;
+    if (!drag.on) {
+      if (Math.abs(e.clientX - drag.x) + Math.abs(e.clientY - drag.y) < 8) return;
+      drag.on = true; drag.src.classList.add('dragging');
+      var g = drag.src.cloneNode(true); g.classList.remove('dragging', 'selc', 'shake'); g.classList.add('ghost'); document.body.appendChild(g); drag.ghost = g;
+    }
+    e.preventDefault();
+    drag.ghost.style.left = e.clientX + 'px'; drag.ghost.style.top = e.clientY + 'px';
+    var o = overGap(e.clientX, e.clientY);
+    if (o !== drag.over) { if (drag.over) drag.over.classList.remove('over'); drag.over = o; if (o) o.classList.add('over'); }
+  }, { passive: false });
+  function endDrag(e, cancel) {
+    if (!drag) return; var d = drag; drag = null;
+    if (!d.on) return;
+    suppressClick = Date.now() + 350;
+    if (d.ghost) d.ghost.remove(); d.src.classList.remove('dragging'); if (d.over) d.over.classList.remove('over');
+    var o = cancel ? null : overGap(e.clientX, e.clientY);
+    if (!o) return;
+    if (o.classList.contains('cat')) sortPlace(store.step, d.w, o.getAttribute('data-c'));
+    else place(store.step, +o.getAttribute('data-k'), d.w);
+  }
+  document.addEventListener('pointerup', function (e) { endDrag(e, false); });
+  document.addEventListener('pointercancel', function (e) { endDrag(e, true); });
+
+  /* ---------- start ---------- */
+  var err = validate(); if (err) { fatal('This quiz could not start: ' + err); return; }
+  var old = load();
+  store = okStore(old) ? old : fresh();
+  if (store.phase === 'results') { view.page = 'results'; render(); spin(false); }
+  else { render(); startTimer(); }
+  save();
+  window.__u8v = { S: S, get store() { return store; }, totals: totals, band: band, go: go, place: place, check: check, pick: pick, sort: sortPlace, finish: finish, restart: restart, TOTAL_ITEMS: TOTAL_ITEMS,
+    type: function (i, k, v) { if (store.done[i]) return; typedOf(i)[k] = v; save(); render(); } };
+  window.__u8vReady = true;
+})();
+</script>
+<style id="lu-common-2026-11-14">
+/* LU-COMMON-2026-11-14: the same header and info bar on every Level UP 2BAC quiz (all skills, Units 1-10).
+   Frozen header values (teacher's template) + the Units 6-10 navy info bar. Everything below the bar is set by the skill layer. */
+[data-look~="frame"]{background:transparent!important;box-shadow:none!important;border-color:transparent!important;border-radius:0!important;margin-top:0!important;padding-top:0!important}
+@media (min-width:900px){[data-look~="frame"]{overflow:visible!important}}
+body{margin-top:0!important;padding-top:0!important}
+[data-look~="hdr"]{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;flex-wrap:nowrap!important;background:#eaf4ff!important;padding:10px 14px!important;border:0!important;border-radius:0!important;box-shadow:none!important;min-height:0!important;height:auto!important;box-sizing:border-box!important;margin-top:0!important;margin-bottom:0!important;position:relative!important;top:auto!important}
+[data-look~="hdr"]>*{margin:0!important}
+[data-look~="htitle"]{flex:1 1 auto!important;min-width:0!important;text-align:center!important;line-height:1.2!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
+[data-look~="himg"]{height:96px!important;width:auto!important;max-width:none!important;object-fit:contain!important;flex:none!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important;background:none!important}
+[data-look~="hbox"]{flex:none!important;margin:0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important;width:auto!important;height:auto!important;min-width:0!important}
+[data-look~="t1"],[data-look~="t2"],[data-look~="t3"]{display:block!important;font-family:Poppins,Arial,sans-serif!important;line-height:1.2!important;margin:0!important;padding:0!important;text-align:center!important;letter-spacing:normal!important;text-transform:none!important;text-shadow:none!important;background:none!important}
+[data-look~="t1"]{font-size:26px!important;font-weight:800!important;color:#1e3a5f!important}
+[data-look~="t2"]{font-size:18px!important;font-weight:400!important;color:#2563eb!important}
+[data-look~="t3"]{font-size:14px!important;font-weight:400!important;color:#64748b!important}
+[data-look~="bar"]{display:flex!important;flex-direction:row!important;justify-content:space-between!important;align-items:center!important;gap:8px!important;flex-wrap:nowrap!important;background:#123d70!important;color:#fff!important;font:600 13px/1.5 Poppins,Arial,sans-serif!important;padding:8px 14px!important;border:0!important;border-radius:0!important;box-shadow:none!important;min-height:36px!important;height:auto!important;box-sizing:border-box!important;margin-top:0!important;margin-bottom:0!important;text-transform:uppercase!important;letter-spacing:normal!important;position:relative!important;top:auto!important}
+[data-look~="bar"]>*{color:#fff!important;font:inherit!important;background:none!important;padding:0!important;margin:0!important;border:0!important;box-shadow:none!important;text-transform:inherit!important;letter-spacing:normal!important;flex:0 0 auto!important;white-space:nowrap!important;text-align:left!important;width:auto!important}
+[data-look~="bar"]>:not(:first-child):not(:last-child){flex:1 1 auto!important;min-width:0!important;white-space:normal!important;text-align:center!important}
+[data-look~="bar"]>:last-child:not(:first-child){text-align:right!important}
+[data-look~="flat"]{box-shadow:none!important;border-color:transparent!important;background:transparent!important}
+@media (min-width:600px) and (max-width:1023px){[data-look~="himg"]{height:80px!important}}
+@media (max-width:640px){
+  [data-look~="himg"]{height:45px!important}
+  [data-look~="hdr"]{padding:8px 12px!important}
+  [data-look~="t1"]{font-size:16px!important}[data-look~="t2"]{font-size:12px!important}[data-look~="t3"]{font-size:10px!important}
+  [data-look~="bar"]{font-size:11.5px!important;padding:6px 10px!important;min-height:32px!important;gap:6px!important}
+}
+</style>
+<script id="lu-common-2026-11-14-js">
+(function () {
+  if (window.__luCommon) return; window.__luCommon = true;
+  var SHEET = 1100, d = document, H0 = d.documentElement;
+  function txt(e) { return (e.textContent || '').replace(/\s+/g, ' ').trim(); }
+  function add(e, t) { var v = (e.getAttribute('data-look') || '').split(' ').filter(Boolean); if (v.indexOf(t) < 0) { v.push(t); e.setAttribute('data-look', v.join(' ')); } }
+  function vis(e) { if (!e || !e.getBoundingClientRect) return false; var r = e.getBoundingClientRect(); return r.width > 1 && r.height > 1 && getComputedStyle(e).display !== 'none' && getComputedStyle(e).visibility !== 'hidden'; }
+  function imgs(re) { return [].slice.call(d.images).filter(function (i) { return re.test((i.getAttribute('src') || '') + ' ' + i.className + ' ' + (i.alt || '')); }); }
+  function header() {
+    var lg = d.querySelector('.header-logo-img') || imgs(/logo|XPOYllA/i)[0];
+    var tc = d.querySelector('.header-teacher-img') || imgs(/teacher|vvyZAnr/i)[0];
+    if (!lg || !tc) return null;
+    var h = lg.parentElement; while (h && h !== d.body && !h.contains(tc)) h = h.parentElement;
+    return h && h !== d.body ? { h: h, lg: lg, tc: tc } : null;
+  }
+  function bar() {
+    var els = d.querySelectorAll('span,div,p,strong,b');
+    for (var i = 0; i < els.length; i++) { var e = els[i]; if (e.children.length) continue; var m = /^\s*UNIT\s*(\d+)\s*:\s*([A-Z]*)/i.exec(e.textContent); if (m) { H0.setAttribute('data-lu-unit', m[1]); var b = e.parentElement; while (b && b.children.length < 2) b = b.parentElement; return b; } }
+    return null;
+  }
+  function childOf(h, x) { while (x && x.parentElement !== h) x = x.parentElement; return x; }
+  function frameUp(el) { if (!H0.hasAttribute('data-lu-old')) return; for (var a = el.parentElement; a && a !== d.body && a !== H0; a = a.parentElement) add(a, 'frame'); }
+  function place(el) {
+    el.style.removeProperty('margin-left'); el.style.removeProperty('width'); el.style.removeProperty('max-width');
+    var p = el.parentElement, cs = getComputedStyle(p), pr = p.getBoundingClientRect();
+    var cl = pr.left + parseFloat(cs.paddingLeft) + parseFloat(cs.borderLeftWidth);
+    var vw = H0.clientWidth, w = Math.min(SHEET, vw), left = Math.max(0, (vw - w) / 2);
+    el.style.setProperty('margin-left', Math.round(left - cl) + 'px', 'important');
+    el.style.setProperty('margin-right', '0px', 'important');
+    el.style.setProperty('width', w + 'px', 'important');
+    el.style.setProperty('max-width', 'none', 'important');
+  }
+  function tidyTop(H) { var top = H.getBoundingClientRect().top + scrollY; if (Math.abs(top) > 0.5) H.style.setProperty('margin-top', (parseFloat(getComputedStyle(H).marginTop) - top) + 'px', 'important'); }
+  function joinBar(H, B) {
+    if (!B || H.contains(B)) return; B.style.removeProperty('margin-top');
+    var g = B.getBoundingClientRect().top - H.getBoundingClientRect().bottom;
+    if (Math.abs(g) > 0.5) B.style.setProperty('margin-top', (parseFloat(getComputedStyle(B).marginTop) - g) + 'px', 'important');
+  }
+  function firstTop(el) {
+    var best = Infinity, top0 = el.getBoundingClientRect().top, all = [el].concat([].slice.call(el.querySelectorAll('*')));
+    for (var i = 0; i < all.length && i < 400; i++) { var e = all[i]; if (!vis(e)) continue; var cs = getComputedStyle(e); var paint = e.children.length === 0 || cs.backgroundColor !== 'rgba(0, 0, 0, 0)' || cs.backgroundImage !== 'none' || cs.borderTopWidth !== '0px' || cs.boxShadow !== 'none' || e.tagName === 'BUTTON'; if (paint) best = Math.min(best, Math.max(top0, e.getBoundingClientRect().top)); } /* GAPFIX-2026-11-18: text scrolled out of sight inside a box (the passage) sits above the box; it must not push the box down */
+    return best;
+  }
+  function gapBelow(B) {
+    /* the skill layer sets --lu-gap: the space between the info bar and the first thing under it */
+    var G = parseFloat(getComputedStyle(H0).getPropertyValue('--lu-gap')); if (!isFinite(G)) return; if (!vis(B)) { var X0 = header(); B = X0 && X0.h; if (!B) return; } /* HIDDENBAR-2026-11-18: the bar is hidden (results page): measure from the header instead, so the results band keeps the same gap under the header and does not move with the scroll */
+    var x = B, n = null;
+    while (x && x !== d.body) { n = x.nextElementSibling; while (n && (!vis(n) || /^(SCRIPT|STYLE)$/.test(n.tagName))) n = n.nextElementSibling; if (n) break; x = x.parentElement; }
+    if (!n) return;
+    var cur = parseFloat(getComputedStyle(n).marginTop) || 0, t = firstTop(n); if (!isFinite(t)) return;
+    var g = t - B.getBoundingClientRect().bottom;
+    if (Math.abs(g - G) > 0.5) n.style.setProperty('margin-top', (cur + G - g) + 'px', 'important');
+  }
+  function title(H) {
+    var leaves = [].slice.call(H.querySelectorAll('*')).filter(function (e) { return e.children.length === 0 || [].every.call(e.children, function (k) { return /^(BR|SPAN|B|STRONG|EM)$/.test(k.tagName) && !k.children.length; }); });
+    var t1 = leaves.find(function (e) { return /^English2BAC Quizzes$/i.test(txt(e)); });
+    var t2 = leaves.find(function (e) { return /^Learn\s*•\s*Practice\s*•\s*Succeed$/i.test(txt(e)); });
+    var t3 = leaves.find(function (e) { return /^with Teacher\.?\s*Soufiane$/i.test(txt(e)); });
+    if (t1) add(t1, 't1'); if (t2) add(t2, 't2'); if (t3) add(t3, 't3');
+    var tb = t1 && childOf(H, t1); if (tb) add(tb, 'htitle');
+  }
+  function flatCards() {
+    /* Units 1-5 only: outer cards and page-wide wrappers lose their own frame, as on the reference quizzes */
+    if (!H0.hasAttribute('data-lu-old')) return;
+    var col = d.querySelector('[data-fit~="col"]'); if (col) { add(col, 'frame'); frameUp(col); }
+    var vw = H0.clientWidth, cw = Math.min(760, vw);
+    [].slice.call(d.body.querySelectorAll('div,section,article,main,form,aside')).forEach(function (e) {
+      if (e.closest('[data-look~="hdr"],[data-look~="bar"],[role="dialog"],[class*="modal"],[class*="overlay"],[data-lu-keep]')) return;
+      var cs = getComputedStyle(e); if (!/^(static|relative)$/.test(cs.position)) return;
+      var r = e.getBoundingClientRect();
+      if (vw >= 900 && r.width > 800 && r.height > 60) { add(e, 'frame'); return; }
+      if (cs.boxShadow !== 'none' && r.width >= cw * 0.9 - 30 && r.height > 120) add(e, 'flat');
+    });
+  }
+  var busy = false;
+  function run() {
+    if (busy) return; busy = true;
+    try {
+      var B = bar();
+      var X = header(); if (!X) return;
+      var H = X.h; add(H, 'hdr'); add(X.lg, 'himg'); add(X.tc, 'himg');
+      [X.lg, X.tc].forEach(function (im) { var c = childOf(H, im); if (c && c !== im) add(c, 'hbox'); });
+      title(H); frameUp(H);
+      if (B && !H.contains(B)) { add(B, 'bar'); frameUp(B); }
+      flatCards();
+      place(H); if (B && !H.contains(B)) place(B);
+      tidyTop(H); joinBar(H, B);
+      if (B && !H.contains(B)) gapBelow(B);
+    } catch (e) { } finally { busy = false; }
+  }
+  var timer = 0; function soon() { clearTimeout(timer); timer = setTimeout(run, 60); }
+  run();
+  d.addEventListener('DOMContentLoaded', run); window.addEventListener('load', run); window.addEventListener('resize', soon);
+  [300, 1000, 2500].forEach(function (t) { setTimeout(run, t); });
+  /* 2026-11-15: re-place only when the page width changes (window resize or a scrollbar appearing), not on every change inside the quiz (the timer changed the page every second) */
+  try { var luW = H0.clientWidth; new ResizeObserver(function () { if (H0.clientWidth !== luW) { luW = H0.clientWidth; soon(); } }).observe(H0); } catch (x) { }
+})();
+</script>
+<style id="lu-skin-vocabulary-2026-11-14">
+/* LU-SKIN VOCABULARY 2026-11-14: one look for every Vocabulary quiz.
+   Reference: Unit 5 Vocabulary 2 (Women and Power), values measured from it at 1366px and 360px.
+   Applies to Units 1-5 pages (html[data-lu-old], set by LU-COMMON); the reference itself already has these values. */
+html[data-lu-old]{--lu-gap:34px;background:#edf4fa!important}
+html[data-lu-old] body{background:#edf4fa!important;color:#17253b}
+html[data-lu-old] [data-fit~="col"]{max-width:760px!important;margin-left:auto!important;margin-right:auto!important}
+/* instruction card: blue gradient, rounded 20px, white capitals 23.2px/800 */
+html[data-lu-old] :is(.instruction-box,.question-instruction,.question-box,.instruction){background:linear-gradient(135deg,#0c4f96,#147fc9)!important;color:#fff!important;border:0!important;border-radius:20px!important;padding:30px!important;box-shadow:0 10px 22px rgba(18,104,189,.2)!important;font-family:Poppins,Arial,sans-serif!important;font-size:23.2px!important;font-weight:800!important;line-height:1.5!important;letter-spacing:.812px!important;text-align:left!important;text-transform:uppercase!important;margin:0!important;min-height:0!important}
+html[data-lu-old] :is(.instruction-box,.question-instruction,.question-box,.instruction) *{color:#fff!important;font-size:inherit!important;font-weight:inherit!important;line-height:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important;text-align:inherit!important;background:none!important;border:0!important;box-shadow:none!important;margin:0!important;padding:0!important}
+/* definition box: pale blue, rounded 18px, 20px/600 */
+html[data-lu-old] :is(.task-area,.task-box,.task-text,.task,#taskContent>p){background:#f5f9fd!important;border:1px solid #d7e7f4!important;border-radius:18px!important;padding:14px 18px!important;margin:18px 0!important;font-family:Poppins,Arial,sans-serif!important;font-size:20px!important;font-weight:600!important;line-height:34px!important;color:#17253b!important;text-align:left!important;box-shadow:none!important;min-height:0!important}
+html[data-lu-old] :is(.task-area,.task-box,.task-text,.task,#taskContent>p) :is(span,strong,b,em,i){font-size:inherit!important;font-weight:inherit!important;line-height:inherit!important;color:inherit!important;text-align:inherit!important;background:none!important;border:0!important;box-shadow:none!important;margin:0!important;padding:0!important}
+/* answers: two columns, white cards rounded 16px, 16px/700 */
+html[data-lu-old] :is(.choices-grid,.choices,.choice-grid,.choices-area,.answers-grid,.tiles):has(>button){display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:13px!important;margin:0!important}
+html[data-lu-old] :is(.choices-grid,.choices,.choice-grid,.choices-area,.answers-grid,.tiles)>button{border-radius:16px!important;border-width:2px!important;border-style:solid!important;padding:14px 17px!important;min-height:66px!important;height:auto!important;font-family:Poppins,Arial,sans-serif!important;font-size:16px!important;font-weight:700!important;line-height:24px!important;text-align:left!important;margin:0!important;box-shadow:none!important;width:100%!important}
+html[data-lu-old] :is(.choices-grid,.choices,.choice-grid,.choices-area,.answers-grid,.tiles)>button:not([class*="correct"]):not([class*="wrong"]):not([class*="right"]):not([class*="select"]):not([class*="active"]):not([class*="chosen"]):not([class*="picked"]):not([class*="error"]):not([class*="success"]):not([aria-pressed="true"]):not([style*="background"]):not([style*="border"]):not(.ok):not(.bad):not(.no):not(.yes):not([class*="good"]):not([class*="miss"]):not([class*="answer-"]):not([data-state]){background:#fff!important;border-color:#d5e1ec!important;color:#17253b!important}
+/* feedback, statistics, navigation row */
+html[data-lu-old] :is(.feedback,#feedback-area,#feedbackArea,#feedbackBox){border-radius:15px!important;padding:15px 17px!important;margin-top:16px!important;font-size:16px!important;line-height:25.6px!important}
+html[data-lu-old] :is(.stats-row,.stats-bar,.stats-card,.stat-row,.lower-dashboard,section.stats,div.stats):not(.lower-dashboard *){border:0!important;border-top:1px solid #d9e3ef!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:18px 0 0!important;margin-top:24px!important}
+html[data-lu-old] :is(.navigation,.navigation-row,.bottom-nav,.nav-row,nav.nav){padding-top:8px!important;padding-bottom:8px!important;margin-top:8px!important}
+@media (max-width:640px){
+  html[data-lu-old]{--lu-gap:16px}
+  html[data-lu-old] :is(.instruction-box,.question-instruction,.question-box,.instruction){padding:18px!important;font-size:16px!important;letter-spacing:.56px!important}
+  html[data-lu-old] :is(.task-area,.task-box,.task-text,.task,#taskContent>p){padding:12px 14px!important;font-size:16px!important;line-height:27.2px!important}
+  html[data-lu-old] :is(.choices-grid,.choices,.choice-grid,.choices-area,.answers-grid,.tiles){gap:9px!important}
+  html[data-lu-old] :is(.choices-grid,.choices,.choice-grid,.choices-area,.answers-grid,.tiles)>button{padding:12px 10px!important;min-height:62px!important;font-size:13.28px!important;line-height:19.92px!important}
+  /* Unit 4 Vocabulary 2: its one-column grid grew to 542px on a phone and the right side was cut off */
+  html[data-lu-old] .main-layout{grid-template-columns:minmax(0,1fr)!important}
+  html[data-lu-old] :is(.navigation,.navigation-row,.bottom-nav,.nav-row,nav.nav){padding-top:6px!important;padding-bottom:6px!important;margin-top:6px!important}
+}
+</style>
+</body>
+</html>
