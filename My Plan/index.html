@@ -333,6 +333,24 @@ var TEST4 = [
 ];
 var TESTS = [TEST, TEST2, TEST3, TEST4];
 TESTS.forEach(function (L) { L.forEach(function (t) { t.a = 0; }); });
+/* UNITTESTS 2026-11-20 (teacher): a level test asks ONLY about Units 1 to the unit the student chose.
+   The 8 items of each unit (2 per test above) are dealt to T tests, T = 1 (Units 1–2), 2 (3–5), 3 (6–7), 4 (8–10), max 20 items each.
+   For Unit 10 the 4 tests are exactly TEST, TEST2, TEST3, TEST4. A test's key is "N-k" (chosen unit N, test k). */
+var ITEM = {};
+TESTS.forEach(function (L, n) { L.forEach(function (t, i) { t.id = (n + 1) + '-' + i; ITEM[t.id] = t; }); });
+function testSets(N) {
+  N = N || 10; var T = Math.min(4, Math.max(1, Math.ceil(8 * N / 20))), sets = [], u, j, k;
+  for (k = 0; k < T; k++) sets.push([]);
+  for (u = 1; u <= N; u++) {
+    var its = [];
+    for (j = 0; j < 2; j++) TESTS.forEach(function (L) { var x = L.filter(function (t) { return t.u === u; })[j]; if (x) its.push(x); });
+    /* when 8 doesn't split evenly (3 tests), each unit starts at a different test so the sizes stay level */
+    its.forEach(function (t, m) { sets[(m + (8 % T ? u : 0)) % T].push(t); });
+  }
+  return sets;
+}
+function testKeys(N) { return testSets(N).map(function (_, k) { return (N || 10) + '-' + (k + 1); }); }
+function testItems(key) { var p = String(key).split('-'); return testSets(+p[0])[+p[1] - 1] || []; }
 
 /* ===== storage ===== */
 var memStore = {};
@@ -350,6 +368,15 @@ if (S.test && !S.test.id) {
   else if (S.test.done) { var sc0 = TEST.filter(function (t, i) { return S.test.ans[i] === t.a; }).length; S.tests[1] = { ans: S.test.ans, last: sc0, best: sc0, tries: 1, date: S.test.date || Date.now() }; }
   S.test = null;
 }
+/* UNITTESTS: results saved as tests 1–4 (all 10 units) become "10-1"…"10-4", answers stored by item id */
+Object.keys(S.tests).forEach(function (n) {
+  if (/^\d$/.test(n)) {
+    var R = S.tests[n], a = {};
+    Object.keys(R.ans || {}).forEach(function (i) { a[n + '-' + i] = R.ans[i]; });
+    R.ans = a; R.n = TESTS[n - 1].length; S.tests['10-' + n] = R; delete S.tests[n];
+  }
+});
+if (S.test && !S.test.key) S.test = null;
 function testsTaken() { return Object.keys(S.tests).length; }
 function save() { lsSet(STORE, JSON.stringify(S)); }
 
@@ -374,7 +401,12 @@ function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { va
 
 /* ===== placement test results ===== */
 /* weak points and skill scores use the last try of every level test taken */
-function eachTestAnswer(fn) { Object.keys(S.tests).forEach(function (n) { var L = TESTS[n - 1], R = S.tests[n]; if (L && R) L.forEach(function (t, i) { fn(t, R.ans[i] === t.a); }); }); }
+/* an item answered in several tests counts once: its latest answer */
+function eachTestAnswer(fn) {
+  var last = {};
+  Object.keys(S.tests).forEach(function (key) { var R = S.tests[key]; Object.keys(R.ans || {}).forEach(function (id) { if (ITEM[id] && (!last[id] || last[id].d <= R.date)) last[id] = { d: R.date, ok: R.ans[id] === ITEM[id].a }; }); });
+  Object.keys(last).forEach(function (id) { fn(ITEM[id], last[id].ok); });
+}
 function testWeak() { var w = {}; eachTestAnswer(function (t, ok) { if (!ok) w[t.u + '|' + t.s] = true; }); return w; }
 function skillStats() {
   var st = {};
@@ -386,9 +418,9 @@ function skillStats() {
 /* deal a test's answers (same rules as the quizzes): spread over A–D, never the same letter twice in a row,
    question 1 never A / 2 never B / 3 never C / 4 never D, and a letter pattern that changes on every try */
 function dealTest(n) {
-  var L = TESTS[n - 1], order, pos, pat, tries = 0;
+  var L = testItems(n), order, pos, pat, tries = 0;
   do {
-    order = shuffle(L.map(function (_, i) { return i; })); pos = []; pat = '';
+    order = shuffle(L.map(function (t) { return t.id; })); pos = []; pat = '';
     var bag = [], prev = -1;
     order.forEach(function (k, slot) {
       if (!bag.length) bag = shuffle([0, 1, 2, 3]);
@@ -401,7 +433,7 @@ function dealTest(n) {
   S.tpat[n] = pat;
   var opt = {};
   order.forEach(function (k, slot) { var rest = shuffle([1, 2, 3]); rest.splice(pos[slot], 0, 0); opt[k] = rest; });
-  return { id: n, order: order, opt: opt, ans: {}, i: 0 };
+  return { key: n, order: order, opt: opt, ans: {}, i: 0 };
 }
 
 /* ===== weekly plan ===== */
@@ -476,8 +508,8 @@ function renderPlan() {
   if (!testsTaken() && !S.tskip) {
     setBar('MY PLAN | WELCOME');
     app.innerHTML = backBtn('chunit', 'Change unit (' + S.unit + ')') + '<div class="card-ins">First, a level test</div>' +
-      '<div class="box"><p style="margin:0 0 8px;font-weight:700">Choose one of 4 level tests: 20 questions, about 10 minutes, grammar, vocabulary and functions from Units 1–10.</p>' +
-      '<p class="muted" style="margin:0">Your answers show your weak points. Then you get a plan for this week, built for you. Take the other tests later to check your level again.</p></div>' +
+      '<div class="box"><p style="margin:0 0 8px;font-weight:700">' + testIntro(S.unit) + '</p>' +
+      '<p class="muted" style="margin:0">Your answers show your weak points. Then you get a plan for this week, built for you. ' + (testSets(S.unit).length > 1 ? 'Take the other tests later to check your level again.' : 'More tests come with the next units.') + '</p></div>' +
       '<div class="row"><button class="btn" data-act="starttest">Start the test</button><button class="btn ghost" data-act="skiptest">Skip, make my plan</button></div>';
     return;
   }
@@ -499,14 +531,21 @@ function renderPlan() {
   app.innerHTML = h;
 }
 
+function unitsText(N) { return N === 1 ? 'Unit 1' : 'Units 1–' + N; }
+function testIntro(N) {
+  var sets = testSets(N), m = sets[0].length, mins = Math.max(5, Math.round(m / 2));
+  return (sets.length === 1 ? 'One level test: ' + m + ' questions' : 'Choose one of ' + sets.length + ' level tests: up to ' + m + ' questions') +
+    ', about ' + mins + ' minutes, only on what you have studied: ' + unitsText(N) + '.';
+}
 function renderTestMenu() {
-  setBar('LEVEL TESTS | CHOOSE A TEST');
-  var fresh = !testsTaken() && !S.tskip;
-  var h = backBtn('toplan', fresh ? 'Back' : 'Back to my plan') + '<div class="card-ins">Choose a level test</div><p class="muted" style="text-align:center;margin:0 0 12px">4 different tests · 20 questions each · Units 1–10. Take one, then try the others.</p><div class="tests">';
-  TESTS.forEach(function (_, i) {
-    var n = i + 1, R = S.tests[n], go = S.test && S.test.id === n;
-    h += '<div class="tcard' + (R ? ' done' : '') + '"><b>Level test ' + n + '</b><span>' + (go ? 'Stopped at question ' + (S.test.i + 1) + ' of 20' : R ? 'Last ' + R.last + '/20 · best ' + R.best + '/20' : 'Not taken yet') + '</span>' +
-      '<button class="btn small' + (R && !go ? ' ghost' : '') + '" data-test="' + n + '">' + (go ? 'Continue' : R ? 'Try again' : 'Start') + '</button></div>';
+  setBar('LEVEL TESTS | ' + unitsText(S.unit || 10).toUpperCase());
+  var fresh = !testsTaken() && !S.tskip, N = S.unit || 10, keys = testKeys(N);
+  var h = backBtn('toplan', fresh ? 'Back' : 'Back to my plan') + '<div class="card-ins">' + (keys.length === 1 ? 'Your level test' : 'Choose a level test') + '</div><p class="muted" style="text-align:center;margin:0 0 12px">' +
+    (keys.length === 1 ? 'Only ' : keys.length + ' different tests · only ') + unitsText(N) + (keys.length === 1 ? '' : '. Take one, then try the others') + '. New tests come with the next units.</p><div class="tests">';
+  keys.forEach(function (key, i) {
+    var R = S.tests[key], go = S.test && S.test.key === key, m = testItems(key).length;
+    h += '<div class="tcard' + (R ? ' done' : '') + '"><b>Level test ' + (i + 1) + '</b><span>' + (go ? 'Stopped at question ' + (S.test.i + 1) + ' of ' + m : R ? 'Last ' + R.last + '/' + m + ' · best ' + R.best + '/' + m : m + ' questions · not taken yet') + '</span>' +
+      '<button class="btn small' + (R && !go ? ' ghost' : '') + '" data-test="' + key + '">' + (go ? 'Continue' : R ? 'Try again' : 'Start') + '</button></div>';
   });
   h += '</div>';
   if (fresh) h += '<div class="row" style="margin-top:12px"><button class="btn ghost small" data-act="skiptest">Skip the test, make my plan</button></div>';
@@ -516,32 +555,32 @@ function renderTest() {
   var T = S.test;
   if (view.tres) return renderTestResult(view.tres);
   if (!T || !view.play) return renderTestMenu();
-  var L = TESTS[T.id - 1], k = T.order[T.i], t = L[k], picked = T.ans[k];
-  setBar('LEVEL TEST ' + T.id + ' | QUESTION ' + (T.i + 1) + ' OF 20');
-  var h = backBtn('tleave', 'Leave the test') + '<div class="card-ins">Choose the correct answer.</div><span class="pill">Test ' + T.id + ' · Unit ' + t.u + ' · ' + t.s + ' · 1 pt</span>';
+  var m = T.order.length, k = T.order[T.i], t = ITEM[k], picked = T.ans[k], tn = String(T.key).split('-')[1];
+  setBar('LEVEL TEST ' + tn + ' | QUESTION ' + (T.i + 1) + ' OF ' + m);
+  var h = backBtn('tleave', 'Leave the test') + '<div class="card-ins">Choose the correct answer.</div><span class="pill">Test ' + tn + ' · Unit ' + t.u + ' · ' + t.s + ' · 1 pt</span>';
   h += '<p class="q">' + esc(t.q) + '</p><div class="opts">';
   var long = t.o.some(function (o) { return o.length > 22; });
   T.opt[k].forEach(function (oi) {
     var c = picked === undefined ? '' : oi === t.a ? ' ok' : oi === picked ? ' bad' : '';
     h += '<button type="button" class="opt' + c + '" data-pick="' + oi + '"' + (picked !== undefined ? ' disabled' : '') + (long ? ' style="grid-column:1/-1"' : '') + '>' + esc(t.o[oi]) + '</button>';
   });
-  h += '</div><div class="nav"><button class="btn navy" data-act="tprev"' + (T.i === 0 ? ' disabled style="opacity:.4"' : '') + '>Previous</button><span class="muted">' + (T.i + 1) + ' / 20</span>' +
-    '<button class="btn navy" data-act="tnext"' + (picked === undefined ? ' disabled style="opacity:.4"' : '') + '>' + (T.i === 19 ? 'Finish' : 'Next') + '</button></div>';
+  h += '</div><div class="nav"><button class="btn navy" data-act="tprev"' + (T.i === 0 ? ' disabled style="opacity:.4"' : '') + '>Previous</button><span class="muted">' + (T.i + 1) + ' / ' + m + '</span>' +
+    '<button class="btn navy" data-act="tnext"' + (picked === undefined ? ' disabled style="opacity:.4"' : '') + '>' + (T.i === m - 1 ? 'Finish' : 'Next') + '</button></div>';
   app.innerHTML = h;
 }
 function renderTestResult(n) {
-  var L = TESTS[n - 1], R = S.tests[n], score = 0, by = {};
+  var L = testItems(n), R = S.tests[n], score = 0, by = {}, m = L.length, tn = String(n).split('-')[1];
   if (!R) { view.tres = null; return renderTestMenu(); }
-  L.forEach(function (t, i) { var ok = R.ans[i] === t.a; if (ok) score++; by[t.s] = by[t.s] || { ok: 0, n: 0 }; by[t.s].n++; if (ok) by[t.s].ok++; });
-  setBar('LEVEL TEST ' + n + ' | RESULT');
-  var lvl = score >= 16 ? 'Strong' : score >= 12 ? 'Good' : score >= 8 ? 'Average' : 'Needs work';
-  var h = '<div class="card-ins">Level test ' + n + ' · your result</div><div class="big">' + score + '<small> / 20</small></div><p style="text-align:center;font-weight:800;color:var(--navy);margin:2px 0 8px">' + lvl + (R.tries > 1 ? ' · best ' + R.best + '/20 in ' + R.tries + ' tries' : '') + '</p><div class="box">';
+  L.forEach(function (t) { var ok = R.ans[t.id] === t.a; if (ok) score++; by[t.s] = by[t.s] || { ok: 0, n: 0 }; by[t.s].n++; if (ok) by[t.s].ok++; });
+  setBar('LEVEL TEST ' + tn + ' | RESULT');
+  var lvl = score >= 0.8 * m ? 'Strong' : score >= 0.6 * m ? 'Good' : score >= 0.4 * m ? 'Average' : 'Needs work';
+  var h = '<div class="card-ins">Level test ' + tn + ' · your result</div><div class="big">' + score + '<small> / ' + m + '</small></div><p style="text-align:center;font-weight:800;color:var(--navy);margin:2px 0 8px">' + lvl + (R.tries > 1 ? ' · best ' + R.best + '/' + m + ' in ' + R.tries + ' tries' : '') + '</p><div class="box">';
   Object.keys(by).forEach(function (s) { var p = by[s].ok / by[s].n; h += '<div class="sk"><span>' + s + '</span><div class="meter"><i style="width:' + Math.round(p * 100) + '%;background:' + col(p) + '"></i></div><span>' + by[s].ok + '/' + by[s].n + '</span></div>'; });
   h += '</div>';
-  var wrong = L.filter(function (t, i) { return R.ans[i] !== t.a; });
-  if (wrong.length) h += '<p class="muted" style="text-align:center">Weak points: ' + wrong.map(function (t) { return 'Unit ' + t.u + ' ' + t.s; }).join(' · ') + '</p>';
-  var next = [1, 2, 3, 4].filter(function (x) { return !S.tests[x]; })[0];
-  h += '<div class="row"><button class="btn" data-act="toplan">See my plan</button>' + (next ? '<button class="btn navy" data-test="' + next + '">Try Level test ' + next + '</button>' : '') + '<button class="btn ghost small" data-act="tmenu">All tests</button></div>';
+  var wrong = L.filter(function (t) { return R.ans[t.id] !== t.a; });
+  if (wrong.length) h += '<p class="muted" style="text-align:center">Weak points: ' + wrong.map(function (t) { return 'Unit ' + t.u + ' ' + t.s; }).filter(function (x, i, a) { return a.indexOf(x) === i; }).join(' · ') + '</p>';
+  var keys = testKeys(+String(n).split('-')[0]), next = keys.filter(function (x) { return !S.tests[x]; })[0];
+  h += '<div class="row"><button class="btn" data-act="toplan">See my plan</button>' + (next ? '<button class="btn navy" data-test="' + next + '">Try Level test ' + next.split('-')[1] + '</button>' : '') + (keys.length > 1 ? '<button class="btn ghost small" data-act="tmenu">All tests</button>' : '<button class="btn ghost small" data-test="' + n + '">Try again</button>') + '</div>';
   app.innerHTML = h;
 }
 
@@ -713,7 +752,7 @@ document.addEventListener('click', function (ev) {
   if (d.unitOpen) { view = { tab: 'progress', unit: +d.unitOpen }; return render(); }
   if (d.band) { var id = view.ask; S.manual[id] = { pct: +d.band, t: Date.now() }; save(); view = view.back || { tab: 'plan' }; view.ask = null; return render(); }
   /* a stopped test continues where it was; any other test starts fresh */
-  if (d.test) { if (!(S.test && S.test.id === +d.test)) S.test = dealTest(+d.test); save(); view = { tab: 'test', play: true }; return render(); }
+  if (d.test) { if (!(S.test && S.test.key === d.test)) S.test = dealTest(d.test); save(); view = { tab: 'test', play: true }; return render(); }
   if (d.pick !== undefined) { var T = S.test, k = T.order[T.i]; if (T.ans[k] === undefined) { T.ans[k] = +d.pick; save(); renderTest(); } return; }
   if (d.task) { C.task = +d.task; return renderCoach(); }
   if (d.type) { C.text = (document.getElementById('ctext') || {}).value || C.text; C.type = d.type; return renderCoach(); }
@@ -724,12 +763,12 @@ document.addEventListener('click', function (ev) {
     case 'tmenu': view = { tab: 'test' }; return render();
     case 'tprev': if (S.test.i > 0) { S.test.i--; save(); } return renderTest();
     case 'tnext':
-      if (S.test.i < 19) { S.test.i++; save(); return renderTest(); }
-      var T = S.test, L = TESTS[T.id - 1], sc = L.filter(function (t, i) { return T.ans[i] === t.a; }).length, old = S.tests[T.id];
-      S.tests[T.id] = { ans: T.ans, last: sc, best: Math.max(sc, old ? old.best : 0), tries: (old ? old.tries : 0) + 1, date: Date.now() };
+      if (S.test.i < S.test.order.length - 1) { S.test.i++; save(); return renderTest(); }
+      var T = S.test, sc = T.order.filter(function (id) { return T.ans[id] === ITEM[id].a; }).length, old = S.tests[T.key];
+      S.tests[T.key] = { ans: T.ans, last: sc, best: Math.max(sc, old ? old.best : 0), tries: (old ? old.tries : 0) + 1, date: Date.now(), n: T.order.length };
       S.test = null;
       if (S.plans.length && Date.now() - S.plans[S.plans.length - 1].start < 7 * DAY) S.plans.pop();
-      save(); view = { tab: 'test', tres: T.id }; return render();
+      save(); view = { tab: 'test', tres: T.key }; return render();
     case 'toplan': view = { tab: 'plan' }; return render();
     case 'newplan': makePlan(); return render();
     case 'chunit': view = { tab: 'plan', chunit: true }; return render();
