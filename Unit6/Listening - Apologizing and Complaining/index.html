@@ -1,0 +1,2250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apologizing and Complaining | Listening Quiz 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!-- Unit 6 Listening Quiz 1. Built on the CANVA QUIZ ENGINEER v2.2.0-prototype (STAGING) engine, plus the Listening phase banner, speakers, progress bar and transcript.
+     Set audioFileUrl in QUIZ_CONFIG to connect the recording. Verified in a Chromium browser only. NOT verified inside Canva, GitHub Pages or LearnWorlds. -->
+<style>
+:root{--navy:#123d70;--blue:#2563eb;--ink:#1e3a5f;--muted:#64748b;--ok:#15803d;--okbg:#dcfce7;--bad:#dc2626;--badbg:#fee2e2;--line:#d8e5f4;--bg:#f4f7fb;--sel:#dbeafe}
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;width:100%;min-height:100vh;background:var(--bg);color:var(--ink);font-family:Poppins,Arial,sans-serif;line-height:1.5}
+.quiz-container{width:100%;max-width:100%;min-height:100vh}
+.quiz-card{width:100%;max-width:1100px;margin:0 auto;background:#fff;min-height:100vh}
+.quiz-header{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#eaf4ff;padding:10px 14px}
+.header-teacher-img,.header-logo-img{height:64px;width:auto;max-width:none;object-fit:contain;flex:none}
+@media (min-width:600px){.header-teacher-img,.header-logo-img{height:80px}}
+@media (min-width:1024px){.header-teacher-img,.header-logo-img{height:96px}}
+@media (max-width:640px){.header-teacher-img,.header-logo-img{height:45px}.quiz-header{padding:8px 12px}}
+img[data-broken]{display:none}
+.header-title{flex:1;min-width:0;text-align:center;line-height:1.2}
+.title-line1{font-family:'Poppins',sans-serif;font-size:26px;font-weight:800;color:#1e3a5f}
+.title-line2{font-family:'Poppins',sans-serif;font-size:18px;font-weight:400;color:#2563eb}
+.title-line3{font-family:'Poppins',sans-serif;font-size:14px;font-weight:400;color:#64748b}
+/* Phone title: matches live builds such as unit3/Grammar 2 (UR-02). Desktop values above stay frozen. */
+@media (max-width:640px){.title-line1{font-size:16px}.title-line2{font-size:12px}.title-line3{font-size:10px}}
+.info-bar{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;background:var(--navy);color:#fff;font-size:13px;font-weight:600;padding:8px 14px}
+.main{padding:14px}
+.instruction{background:var(--navy);color:#fff;font-weight:700;border-radius:10px;padding:12px 14px;text-transform:uppercase;margin:0 0 12px}
+.task{font-weight:700;text-align:center;margin:12px 0;white-space:pre-line}
+.target{font-size:28px;font-weight:800;text-align:center;margin:12px 0}
+.passage-toggle,.btn{font:inherit;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:10px 14px;min-height:44px;cursor:pointer}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.passage{border:1px solid var(--line);border-radius:10px;padding:12px;margin:10px 0;max-height:320px;overflow:auto}
+.passage-sentence,.passage-paragraph{border-radius:4px}
+.evidence-on .passage-sentence,.evidence-on .passage-paragraph{cursor:pointer;background:#f8fafc}
+.ev-selected{background:var(--sel)!important;outline:2px solid var(--blue)}
+.passage [role="button"]:focus-visible{outline:3px solid #d4a017!important;outline-offset:2px}
+.ev-correct{background:var(--okbg)!important}.ev-wrong{background:var(--badbg)!important}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:640px){.tiles.long{grid-template-columns:1fr}}
+.tile{font:inherit;text-align:left;background:#fff;border:2px solid var(--line);border-radius:10px;padding:12px;min-height:44px;cursor:pointer;color:var(--ink);overflow-wrap:anywhere}
+.tile.selected{border-color:var(--blue);background:var(--sel)}
+.tile.correct{border-color:var(--ok);background:var(--okbg)}
+.tile.wrong{border-color:var(--bad);background:var(--badbg)}
+.tile:disabled{cursor:default;color:var(--ink)}
+.row{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:10px;padding:8px;margin:6px 0;background:#fff}
+.row .text{flex:1;min-width:0;overflow-wrap:anywhere}
+.row.correct{border-color:var(--ok);background:var(--okbg)}.row.wrong{border-color:var(--bad);background:var(--badbg)}
+.row select{font:inherit;min-height:44px;flex:1;min-width:0;max-width:60%}
+.handle{touch-action:none;cursor:grab;user-select:none;padding:0 6px;font-size:20px;color:var(--muted)}
+.mini{font:inherit;min-width:44px;min-height:44px;border:1px solid var(--line);background:#fff;border-radius:8px;cursor:pointer}
+.mini:disabled{opacity:.35;cursor:default}
+.tray{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;min-height:48px;padding:8px;border:1px dashed var(--line);border-radius:10px}
+.chip{font:inherit;touch-action:none;background:#fff;border:2px solid var(--line);border-radius:999px;padding:8px 14px;min-height:44px;cursor:grab;color:var(--ink);overflow-wrap:anywhere}
+.chip.active{border-color:var(--blue);background:var(--sel)}.chip.correct{border-color:var(--ok);background:var(--okbg)}.chip.wrong{border-color:var(--bad);background:var(--badbg)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.col{border:2px solid var(--line);border-radius:10px;padding:8px;min-height:90px}
+.col h3{margin:0 0 6px;font-size:14px;text-align:center}
+.check-row{margin-top:10px;text-align:center}
+textarea{width:100%;min-height:140px;font:inherit;padding:10px;border:1px solid var(--line);border-radius:10px}
+.wc{font-size:13px;color:var(--muted);margin-top:4px}
+.player{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;border:1px solid var(--line);border-radius:10px;padding:8px;margin:0 0 10px}
+.audio-msg{color:var(--bad);font-size:14px;width:100%;text-align:center}
+.feedback{margin-top:12px;padding:10px 12px;border-radius:10px}
+.feedback.good{background:var(--okbg)}.feedback.badf{background:var(--badbg)}.feedback.neutral{background:#eef3f9}
+.nav-row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:14px}
+.stats-row{display:flex;flex-wrap:nowrap;justify-content:space-between;gap:8px;margin-top:10px;padding:10px;background:#f1f5f9;border-radius:10px;font-size:14px;font-weight:600}
+@media (max-width:640px){.stats-row{flex-wrap:wrap;justify-content:center}}
+.result{text-align:center}
+.badge{display:inline-flex;align-items:center;justify-content:center;width:150px;height:150px;border-radius:50%;background:var(--navy);color:#fff;font-size:24px;font-weight:800;margin:12px}
+.remark{font-size:24px;font-weight:800;min-height:36px}
+table{width:100%;border-collapse:collapse;margin:10px 0;text-align:left}td,th{border:1px solid var(--line);padding:8px}
+.actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
+.review-item{border:1px solid var(--line);border-radius:10px;padding:10px;margin:8px 0;text-align:left}
+.fatal{margin:20px;padding:16px;background:var(--badbg);border-radius:10px;white-space:pre-wrap}
+/* shared parts for plug-in activities */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.drop-over{outline:3px solid var(--blue);outline-offset:1px}
+.drag-ghost{position:fixed;z-index:50;pointer-events:none;opacity:.9;margin:0;transform:translate(-50%,-50%);max-width:80vw}
+.chip.dragging{opacity:.4}
+.attempts{font-size:13px;color:var(--muted);margin-bottom:6px}
+.qtimer{text-align:center;font-weight:800;font-size:20px;margin:6px 0}
+.qtimer.low{color:var(--bad)}
+.part{border:1px solid var(--line);border-radius:10px;padding:10px;margin:10px 0}
+.part h3{margin:0 0 8px;font-size:15px;font-weight:700}
+.part-result{margin-top:8px;font-size:14px}
+/* build-sentence */
+.slots{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:10px 0}
+.slot{min-width:64px;min-height:52px;max-width:100%;border:2px dashed var(--line);border-radius:10px;background:#f8fbff;display:flex;align-items:center;justify-content:center;padding:3px;color:var(--muted);font-weight:700}
+.slot.correct{border:2px solid var(--ok);background:var(--okbg)}.slot.wrong{border:2px solid var(--bad);background:var(--badbg)}
+.slot.correct::after{content:'✓';color:var(--ok);margin:0 4px}.slot.wrong::after{content:'✗';color:var(--bad);margin:0 4px}
+.tile-label{font-size:12px;font-weight:700;text-align:center;color:var(--muted);margin-top:8px}
+.bs-chip{user-select:none;-webkit-user-select:none;border-radius:12px;font-weight:600;max-width:100%}
+.tray.pool{justify-content:center}
+/* gap-fill */
+.gap-text{line-height:2.5;font-size:17px;white-space:pre-wrap;overflow-wrap:anywhere;text-align:center;margin:10px 0}
+.gap-input{font:inherit;min-height:44px;max-width:100%;border:2px solid var(--line);border-radius:8px;padding:4px 8px;line-height:1.3;vertical-align:middle}
+.gap-input.correct{border-color:var(--ok);background:var(--okbg)}.gap-input.wrong{border-color:var(--bad);background:var(--badbg)}
+.gap-slot{display:inline-flex;align-items:center;justify-content:center;min-width:96px;min-height:48px;max-width:100%;vertical-align:middle;border:2px dashed var(--line);border-radius:10px;background:#f8fbff;padding:2px;line-height:1.3;color:var(--muted)}
+.gap-slot.correct{border:2px solid var(--ok);background:var(--okbg)}.gap-slot.wrong{border:2px solid var(--bad);background:var(--badbg)}
+/* error-correction */
+.token-row{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:10px 0}
+.token{font:inherit;min-height:44px;min-width:44px;padding:6px 10px;border:2px solid transparent;border-radius:8px;background:#f1f5f9;color:var(--ink);cursor:pointer;overflow-wrap:anywhere}
+.token[aria-pressed="true"]{border-color:var(--blue);background:var(--sel)}
+.token:disabled{cursor:default}
+.token.correct{border-color:var(--ok);background:var(--okbg)}.token.wrong{border-color:var(--bad);background:var(--badbg)}.token.missed{border:2px dashed var(--bad);background:#fff}
+.fix-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:center;margin:6px 0}
+.fix-row label{font-weight:600}
+.conf{position:fixed;top:-12px;width:9px;height:14px;pointer-events:none;animation:fall 2.2s linear forwards}
+@keyframes fall{to{transform:translateY(105vh) rotate(540deg)}}
+@media (prefers-reduced-motion:reduce){.conf{display:none}}
+@media print{.actions,.conf{display:none}}
+/* Listening: phase banner, speakers, progress bar, task label, transcript */
+.phase{background:#dbeafe;color:var(--navy);font-weight:800;border-radius:10px;padding:10px 14px;margin:0 0 12px}
+.speakers{display:flex;justify-content:center;gap:32px;text-align:center;font-weight:600;margin-bottom:8px}
+.avatar{display:grid;place-items:center;width:50px;height:50px;font-size:28px;background:#eaf4ff;border-radius:50%;margin:0 auto 2px}
+.track{width:100%;height:6px;background:var(--line);border-radius:99px;overflow:hidden}
+.track-fill{height:100%;width:0;background:var(--blue)}
+.task-label{font-size:12px;font-weight:700;color:var(--muted);margin:0 0 4px}
+.transcript{border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:12px 0;text-align:left}
+.transcript summary{cursor:pointer;font-weight:700;min-height:28px}
+.transcript p{margin:8px 0}
+.gap-text{text-align:left;font-size:16px;line-height:1.7}
+.bs-chip{min-width:44px}
+#keyLine{white-space:pre-line}
+.conf{top:-20px}
+@media (max-width:640px){.info-bar{font-size:10px;flex-wrap:nowrap;align-items:center;padding:8px;text-align:center}}
+.tray .chip,.col .chip,.gap-slot .chip{border-radius:12px}
+.col .chip{width:100%;margin-bottom:6px;text-align:left}
+.review-item div{white-space:pre-line}
+/* FIT-2026-11-13: fit one task on a phone screen and a laptop screen */
+.main>.phase,.main>#audioMount,.main>#app{max-width:760px;margin-left:auto;margin-right:auto}
+.phase{padding:8px 12px;margin-bottom:8px}
+.task{margin:6px 0 10px}
+.tiles{gap:8px}
+.tile{padding:10px 12px}
+.check-row{margin-top:8px}
+.nav-row{margin-top:10px}
+.tray{margin:6px 0;padding:6px;gap:6px}
+.chip{padding:6px 12px}
+.cols{gap:8px}.col{min-height:72px}
+.gap-text{margin:6px 0}
+.gap-slot{min-width:84px;min-height:44px}
+.player{padding:6px 8px;margin-bottom:8px}
+@media (max-width:640px){
+.speakers{gap:18px;margin-bottom:6px}
+.speakers>*{display:flex;align-items:center;gap:6px}
+.avatar{width:34px;height:34px;font-size:20px;margin:0}
+.nav-row.withcheck #progress{display:none}
+.nav-row.withcheck .btn{padding:10px;font-size:14px}
+.gap-text{line-height:1.5}.gap-slot{min-height:40px}
+.row{gap:4px;padding:6px;margin:4px 0}.row .text{font-size:15px;line-height:1.3}.row .mini{min-width:38px}.row .handle{padding:0 2px}
+}.tile-label.withreset{display:flex;align-items:center;justify-content:space-between;gap:8px}.tile-label.withreset .btn{flex:none;min-height:40px;padding:6px 12px;margin:0;font-size:14px;letter-spacing:0;text-transform:none}
+@media (max-width:640px){.phase{font-size:14px;padding:6px 10px;line-height:1.3}#taskText{font-size:15px;line-height:1.35}.gap-text{line-height:1.4}.gap-slot{min-height:36px}.tile-label.withreset{font-size:12px}}
+/* GAPFIT-2026-11-17: Reset sits at the end of the word list (the label line repeated the instruction); a wrong gap shows the right word in green. */
+/* ACTROW-2026-11-18: Reset (left) and Check (right) sit in one row above Previous / page number / Next; Reset is no longer among the word choices */
+.act-row{display:flex;justify-content:center;gap:10px;margin:10px 0 0}
+.act-row .btn{flex:1 1 0;max-width:260px;margin:0}
+.act-row.two .btn{max-width:none}
+.act-row [data-act="reset"]{text-transform:none;letter-spacing:0}
+#order .row{padding-top:2px!important;padding-bottom:2px!important;margin-bottom:2px!important}
+.act-row{margin-top:8px}.act-row .btn{min-height:42px;padding-top:6px;padding-bottom:6px}
+#order .row .mini{min-height:36px!important;height:36px!important;min-width:36px!important}
+@media (max-width:640px){
+  .act-row{margin-top:8px}.act-row .btn{min-height:42px;padding:6px 12px}
+  #order .row{padding:3px 6px!important;font-size:14.5px;line-height:1.3;margin-bottom:3px!important}
+  #order .row .mini{min-height:38px!important;height:38px!important;min-width:38px!important}
+  #tray .chip{font-size:14px!important;padding:4px 8px!important;min-height:36px!important;line-height:1.3!important}
+}
+/* FIT7-2026-11-17: after Check an MCQ keeps only the student's choice and the right answer; on the phone the speakers' names row
+   is hidden (the player stays) and the feedback box is more compact, so every screen fits one phone screen. */
+/* 2026-11-18 (teacher): all the options stay visible after Check; the ones not chosen are only faded */
+#choices .tile[disabled]:not(.correct):not(.wrong){opacity:.55}
+#choices .tile[disabled]{padding:6px 12px!important;min-height:40px!important;line-height:1.3!important}
+#order .row.correct .mini,#order .row.wrong .mini{display:none}
+.ord-fix{flex:none;margin-left:auto}
+@media (max-width:640px){#cols .col .chip{font-size:13px!important;padding:3px 8px!important;min-height:32px!important;line-height:1.3!important}#cols .col h3{margin-bottom:4px}}
+@media (max-width:640px){#choices .tile[disabled]{padding:6px 10px!important;font-size:14px!important;min-height:40px!important;line-height:1.3!important}#audioMount .speakers{display:none}#feedback{font-size:14px;line-height:1.4;padding:8px 10px;margin-top:8px}}
+@media (max-width:640px){.gap-text{line-height:1.3}.gap-slot{min-height:30px}.gap-slot .chip{min-height:30px!important;padding:2px 8px!important}}
+.gap-fix{display:inline-block;margin:0 4px;padding:1px 8px;border-radius:8px;background:#e7f8ee;border:2px solid #1f9d55;color:#13663a;font-weight:700;line-height:1.3}
+@media (max-width:640px){.tiles.long{gap:6px}.tiles.long .tile{padding:8px 12px;font-size:15px;line-height:1.3;min-height:44px}}
+@media (max-width:640px){.tray{gap:4px}.tray .chip{padding:6px 9px;font-size:15px}}
+@media (min-width:641px){.speakers{gap:24px;margin-bottom:6px}.speakers>*{display:flex;align-items:center;gap:8px}.avatar{width:40px;height:40px;font-size:22px;margin:0}.row{padding:3px 10px;margin:3px 0}.gap-text{line-height:1.6}.gap-slot{min-height:40px}}
+/* STYLE-2026-11-13: one look for every quiz (template blue, same buttons, same answer cards, same column) */
+:root{--teal:#2563eb;--teal2:#dbeafe;--sel:#dbeafe}
+#app{max-width:760px;margin-left:auto;margin-right:auto}
+#app .btn{border-radius:10px;font-weight:600}
+#app .tile{border-radius:10px;font-weight:500;text-align:left;font-size:16px}
+#app .tile:hover:not(:disabled){border-color:var(--blue)}
+@media (max-width:640px){#app .tile{font-size:15px}}
+#app .tile{line-height:1.35}
+</style>
+</head>
+<body>
+<div class="quiz-container"><div class="quiz-card">
+  <header class="quiz-header">
+    <img class="header-teacher-img" id="teacherImg" alt="Teacher Soufiane">
+    <div class="header-title"><div class="title-line1">English2BAC Quizzes</div><div class="title-line2">Learn • Practice • Succeed</div><div class="title-line3">with Teacher.Soufiane</div></div>
+    <img class="header-logo-img" id="logoImg" alt="Level-UP 2BAC">
+  </header>
+  <div class="info-bar"><span id="infoL"></span><span id="infoC"></span><span id="infoR"></span></div>
+  <div class="main">
+    <div id="phaseBanner" class="phase" aria-live="polite" hidden></div>
+    <div id="audioMount" hidden>
+      <div class="speakers" id="speakers"></div>
+      <div class="player" id="player">
+        <audio id="audio" preload="auto"></audio>
+        <button class="mini" id="audBack" type="button" aria-label="Back 10 seconds">◀10</button>
+        <button class="btn primary" id="audPlay" type="button">▶ Play</button>
+        <button class="mini" id="audFwd" type="button" aria-label="Forward 10 seconds">10▶</button>
+        <span id="audTime">00:00</span>
+        <div class="track" aria-hidden="true"><div class="track-fill" id="audFill"></div></div>
+        <div class="audio-msg" id="audMsg" hidden role="status"></div>
+      </div>
+    </div>
+    <div id="app"></div>
+    <div id="liveMsg" class="sr-only" role="status" aria-live="polite"></div>
+  </div>
+</div></div>
+
+<script>/* quiz_core.js - CANVA QUIZ ENGINEER v2.2.0-prototype (STAGING)
+ * DOM-free quiz engine. Works in a browser (global QuizCore) and in Node (require).
+ * Consolidates the patterns proven in the six histories; see references/QUIZ_ARCHITECTURE.md.
+ * Verification: see references/regression-tests/TEST_RESULTS.md. Not verified inside Canva.
+ *
+ * Contract rules enforced here:
+ *  - One state object; DOM is drawn from it and never read back (U-STATE-01).
+ *  - Shuffle once per attempt, on a copy, never in render (U-SHUF-01). Fisher-Yates only (U-SHUF-02).
+ *  - Answers compared by permanent id, never by position (U-SHUF-03). Exception: word tiles compare
+ *    by exact text, because two tiles reading "the" are interchangeable in a sentence.
+ *  - Every type locks through lockQuestion(), which scores once and unlocks Next (U-NAV-01).
+ *  - Score, stats and results derive from records, never running counters (U-SCORE-01).
+ *  - One timer handle; timestamps, not tick counting (U-TIME-01).
+ *  - Pending timeouts are cancelled on deselect, navigation and restart (VOC-02, RISK).
+ *
+ * Activity contract: registerActivity(name, def). A definition is refused unless it declares:
+ *  meta       { interaction, validation, scoring, feedback, accessibility, resetRetry } in words
+ *  validate   (q, at, errors, cfg)   adds messages for bad data
+ *  init       (q, ctx)               -> record data, including any shuffle (once per attempt)
+ *  ready      (data, q)              -> may the student press Check?
+ *  evaluate   (data, q)              -> { correct, earned, ...detail }; safe on incomplete data
+ *  review     (data, q, result)      -> { you, key } as plain text
+ * Optional: actions { name: (data, payload, q, env) -> false | true | 'text' | SILENT }
+ *           reset (data, q), lockOnInput (q) -> bool, compoundSafe: true
+ */
+(function (root, factory) {
+  if (typeof module === 'object' && module.exports) module.exports = factory();
+  else root.QuizCore = factory();
+})(typeof self !== 'undefined' ? self : this, function () {
+  'use strict';
+
+  /* ---------- helpers ---------- */
+  function shuffle(arr, rng) {
+    rng = rng || Math.random;
+    var a = Array.prototype.slice.call(arr);
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(rng() * (i + 1)), t = a[i];
+      a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+  function same(a, b) {
+    return a.length === b.length && a.every(function (v, i) { return v === b[i]; });
+  }
+  /* Never equal to `identity` when a different order exists (LIS-05, FUN-02). */
+  function shuffleNotIdentity(arr, identity, rng) {
+    var out = shuffle(arr, rng);
+    if (arr.length < 2) return out;
+    for (var guard = 0; same(out, identity) && guard < 50; guard++) out = shuffle(arr, rng);
+    if (same(out, identity)) { out.push(out.shift()); }
+    return out;
+  }
+  function round6(n) { return Math.round(n * 1e6) / 1e6; }
+  function nonEmpty(v) { return typeof v === 'string' && v.trim().length > 0; }
+  function wordCount(s) { var m = String(s || '').trim().match(/\S+/g); return m ? m.length : 0; }
+  function normalizeAnswer(s) {
+    return String(s == null ? '' : s).replace(/[‘’]/g, "'").replace(/\s+/g, ' ').trim().toLowerCase();
+  }
+  function formatTime(sec) {
+    sec = Math.max(0, Math.floor(sec));
+    return String(Math.floor(sec / 60)).padStart(2, '0') + ':' + String(sec % 60).padStart(2, '0');
+  }
+  function formatScore(score, total, decimals) {
+    return Number(score).toFixed(decimals == null ? 2 : decimals) + ' /' + total;
+  }
+  function remark(score, scale) { /* scale sorted descending by min */
+    for (var i = 0; i < scale.length; i++) if (score >= scale[i].min) return scale[i].label;
+    return scale[scale.length - 1].label;
+  }
+  var SCALES = {
+    six20: [{ min: 18, label: 'Excellent!' }, { min: 16, label: 'Very Good' }, { min: 14, label: 'Good' }, { min: 12, label: 'Fairly Good' }, { min: 10, label: 'Pass' }, { min: 0, label: 'Fail' }],
+    four20: [{ min: 18, label: 'Excellent' }, { min: 15, label: 'Very Good' }, { min: 11, label: 'Good Progress' }, { min: 0, label: 'Keep Practising' }],
+    writing20: [{ min: 18, label: 'Excellent' }, { min: 15, label: 'Very Good' }, { min: 12, label: 'Good' }, { min: 8, label: 'Needs Improvement' }, { min: 0, label: 'Keep Practising' }],
+    reading15: [{ min: 14, label: 'Excellent!' }, { min: 13, label: 'Very Good' }, { min: 12, label: 'Good' }, { min: 10, label: 'Fairly Good' }, { min: 8, label: 'Pass' }, { min: 0, label: 'Fail' }]
+  };
+
+  /* ---------- safe storage: quiz runs with storage blocked (U-CANVA-03) ---------- */
+  function safeStorage(getStore) {
+    var mem = {}, store = null;
+    try { store = getStore ? getStore() : (typeof window !== 'undefined' ? window.localStorage : null); store && store.getItem('__t'); }
+    catch (e) { store = null; }
+    return {
+      persistent: !!store,
+      /* memory wins: a value that failed to persist (quota, blocked write) must still read back */
+      get: function (k) { if (Object.prototype.hasOwnProperty.call(mem, k)) return mem[k]; try { if (store) return store.getItem(k); } catch (e) {} return null; },
+      set: function (k, v) { try { if (store) { store.setItem(k, String(v)); delete mem[k]; return; } } catch (e) {} mem[k] = String(v); }
+    };
+  }
+
+  /* ---------- timer: one handle, timestamp based ---------- */
+  function createTimer(opts) {
+    opts = opts || {};
+    var sched = opts.scheduler || { set: function (f, ms) { return setInterval(f, ms); }, clear: function (h) { clearInterval(h); } };
+    var now = opts.now || function () { return Date.now(); };
+    var onTick = opts.onTick || function () {}, onExpire = opts.onExpire || function () {};
+    var mode = opts.mode || 'countup', limit = opts.countdownSeconds || 0;
+    var handle = null, startedAt = 0, banked = 0;
+    function elapsed() { return banked + (handle !== null ? now() - startedAt : 0); }
+    function seconds() { return Math.floor(elapsed() / 1000); }
+    function display() { return mode === 'countdown' ? Math.max(0, limit - seconds()) : seconds(); }
+    var api = {
+      start: function () {
+        if (handle !== null) return;
+        startedAt = now();
+        handle = sched.set(function () {
+          onTick(display());
+          if (mode === 'countdown' && seconds() >= limit) { api.pause(); onExpire(); }
+        }, 1000);
+      },
+      pause: function () {
+        if (handle === null) return;
+        banked += now() - startedAt; sched.clear(handle); handle = null;
+      },
+      reset: function () { if (handle !== null) { sched.clear(handle); handle = null; } banked = 0; onTick(display()); },
+      seconds: seconds, display: display,
+      running: function () { return handle !== null; }
+    };
+    return api;
+  }
+
+  /* ---------- audio controller: render never depends on it (LIS-02, LIS-03, LIS-04) ---------- */
+  function createAudioController(audio, ui) {
+    ui = ui || {};
+    var setPlaying = ui.setPlaying || function () {}, onError = ui.onError || function () {};
+    audio.addEventListener('play', function () { setPlaying(true); });
+    audio.addEventListener('pause', function () { setPlaying(false); });
+    audio.addEventListener('ended', function () { setPlaying(false); });
+    audio.addEventListener('error', function () { setPlaying(false); onError('load'); });
+    return {
+      toggle: function () { /* must be called directly inside the click handler */
+        if (audio.paused) {
+          var p = audio.play();
+          if (p && p.catch) p.catch(function (e) { setPlaying(false); onError('play', e); });
+        } else audio.pause();
+      },
+      back10: function () { audio.currentTime = Math.max(0, (audio.currentTime || 0) - 10); },
+      forward10: function () {
+        var d = audio.duration;
+        if (!isFinite(d)) return; /* metadata not loaded */
+        audio.currentTime = Math.min(d, (audio.currentTime || 0) + 10);
+      }
+    };
+  }
+
+  /* ---------- shared parts for activities ---------- */
+  var SILENT = 'silent';
+  var META_FIELDS = ['interaction', 'validation', 'scoring', 'feedback', 'accessibility', 'resetRetry'];
+  function withIds(list, prefix) {
+    return list.map(function (x, i) {
+      return typeof x === 'string' ? { id: prefix + (i + 1), text: x } : x;
+    });
+  }
+  function textById(items, id) {
+    for (var i = 0; i < items.length; i++) if (items[i].id === id) return items[i].text;
+    return null;
+  }
+  /* Scoring strategies, shared so an activity never hand-rolls its arithmetic. */
+  var SCORING = {
+    allOrNothing: function (points, hits, n) { return hits === n ? points : 0; },
+    perItem: function (points, hits, n) { return n ? round6(points * Math.max(0, hits) / n) : 0; }
+  };
+  /* Best match of a sequence against several accepted sequences. Exact text, case kept. */
+  function bestSequenceMatch(mine, accepted) {
+    var best = { index: 0, hits: -1, per: [] };
+    accepted.forEach(function (ans, a) {
+      var per = ans.map(function (t, k) { return mine[k] === t; });
+      var hits = per.filter(Boolean).length;
+      if (hits > best.hits) best = { index: a, hits: hits, per: per };
+    });
+    return best;
+  }
+  function sortedCopy(a) { return a.slice().sort(); }
+  function isPermutation(a, b) { return a.length === b.length && same(sortedCopy(a), sortedCopy(b)); }
+  function acceptedOrders(q) { return [q.correctOrder].concat(q.acceptedOrders || []); }
+  function answersFrom(q) { return q.answers || []; }
+
+  /* ---------- activity registry: every type goes through the same contract ---------- */
+  var TYPES = {};
+  function registerActivity(name, def) {
+    if (!nonEmpty(name)) throw new Error('Activity needs a name');
+    if (TYPES[name]) throw new Error('Activity already registered: ' + name);
+    ['validate', 'init', 'ready', 'evaluate', 'review'].forEach(function (f) {
+      if (typeof def[f] !== 'function') throw new Error('Activity ' + name + ' is missing ' + f + '()');
+    });
+    META_FIELDS.forEach(function (f) {
+      if (!def.meta || !nonEmpty(def.meta[f])) throw new Error('Activity ' + name + ' does not declare meta.' + f);
+    });
+    TYPES[name] = def;
+    return def;
+  }
+
+  registerActivity('single-choice', {
+    meta: { interaction: 'Tap one option; locks on tap, or after Check with confirm', validation: 'Selected id equals the correct id', scoring: 'All or nothing', feedback: 'Correct green, wrong pick red', accessibility: 'Buttons, keys 1-9, aria-pressed', resetRetry: 'Retry only with confirm; Reset clears the selection' },
+    compoundSafe: true,
+    lockOnInput: function (q) { return !q.confirm; },
+    validate: function (q, at, errors) {
+      if (!Array.isArray(q.choices) || q.choices.length < 2) { errors.push(at + ': needs choices'); return; }
+      if (!nonEmpty(q.task)) errors.push(at + ': empty task');
+      var norm = q.choices.map(normalizeAnswer);
+      if (norm.some(function (c, i) { return norm.indexOf(c) !== i; })) errors.push(at + ': duplicate choices');
+      if (q.choices.filter(function (c) { return c === q.correctAnswer; }).length !== 1) errors.push(at + ': correctAnswer must match exactly one choice');
+    },
+    init: function (q, ctx) {
+      var ch = withIds(q.choices, 'c');
+      var correct = ch.filter(function (c) { return c.text === q.correctAnswer; })[0];
+      if (!correct) throw new Error('correctAnswer not in choices');
+      var ids = ch.map(function (c) { return c.id; });
+      var order = (ctx.randomizeChoices && !q.fixedOrder) ? ctx.placeChoices(ids, correct.id) : ids.slice();
+      return { items: ch, correctId: correct.id, displayOrder: order, selectedId: null };
+    },
+    ready: function (r) { return r.selectedId !== null; },
+    evaluate: function (r, q) {
+      var ok = r.selectedId === r.correctId;
+      return { correct: ok, earned: ok ? q.points : 0 };
+    },
+    review: function (d) { return { you: d.selectedId ? textById(d.items, d.selectedId) : '(no answer)', key: textById(d.items, d.correctId) }; },
+    reset: function (d) { d.selectedId = null; },
+    actions: {
+      /* lock on click unless q.confirm (Complete the Exchange) or inside a compound task */
+      choose: function (d, p, q, env) {
+        if (d.items.every(function (c) { return c.id !== p.id; })) return false;
+        d.selectedId = p.id;
+        if (q.confirm || env.inPart) return true;
+        env.lockQuestion(env.state.index); return SILENT;
+      }
+    }
+  });
+
+  registerActivity('pick-exact', {
+    meta: { interaction: 'Toggle N of M options', validation: 'Selected set equals the correct set', scoring: 'All or nothing', feedback: 'Correct green, wrong picks red', accessibility: 'Buttons, keys 1-9, aria-pressed', resetRetry: 'Deselect any time before the lock' },
+    lockOnInput: function (q) { return q.holdMs != null; },
+    validate: function (q, at, errors) {
+      if (!q.options || !q.correct || q.correct.length >= q.options.length) errors.push(at + ': correct must be a proper subset of options');
+      else if (!q.correct.every(function (c) { return q.options.indexOf(c) > -1; })) errors.push(at + ': correct item missing from options');
+    },
+    init: function (q, ctx) {
+      var op = withIds(q.options, 't');
+      var cid = op.filter(function (o) { return q.correct.indexOf(o.text) > -1; }).map(function (o) { return o.id; });
+      var ids = op.map(function (o) { return o.id; });
+      return { items: op, correctIds: cid, displayOrder: ctx.randomizeChoices ? (ctx.mixList ? ctx.mixList(ids, null) : shuffle(ids, ctx.rng)) : ids, selected: [] };
+    },
+    ready: function (r) { return r.selected.length === r.correctIds.length; },
+    evaluate: function (r, q) {
+      var ok = r.selected.length === r.correctIds.length && r.selected.every(function (s) { return r.correctIds.indexOf(s) > -1; });
+      return { correct: ok, earned: ok ? q.points : 0 };
+    },
+    review: function (d) {
+      var t = function (i) { return textById(d.items, i); };
+      return { you: d.selected.map(t).join(', '), key: d.correctIds.map(t).join(', ') };
+    },
+    reset: function (d, q, env) { env.clearPending(); d.selected = []; },
+    actions: {
+      /* one selection list, 4th ignored, deselect allowed, hold cancelled on change */
+      toggle: function (d, p, q0, env) {
+        var state = env.state, rec = env.rec, lockQuestion = env.lockQuestion;
+        var id = p.id, at = d.selected.indexOf(id), need = d.correctIds.length;
+        if (at > -1) { env.clearPending(); d.selected.splice(at, 1); return true; }
+        if (d.selected.length >= need) return false;
+        d.selected.push(id);
+        env.clearPending();
+        var hold = q0.holdMs;
+        if (d.selected.length === need && hold != null) {
+          var i = state.index;
+          state.pending = env.sched.setTimeout(function () {
+            state.pending = null;
+            if (state.index === i && rec(i).data.selected.length === need) lockQuestion(i);
+          }, hold);
+        }
+        return true;
+      }
+    }
+  });
+
+  registerActivity('ordering', {
+    meta: { interaction: 'Arrows and pointer drag on a list', validation: 'Order equals an accepted order, by id', scoring: 'exact or per-position', feedback: 'Rows green or red by position', accessibility: 'Arrow buttons are the non-drag path', resetRetry: 'Retry with maxAttempts; never starts solved' },
+    validate: function (q, at, errors) {
+      var ids = (q.items || []).map(function (i) { return i.id; });
+      if (ids.length < 2) errors.push(at + ': ordering needs items');
+      if (!q.correctOrder || !same(q.correctOrder.slice().sort(), ids.slice().sort())) errors.push(at + ': correctOrder ids must equal item ids');
+      (q.acceptedOrders || []).forEach(function (o, k) { if (!isPermutation(o, ids)) errors.push(at + ': accepted order ' + (k + 1) + ' must use the same ids'); });
+    },
+    init: function (q, ctx) {
+      var ids = q.items.map(function (i) { return i.id; }), all = acceptedOrders(q);
+      var order = shuffleNotIdentity(ids, q.correctOrder, ctx.rng);
+      /* an accepted alternative must not start solved either */
+      for (var g = 0; g < 50 && all.some(function (a) { return same(a, order); }); g++) order = shuffle(ids, ctx.rng);
+      return { items: q.items, order: order, correctOrder: q.correctOrder };
+    },
+    ready: function () { return true; },
+    evaluate: function (r, q) {
+      var m = bestSequenceMatch(r.order, acceptedOrders(q));
+      var hits = m.hits, per = m.per, all = hits === per.length;
+      var earned = q.scoring === 'per-position' ? round6(q.points * hits / per.length) : (all ? q.points : 0);
+      return { correct: all, earned: earned, perPosition: per };
+    },
+    review: function (d) {
+      var t = function (id) { return textById(d.items, id); };
+      return { you: d.order.map(t).join(' → '), key: d.correctOrder.map(t).join(' → ') };
+    },
+    actions: {
+      /* arrows, drag and touch all land here */
+      move: function (d, p) {
+        var o = d.order, i = o.indexOf(p.id), j = i + p.dir;
+        if (i < 0 || j < 0 || j >= o.length) return false;
+        var t = o[i]; o[i] = o[j]; o[j] = t; return true;
+      },
+      moveTo: function (d, p) {
+        var o = d.order, from = o.indexOf(p.id);
+        if (from < 0 || p.to < 0 || p.to >= o.length || from === p.to) return false;
+        o.splice(from, 1); o.splice(p.to, 0, p.id); return true;
+      }
+    }
+  });
+
+  registerActivity('matching', {
+    meta: { interaction: 'One dropdown per row', validation: 'Each row option id equals its target', scoring: 'Per row, or passThreshold', feedback: 'Rows green or red', accessibility: 'Native labelled selects', resetRetry: 'Retry with maxAttempts; clear a row by choosing the placeholder' },
+    validate: function (q, at, errors) {
+      var oids = (q.options || []).map(function (o) { return o.id; });
+      (q.rows || []).forEach(function (r) { if (oids.indexOf(r.correctOptionId) < 0) errors.push(at + ': row ' + r.id + ' target not in options'); });
+      if (q.passThreshold != null && q.passThreshold < q.rows.length && oids.length <= q.rows.length) errors.push(at + ': passThreshold unreachable, options must exceed rows');
+    },
+    init: function (q, ctx) {
+      var optIds = q.options.map(function (o) { return o.id; });
+      var rowTargets = q.rows.map(function (r) { return r.correctOptionId; });
+      return { rows: q.rows, options: q.options, optionOrder: ctx.mixList ? ctx.mixList(optIds, rowTargets) : shuffleNotIdentity(optIds, rowTargets, ctx.rng), assign: {} };
+    },
+    ready: function (r) { return r.rows.every(function (row) { return !!r.assign[row.id]; }); },
+    evaluate: function (r, q) {
+      var per = {}, hits = 0;
+      r.rows.forEach(function (row) { var ok = r.assign[row.id] === row.correctOptionId; per[row.id] = ok; if (ok) hits++; });
+      var n = r.rows.length, earned;
+      if (q.passThreshold != null) earned = hits >= q.passThreshold ? q.points : 0;
+      else earned = round6(q.points * hits / n);
+      return { correct: hits === n, earned: earned, perRow: per, hits: hits };
+    },
+    review: function (d) {
+      var ot = function (id) { var o = d.options.filter(function (x) { return x.id === id; })[0]; return o ? o.text : '-'; };
+      return { you: d.rows.map(function (x) { return x.text + ': ' + ot(d.assign[x.id]); }).join('; '), key: d.rows.map(function (x) { return x.text + ': ' + ot(x.correctOptionId); }).join('; ') };
+    },
+    reset: function (d) { d.assign = {}; },
+    actions: {
+      assign: function (d, p, q0) {
+        var a = d.assign;
+        if (q0.uniqueOptions !== false && p.optionId) Object.keys(a).forEach(function (k) { if (a[k] === p.optionId && k !== p.rowId) delete a[k]; });
+        if (p.optionId) a[p.rowId] = p.optionId; else delete a[p.rowId];
+        return true;
+      }
+    }
+  });
+
+  registerActivity('classify', {
+    meta: { interaction: 'Tiles into columns by tap or drag', validation: 'Each tile column equals its target', scoring: 'Per tile', feedback: 'Chips green or red', accessibility: 'Tap-to-place is the non-drag path', resetRetry: 'Retry with maxAttempts; tiles can move before Check' },
+    validate: function (q, at, errors) {
+      (q.tiles || []).forEach(function (t) { if ((q.columns || []).indexOf(t.correctColumn) < 0) errors.push(at + ': tile ' + t.id + ' correctColumn not in columns'); });
+    },
+    init: function (q, ctx) {
+      var ids = q.tiles.map(function (t) { return t.id; });
+      var grouped = [];
+      q.columns.forEach(function (c) { q.tiles.forEach(function (t) { if (t.correctColumn === c) grouped.push(t.id); }); });
+      return { tiles: q.tiles, columns: q.columns, displayOrder: shuffleNotIdentity(ids, grouped, ctx.rng), placements: {} };
+    },
+    ready: function (r) { return r.tiles.every(function (t) { return !!r.placements[t.id]; }); },
+    evaluate: function (r, q) {
+      var per = {}, hits = 0;
+      r.tiles.forEach(function (t) { var ok = r.placements[t.id] === t.correctColumn; per[t.id] = ok; if (ok) hits++; });
+      return { correct: hits === r.tiles.length, earned: round6(q.points * hits / r.tiles.length), perTile: per };
+    },
+    review: function (d) {
+      return { you: d.tiles.map(function (x) { return x.text + ': ' + (d.placements[x.id] || '-'); }).join('; '), key: d.tiles.map(function (x) { return x.text + ': ' + x.correctColumn; }).join('; ') };
+    },
+    reset: function (d) { d.placements = {}; },
+    actions: {
+      place: function (d, p) {
+        if (p.column) d.placements[p.tileId] = p.column; else delete d.placements[p.tileId];
+        return true;
+      }
+    }
+  });
+
+  registerActivity('evidence-click', {
+    meta: { interaction: 'Tap a sentence or paragraph in the passage', validation: 'Selected id equals the target id', scoring: 'All or nothing', feedback: 'Passage highlight green or red', accessibility: 'NOT YET: passage spans are not keyboard focusable', resetRetry: 'Tap again to clear before Check' },
+    validate: function (q, at, errors, cfg) {
+      var ids = q.correctIds || (q.correctId ? [q.correctId] : []);
+      if (!ids.length) errors.push(at + ': no correctId or correctIds');
+      ids.forEach(function (id) { if (cfg.passageHtml && cfg.passageHtml.indexOf('"' + id + '"') < 0) errors.push(at + ': evidence id ' + id + ' not in passageHtml'); });
+    },
+    init: function (q) { var ids = q.correctIds || [q.correctId]; return { targetId: ids[0], targetIds: ids.slice(), selectedId: null, words: !!q.words, picked: [] }; },
+    ready: function (r) { return r.selectedId !== null; },
+    evaluate: function (r, q) { var ok = r.words ? (r.picked.length === r.targetIds.length && r.picked.every(function (id) { return r.targetIds.indexOf(id) > -1; })) : (r.selectedId !== null && r.targetIds.indexOf(r.selectedId) > -1); return { correct: ok, earned: ok ? q.points : 0 }; },
+    review: function (d) { return { you: d.selectedId || '(no answer)', key: d.targetIds.join(' / ') }; },
+    actions: {
+      selectEvidence: function (d, p) {
+        if (d.words) { var k = d.picked.indexOf(p.id); if (k > -1) d.picked.splice(k, 1); else d.picked.push(p.id); d.selectedId = d.picked.length ? d.picked.join(',') : null; return true; }
+        d.selectedId = d.selectedId === p.id ? null : p.id; return true; }
+    }
+  });
+
+  function setTextAction(d, p) { d.value = String(p.value); d.words = wordCount(p.value); return 'text'; }
+
+  registerActivity('typed-answer', { /* NEW in v2: no historical incident; see GRAMMAR.md */
+    meta: { interaction: 'One text input', validation: 'Normalised text in acceptedAnswers', scoring: 'All or nothing', feedback: 'Feedback box with the explanation', accessibility: 'Labelled input', resetRetry: 'Retry with maxAttempts; edit before Check' },
+    validate: function (q, at, errors) {
+      if (!q.acceptedAnswers || !q.acceptedAnswers.length) errors.push(at + ': needs acceptedAnswers');
+    },
+    init: function () { return { value: '' }; },
+    ready: function (r) { return normalizeAnswer(r.value).length > 0; },
+    evaluate: function (r, q) {
+      var v = normalizeAnswer(r.value);
+      var ok = q.acceptedAnswers.map(normalizeAnswer).indexOf(v) > -1;
+      return { correct: ok, earned: ok ? q.points : 0 };
+    },
+    review: function (d, q) { return { you: d.value || '(no answer)', key: q.acceptedAnswers[0] }; },
+    reset: function (d) { d.value = ''; d.words = 0; },
+    actions: { setText: setTextAction }
+  });
+
+  registerActivity('written-response', { /* NEW in v2: never auto-graded; see WRITING.md */
+    meta: { interaction: 'Free text with a word count', validation: 'Word limits only', scoring: 'Never auto-scored', feedback: 'Self-check list and model answer', accessibility: 'Labelled textarea', resetRetry: 'Edit before finishing' },
+    validate: function () {},
+    init: function () { return { value: '', words: 0, checks: {} }; },
+    ready: function (r, q) { return r.words >= (q.minWords || 1) && (!q.maxWords || r.words <= q.maxWords); },
+    evaluate: function () { return { correct: null, earned: 0, ungraded: true }; },
+    review: function (d) { return { you: d.value || '(no answer)', key: 'Teacher-marked' }; },
+    actions: { setText: setTextAction }
+  });
+
+  /* ---------- new in the flexible architecture ---------- */
+
+  registerActivity('build-sentence', {
+    meta: {
+      interaction: 'Word tiles into numbered slots by tap or pointer drag; a tile on a filled slot swaps',
+      validation: 'Slot texts equal any accepted sentence, exact text and case',
+      scoring: 'exact (default) or per-slot against the closest accepted sentence',
+      feedback: 'Slots green or red with a text tag; correct sentence shown when wrong',
+      accessibility: 'Tiles are buttons, tap is the non-drag path, keys 1-9 place and Backspace removes, status announced',
+      resetRetry: 'Reset clears slots before Check; retry with maxAttempts'
+    },
+    compoundSafe: true,
+    validate: function (q, at, errors) {
+      var answers = answersFrom(q);
+      if (!Array.isArray(answers) || !answers.length || !Array.isArray(answers[0]) || answers[0].length < 2) { errors.push(at + ': needs answers, each a list of at least 2 tiles'); return; }
+      var base = answers[0];
+      if (!base.every(nonEmpty)) errors.push(at + ': empty tile');
+      answers.forEach(function (a, k) {
+        if (k && !isPermutation(a, base)) errors.push(at + ': answer ' + (k + 1) + ' must use exactly the tiles of answer 1');
+      });
+      var seen = {};
+      answers.forEach(function (a, k) { var s = a.join('\u0001'); if (seen[s]) errors.push(at + ': answer ' + (k + 1) + ' repeats another answer'); seen[s] = 1; });
+      (q.distractors || []).forEach(function (t) { if (!nonEmpty(t)) errors.push(at + ': empty distractor'); });
+      if (q.scoring && q.scoring !== 'exact' && q.scoring !== 'per-slot') errors.push(at + ': scoring must be exact or per-slot');
+    },
+    init: function (q, ctx) {
+      var answers = answersFrom(q), texts = answers[0].concat(q.distractors || []);
+      var items = texts.map(function (t, i) { return { id: 't' + (i + 1), text: t }; });
+      var ids = items.map(function (x) { return x.id; });
+      var startsSolved = function (order) {
+        var seq = order.map(function (id) { return textById(items, id); });
+        return answers.some(function (a) { return same(a, seq); });
+      };
+      var order = shuffle(ids, ctx.rng);
+      for (var g = 0; g < 50 && startsSolved(order); g++) order = shuffle(ids, ctx.rng);
+      var slots = []; for (var k = 0; k < answers[0].length; k++) slots.push(null);
+      return { items: items, poolOrder: order, slots: slots };
+    },
+    ready: function (d) { return d.slots.indexOf(null) < 0; },
+    evaluate: function (d, q) {
+      var mine = d.slots.map(function (id) { return id === null ? null : textById(d.items, id); });
+      var m = bestSequenceMatch(mine, answersFrom(q)), n = mine.length, all = m.hits === n;
+      var earned = q.scoring === 'per-slot' ? SCORING.perItem(q.points, m.hits, n) : SCORING.allOrNothing(q.points, m.hits, n);
+      return { correct: all, earned: earned, perSlot: m.per, matched: m.index };
+    },
+    review: function (d, q) {
+      var end = q.ending || '', answers = answersFrom(q);
+      var you = d.slots.map(function (id) { return id === null ? '—' : textById(d.items, id); }).join(' ') + end;
+      var key = answers[0].join(' ') + end;
+      if (answers.length > 1) key += ' (also accepted: ' + answers.slice(1).map(function (a) { return a.join(' ') + end; }).join(' / ') + ')';
+      return { you: you, key: key };
+    },
+    reset: function (d) { for (var k = 0; k < d.slots.length; k++) d.slots[k] = null; },
+    actions: {
+      place: function (d, p) {
+        if (textById(d.items, p.id) === null) return false;
+        var from = d.slots.indexOf(p.id), target = p.slot;
+        if (target === undefined || target === null) {
+          if (from > -1) return false;
+          target = d.slots.indexOf(null);
+          if (target < 0) return false;
+        }
+        if (target < 0 || target >= d.slots.length || from === target) return false;
+        var other = d.slots[target];
+        d.slots[target] = p.id;
+        if (from > -1) d.slots[from] = other;
+        return true;
+      },
+      unplace: function (d, p) {
+        var k = d.slots.indexOf(p.id);
+        if (k < 0) return false;
+        d.slots[k] = null; return true;
+      }
+    }
+  });
+
+  function gapsOf(q) { return (q.segments || []).filter(function (s) { return s && typeof s === 'object'; }); }
+
+  registerActivity('gap-fill', {
+    meta: {
+      interaction: 'One or more gaps in running text: typed, dropdown or word bank',
+      validation: 'Normalised text in the gap accepted list',
+      scoring: 'per-gap (default) or exact',
+      feedback: 'Each gap green or red with a text tag; key shown when wrong',
+      accessibility: 'Labelled inputs and selects; bank tiles are buttons with a tap path',
+      resetRetry: 'Reset clears gaps before Check; retry with maxAttempts'
+    },
+    compoundSafe: true,
+    validate: function (q, at, errors) {
+      var gaps = gapsOf(q), mode = q.mode || 'typed';
+      if (!gaps.length) { errors.push(at + ': gap-fill needs at least one gap'); return; }
+      if (['typed', 'dropdown', 'bank'].indexOf(mode) < 0) errors.push(at + ': mode must be typed, dropdown or bank');
+      if (q.scoring && q.scoring !== 'exact' && q.scoring !== 'per-gap') errors.push(at + ': scoring must be exact or per-gap');
+      var seen = {};
+      gaps.forEach(function (g) {
+        if (!nonEmpty(g.id)) errors.push(at + ': gap without id');
+        if (seen[g.id]) errors.push(at + ': duplicate gap id ' + g.id);
+        seen[g.id] = 1;
+        if (!Array.isArray(g.accepted) || !g.accepted.length || !g.accepted.every(nonEmpty)) { errors.push(at + ': gap ' + g.id + ' needs accepted answers'); return; }
+        if (mode === 'dropdown') {
+          if (!Array.isArray(g.options) || g.options.length < 2) { errors.push(at + ': gap ' + g.id + ' needs at least 2 options'); return; }
+          var norm = g.options.map(normalizeAnswer);
+          if (!g.accepted.some(function (a) { return norm.indexOf(normalizeAnswer(a)) > -1; })) errors.push(at + ': gap ' + g.id + ' options miss every accepted answer');
+        }
+      });
+    },
+    init: function (q, ctx) {
+      var gaps = gapsOf(q), mode = q.mode || 'typed', d = { mode: mode, gapIds: gaps.map(function (g) { return g.id; }), values: {} };
+      if (mode === 'bank') {
+        var texts = gaps.map(function (g) { return g.accepted[0]; }).concat(q.bank || []);
+        d.items = texts.map(function (t, i) { return { id: 'b' + (i + 1), text: t }; });
+        d.poolOrder = ctx.mixList ? ctx.mixList(d.items.map(function (x) { return x.id; }), d.items.slice(0, gaps.length).map(function (x) { return x.id; })) : shuffle(d.items.map(function (x) { return x.id; }), ctx.rng);
+        d.placed = {};
+      }
+      if (mode === 'dropdown') {
+        d.optionOrders = {};
+        gaps.forEach(function (g) { d.optionOrders[g.id] = ctx.randomizeChoices ? (ctx.mixGap ? ctx.mixGap(g.options, g.accepted) : shuffle(g.options, ctx.rng)) : g.options.slice(); });
+      }
+      return d;
+    },
+    ready: function (d) {
+      return d.gapIds.every(function (id) { return d.mode === 'bank' ? !!d.placed[id] : normalizeAnswer(d.values[id]).length > 0; });
+    },
+    evaluate: function (d, q) {
+      var per = {}, hits = 0, gaps = gapsOf(q);
+      gaps.forEach(function (g) {
+        var v = d.mode === 'bank' ? textById(d.items, d.placed[g.id]) : d.values[g.id];
+        var ok = v != null && g.accepted.map(normalizeAnswer).indexOf(normalizeAnswer(v)) > -1;
+        per[g.id] = ok; if (ok) hits++;
+      });
+      var earned = q.scoring === 'exact' ? SCORING.allOrNothing(q.points, hits, gaps.length) : SCORING.perItem(q.points, hits, gaps.length);
+      return { correct: hits === gaps.length, earned: earned, perGap: per, hits: hits };
+    },
+    review: function (d, q) {
+      var gaps = gapsOf(q), val = function (g) { var v = d.mode === 'bank' ? textById(d.items, d.placed[g.id]) : d.values[g.id]; return v || '—'; };
+      var join = function (fn) { return (q.segments || []).map(function (s) { return typeof s === 'string' ? s : '[' + fn(s) + ']'; }).join(''); };
+      return { you: join(val), key: join(function (g) { return g.accepted[0]; }) };
+    },
+    reset: function (d) { d.values = {}; if (d.mode === 'bank') d.placed = {}; },
+    actions: {
+      setGap: function (d, p) {
+        if (d.gapIds.indexOf(p.gap) < 0) return false;
+        d.values[p.gap] = String(p.value == null ? '' : p.value); return 'text';
+      },
+      place: function (d, p) {
+        if (d.mode !== 'bank' || textById(d.items, p.id) === null) return false;
+        var gap = p.gap, from = null;
+        d.gapIds.forEach(function (g) { if (d.placed[g] === p.id) from = g; });
+        if (!gap) {
+          if (from) return false;
+          gap = d.gapIds.filter(function (g) { return !d.placed[g]; })[0];
+          if (!gap) return false;
+        }
+        if (d.gapIds.indexOf(gap) < 0 || from === gap) return false;
+        var other = d.placed[gap];
+        d.placed[gap] = p.id;
+        if (from) { if (other) d.placed[from] = other; else delete d.placed[from]; }
+        return true;
+      },
+      unplace: function (d, p) {
+        var hit = false;
+        d.gapIds.forEach(function (g) { if (d.placed[g] === p.id) { delete d.placed[g]; hit = true; } });
+        return hit;
+      }
+    }
+  });
+
+  registerActivity('error-correction', {
+    meta: {
+      interaction: 'Tap the wrong word or words, then type each correction',
+      validation: 'Selected tokens equal the error tokens; each correction normalised against its accepted list',
+      scoring: 'exact (default) or per-error, with false picks subtracted',
+      feedback: 'Words green or red with a text tag; missed errors and corrections shown',
+      accessibility: 'Words are buttons with aria-pressed; corrections are labelled inputs',
+      resetRetry: 'Reset clears selections before Check; retry with maxAttempts'
+    },
+    compoundSafe: true,
+    validate: function (q, at, errors) {
+      if (!Array.isArray(q.tokens) || q.tokens.length < 2 || !q.tokens.every(nonEmpty)) { errors.push(at + ': needs tokens'); return; }
+      if (!Array.isArray(q.errors) || !q.errors.length) { errors.push(at + ': needs errors'); return; }
+      if (q.mode && q.mode !== 'correct' && q.mode !== 'identify') errors.push(at + ': mode must be correct or identify');
+      if (q.scoring && q.scoring !== 'exact' && q.scoring !== 'per-error') errors.push(at + ': scoring must be exact or per-error');
+      var seen = {};
+      q.errors.forEach(function (e, k) {
+        var tag = at + ': error ' + (k + 1);
+        if (!(e.index >= 0 && e.index < q.tokens.length) || e.index % 1) { errors.push(tag + ' index out of range'); return; }
+        if (seen[e.index]) errors.push(tag + ' repeats a token');
+        seen[e.index] = 1;
+        if (q.mode === 'identify') return;
+        if (!Array.isArray(e.accepted) || !e.accepted.length || !e.accepted.every(nonEmpty)) { errors.push(tag + ' needs accepted corrections'); return; }
+        /* a "correction" equal to the original means the sentence has no error there */
+        if (e.accepted.map(normalizeAnswer).indexOf(normalizeAnswer(q.tokens[e.index])) > -1) errors.push(tag + ' correction equals the original word');
+      });
+    },
+    init: function () { return { selected: [], fixes: {} }; },
+    ready: function (d, q) {
+      if (!d.selected.length) return false;
+      return q.mode === 'identify' || d.selected.every(function (i) { return normalizeAnswer(d.fixes[i]).length > 0; });
+    },
+    evaluate: function (d, q) {
+      var perError = {}, hits = 0, n = q.errors.length, targets = q.errors.map(function (e) { return e.index; });
+      q.errors.forEach(function (e) {
+        var ok = d.selected.indexOf(e.index) > -1 && (q.mode === 'identify' || e.accepted.map(normalizeAnswer).indexOf(normalizeAnswer(d.fixes[e.index])) > -1);
+        perError[e.index] = ok; if (ok) hits++;
+      });
+      var falsePicks = d.selected.filter(function (i) { return targets.indexOf(i) < 0; });
+      var all = hits === n && !falsePicks.length;
+      var earned = q.scoring === 'per-error' ? SCORING.perItem(q.points, hits - falsePicks.length, n) : (all ? q.points : 0);
+      return { correct: all, earned: earned, perError: perError, falsePicks: falsePicks };
+    },
+    review: function (d, q) {
+      var you = d.selected.length ? d.selected.slice().sort(function (a, b) { return a - b; }).map(function (i) { return q.tokens[i] + (q.mode === 'identify' ? '' : ' → ' + (d.fixes[i] || '—')); }).join('; ') : '(no answer)';
+      var key = q.errors.map(function (e) { return q.tokens[e.index] + (q.mode === 'identify' ? '' : ' → ' + e.accepted[0]); }).join('; ');
+      return { you: you, key: key };
+    },
+    reset: function (d) { d.selected = []; d.fixes = {}; },
+    actions: {
+      toggleToken: function (d, p, q) {
+        if (!(p.index >= 0 && p.index < q.tokens.length)) return false;
+        var at = d.selected.indexOf(p.index);
+        if (at > -1) { d.selected.splice(at, 1); delete d.fixes[p.index]; } else d.selected.push(p.index);
+        return true;
+      },
+      setFix: function (d, p) {
+        if (d.selected.indexOf(p.index) < 0) return false;
+        d.fixes[p.index] = String(p.value == null ? '' : p.value); return 'text';
+      }
+    }
+  });
+
+  /* A compound task: several parts in one question, one Check, one lock, one score. */
+  registerActivity('compound', {
+    meta: {
+      interaction: 'Several parts on one screen, each using its own compound-safe activity',
+      validation: 'Each part validates itself',
+      scoring: 'Sum of part points; question points must equal that sum',
+      feedback: 'Each part shows its own result and explanation',
+      accessibility: 'Inherited from each part; parts are labelled sections',
+      resetRetry: 'Reset clears every part; retry with maxAttempts'
+    },
+    validate: function (q, at, errors, cfg) {
+      if (!Array.isArray(q.parts) || q.parts.length < 2) { errors.push(at + ': compound needs at least 2 parts'); return; }
+      var sum = 0;
+      q.parts.forEach(function (p, k) {
+        var tag = at + ' part ' + (k + 1), def = TYPES[p.type];
+        if (!def) { errors.push(tag + ': unknown type ' + p.type); return; }
+        if (!def.compoundSafe) { errors.push(tag + ': type ' + p.type + ' cannot be used inside a compound task'); return; }
+        if (!(p.points > 0)) errors.push(tag + ': points must be positive');
+        else sum += p.points;
+        def.validate(p, tag, errors, cfg);
+      });
+      if (Math.abs(sum - q.points) > 1e-6) errors.push(at + ': part points sum to ' + round6(sum) + ', question says ' + q.points);
+    },
+    init: function (q, ctx) { return { parts: q.parts.map(function (p) { return TYPES[p.type].init(p, ctx); }) }; },
+    ready: function (d, q) { return q.parts.every(function (p, k) { return TYPES[p.type].ready(d.parts[k], p); }); },
+    evaluate: function (d, q) {
+      var earned = 0, all = true;
+      var parts = q.parts.map(function (p, k) {
+        var res = TYPES[p.type].evaluate(d.parts[k], p);
+        earned += res.earned; if (res.correct !== true) all = false;
+        return res;
+      });
+      return { correct: all, earned: round6(earned), parts: parts };
+    },
+    review: function (d, q, result) {
+      var you = [], key = [];
+      q.parts.forEach(function (p, k) {
+        var a = TYPES[p.type].review(d.parts[k], p, result && result.parts ? result.parts[k] : null);
+        you.push('(' + (k + 1) + ') ' + a.you); key.push('(' + (k + 1) + ') ' + a.key);
+      });
+      return { you: you.join('  '), key: key.join('  ') };
+    },
+    reset: function (d, q, env) { q.parts.forEach(function (p, k) { var f = TYPES[p.type].reset; if (f) f(d.parts[k], p, env); }); },
+    actions: {
+      part: function (d, p, q, env) {
+        var pq = q.parts[p.index];
+        if (!pq) return false;
+        var fn = TYPES[pq.type].actions && TYPES[pq.type].actions[p.name];
+        if (!fn) return false;
+        return fn(d.parts[p.index], p.payload || {}, pq, { inPart: true, state: env.state, rec: env.rec, lockQuestion: env.lockQuestion, clearPending: env.clearPending, sched: env.sched });
+      }
+    }
+  });
+
+  /* ---------- config validation (U-DATA-01..04) ---------- */
+  function validateConfig(cfg) {
+    var errors = [], qs = (cfg && cfg.questions) || [];
+    if (!qs.length) errors.push('no questions');
+    var total = 0;
+    qs.forEach(function (q, n) {
+      var at = 'Q' + (n + 1), def = TYPES[q.type];
+      if (!def) { errors.push(at + ': unknown type ' + q.type); return; }
+      if (!nonEmpty(q.question)) errors.push(at + ': empty instruction');
+      if (!nonEmpty(q.category)) errors.push(at + ': empty category');
+      if (!nonEmpty(q.explanation)) errors.push(at + ': empty explanation');
+      if (q.type !== 'written-response' && !(q.points > 0)) errors.push(at + ': points must be positive');
+      if (typeof q.points === 'number' && q.type !== 'written-response') total += q.points;
+      if (JSON.stringify(q).indexOf('{{') > -1) errors.push(at + ': unresolved {{placeholder}}');
+      /* retry and per-question time are shared rules, checked once for every type */
+      if (q.maxAttempts != null) {
+        if (!(q.maxAttempts >= 1) || q.maxAttempts % 1) errors.push(at + ': maxAttempts must be a whole number from 1');
+        else if (q.maxAttempts > 1 && def.lockOnInput && def.lockOnInput(q)) errors.push(at + ': maxAttempts needs a Check step; this question locks on input');
+        else if (q.maxAttempts > 1 && q.type === 'written-response') errors.push(at + ': maxAttempts does not apply to ungraded writing');
+      }
+      if (q.attemptPenalty != null && !(q.attemptPenalty >= 0 && q.attemptPenalty <= 1)) errors.push(at + ': attemptPenalty must be from 0 to 1');
+      if (q.timeLimitSeconds != null) {
+        if (!(q.timeLimitSeconds > 0)) errors.push(at + ': timeLimitSeconds must be positive');
+        else if (q.type === 'written-response') errors.push(at + ': timeLimitSeconds does not apply to ungraded writing');
+      }
+      def.validate(q, at, errors, cfg || {});
+    });
+    if (cfg && cfg.totalPoints != null && Math.abs(total - cfg.totalPoints) > 1e-6) errors.push('points sum to ' + round6(total) + ', config says ' + cfg.totalPoints);
+    return errors;
+  }
+
+  /* ---------- engine ---------- */
+  function createEngine(cfg, opts) {
+    opts = opts || {};
+    var errs = validateConfig(cfg);
+    if (errs.length) { var e = new Error('Invalid quiz config: ' + errs.join('; ')); e.errors = errs; throw e; }
+    var rng = opts.rng || Math.random;
+    var sched = opts.scheduler || { setTimeout: function (f, ms) { return setTimeout(f, ms); }, clearTimeout: function (h) { clearTimeout(h); } };
+    var onChange = opts.onChange || function () {};
+    var storage = opts.storage || safeStorage();
+    var key = 'quiz:' + (cfg.storageKey || cfg.title || 'x');
+    var nowFn = opts.now || function () { return Date.now(); };
+    var qSched = opts.timerScheduler || { set: function (f, ms) { return setInterval(f, ms); }, clear: function (h) { clearInterval(h); } };
+    var timer = createTimer({ mode: cfg.timerMode || 'countup', countdownSeconds: cfg.countdownSeconds, scheduler: opts.timerScheduler, now: opts.now, onTick: function () { onChange('tick'); }, onExpire: function () { api.expire(); } });
+
+    var state = { index: 0, attempt: 0, order: [], records: [], pending: null, finished: false, saved: false };
+
+    /* Correct answer: least-used position, never the same twice in a row (user rule, quiz-fixer-5). */
+    var posCount, posLast;
+    /* MIXPOS-2026-11-19 (teacher): a new attempt never shows a right answer in the place it had last time (remembered
+       in this browser, per quiz); drop-down gaps spread the right option over the places like the choices; word banks
+       and row menus never line up with the gaps / rows in order, and never keep last time's order. */
+    var MIXK = 'mixpos-listen:' + (typeof location !== 'undefined' ? location.pathname : ''), mixPrev = {}, mixNow = {}, mixQ = 0, mixSeq = 0, gBag = {}, gLast = -1;
+    function mixKey() { return mixQ + '.' + (mixSeq++); }
+    function mixLoad() { var got = null; try { got = JSON.parse(window.localStorage.getItem(MIXK) || 'null'); } catch (e) { got = null; } mixPrev = got || mixNow || {}; mixNow = {}; gBag = {}; gLast = -1; }
+    function mixSave() { try { window.localStorage.setItem(MIXK, JSON.stringify(mixNow)); } catch (e) { /* blocked: kept in memory */ } }
+    function mixRange(n) { var a = []; for (var i = 0; i < n; i++) a.push(i); return a; }
+    function mixGap(options, accepted) {
+      var key = mixKey(), prev = mixPrev[key], n = options.length, norm = accepted.map(normalizeAnswer), ai = -1;
+      options.forEach(function (o, k) { if (ai < 0 && norm.indexOf(normalizeAnswer(o)) > -1) ai = k; });
+      if (ai < 0 || n < 2) return shuffle(options, rng);
+      var bag = gBag[n], i, c, ok;
+      if (!bag || !bag.length) bag = gBag[n] = shuffle(mixRange(n), rng);
+      for (i = 0; i < bag.length; i++) if (bag[i] !== prev && bag[i] !== gLast) break;
+      if (i < bag.length) c = bag.splice(i, 1)[0];
+      else { ok = mixRange(n).filter(function (x) { return x !== prev && x !== gLast; }); if (!ok.length) ok = mixRange(n).filter(function (x) { return x !== prev; }); c = ok[Math.floor(rng() * ok.length)]; }
+      gLast = c; mixNow[key] = c;
+      var rest = shuffle(options.filter(function (o, k) { return k !== ai; }), rng); rest.splice(c, 0, options[ai]); return rest;
+    }
+    function mixList(list, ans) {
+      var key = mixKey(), prev = mixPrev[key], x = shuffle(list, rng), t = 0;
+      var lined = function (y) { if (!ans || ans.length < 2) return false; var f = y.filter(function (w) { return ans.indexOf(w) > -1; }); return f.some(function (w, k) { return w === ans[k]; }); };
+      while (list.length > 1 && ((prev && x.join('|') === prev) || lined(x)) && t++ < 300) x = shuffle(list, rng);
+      mixNow[key] = x.join('|'); return x;
+    }
+    function placeChoices(ids, correctId) {
+      var key = mixKey(), prev = mixPrev[key];
+      var out = shuffle(ids, rng);
+      if (cfg.balancePositions === false || ids.length < 3) {
+        if (ids.length === 2 && prev === out.indexOf(correctId)) out.reverse();
+        mixNow[key] = out.indexOf(correctId); return out;
+      }
+      var i, min = Infinity, cand = [];
+      for (i = 0; i < out.length; i++) { posCount[i] = posCount[i] || 0; if (i !== posLast && i !== prev) min = Math.min(min, posCount[i]); }
+      for (i = 0; i < out.length; i++) { if (i !== posLast && i !== prev && posCount[i] === min) cand.push(i); }
+      if (!cand.length) { min = Infinity; for (i = 0; i < out.length; i++) if (i !== prev) min = Math.min(min, posCount[i]); for (i = 0; i < out.length; i++) if (i !== prev && posCount[i] === min) cand.push(i); }
+      var target = cand[Math.floor(rng() * cand.length)], from = out.indexOf(correctId), tmp = out[target];
+      out[target] = correctId; out[from] = tmp;
+      posLast = target; posCount[target]++; mixNow[key] = target;
+      return out;
+    }
+    function clearPending() { if (state.pending !== null) { sched.clearTimeout(state.pending); state.pending = null; } }
+    function q(i) { return cfg.questions[state.order[i]]; }
+    function rec(i) { return state.records[i]; }
+
+    /* Per-question clock. One handle, timestamp based, runs only while its question is on screen. */
+    var qHandle = null, qStart = 0, qFor = -1;
+    function stopQuestionClock() {
+      if (qHandle === null) return;
+      var r = state.records[qFor];
+      if (r) r.timeUsedMs += nowFn() - qStart;
+      qSched.clear(qHandle); qHandle = null; qFor = -1;
+    }
+    function remainingMs(i) {
+      var limit = q(i).timeLimitSeconds;
+      if (!limit) return null;
+      var used = rec(i).timeUsedMs + (qHandle !== null && qFor === i ? nowFn() - qStart : 0);
+      return Math.max(0, limit * 1000 - used);
+    }
+    function startQuestionClock() {
+      stopQuestionClock();
+      var i = state.index, r = rec(i);
+      if (state.finished || !r || r.locked || !q(i).timeLimitSeconds) return;
+      qFor = i; qStart = nowFn();
+      qHandle = qSched.set(function () {
+        if (remainingMs(i) <= 0) expireQuestion(i); else onChange('qtick');
+      }, 250);
+    }
+    /* Time is up: no credit. The detail is still computed so every renderer finds what it needs. */
+    function expireQuestion(i) {
+      stopQuestionClock();
+      var r = rec(i);
+      if (r.locked) return;
+      clearPending();
+      var res = TYPES[r.type].evaluate(r.data, q(i));
+      res.correct = false; res.earned = 0; res.expired = true;
+      r.result = res; r.correct = false; r.earned = 0; r.locked = true;
+      onChange('lock', i);
+    }
+
+    var ENV = {
+      state: state, rec: rec, lockQuestion: lockQuestion, clearPending: clearPending, sched: sched, inPart: false
+    };
+
+    function begin() {
+      stopQuestionClock();
+      clearPending();
+      posCount = []; posLast = -1; mixLoad();
+      var ids = cfg.questions.map(function (_, i) { return i; });
+      state.order = cfg.randomizeQuestions ? shuffle(ids, rng) : ids;
+      var ctx = { rng: rng, randomizeChoices: cfg.randomizeChoices !== false, placeChoices: placeChoices, mixGap: mixGap, mixList: mixList };
+      state.records = state.order.map(function (qi) {
+        var qq = cfg.questions[qi]; mixQ = qi; mixSeq = 0;
+        return { type: qq.type, locked: false, correct: null, earned: 0, data: TYPES[qq.type].init(qq, ctx), result: null, attemptsUsed: 0, lastTry: null, timeUsedMs: 0 };
+      });
+      mixSave(); state.index = 0; state.finished = false; state.saved = false; state.attempt++;
+      timer.reset();
+      if (cfg.timerEnabled !== false) timer.start();
+      startQuestionClock();
+    }
+
+    /* THE one lock path. Every type ends here. */
+    function lockQuestion(i) {
+      var r = rec(i), qq = q(i);
+      if (r.locked) return null;
+      clearPending();
+      if (qFor === i) stopQuestionClock();
+      var res = TYPES[r.type].evaluate(r.data, qq);
+      if (r.attemptsUsed > 1 && qq.attemptPenalty) res.earned = round6(res.earned * Math.max(0, 1 - qq.attemptPenalty * (r.attemptsUsed - 1)));
+      r.result = res; r.correct = res.correct; r.earned = res.earned; r.locked = true;
+      onChange('lock', i);
+      return res;
+    }
+    function ensureOpen() { return !state.finished && !rec(state.index).locked; }
+
+    /* THE one input path. Tap, drag and keyboard all reach an activity through here. */
+    function dispatch(name, payload) {
+      if (!ensureOpen()) return false;
+      var r = rec(state.index), fn = TYPES[r.type].actions && TYPES[r.type].actions[name];
+      if (!fn) return false;
+      var res = fn(r.data, payload || {}, q(state.index), ENV);
+      if (!res) return false;
+      if (res !== SILENT) onChange(res === true ? 'select' : res);
+      return true;
+    }
+
+    function totals() {
+      var score = 0, correct = 0, wrong = 0, answered = 0, cats = {}, order = [];
+      state.records.forEach(function (r, i) {
+        var qq = q(i), c = qq.category;
+        if (!cats[c]) { cats[c] = { earned: 0, max: 0 }; order.push(c); }
+        if (qq.type !== 'written-response') cats[c].max += qq.points;
+        if (!r.locked) return;
+        answered++; score += r.earned; cats[c].earned += r.earned;
+        if (r.correct === true) correct++; else if (r.correct === false) wrong++;
+      });
+      var max = cfg.questions.reduce(function (s, x) { return s + (x.type === 'written-response' ? 0 : x.points); }, 0);
+      return { score: round6(score), max: round6(max), correct: correct, wrong: wrong, answered: answered, remaining: state.records.length - answered, percent: max ? round6(100 * score / max) : 0, categories: cats, categoryOrder: order };
+    }
+
+    var api = {
+      state: state, timer: timer, config: cfg, lockQuestion: lockQuestion,
+      question: function (i) { return q(i == null ? state.index : i); },
+      record: function (i) { return rec(i == null ? state.index : i); },
+      count: function () { return state.records.length; },
+      restart: function () { begin(); onChange('restart'); },
+      go: function (i) {
+        if (i < 0 || i >= state.records.length) return false;
+        stopQuestionClock(); clearPending(); state.index = i; startQuestionClock(); onChange('nav'); return true;
+      },
+      canNext: function () { return rec(state.index).locked; },
+      next: function () {
+        if (!api.canNext()) return false;
+        if (state.index === state.records.length - 1) { api.finish(); return true; }
+        return api.go(state.index + 1);
+      },
+      prev: function () { return state.index > 0 ? api.go(state.index - 1) : false; },
+
+      /* Generic input: any activity, including one registered later. */
+      act: dispatch,
+      /* Reset the current question's answer before Check. Never touches attempts or the clock. */
+      reset: function () {
+        if (!ensureOpen()) return false;
+        var r = rec(state.index), f = TYPES[r.type].reset;
+        if (!f) return false;
+        f(r.data, q(state.index), ENV);
+        onChange('select'); return true;
+      },
+      /* Check: with maxAttempts above 1 a wrong answer stays open and reveals nothing. */
+      check: function () {
+        if (!ensureOpen()) return false;
+        var r = rec(state.index), qq = q(state.index);
+        if (!TYPES[r.type].ready(r.data, qq)) return false;
+        r.attemptsUsed++;
+        if ((qq.maxAttempts || 1) > r.attemptsUsed && TYPES[r.type].evaluate(r.data, qq).correct === false) {
+          r.lastTry = { attempt: r.attemptsUsed, left: qq.maxAttempts - r.attemptsUsed };
+          clearPending();
+          onChange('retry');
+          return true;
+        }
+        lockQuestion(state.index); return true;
+      },
+      ready: function () { var r = rec(state.index); return TYPES[r.type].ready(r.data, q(state.index)); },
+      remainingSeconds: function (i) { var ms = remainingMs(i == null ? state.index : i); return ms === null ? null : Math.ceil(ms / 1000); },
+
+      /* Named shortcuts kept so existing quizzes and tests read as before. */
+      choose: function (id) { return dispatch('choose', { id: id }); },
+      toggle: function (id) { return dispatch('toggle', { id: id }); },
+      move: function (id, dir) { return dispatch('move', { id: id, dir: dir }); },
+      moveTo: function (id, to) { return dispatch('moveTo', { id: id, to: to }); },
+      assign: function (rowId, optionId) { return dispatch('assign', { rowId: rowId, optionId: optionId }); },
+      place: function (tileId, column) { return dispatch('place', { tileId: tileId, column: column }); },
+      selectEvidence: function (id) { return dispatch('selectEvidence', { id: id }); },
+      setText: function (value) { return dispatch('setText', { value: value }); },
+
+      totals: totals,
+      expire: function () { /* countdown: current question submitted as incorrect, then results */
+        if (state.finished) return;
+        stopQuestionClock();
+        clearPending();
+        var r = rec(state.index);
+        if (!r.locked) { r.locked = true; r.correct = false; r.earned = 0; r.result = { correct: false, earned: 0, expired: true }; }
+        api.finish();
+      },
+      finish: function () {
+        clearPending();
+        stopQuestionClock();
+        if (state.finished) return api.summary();
+        state.finished = true;
+        timer.pause();
+        return api.save();
+      },
+      /* attempts count once per completed attempt: returning from Review or pressing Save never recounts (FIX-09, FIX-12) */
+      save: function () {
+        var t = totals(), raw = storage.get(key), stats = { attempts: 0, best: 0, last: 0, time: 0 };
+        try { if (raw) stats = JSON.parse(raw) || stats; } catch (err) {}
+        if (!state.saved) {
+          state.saved = true;
+          stats.attempts = (stats.attempts || 0) + 1;
+          stats.best = Math.max(stats.best || 0, t.score);
+          stats.last = t.score; stats.time = timer.seconds();
+          storage.set(key, JSON.stringify(stats));
+        }
+        state.stats = stats;
+        onChange('finish');
+        return api.summary();
+      },
+      summary: function () {
+        var t = totals();
+        t.stats = state.stats || null; t.time = timer.seconds();
+        t.remark = cfg.remarkScale ? remark(t.score, cfg.remarkScale) : null;
+        return t;
+      }
+    };
+    begin();
+    return api;
+  }
+
+  return {
+    version: '2.2.0-prototype', shuffle: shuffle, shuffleNotIdentity: shuffleNotIdentity, same: same, round6: round6,
+    wordCount: wordCount, normalizeAnswer: normalizeAnswer, formatTime: formatTime, formatScore: formatScore,
+    remark: remark, SCALES: SCALES, safeStorage: safeStorage, createTimer: createTimer,
+    createAudioController: createAudioController, validateConfig: validateConfig, createEngine: createEngine, TYPES: TYPES,
+    registerActivity: registerActivity, SCORING: SCORING, SILENT: SILENT, META_FIELDS: META_FIELDS
+  };
+});
+</script>
+
+<!-- ============ THE ONLY BLOCK THAT CHANGES PER QUIZ ============ -->
+<script id="quiz-config">
+/* Unit 6 Listening Quiz 1. To connect the recording, set audioFileUrl to its raw.githubusercontent.com .mp3 link. Nothing else changes. */
+var PRE = "PRE-LISTENING",
+    L1 = "WHILE-LISTENING — First Listening: General Understanding",
+    L2 = "WHILE-LISTENING — Second Listening: Specific Information",
+    L3 = "WHILE-LISTENING — Third Listening: Understanding the Function",
+    POST = "POST-LISTENING";
+window.QUIZ_CONFIG = {
+  unit: 6, title: "APOLOGIZING AND COMPLAINING", lesson: "LISTENING - QUIZ 1", storageKey: "unit6-listening-1",
+  teacherImage: "teacher.png", logo: "logo.png",
+  randomizeQuestions: false, randomizeChoices: true, timerEnabled: true, timerMode: "countup",
+  showConfetti: true, confettiAt: 38.4, enableSounds: true, scoreDecimals: 2, totalPoints: 48,
+  remarkScale: [{min:43.2,label:"Excellent!"},{min:38.4,label:"Very Good"},{min:33.6,label:"Good"},{min:28.8,label:"Fairly Good"},{min:24,label:"Pass"},{min:0,label:"Fail"}],
+  audioFileUrl: "audio/Unit6_Apologizing_and_Complaining_Intro_and_Listening.mp3",
+  speakers: [{emoji:"👨",name:"Daniel",img:"speaker-daniel.jpg",side:"left"},{emoji:"👩",name:"Emma",img:"speaker-emma.jpg",side:"right"}],
+  /* SPEAKERS-2026-11-18: who speaks when ([start, end, speaker] in seconds of the current audio), from the pauses (ffmpeg silencedetect), the transcript lengths and the voice pitch. */
+  turns: [[14.79,19.67,1],[20.53,23.90,0],[24.70,30.28,1],[31.16,35.57,0],[36.37,41.53,1],[42.37,45.45,0],[46.48,49.90,1],[50.64,54.34,0],[55.05,58.75,1],[59.38,62.44,0],[63.28,69.93,1],[70.37,72.38,0],[73.09,75.71,1],[76.37,80.31,0],[80.99,85.79,1],[86.40,88.23,0],[88.86,91.30,1],[92.07,95.29,0]],
+  audioTranscript: [
+    ["Emma","Excuse me! I've been waiting for nearly twenty minutes. Is my order coming soon?"],
+    ["Daniel","I'm terribly sorry for the delay, madam. I'll check with the kitchen immediately."],
+    ["Emma","Thank you, but this is quite disappointing. I ordered a chicken sandwich, not a burger."],
+    ["Daniel","I sincerely apologise for the mistake. It seems your order was mixed up with another customer's."],
+    ["Emma","That's not acceptable. Besides, my drink is warm, and I specifically asked for it cold."],
+    ["Daniel","I do apologise. I'll replace your drink with a cold one straight away."],
+    ["Emma","I hope so. Honestly, this service is not what I expected."],
+    ["Daniel","I completely understand your frustration, and I apologise for the inconvenience."],
+    ["Emma","Could you please make sure my sandwich is prepared correctly this time?"],
+    ["Daniel","Of course. I'll personally speak to the chef to avoid another mistake."],
+    ["Emma","Thank you. I don't want to spend my whole evening waiting for dinner."],
+    ["Daniel","You're absolutely right. Please accept our apologies. We'll prepare your meal as quickly as possible."],
+    ["Emma","All right, but I hope you understand why I'm upset."],
+    ["Daniel","Certainly, madam. We value your feedback, and we'll do our best to make things right."],
+    ["Emma","I appreciate that. Could you also bring me a fresh glass of water?"],
+    ["Daniel","With pleasure. Once again, I'm sorry for the poor service."],
+    ["Emma","Thank you. I hope the rest of the evening goes better."],
+    ["Daniel","I'm sure it will. Thank you for your patience, and enjoy your meal!"]
+  ],
+  questions: [
+    /* PRE-LISTENING: 10 points, no audio */
+    {phase:PRE,type:"single-choice",category:"Task 1 — Choose the Appropriate Expression",question:"CHOOSE THE APPROPRIATE EXPRESSION.",task:"Your soup is cold, and you want to tell the waiter politely.",choices:["Excuse me, my soup is cold.","Excuse me, can I see the menu?","Excuse me, where is the exit?","Excuse me, can I have the bill?"],correctAnswer:"Excuse me, my soup is cold.",explanation:"This sentence politely tells the waiter about the problem. The others ask for something different.",points:1},
+    {phase:PRE,type:"single-choice",category:"Task 1 — Choose the Appropriate Expression",question:"CHOOSE THE APPROPRIATE EXPRESSION.",task:"You arrive late for a meeting, and you want to apologise.",choices:["I'm so sorry I'm late.","I'm so glad you came.","I'm so happy to help.","I'm so sure about it."],correctAnswer:"I'm so sorry I'm late.",explanation:"\"I'm sorry\" apologises, and \"I'm late\" names the reason for the apology.",points:1},
+    {phase:PRE,type:"single-choice",category:"Task 1 — Choose the Appropriate Expression",question:"CHOOSE THE APPROPRIATE EXPRESSION.",task:"A customer's new phone doesn't work. You work in the shop, and you want to offer a solution.",choices:["I'll exchange it for you right now.","I'll close the shop for you right now.","I'll call your family for you right now.","I'll check the weather for you right now."],correctAnswer:"I'll exchange it for you right now.",explanation:"Exchanging the phone solves the customer's problem. \"I'll\" is often used to offer a solution.",points:1},
+    {phase:PRE,type:"gap-fill",mode:"bank",category:"Task 2 — Match the Word with its Meaning (part 1 of 2)",question:"MATCH THE WORD WITH ITS MEANING.",task:"Drag each word to its meaning, or tap a word to fill the next gap. One word is extra.",segments:["Time spent waiting because something happens late: ",{id:"g1",accepted:["delay"]},"\nThe annoyed feeling when you cannot do what you want: ",{id:"g2",accepted:["frustration"]},""],bank:["receipt"],explanation:"Delay, frustration, inconvenience and feedback all appear in the conversation you are going to hear. A receipt is a paper that shows what you paid.",points:2},
+    {phase:PRE,type:"gap-fill",mode:"bank",category:"Task 2 — Match the Word with its Meaning (part 2 of 2)",question:"MATCH THE WORD WITH ITS MEANING.",task:"Drag each word to its meaning, or tap a word to fill the next gap. One word is extra.",segments:["Trouble or difficulty that causes a problem for someone: ",{id:"g3",accepted:["inconvenience"]},"\nComments about how good or bad something is: ",{id:"g4",accepted:["feedback"]}],bank:["receipt"],explanation:"Delay, frustration, inconvenience and feedback all appear in the conversation you are going to hear. A receipt is a paper that shows what you paid.",points:2},
+    {phase:PRE,type:"pick-exact",holdMs:500,category:"Task 3 — Predict the Listening",question:"PREDICT THE LISTENING.",task:"You are going to hear a customer and a waiter in a restaurant. Which topics are you most likely to hear? Select THREE.",options:["A problem with a customer's order","An apology from the restaurant staff","A solution offered to the customer","A booking for a family holiday","A football match on television","A new phone bought online"],correct:["A problem with a customer's order","An apology from the restaurant staff","A solution offered to the customer"],explanation:"A problem, an apology and a solution all fit a customer and a waiter in a restaurant. A holiday booking, a football match and a phone do not.",points:3},
+
+    /* FIRST LISTENING: 2 points */
+    {phase:L1,type:"single-choice",category:"Task 4 — Choose the Best Summary",question:"CHOOSE THE BEST SUMMARY.",task:"What is the conversation mainly about?",choices:["A customer complains about poor service, and a waiter apologises.","A customer praises the good service, and a waiter thanks her warmly.","A waiter complains about a customer, and she apologises to him.","A customer asks a waiter about the best dishes on today's menu."],correctAnswer:"A customer complains about poor service, and a waiter apologises.",explanation:"Emma is the customer who complains, and Daniel is the waiter who apologises.",points:1},
+    {phase:L1,type:"single-choice",category:"Task 5 — Understand the Speaker's Attitude",question:"UNDERSTAND THE SPEAKER'S ATTITUDE.",task:"How does Emma's attitude change during the conversation?",choices:["She starts upset and becomes calmer.","She starts calm and becomes angrier.","She starts happy and stays happy.","She starts angry and leaves early."],correctAnswer:"She starts upset and becomes calmer.",explanation:"Emma begins with firm complaints. By the end, she thanks Daniel and hopes that the evening goes better.",points:1},
+
+    /* SECOND LISTENING: 10 points */
+    {phase:L2,type:"pick-exact",holdMs:500,category:"Task 6 — Identify the Complaints",question:"IDENTIFY THE COMPLAINTS.",task:"What does Emma complain about? Select THREE.",options:["The long wait for her order","The wrong meal she received","The warm drink she was given","The dirty table she sat at","The high price she was charged","The loud music she could hear"],correct:["The long wait for her order","The wrong meal she received","The warm drink she was given"],explanation:"Emma complains about the wait, the meal and the drink. She never mentions a table, a price or music.",points:3},
+    {phase:L2,type:"single-choice",category:"Task 7 — Listen for Details",question:"LISTEN FOR DETAILS.",task:"How long has Emma been waiting?",choices:["Nearly ten minutes","Nearly fifteen minutes","Nearly twenty minutes","Nearly thirty minutes"],correctAnswer:"Nearly twenty minutes",explanation:"Emma says: \"I've been waiting for nearly twenty minutes.\"",points:1},
+    {phase:L2,type:"single-choice",category:"Task 7 — Listen for Details",question:"LISTEN FOR DETAILS.",task:"What did Emma order?",choices:["A chicken sandwich","A chicken burger","A beef sandwich","A cheese burger"],correctAnswer:"A chicken sandwich",explanation:"Emma says: \"I ordered a chicken sandwich, not a burger.\"",points:1},
+    {phase:L2,type:"single-choice",category:"Task 7 — Listen for Details",question:"LISTEN FOR DETAILS.",task:"According to Daniel, why did Emma get the wrong meal?",choices:["Her order was mixed up with another customer's.","The kitchen had no more chicken that evening.","The chef did not read her order very carefully.","The waiter wrote down the wrong table number."],correctAnswer:"Her order was mixed up with another customer's.",explanation:"Daniel says: \"It seems your order was mixed up with another customer's.\"",points:1},
+    {phase:L2,type:"single-choice",category:"Task 7 — Listen for Details",question:"LISTEN FOR DETAILS.",task:"What does Emma ask for near the end of the conversation?",choices:["A fresh glass of water","A clean knife and fork","A slice of lemon cake","A copy of the menu"],correctAnswer:"A fresh glass of water",explanation:"Emma says: \"Could you also bring me a fresh glass of water?\"",points:1},
+    {phase:L2,type:"single-choice",fixedOrder:true,category:"Task 8 — True or False",question:"CHOOSE TRUE OR FALSE.",task:"Emma asked for her drink to be cold.",choices:["True","False"],correctAnswer:"True",explanation:"Emma says that she specifically asked for her drink cold.",points:1},
+    {phase:L2,type:"single-choice",fixedOrder:true,category:"Task 8 — True or False",question:"CHOOSE TRUE OR FALSE.",task:"Daniel says he will speak to the chef himself.",choices:["True","False"],correctAnswer:"True",explanation:"Daniel says that he will personally speak to the chef.",points:1},
+    {phase:L2,type:"single-choice",fixedOrder:true,category:"Task 8 — True or False",question:"CHOOSE TRUE OR FALSE.",task:"Emma says the service is what she expected.",choices:["True","False"],correctAnswer:"False",explanation:"Emma says: \"This service is not what I expected.\"",points:1},
+
+    /* THIRD LISTENING: 8 points */
+    {phase:L3,type:"gap-fill",mode:"bank",category:"Task 9 — Complete the Expressions (part 1 of 2)",question:"COMPLETE THE EXPRESSIONS.",task:"Listen and complete what the speakers say. Drag each word to a gap, or tap a word to fill the next gap. One word is extra.",segments:["I'm ",{id:"g1",accepted:["terribly"]}," sorry for the delay, madam.\nI ",{id:"g2",accepted:["sincerely"]}," apologise for the mistake.\nI ",{id:"g3",accepted:["completely"]}," understand your frustration, and I apologise for the inconvenience."],bank:["honestly"],explanation:"Daniel uses these adverbs to make his apologies and promises stronger: terribly, sincerely, completely, absolutely and personally.",points:3},
+    {phase:L3,type:"gap-fill",mode:"bank",category:"Task 9 — Complete the Expressions (part 2 of 2)",question:"COMPLETE THE EXPRESSIONS.",task:"Listen and complete what the speakers say. Drag each word to a gap, or tap a word to fill the next gap. One word is extra.",segments:["You're ",{id:"g4",accepted:["absolutely"]}," right.\nI'll ",{id:"g5",accepted:["personally"]}," speak to the chef to avoid another mistake."],bank:["honestly"],explanation:"Daniel uses these adverbs to make his apologies and promises stronger: terribly, sincerely, completely, absolutely and personally.",points:2},
+    {phase:L3,type:"single-choice",category:"Task 10 — Understand the Function",question:"UNDERSTAND THE FUNCTION.",task:"Emma says: \"Besides, my drink is warm, and I specifically asked for it cold.\" Why does she use \"Besides\"?",choices:["To add another complaint","To accept an apology","To change her order","To thank the waiter"],correctAnswer:"To add another complaint",explanation:"\"Besides\" adds one more point. Emma has already complained about her meal, and now she adds the drink.",points:1},
+    {phase:L3,type:"single-choice",category:"Task 10 — Understand the Function",question:"UNDERSTAND THE FUNCTION.",task:"Daniel says: \"You're absolutely right.\" What is he doing?",choices:["Agreeing with Emma's complaint","Correcting Emma's complaint","Ignoring Emma's complaint","Repeating Emma's order"],correctAnswer:"Agreeing with Emma's complaint",explanation:"Daniel accepts that Emma has a good reason to complain, so he agrees with her.",points:1},
+    {phase:L3,type:"single-choice",category:"Task 10 — Understand the Function",question:"UNDERSTAND THE FUNCTION.",task:"Daniel says: \"We value your feedback, and we'll do our best to make things right.\" What does he mean by \"make things right\"?",choices:["We will try to solve the problem.","We will try to change the menu.","We will try to close early tonight.","We will try to find a new chef."],correctAnswer:"We will try to solve the problem.",explanation:"To \"make things right\" means to correct a problem or a mistake.",points:1},
+
+    /* POST-LISTENING: 18 points */
+    {phase:POST,type:"ordering",scoring:"per-position",category:"Task 11 — Put the Events in Order",question:"PUT THE EVENTS IN ORDER.",task:"Put the events in the order in which they happen in the conversation.",items:[{id:"e1",text:"Emma asks if her order is coming soon."},{id:"e2",text:"Emma says she did not order a burger."},{id:"e3",text:"Daniel promises to replace the warm drink."},{id:"e4",text:"Daniel promises to speak to the chef."},{id:"e5",text:"Emma asks for a fresh glass of water."}],correctOrder:["e1","e2","e3","e4","e5"],explanation:"Emma first asks about her order and then mentions the burger. Daniel deals with the drink and later promises to speak to the chef. Emma's request for water comes last.",points:5},
+    {phase:POST,type:"classify",category:"Task 12 — Sort the Expressions by Function (part 1 of 2)",question:"SORT THE EXPRESSIONS BY FUNCTION.",task:"Drag each expression to its function, or tap an expression and then tap a column.",columns:["Complaining","Apologising","Offering a solution"],tiles:[{id:"x1",text:"This is quite disappointing.",correctColumn:"Complaining"},{id:"x2",text:"That's not acceptable.",correctColumn:"Complaining"},{id:"x3",text:"Please accept our apologies.",correctColumn:"Apologising"},{id:"x5",text:"I'll replace your drink straight away.",correctColumn:"Offering a solution"}],explanation:"Complaints express dissatisfaction, apologies say sorry, and offers tell the customer what will be done to solve the problem.",points:4},
+    {phase:POST,type:"classify",category:"Task 12 — Sort the Expressions by Function (part 2 of 2)",question:"SORT THE EXPRESSIONS BY FUNCTION.",task:"Drag each expression to its function, or tap an expression and then tap a column.",columns:["Complaining","Apologising","Offering a solution"],tiles:[{id:"x4",text:"I sincerely apologise for the mistake.",correctColumn:"Apologising"},{id:"x6",text:"I'll personally speak to the chef.",correctColumn:"Offering a solution"}],explanation:"Complaints express dissatisfaction, apologies say sorry, and offers tell the customer what will be done to solve the problem.",points:2},
+    {phase:POST,type:"build-sentence",category:"Task 13 — Build the Sentence",question:"BUILD THE SENTENCE.",task:"Build a polite apology.",answers:[["Please","accept","our","apologies","for","the","delay."]],explanation:"\"Please accept our apologies\" is a formal apology. \"For\" introduces the reason.",points:1},
+    {phase:POST,type:"build-sentence",category:"Task 13 — Build the Sentence",question:"BUILD THE SENTENCE.",task:"Build a complaint about waiting.",answers:[["I","have been","waiting","for","nearly","half an hour."]],explanation:"The present perfect continuous shows that the waiting started in the past and is still continuing. \"For\" introduces the length of time.",points:1},
+    {phase:POST,type:"single-choice",category:"Task 14 — Respond in a New Situation",question:"RESPOND IN A NEW SITUATION.",task:"Your hotel room has not been cleaned. Which complaint is firm but polite?",choices:["Excuse me, my room hasn't been cleaned. Could you help?","Hey, clean my room right now, or I'm leaving this hotel.","Your hotel is terrible, and your staff are really lazy.","Why are you so useless? Nobody cleaned my room today!"],correctAnswer:"Excuse me, my room hasn't been cleaned. Could you help?",explanation:"This sentence states the problem clearly and makes a polite request. The others are rude or threatening.",points:1},
+    {phase:POST,type:"single-choice",category:"Task 14 — Respond in a New Situation",question:"RESPOND IN A NEW SITUATION.",task:"A customer tells you that a delivery arrived late. You work for the company. Which reply is the most professional?",choices:["I apologise for the delay. I'll check your order immediately.","That isn't my fault. You should call another department.","Deliveries are often late. Please try to be more patient.","You're not the only customer. I can't do anything about it."],correctAnswer:"I apologise for the delay. I'll check your order immediately.",explanation:"A professional reply apologises and offers to take action. The others blame the customer or refuse to help.",points:1},
+    {phase:POST,type:"error-correction",category:"Task 15 — Correct the Mistake",question:"CORRECT THE MISTAKE.",task:"One word is wrong. Tap it, then type the correct word.",tokens:["I","have","been","waiting","since","twenty","minutes."],errors:[{index:4,accepted:["for"]}],explanation:"Use \"for\" with a length of time, such as twenty minutes. Use \"since\" with a starting point, such as six o'clock.",points:1},
+    {phase:POST,type:"error-correction",category:"Task 15 — Correct the Mistake",question:"CORRECT THE MISTAKE.",task:"One word is wrong. Tap it, then type the correct word.",tokens:["I","am","disappointing","with","the","service."],errors:[{index:2,accepted:["disappointed"]}],explanation:"A person feels \"disappointed\". The thing that causes the feeling is \"disappointing\".",points:1},
+    {phase:POST,type:"single-choice",category:"Task 16 — Overall Listening Check",question:"OVERALL LISTENING CHECK.",task:"How does the conversation end?",choices:["Emma hopes the evening improves, and Daniel thanks her for her patience.","Emma leaves the restaurant, and Daniel offers her a free meal for next time.","Emma asks for the manager, and Daniel goes to the kitchen to find him.","Emma refuses to pay anything, and Daniel brings her the bill to check."],correctAnswer:"Emma hopes the evening improves, and Daniel thanks her for her patience.",explanation:"Emma hopes that the rest of the evening goes better, and Daniel thanks her for her patience.",points:1}
+  ]
+};
+</script>
+<!-- ============================================================== -->
+
+
+<script>
+(function(){
+'use strict';
+var C = window.QuizCore, cfg = window.QUIZ_CONFIG;
+var $ = function(id){ return document.getElementById(id); };
+var app = $('app'), ui = { view:'quiz', passageOpen:false, activeChip:null, hintFor:null, remarkTimer:null };
+var engine, audioCtl = null, audioReady = false, drag = null, audioCtx = null;
+
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+function fatal(msg){ app.innerHTML = '<div class="fatal" role="alert">This quiz could not start.\n' + esc(msg) + '</div>'; }
+
+/* Header and info bar: three separate literals; image failure never affects layout or logic */
+function initChrome(){
+  [['teacherImg',cfg.teacherImage],['logoImg',cfg.logo]].forEach(function(p){ var im=$(p[0]); im.onerror=function(){ im.onerror=null; im.setAttribute('data-broken','1'); }; if(p[1]) im.src=p[1]; });
+  /* BARFMT-2026-11-14: UNITn: SKILL | topic | QUIZ-n */
+  var barN = String(cfg.unit).replace(/^unit\s*/i,''), barL = String(cfg.lesson || ''), barQ = /QUIZ\s*-?\s*(\d+)/i.exec(barL);
+  $('infoL').textContent = 'UNIT' + barN + ': ' + barL.split('-')[0].replace(/\s*QUIZ.*$/i, '').trim();
+  $('infoC').textContent = cfg.title; $('infoR').textContent = 'QUIZ-' + (barQ ? barQ[1] : '1');
+  $('speakers').innerHTML = (cfg.speakers||[]).map(function(s){ return '<div><div class="avatar" aria-hidden="true">'+s.emoji+'</div>'+esc(s.name)+'</div>'; }).join('');
+}
+/* The transcript exists only on the result page and in review, never during the questions. */
+function transcriptHtml(id){
+  var h='<details class="transcript" id="'+id+'"><summary>Show Transcript</summary>';
+  (cfg.audioTranscript||[]).forEach(function(l){ h+='<p><strong>'+esc(l[0])+':</strong> '+esc(l[1])+'</p>'; });
+  return h+'</details>';
+}
+
+function sound(kind){
+  if(cfg.enableSounds === false) return;
+  try{
+    if(!$('audio').paused) return; /* no effects over the dialogue */
+    audioCtx = audioCtx || new (window.AudioContext||window.webkitAudioContext)();
+    if(audioCtx.state === 'suspended' && audioCtx.resume) audioCtx.resume();
+    var o=audioCtx.createOscillator(), g=audioCtx.createGain(); o.connect(g); g.connect(audioCtx.destination);
+    o.frequency.value = kind==='ok'?740:kind==='bad'?220:520; g.gain.value=.06; o.start(); o.stop(audioCtx.currentTime+.14);
+  }catch(e){}
+}
+
+/* ---------- renderers: read engine state only ---------- */
+function statsHtml(){
+  var t=engine.totals();
+  return '<div class="stats-row" id="stats"><span>✅ Correct: '+t.correct+'</span><span>❌ Wrong: '+t.wrong+'</span><span>Remaining: '+t.remaining+'</span><span>Score: '+C.formatScore(t.score,t.max,cfg.scoreDecimals)+'</span><span>⏱ <span id="timerVal">'+C.formatTime(engine.timer.display())+'</span></span></div>';
+}
+function textOf(r,id){ return r.data.items.filter(function(c){return c.id===id;})[0].text; }
+
+function rSingle(q,r,pc){
+  var long = r.data.displayOrder.some(function(id){ return textOf(r,id).length > 45; });
+  var h = '<div class="tiles'+(long?' long':'')+'"'+(pc&&pc.part!=null?'':' id="choices"')+'>';
+  r.data.displayOrder.forEach(function(id){
+    var c='tile';
+    if(r.locked){ if(id===r.data.correctId) c+=' correct'; else if(id===r.data.selectedId) c+=' wrong'; }
+    else if(id===r.data.selectedId) c+=' selected';
+    h+='<button type="button" class="'+c+'" data-act="choose" data-id="'+id+'"'+(r.locked?' disabled':'')+' aria-pressed="'+(id===r.data.selectedId)+'">'+esc(textOf(r,id))+'</button>';
+  });
+  h+='</div>';
+  if(q.confirm && !r.locked) h+='<div class="check-row"><button type="button" class="btn primary" data-act="check"'+(engine.ready()?'':' disabled')+'>Check Answer</button></div>';
+  return h;
+}
+function rPick(q,r){
+  var h = q.targetWord ? '<div class="target">'+esc(q.targetWord)+'</div>' : '';
+  h+='<div class="tiles" id="choices">';
+  r.data.displayOrder.forEach(function(id){
+    var picked=r.data.selected.indexOf(id)>-1, right=r.data.correctIds.indexOf(id)>-1, c='tile';
+    if(r.locked){ if(right) c+=' correct'; else if(picked) c+=' wrong'; } else if(picked) c+=' selected';
+    h+='<button type="button" class="'+c+'" data-act="toggle" data-id="'+id+'"'+(r.locked?' disabled':'')+' aria-pressed="'+picked+'">'+esc(textOf(r,id))+'</button>';
+  });
+  h+='</div>';
+  if(q.holdMs == null && !r.locked) h+='<div class="check-row"><button type="button" class="btn primary" data-act="check"'+(engine.ready()?'':' disabled')+'>Check Answers</button></div>';
+  return h;
+}
+function rOrder(q,r){
+  var d=r.data, n=d.order.length, h='<div id="order">';
+  d.order.forEach(function(id,i){
+    var it=d.items.filter(function(x){return x.id===id;})[0], c='row';
+    if(r.locked) c+= r.result.perPosition[i] ? ' correct':' wrong';
+    /* FIT7-2026-11-17: after Check a wrong row shows its right place in green instead of a long "Correct answer" box */
+    var fixPos=(r.locked&&!r.result.perPosition[i]&&q.correctOrder)?'<span class="gap-fix ord-fix" aria-label="Right place: '+(q.correctOrder.indexOf(id)+1)+'">→ '+(q.correctOrder.indexOf(id)+1)+'</span>':'';
+    h+='<div class="'+c+'" data-drop="order" data-pos="'+i+'"><span class="handle" data-drag="order" data-id="'+id+'" aria-hidden="true">⠿</span><span class="text">'+esc(it.text)+'</span>'+fixPos+
+       '<button type="button" class="mini" data-act="up" data-id="'+id+'" aria-label="Move up"'+((i===0||r.locked)?' disabled':'')+'>▲</button>'+
+       '<button type="button" class="mini" data-act="down" data-id="'+id+'" aria-label="Move down"'+((i===n-1||r.locked)?' disabled':'')+'>▼</button></div>';
+  });
+  h+='</div>';
+  if(!r.locked) h+='<div class="check-row"><button type="button" class="btn primary" data-act="check">Check Order</button></div>';
+  return h;
+}
+function rMatch(q,r){
+  var d=r.data, h='<div id="matching">';
+  d.rows.forEach(function(row){
+    var c='row'; if(r.locked) c+= r.result.perRow[row.id] ? ' correct':' wrong';
+    h+='<div class="'+c+'"><span class="text">'+esc(row.text)+'</span><select data-row="'+row.id+'"'+(r.locked?' disabled':'')+' aria-label="Match for '+esc(row.text)+'"><option value="">Select the meaning…</option>';
+    d.optionOrder.forEach(function(oid){ var o=d.options.filter(function(x){return x.id===oid;})[0]; h+='<option value="'+oid+'"'+(d.assign[row.id]===oid?' selected':'')+'>'+esc(o.text)+'</option>'; });
+    h+='</select></div>';
+  });
+  h+='</div>';
+  if(!r.locked) h+='<div class="check-row"><button type="button" class="btn primary" data-act="check"'+(engine.ready()?'':' disabled')+'>Check Matches</button></div>';
+  return h;
+}
+function chip(r,t){
+  var c='chip'; if(ui.activeChip===t.id) c+=' active';
+  if(r.locked) c+= r.result.perTile[t.id] ? ' correct':' wrong';
+  return '<button type="button" class="'+c+'" data-act="chip" data-drag="tile" data-id="'+t.id+'"'+(r.locked?' disabled':'')+'>'+esc(t.text)+'</button>';
+}
+function rClass(q,r){
+  var d=r.data, byId={}; d.tiles.forEach(function(t){byId[t.id]=t;});
+  /* FIT7-2026-11-17: after Check every expression stands in its RIGHT column; the ones the student put elsewhere are red */
+  var h=r.locked?'':'<div class="tray" id="tray" data-drop="col" data-col="" data-act="col">';
+  if(!r.locked){ d.displayOrder.forEach(function(id){ if(!d.placements[id]) h+=chip(r,byId[id]); }); h+='</div>'; }
+  h+='<div class="cols" id="cols">';
+  d.columns.forEach(function(col){
+    h+='<div class="col" data-act="col" data-drop="col" data-col="'+esc(col)+'"><h3>'+esc(col)+'</h3>';
+    d.displayOrder.forEach(function(id){ if((r.locked?byId[id].correctColumn:d.placements[id])===col) h+=chip(r,byId[id]); });
+    h+='</div>';
+  });
+  h+='</div>';
+  if(!r.locked) h+='<div class="check-row"><button type="button" class="btn primary" data-act="check"'+(engine.ready()?'':' disabled')+'>Check Answers</button></div>';
+  return h;
+}
+function rEvidence(q,r){
+  var h = q.claim ? '<div class="task">'+esc(q.claim)+'</div>' : '';
+  if(!r.locked) h+='<div class="check-row"><button type="button" class="btn primary" data-act="check"'+(engine.ready()?'':' disabled')+'>Check Evidence</button></div>';
+  return h;
+}
+function rTyped(q,r){
+  var h='<input id="typed" type="text" autocomplete="off" aria-label="Your answer" value="'+esc(r.data.value)+'"'+(r.locked?' disabled':'')+' style="width:100%;font:inherit;padding:10px;min-height:44px;border:1px solid var(--line);border-radius:10px">';
+  if(!r.locked) h+='<div class="check-row"><button type="button" class="btn primary" id="chk" data-act="check"'+(engine.ready()?'':' disabled')+'>Check Answer</button></div>';
+  return h;
+}
+function rWrite(q,r){
+  var h='<textarea id="written" aria-label="Your writing"'+(r.locked?' disabled':'')+'>'+esc(r.data.value)+'</textarea><div class="wc" id="wc">'+wcText(q,r)+'</div>';
+  if(!r.locked) h+='<div class="check-row"><button type="button" class="btn primary" id="chk" data-act="check"'+(engine.ready()?'':' disabled')+'>Finish Writing</button></div>';
+  return h;
+}
+function wcText(q,r){ return r.data.words+' words (target: '+q.minWords+'-'+q.maxWords+')'; }
+
+/* ---------- shared view helpers for plug-in activities ---------- */
+function partOf(el){ var p=el&&el.closest&&el.closest('[data-part]'); return p?+p.getAttribute('data-part'):null; }
+function send(name,payload,part){ return part==null?engine.act(name,payload):engine.act('part',{index:part,name:name,payload:payload}); }
+function announce(text){ var m=$('liveMsg'); if(m&&text) m.textContent=text; }
+function fkPrefix(pc){ return pc&&pc.part!=null?'p'+pc.part+'-':''; }
+function actionRow(q,r,label,pc){
+  if(r.locked||(pc&&pc.part!=null)) return '';
+  var h='<div class="check-row">';
+  if((q.maxAttempts||1)>1) h+='<div class="attempts" id="attemptsLeft">Attempts left: '+(q.maxAttempts-r.attemptsUsed)+'</div>';
+  if(C.TYPES[r.type].reset&&q.resetButton!==false) h+='<button type="button" class="btn" data-act="reset" id="resetBtn" data-fk="reset">↺ Reset</button> ';
+  return h+'<button type="button" class="btn primary" id="chk" data-act="check" data-fk="chk"'+(engine.ready()?'':' disabled')+'>'+esc(label)+'</button></div>';
+}
+/* A word tile: one button, one tap path, one drag path, both ending in the same action. */
+function wordChip(r,id,placed,pc){
+  var t=textOf(r,id);
+  return '<button type="button" class="chip bs-chip" data-act="do" data-name="'+(placed?'unplace':'place')+'" data-drag="gen" data-id="'+id+'" data-fk="'+fkPrefix(pc)+id+'" data-say="'+esc((placed?'Removed ':'Placed ')+t)+'"'+(r.locked?' disabled':'')+'>'+esc(t)+'</button>';
+}
+function rBuild(q,r,pc){
+  var d=r.data, per=r.result&&r.result.perSlot, h='<div class="slots" aria-label="Your sentence">';
+  d.slots.forEach(function(id,k){
+    var c='slot'; if(r.locked&&per) c+=per[k]?' correct':' wrong';
+    h+='<div class="'+c+'" data-slot="'+k+'" data-drop="gen" data-do="place" aria-label="Slot '+(k+1)+(id===null?', empty':'')+'">'+(id===null?'<span aria-hidden="true">'+(k+1)+'</span>':wordChip(r,id,true,pc))+'</div>';
+  });
+  h+='</div>';
+  if(!r.locked){
+    h+='<div class="tile-label">WORD TILES: drag them into the slots, or tap a tile to place it</div><div class="tray pool" data-drop="gen" data-do="unplace" aria-label="Available word tiles">';
+    d.poolOrder.forEach(function(id){ if(d.slots.indexOf(id)<0) h+=wordChip(r,id,false,pc); });
+    h+='</div>';
+  }
+  return h+actionRow(q,r,'Check Answer',pc);
+}
+function rGap(q,r,pc){
+  var d=r.data, per=r.result&&r.result.perGap, n=0, h='';
+  /* BANK-ON-TOP-2026-11-17: the teacher wants the word choices above the sentences, under the instruction. */
+  if(d.mode==='bank'&&!r.locked){
+    var used=d.gapIds.map(function(g){return d.placed[g];});
+    h+='<div class="tile-label">WORD BANK: drag a word into a gap, or tap it to fill the next gap</div><div class="tray pool" data-drop="gen" data-do="unplace" aria-label="Word bank">';
+    d.poolOrder.forEach(function(id){ if(used.indexOf(id)<0) h+=wordChip(r,id,false,pc); });
+    h+='</div>';
+  }
+  h+='<div class="gap-text">';
+  (q.segments||[]).forEach(function(s){
+    if(typeof s==='string'){ h+=esc(s); return; }
+    n++;
+    var state=r.locked&&per?(per[s.id]?' correct':' wrong'):'', dis=r.locked?' disabled':'', label='Gap '+n;
+    if(d.mode==='typed'){
+      var size=Math.max(12,Math.max.apply(null,s.accepted.map(function(a){return a.length;}))+2);
+      h+='<input class="gap-input'+state+'" type="text" data-gap="'+esc(s.id)+'" data-fk="'+fkPrefix(pc)+'g-'+esc(s.id)+'" size="'+size+'" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="'+label+'" value="'+esc(d.values[s.id]||'')+'"'+dis+'>';
+    } else if(d.mode==='dropdown'){
+      h+='<select class="gap-input'+state+'" data-gap="'+esc(s.id)+'" aria-label="'+label+'"'+dis+'><option value="">Choose…</option>';
+      d.optionOrders[s.id].forEach(function(o){ h+='<option value="'+esc(o)+'"'+(d.values[s.id]===o?' selected':'')+'>'+esc(o)+'</option>'; });
+      h+='</select>';
+    } else {
+      var id=d.placed[s.id];
+      h+='<span class="gap-slot'+state+'" data-gap="'+esc(s.id)+'" data-drop="gen" data-do="place" aria-label="'+label+(id?'':', empty')+'">'+(id?wordChip(r,id,true,pc):'<span aria-hidden="true">'+n+'</span>')+'</span>';
+    }
+    if(state===' wrong') h+='<span class="gap-fix" aria-label="Correct word: '+esc(s.accepted[0])+'">'+esc(s.accepted[0])+'</span>';
+  });
+  h+='</div>';
+  return h+actionRow(q,r,'Check Answer',pc);
+}
+function rError(q,r,pc){
+  var d=r.data, res=r.result, h='<div class="token-row" aria-label="Sentence: choose the wrong words">';
+  var targets=(q.errors||[]).map(function(e){return e.index;});
+  q.tokens.forEach(function(tok,i){
+    var picked=d.selected.indexOf(i)>-1, c='token';
+    if(r.locked&&res){ if(picked&&targets.indexOf(i)>-1) c+=res.perError[i]?' correct':' wrong'; else if(picked) c+=' wrong'; else if(targets.indexOf(i)>-1) c+=' missed'; }
+    h+='<button type="button" class="'+c+'" data-act="do" data-name="toggleToken" data-index="'+i+'" data-fk="'+fkPrefix(pc)+'tok-'+i+'" aria-pressed="'+picked+'"'+(r.locked?' disabled':'')+'>'+esc(tok)+'</button>';
+  });
+  h+='</div>';
+  if(q.mode!=='identify'){
+    d.selected.slice().sort(function(a,b){return a-b;}).forEach(function(i){
+      h+='<div class="fix-row"><label>Correct “'+esc(q.tokens[i])+'”: <input class="gap-input" type="text" data-fix="'+i+'" data-fk="'+fkPrefix(pc)+'fix-'+i+'" autocomplete="off" autocapitalize="off" spellcheck="false" value="'+esc(d.fixes[i]||'')+'"'+(r.locked?' disabled':'')+'></label></div>';
+    });
+  }
+  return h+actionRow(q,r,'Check Answer',pc);
+}
+function rCompound(q,r){
+  var h='<div id="compound">';
+  q.parts.forEach(function(p,k){
+    var res=r.result&&r.result.parts?r.result.parts[k]:null;
+    var pr={type:p.type,locked:r.locked,data:r.data.parts[k],result:res,correct:res?res.correct:null,earned:res?res.earned:0,attemptsUsed:0};
+    h+='<section class="part" data-part="'+k+'" aria-label="Part '+(k+1)+'"><h3>Part '+(k+1)+(p.question?': '+esc(p.question):'')+'</h3>';
+    if(p.task) h+='<div class="task">'+esc(p.task)+'</div>';
+    h+=R[p.type](p,pr,{part:k});
+    if(r.locked&&res) h+='<div class="part-result"><strong>'+(res.correct?'✅ Correct.':(res.earned>0?'🟡 Partly correct.':'❌ Not correct.'))+'</strong> '+esc(p.explanation||'')+'</div>';
+    h+='</section>';
+  });
+  return h+'</div>'+actionRow(q,r,'Check Answers');
+}
+var R={'single-choice':rSingle,'pick-exact':rPick,ordering:rOrder,matching:rMatch,classify:rClass,'evidence-click':rEvidence,'typed-answer':rTyped,'written-response':rWrite,'build-sentence':rBuild,'gap-fill':rGap,'error-correction':rError,compound:rCompound};
+/* Keyboard per activity. Returns true when it used the key. */
+var KEYS={
+  'build-sentence':function(e,r){
+    var d=r.data;
+    if(/^[1-9]$/.test(e.key)){
+      var rest=d.poolOrder.filter(function(id){return d.slots.indexOf(id)<0;}), id=rest[+e.key-1];
+      if(id) engine.act('place',{id:id});
+      return !!id;
+    }
+    if(e.key==='Backspace'){
+      for(var k=d.slots.length-1;k>=0;k--) if(d.slots[k]!==null){ engine.act('unplace',{id:d.slots[k]}); return true; }
+    }
+    return false;
+  }
+};
+/* A later activity brings its own view and keys: no edits to this shell. See QUIZ_ARCHITECTURE.md. */
+(function(){
+  var name, v=window.QUIZ_VIEWS||{}, k=window.QUIZ_KEYS||{};
+  for(name in v) if(Object.prototype.hasOwnProperty.call(v,name)) R[name]=v[name];
+  for(name in k) if(Object.prototype.hasOwnProperty.call(k,name)) KEYS[name]=k[name];
+})();
+var VIEW_HELP={esc:esc,actionRow:function(q,r,label,pc){return actionRow(q,r,label,pc);},part:null};
+var SHOW_KEY={'build-sentence':1,'gap-fill':1,'error-correction':1,ordering:1,classify:1};
+
+function feedbackHtml(q,r){
+  if(!r.locked){
+    if(!r.lastTry) return '';
+    return '<div class="feedback badf" id="feedback" role="status"><strong>❌ Not yet.</strong> Attempts left: '+r.lastTry.left+'. Change your answer and check again.</div>';
+  }
+  if(r.result && r.result.ungraded){
+    var list=(q.criteria||[]).map(function(c){return '<li>'+esc(c)+'</li>';}).join('');
+    return '<div class="feedback neutral" id="feedback" role="status"><strong>Self-check. Not auto-marked.</strong><ul>'+list+'</ul>'+esc(q.explanation)+(q.modelAnswer?'<br><em>Model: '+esc(q.modelAnswer)+'</em>':'')+'</div>';
+  }
+  /* GAPFIT-2026-11-17: no explanation lines after Check in a gap fill (teacher rule); the gaps show it in colour, and a wrong gap shows the right word. */
+  if(r.type==='gap-fill'||r.type==='ordering'||r.type==='classify') return '';
+  /* FIT7-2026-11-17: a built sentence shows only the right sentence, without the explanation */
+  if(r.type==='build-sentence') return r.correct?'':'<div class="feedback neutral" id="keyLine"><strong>Correct answer:</strong> '+esc(C.TYPES[r.type].review(r.data,q,r.result).key)+'</div>';
+  var key = r.correct ? 'good':'badf', tag=r.correct?'✅ Correct.':(r.earned>0?'🟡 Partly correct.':'❌ Not correct.');
+  if(r.result&&r.result.expired) tag='⏰ Time is up.';
+  var keyLine = (!r.correct&&SHOW_KEY[r.type]) ? '<div class="feedback neutral" id="keyLine"><strong>Correct answer:</strong> '+esc(C.TYPES[r.type].review(r.data,q,r.result).key)+'</div>' : '';
+  return '<div class="feedback '+key+'" id="feedback" role="status"><strong>'+tag+'</strong> '+esc(q.explanation)+'</div>'+keyLine;
+}
+function qTimerHtml(q,r){
+  if(!q.timeLimitSeconds||r.locked) return '';
+  return '<div class="qtimer" id="qTimer" role="timer" aria-label="Time left for this question">⏱ <span id="qTimerVal">'+C.formatTime(engine.remainingSeconds())+'</span></div>';
+}
+/* FOCUS-2026-11-15: every redraw replaces #app, so the focused control is found again by a stable key (data-fk, or one built from data-act / data-row) */
+function focusKey(el){
+  if(!el||!el.getAttribute||!app.contains(el)) return null;
+  var fk=el.getAttribute('data-fk'); if(fk) return fk;
+  var a=el.getAttribute('data-act'), row=el.getAttribute('data-row');
+  if(!a&&!row) return null;
+  return 'k:'+(a||'row')+':'+(el.getAttribute('data-id')||row||el.getAttribute('data-name')||el.getAttribute('data-index')||'');
+}
+function tagKeys(){ [].forEach.call(app.querySelectorAll('[data-act],select[data-row]'),function(el){ if(!el.hasAttribute('data-fk')){ var k=focusKey(el); if(k) el.setAttribute('data-fk',k); } }); }
+function focusHeading(){ var h=app.querySelector('h2'); if(h){ h.setAttribute('tabindex','-1'); try{ h.focus({preventScroll:true}); }catch(e){} } }
+function restoreFocus(fk){
+  tagKeys();
+  if(!fk) return;
+  var el=null;
+  [].some.call(app.querySelectorAll('[data-fk]'),function(x){ if(!x.disabled&&x.getAttribute('data-fk')===fk){ el=x; return true; } return false; });
+  /* the control is gone or locked: Next if it is open, else Check, else the first usable control */
+  if(!el){ var nb=$('nextBtn'); if(nb&&!nb.disabled) el=nb; }
+  if(!el){ var ck=app.querySelector('[data-act="check"]:not([disabled])'); if(ck) el=ck; }
+  if(!el) el=app.querySelector('[data-fk]:not([disabled])');
+  if(el) try{ el.focus({preventScroll:true}); }catch(e){}
+}
+/* EVIDENCE-KEYS-2026-11-15: the passage units a question can select become focusable buttons (Tab, then Enter or Space) */
+function a11yPassage(){
+  var p=app.querySelector('.passage'); if(!p) return;
+  var r=engine.record(), q=engine.question(), on=r.type==='evidence-click'&&!r.locked;
+  var sel=!on?null:(q.words?'[data-word-id]':(/^p/.test(q.correctId||(q.correctIds||[''])[0])?'[data-paragraph-id]':'[data-sentence-id]'));
+  var picked=on?(r.data.words?(r.data.picked||[]):[r.data.selectedId]):[];
+  [].forEach.call(p.querySelectorAll('[data-sentence-id],[data-paragraph-id],[data-word-id]'),function(el){
+    if(sel&&el.matches(sel)){
+      var id=el.getAttribute('data-word-id')||el.getAttribute('data-sentence-id')||el.getAttribute('data-paragraph-id');
+      el.setAttribute('tabindex','0'); el.setAttribute('role','button'); el.setAttribute('data-fk','ev-'+id); el.setAttribute('aria-pressed',String(picked.indexOf(id)>-1));
+    } else { ['tabindex','role','data-fk','aria-pressed'].forEach(function(a){ el.removeAttribute(a); }); }
+  });
+}
+
+function paintPassage(){
+  var p=app.querySelector('.passage'); if(!p) return;
+  var r=engine.record(), isEv=r.type==='evidence-click';
+  p.classList.toggle('evidence-on',isEv&&!r.locked);
+  [].forEach.call(p.querySelectorAll('[data-sentence-id],[data-paragraph-id]'),function(el){
+    el.classList.remove('ev-selected','ev-correct','ev-wrong');
+    if(!isEv) return;
+    var id=el.getAttribute('data-sentence-id')||el.getAttribute('data-paragraph-id');
+    if(r.locked){ if(id===r.data.targetId) el.classList.add('ev-correct'); else if(id===r.data.selectedId) el.classList.add('ev-wrong'); }
+    else if(id===r.data.selectedId) el.classList.add('ev-selected');
+  });
+}
+
+function render(){
+  if(ui.view==='result'){ var nr=ui.lastView&&ui.lastView!=='result'; ui.lastView='result'; renderResult(); if(nr) focusHeading(); return; }
+  if(ui.view==='review'){ var nv=ui.lastView!=='review'; ui.lastView='review'; renderReview(); if(nv) focusHeading(); return; }
+  var q=engine.question(), r=engine.record(), i=engine.state.index, n=engine.count();
+  var fk=focusKey(document.activeElement); ui.lastView='quiz';
+  var isEv=r.type==='evidence-click';
+  if(isEv) ui.passageOpen=true;
+  var h='';
+  if(cfg.passageHtml){
+    h+='<button type="button" class="passage-toggle" data-act="passage">📖 '+(ui.passageOpen?'Hide':'Read')+' the Passage</button>';
+    if(ui.passageOpen) h+='<div class="passage" id="passage"><strong>'+esc(cfg.passageTitle||'')+'</strong><div>'+cfg.passageHtml+'</div></div>';
+  }
+  $('phaseBanner').textContent=q.phase; $('phaseBanner').hidden=false;
+  h+='<div class="task-label" id="taskLabel">'+esc(q.category)+'</div>';
+  h+='<div class="instruction" id="instruction">'+esc(q.question)+'</div>';
+  if(q.task) h+='<div class="task" id="taskText">'+esc(q.task)+'</div>';
+  h+=qTimerHtml(q,r);
+  h+=R[r.type](q,r,VIEW_HELP);
+  if(q.hint && !r.locked) h+='<div class="check-row"><button type="button" class="btn" data-act="hint">💡 Hint</button></div>'+(ui.hintFor===i?'<div class="feedback neutral" id="hint">'+esc(q.hint)+'</div>':'');
+  h+=feedbackHtml(q,r);
+  h+='<div class="nav-row"><button type="button" class="btn" id="prevBtn" data-act="prev"'+(i===0?' disabled':'')+'>◀ Previous</button><span id="progress">'+(i+1)+' / '+n+'</span><button type="button" class="btn primary" id="nextBtn" data-act="next"'+(engine.canNext()?'':' disabled')+'>'+(i===n-1?'Finish ▶':'Next ▶')+'</button></div>';
+  h+=statsHtml();
+  app.innerHTML=h;
+  paintPassage(); a11yPassage();
+  syncAudio(q);
+  if(window.__fitMove) window.__fitMove();
+  restoreFocus(fk);
+}
+
+function renderResult(){
+  clearTimeout(ui.remarkTimer);
+  var s=engine.summary(), st=s.stats||{};
+  var h='<div class="result" id="result"><h2>'+esc(cfg.title)+'</h2><div class="badge" id="finalScore">'+C.formatScore(s.score,s.max,cfg.scoreDecimals)+'</div><div class="remark" id="remark"></div>';
+  h+='<table id="summary"><tr><th>Correct</th><td>'+s.correct+'</td></tr><tr><th>Wrong</th><td>'+s.wrong+'</td></tr><tr><th>Accuracy</th><td>'+Math.round(s.percent)+'%</td></tr><tr><th>Time</th><td>'+C.formatTime(s.time)+'</td></tr><tr><th>Attempts</th><td id="attempts">'+(st.attempts||1)+'</td></tr><tr><th>Best score</th><td>'+C.formatScore(st.best||s.score,s.max,cfg.scoreDecimals)+'</td></tr></table>';
+  h+='<table id="breakdown"><tr><th>Category</th><th>Score</th></tr>';
+  s.categoryOrder.forEach(function(c){ var v=s.categories[c]; h+='<tr><td>'+esc(c)+'</td><td>'+C.round6(v.earned)+' / '+C.round6(v.max)+'</td></tr>'; });
+  h+='</table>'+transcriptHtml('resultTranscript')+'<div class="actions"><button type="button" class="btn" id="reviewBtn" data-act="review">Review My Answers</button><button type="button" class="btn primary" id="restartBtn" data-act="restart">Restart Quiz</button><button type="button" class="btn" id="printBtn" data-act="print">Print Results</button><button type="button" class="btn" id="saveBtn" data-act="save">Save Results</button></div></div>';
+  app.innerHTML=h;
+  $('audioMount').hidden=true; $('phaseBanner').hidden=true; stopAudio();
+  animateRemark(s.remark);
+}
+function animateRemark(finalText){
+  if(!finalText) return;
+  var labels=(cfg.remarkScale||[]).map(function(x){return x.label;}), k=0, delay=50;
+  (function spin(){
+    var el=$('remark'); if(!el) return;
+    if(k++<14){ el.textContent=labels[k%labels.length]; delay+=13; ui.remarkTimer=setTimeout(spin,delay); }
+    else el.textContent=finalText;
+  })();
+}
+function confetti(){
+  var s=engine.summary(); if(!cfg.showConfetti || cfg.confettiAt==null || s.score<cfg.confettiAt) return;
+  for(var i=0;i<40;i++){ var c=document.createElement('i'); c.className='conf'; c.style.left=Math.random()*100+'vw'; c.style.background=['#2563eb','#15803d','#f59e0b','#dc2626'][i%4]; c.style.animationDelay=Math.random()+'s'; document.body.appendChild(c); (function(x){ setTimeout(function(){ if(x.parentNode) x.parentNode.removeChild(x); },3500); })(c); }
+}
+function answerText(q,r){ return C.TYPES[r.type].review(r.data,q,r.result); }
+function renderReview(){
+  clearTimeout(ui.remarkTimer);
+  var h='<div id="review"><h2>Review Your Answers</h2>'+transcriptHtml('reviewTranscript');
+  for(var i=0;i<engine.count();i++){
+    var q=engine.question(i), r=engine.record(i), a=answerText(q,r);
+    h+='<div class="review-item"><strong>'+esc(q.question)+'</strong>'+(q.task?'<div>'+esc(q.task)+'</div>':'')+'<div>Your answer: '+esc(a.you)+'</div><div>Correct answer: '+esc(a.key)+'</div><div><em>'+esc(q.explanation)+'</em></div></div>';
+  }
+  h+='<div class="actions"><button type="button" class="btn" id="backBtn" data-act="back">Back to Results</button><button type="button" class="btn primary" data-act="restart">Restart Quiz</button></div></div>';
+  app.innerHTML=h;
+}
+function printable(){
+  var s=engine.summary(), t='English2BAC Quizzes\nUNIT: '+cfg.unit+'\n'+cfg.title+' - '+cfg.lesson+'\nScore: '+C.formatScore(s.score,s.max,cfg.scoreDecimals)+'\nCorrect: '+s.correct+'\nWrong: '+s.wrong+'\nTime: '+C.formatTime(s.time)+'\n\nPer-task breakdown\n';
+  s.categoryOrder.forEach(function(c){ var v=s.categories[c]; t+=c+': '+C.round6(v.earned)+' / '+C.round6(v.max)+'\n'; });
+  t+='\nTranscript\n'; (cfg.audioTranscript||[]).forEach(function(l){ t+=l[0]+': '+l[1]+'\n'; });
+  return t;
+}
+
+/* ---------- audio: isolated, created once, cannot block a render ---------- */
+function initAudio(){
+  try{
+    audioCtl = C.createAudioController($('audio'),{
+      setPlaying:function(p){ $('audPlay').textContent = p ? '⏸ Pause' : '▶ Play'; },
+      onError:function(kind){ var m=$('audMsg'); m.hidden=false; if(kind==='load') setControls(false); m.textContent = kind==='load' ? AUDIO_FAIL : 'Audio did not start. Press Play to try again.'; }
+    });
+    $('audPlay').addEventListener('click',function(){ audioCtl.toggle(); });
+    $('audBack').addEventListener('click',function(){ audioCtl.back10(); });
+    $('audFwd').addEventListener('click',function(){ audioCtl.forward10(); });
+    $('audio').addEventListener('timeupdate',function(){ paintProgress(); });
+    audioReady=true;
+  }catch(e){ audioReady=false; }
+}
+var AUDIO_FAIL="Audio couldn't be loaded — ask your teacher for the printed transcript.";
+function setControls(on){ ['audBack','audPlay','audFwd'].forEach(function(id){ $(id).disabled=!on; }); }
+function paintProgress(){
+  var a=$('audio'), d=a.duration;
+  $('audTime').textContent=C.formatTime(a.currentTime);
+  $('audFill').style.width=(isFinite(d)&&d>0?(a.currentTime/d)*100:0)+'%';
+}
+/* Restart: the same file stays loaded; only the playhead returns to the start. */
+function rewindAudio(){ try{ $('audio').currentTime=0; }catch(e){} paintProgress(); [].forEach.call(document.querySelectorAll('.conf'),function(x){ x.parentNode.removeChild(x); }); }
+function stopAudio(){ try{ var a=$('audio'); if(!a.paused) a.pause(); }catch(e){} }
+function syncAudio(q){
+  try{
+    var mount=$('audioMount');
+    /* No player before listening starts. From the first listening question the same file stays loaded. */
+    if(q.phase==='PRE-LISTENING'){ mount.hidden=true; stopAudio(); return; }
+    mount.hidden=false;
+    var src=cfg.audioFileUrl||'', m=$('audMsg');
+    if(!src||!audioReady){ setControls(false); m.hidden=false; m.textContent=AUDIO_FAIL; return; }
+    var a=$('audio');
+    if(a.getAttribute('src')!==src){ m.hidden=true; setControls(true); a.setAttribute('src',src); a.load(); }
+  }catch(e){}
+}
+
+/* ---------- one delegated listener per stable container, bound once ---------- */
+function act(a,t){
+  var id=t.getAttribute('data-id');
+  switch(a){
+    case 'choose':
+      if(partOf(t)!=null){ send('choose',{id:id},partOf(t)); break; }
+      if(engine.choose(id)&&engine.record().locked) sound(engine.record().correct?'ok':'bad'); break;
+    case 'toggle': engine.toggle(id); break;
+    case 'check': if(engine.check()){ var cr=engine.record(); sound(!cr.locked||cr.correct===false?'bad':'ok'); } break;
+    case 'reset': engine.reset(); break;
+    case 'do':
+      var pl={id:id||undefined}, sa=t.getAttribute('data-slot'), ia=t.getAttribute('data-index');
+      if(sa!==null) pl.slot=+sa;
+      if(ia!==null) pl.index=+ia;
+      if(send(t.getAttribute('data-name'),pl,partOf(t))) announce(t.getAttribute('data-say'));
+      break;
+    case 'up': engine.move(id,-1); break;
+    case 'down': engine.move(id,1); break;
+    case 'chip': ui.activeChip = ui.activeChip===id?null:id; render(); break;
+    case 'col': if(ui.activeChip){ var x=ui.activeChip; ui.activeChip=null; engine.place(x,t.getAttribute('data-col')); } break;
+    case 'prev': engine.prev(); break;
+    case 'next': engine.next(); break;
+    case 'passage': ui.passageOpen=!ui.passageOpen; render(); break;
+    case 'hint': ui.hintFor=engine.state.index; render(); break;
+    case 'review': ui.view='review'; render(); break;
+    case 'back': ui.view='result'; render(); break;
+    case 'restart': ui.view='quiz'; ui.activeChip=null; ui.hintFor=null; ui.passageOpen=false; stopAudio(); rewindAudio(); engine.restart(); break;
+    case 'print': try{ window.print(); }catch(e){} break;
+    case 'save': try{ var u=URL.createObjectURL(new Blob([printable()],{type:'text/plain'})), l=document.createElement('a'); l.href=u; l.download='quiz-results.txt'; l.click(); setTimeout(function(){URL.revokeObjectURL(u);},1000); }catch(e){} break;
+  }
+}
+function bind(){
+  app.addEventListener('click',function(e){
+    if(ui.suppressClick){ ui.suppressClick=false; return; } /* the click a drag itself generates, never the next real one */
+    var el=e.target;
+    var s=el.closest&&el.closest('[data-sentence-id],[data-paragraph-id]');
+    if(s && ui.view==='quiz' && engine.record().type==='evidence-click' && !engine.record().locked){
+      var q=engine.question(), wantPara=/^p/.test(q.correctId);
+      var unit=wantPara? el.closest('[data-paragraph-id]') : (el.closest('[data-sentence-id]')||s);
+      if(unit) engine.selectEvidence(unit.getAttribute('data-sentence-id')||unit.getAttribute('data-paragraph-id'));
+      return;
+    }
+    var t=el.closest&&el.closest('[data-act]');
+    if(t && !t.disabled) act(t.getAttribute('data-act'),t);
+  });
+  app.addEventListener('change',onField); app.addEventListener('input',onField);
+  /* Pointer Events drag: same engine calls as the buttons. Touch also keeps tap and arrow paths. */
+  document.addEventListener('pointerdown',function(){ ui.suppressClick=false; },true);
+  app.addEventListener('pointerdown',function(e){
+    var h=e.target.closest&&e.target.closest('[data-drag]');
+    if(!h||h.disabled||engine.record().locked) return;
+    drag={id:h.getAttribute('data-id'),kind:h.getAttribute('data-drag'),x:e.clientX,y:e.clientY,moved:false,pid:e.pointerId,el:h,part:partOf(h),ghost:null,over:null};
+  });
+  /* Shared drag layer. A zone declares its action with data-do; any activity gets drag by declaring zones. */
+  function clearOver(d){ if(d&&d.over){ d.over.classList.remove('drop-over'); d.over=null; } }
+  function endDrag(d){
+    if(!d) return;
+    clearOver(d);
+    if(d.ghost&&d.ghost.parentNode) d.ghost.parentNode.removeChild(d.ghost);
+    if(d.el) d.el.classList.remove('dragging');
+  }
+  document.addEventListener('pointermove',function(e){
+    if(!drag) return;
+    if(Math.abs(e.clientX-drag.x)>6||Math.abs(e.clientY-drag.y)>6) drag.moved=true;
+    if(!drag.moved||drag.kind!=='gen') return;
+    if(!drag.ghost){
+      drag.ghost=drag.el.cloneNode(true); drag.ghost.removeAttribute('data-fk'); drag.ghost.removeAttribute('data-drag'); drag.ghost.removeAttribute('data-act');
+      drag.ghost.classList.add('drag-ghost'); drag.ghost.setAttribute('aria-hidden','true'); drag.ghost.tabIndex=-1;
+      document.body.appendChild(drag.ghost); drag.el.classList.add('dragging');
+    }
+    drag.ghost.style.left=e.clientX+'px'; drag.ghost.style.top=e.clientY+'px';
+    var el=document.elementFromPoint(e.clientX,e.clientY), z=el&&el.closest&&el.closest('[data-do]');
+    if(z!==drag.over){ clearOver(drag); if(z){ z.classList.add('drop-over'); drag.over=z; } }
+  });
+  document.addEventListener('pointerup',function(e){
+    if(!drag) return; var d=drag;
+    drag=null;
+    endDrag(d);
+    if(!d.moved) return;
+    ui.suppressClick=true; setTimeout(function(){ ui.suppressClick=false; },60);
+    var el=document.elementFromPoint(e.clientX,e.clientY), z=el&&el.closest&&el.closest('[data-drop]');
+    if(!z) return;
+    if(d.kind==='order'&&z.getAttribute('data-drop')==='order') engine.moveTo(d.id,+z.getAttribute('data-pos'));
+    if(d.kind==='tile'&&z.getAttribute('data-drop')==='col') engine.place(d.id,z.getAttribute('data-col'));
+    if(d.kind==='gen'&&z.getAttribute('data-do')&&partOf(z)===d.part){
+      var pl={id:d.id}, sa=z.getAttribute('data-slot'), ga=z.getAttribute('data-gap');
+      if(sa!==null) pl.slot=+sa;
+      if(ga!==null) pl.gap=ga;
+      if(send(z.getAttribute('data-do'),pl,d.part)) announce(d.el.getAttribute('data-say'));
+    }
+  });
+  document.addEventListener('pointercancel',function(){ endDrag(drag); drag=null; });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&drag){ endDrag(drag); drag=null; ui.suppressClick=true; return; }
+    var evu=e.target.closest&&e.target.closest('.passage [role="button"]'); if(evu&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); evu.click(); return; }
+    if(ui.view!=='quiz'||/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    /* With the player focused, arrows skip the audio instead of changing the question. */
+    if($('player').contains(e.target)){
+      if(audioCtl&&e.key==='ArrowLeft'){ audioCtl.back10(); e.preventDefault(); }
+      else if(audioCtl&&e.key==='ArrowRight'){ audioCtl.forward10(); e.preventDefault(); }
+      return;
+    }
+    var r=engine.record();
+    if(!r.locked&&KEYS[r.type]&&KEYS[r.type](e,r)){ e.preventDefault(); return; }
+    if(/^[1-9]$/.test(e.key)&&r.data.displayOrder&&r.type!=='classify'){
+      var id=r.data.displayOrder[+e.key-1]; if(!id) return;
+      if(r.type==='single-choice') engine.choose(id); else if(r.type==='pick-exact') engine.toggle(id);
+    } else if(e.key==='ArrowRight'){ engine.next(); } else if(e.key==='ArrowLeft'){ engine.prev(); }
+    else if(e.key==='Enter'&&e.target.tagName!=='BUTTON'){ if(engine.canNext()) engine.next(); else engine.check(); }
+  });
+}
+function onField(e){
+  var t=e.target;
+  if(t.matches('select[data-row]')){ if(e.type==='change') engine.assign(t.getAttribute('data-row'),t.value); return; }
+  /* A select fires change, an input fires input: each value reaches the engine once. */
+  if(t.matches('[data-gap]')||t.matches('[data-fix]')){
+    if((t.tagName==='SELECT')!==(e.type==='change')) return;
+    if(t.matches('[data-gap]')) send('setGap',{gap:t.getAttribute('data-gap'),value:t.value},partOf(t));
+    else send('setFix',{index:+t.getAttribute('data-fix'),value:t.value},partOf(t));
+    var cb=$('chk'); if(cb) cb.disabled=!engine.ready();
+    return;
+  }
+  if(t.id==='typed'||t.id==='written'){
+    engine.setText(t.value);
+    var q=engine.question(), r=engine.record(), b=$('chk');
+    if(b) b.disabled=!engine.ready();
+    if(t.id==='written') $('wc').textContent=wcText(q,r);
+  }
+}
+function onChange(kind){
+  if(!engine) return;
+  if(kind==='tick'){ var v=$('timerVal'); if(v) v.textContent=C.formatTime(engine.timer.display()); return; }
+  if(kind==='qtick'){ var qv=$('qTimerVal'), qs=engine.remainingSeconds(); if(qv&&qs!==null){ qv.textContent=C.formatTime(qs); $('qTimer').classList.toggle('low',qs<=5); } return; }
+  if(kind==='text') return;
+  if(kind==='finish'){ ui.view='result'; render(); confetti(); return; }
+  if(kind==='lock'&&engine.state.finished) return;
+  if(kind==='nav') announce('Question '+(engine.state.index+1)+' of '+engine.count()+'. '+engine.question().question);
+  render();
+}
+
+/* ---------- init, once ---------- */
+if(window.__quizStarted) return; window.__quizStarted=true;
+try{
+  initChrome(); bind();
+  engine=C.createEngine(cfg,{onChange:onChange});
+  /* An activity with logic but no view is a visible error, never a blank page. */
+  cfg.questions.forEach(function(q,n){
+    (q.type==='compound'?q.parts.map(function(p){return p.type;}):[q.type]).forEach(function(ty){
+      if(!R[ty]) throw new Error('Q'+(n+1)+': no view for activity '+ty);
+    });
+  });
+  /* First render happens before any audio code, so audio can never block questions. */
+  render(); initAudio(); syncAudio(engine.question());
+}catch(err){ fatal((err.errors||[err.message]).join('\n')); }
+window.addEventListener('beforeprint',function(){ [].forEach.call(document.querySelectorAll('details.transcript'),function(x){ x.open=true; }); });
+window.__quiz={ get engine(){return engine;}, get ui(){return ui;}, get audioCtl(){return audioCtl;}, render:render };
+})();
+</script>
+<script>/* FIT-2026-11-13: show the Check button in the Previous / Next row */
+(function(){var app=document.getElementById('app');if(!app||!window.MutationObserver)return;
+/* ACTROW-2026-11-18 (teacher): Reset and Check in one row just above Previous / page number / Next */
+function move(){var nav=app.querySelector('.nav-row'),b=app.querySelector('.check-row > [data-act="check"]');if(!nav||!b)return;var row=b.parentNode;if(row.classList.contains('act-row'))return;var rs=row.querySelector('[data-act="reset"]'),tl=app.querySelector('.tile-label'),pl=app.querySelector('.tray.pool');if(tl&&pl)tl.parentNode.removeChild(tl);var ar=document.createElement('div');ar.className='check-row act-row'+(rs?' two':'');if(rs)ar.appendChild(rs);ar.appendChild(b);nav.parentNode.insertBefore(ar,nav);if(!row.querySelector('button,div'))row.parentNode.removeChild(row);}
+window.__fitMove=move;new MutationObserver(move).observe(app,{childList:true});move();})();
+</script><script>/* SIGHT-2026-11-13: after Next / Previous, keep the whole question in sight (align its top with the top of the screen when needed) */
+(function(){var app=document.getElementById('app');if(!app||!window.MutationObserver)return;var last=-1;
+function sight(){var q=window.__quiz,e=q&&q.engine;if(!e||!e.state)return;var ix=e.state.index;if(last>=0&&ix!==last){var main=document.querySelector('.main')||app,nav=app.querySelector('.nav-row'),r=main.getBoundingClientRect();if(r.top<0||(nav&&nav.getBoundingClientRect().bottom>window.innerHeight)){try{main.scrollIntoView({block:'start'});}catch(x){window.scrollTo(0,0);}}}last=ix;}
+new MutationObserver(sight).observe(app,{childList:true});sight();})();
+</script>
+<!-- NAVSAME-2026-11-13 BEGIN (CSS only since 2026-11-15) -->
+<style id="navsame-2026-11-13">
+/* NAVSAME-2026-11-13: Previous and Next identical (teacher, 13 Nov 2026): dark blue, white text, same width and height, label centred. Check keeps the template blue.
+   2026-11-15: the equal size comes from CSS (both buttons grow from 0 up to the same cap; the row stretches them to one height).
+   The old script measured both buttons and wrote inline sizes after every change to the page; it is gone. */
+#app .nav-row{display:flex!important;flex-wrap:nowrap!important;align-items:stretch!important;justify-content:space-between!important;gap:8px!important}
+#app .nav-row>[data-act="prev"],#app .nav-row>[data-act="next"],#app .nav-row>[data-act="nextboard"]{flex:1 1 0!important;min-width:0!important;max-width:12.5rem!important;min-height:44px!important;box-sizing:border-box!important;background:#1e3a5f!important;border:1px solid #1e3a5f!important;color:#fff!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;white-space:normal!important;line-height:1.15!important;box-shadow:none!important;transition:opacity .2s!important}
+#app .nav-row>:not([data-act="prev"]):not([data-act="next"]):not([data-act="nextboard"]){flex:0 0 auto!important;align-self:center!important}
+#app [data-act="prev"]:hover:not(:disabled),#app [data-act="next"]:hover:not(:disabled),#app [data-act="nextboard"]:hover:not(:disabled){background:#16304f!important;border-color:#16304f!important}
+</style>
+<!-- NAVSAME-2026-11-13 END -->
+<style id="lu-common-2026-11-14">
+/* LU-COMMON-2026-11-14: the same header and info bar on every Level UP 2BAC quiz (all skills, Units 1-10).
+   Frozen header values (teacher's template) + the Units 6-10 navy info bar. Everything below the bar is set by the skill layer. */
+[data-look~="frame"]{background:transparent!important;box-shadow:none!important;border-color:transparent!important;border-radius:0!important;margin-top:0!important;padding-top:0!important}
+@media (min-width:900px){[data-look~="frame"]{overflow:visible!important}}
+body{margin-top:0!important;padding-top:0!important}
+[data-look~="hdr"]{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;flex-wrap:nowrap!important;background:#eaf4ff!important;padding:10px 14px!important;border:0!important;border-radius:0!important;box-shadow:none!important;min-height:0!important;height:auto!important;box-sizing:border-box!important;margin-top:0!important;margin-bottom:0!important;position:relative!important;top:auto!important}
+[data-look~="hdr"]>*{margin:0!important}
+[data-look~="htitle"]{flex:1 1 auto!important;min-width:0!important;text-align:center!important;line-height:1.2!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
+[data-look~="himg"]{height:96px!important;width:auto!important;max-width:none!important;object-fit:contain!important;flex:none!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important;background:none!important}
+[data-look~="hbox"]{flex:none!important;margin:0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important;width:auto!important;height:auto!important;min-width:0!important}
+[data-look~="t1"],[data-look~="t2"],[data-look~="t3"]{display:block!important;font-family:Poppins,Arial,sans-serif!important;line-height:1.2!important;margin:0!important;padding:0!important;text-align:center!important;letter-spacing:normal!important;text-transform:none!important;text-shadow:none!important;background:none!important}
+[data-look~="t1"]{font-size:26px!important;font-weight:800!important;color:#1e3a5f!important}
+[data-look~="t2"]{font-size:18px!important;font-weight:400!important;color:#2563eb!important}
+[data-look~="t3"]{font-size:14px!important;font-weight:400!important;color:#64748b!important}
+[data-look~="bar"]{display:flex!important;flex-direction:row!important;justify-content:space-between!important;align-items:center!important;gap:8px!important;flex-wrap:nowrap!important;background:#123d70!important;color:#fff!important;font:600 13px/1.5 Poppins,Arial,sans-serif!important;padding:8px 14px!important;border:0!important;border-radius:0!important;box-shadow:none!important;min-height:36px!important;height:auto!important;box-sizing:border-box!important;margin-top:0!important;margin-bottom:0!important;text-transform:uppercase!important;letter-spacing:normal!important;position:relative!important;top:auto!important}
+[data-look~="bar"]>*{color:#fff!important;font:inherit!important;background:none!important;padding:0!important;margin:0!important;border:0!important;box-shadow:none!important;text-transform:inherit!important;letter-spacing:normal!important;flex:0 0 auto!important;white-space:nowrap!important;text-align:left!important;width:auto!important}
+[data-look~="bar"]>:not(:first-child):not(:last-child){flex:1 1 auto!important;min-width:0!important;white-space:normal!important;text-align:center!important}
+[data-look~="bar"]>:last-child:not(:first-child){text-align:right!important}
+[data-look~="flat"]{box-shadow:none!important;border-color:transparent!important;background:transparent!important}
+@media (min-width:600px) and (max-width:1023px){[data-look~="himg"]{height:80px!important}}
+@media (max-width:640px){
+  [data-look~="himg"]{height:45px!important}
+  [data-look~="hdr"]{padding:8px 12px!important}
+  [data-look~="t1"]{font-size:16px!important}[data-look~="t2"]{font-size:12px!important}[data-look~="t3"]{font-size:10px!important}
+  [data-look~="bar"]{font-size:11.5px!important;padding:6px 10px!important;min-height:32px!important;gap:6px!important}
+}
+</style>
+<script id="lu-common-2026-11-14-js">
+(function () {
+  if (window.__luCommon) return; window.__luCommon = true;
+  var SHEET = 1100, d = document, H0 = d.documentElement;
+  function txt(e) { return (e.textContent || '').replace(/\s+/g, ' ').trim(); }
+  function add(e, t) { var v = (e.getAttribute('data-look') || '').split(' ').filter(Boolean); if (v.indexOf(t) < 0) { v.push(t); e.setAttribute('data-look', v.join(' ')); } }
+  function vis(e) { if (!e || !e.getBoundingClientRect) return false; var r = e.getBoundingClientRect(); return r.width > 1 && r.height > 1 && getComputedStyle(e).display !== 'none' && getComputedStyle(e).visibility !== 'hidden'; }
+  function imgs(re) { return [].slice.call(d.images).filter(function (i) { return re.test((i.getAttribute('src') || '') + ' ' + i.className + ' ' + (i.alt || '')); }); }
+  function header() {
+    var lg = d.querySelector('.header-logo-img') || imgs(/logo|XPOYllA/i)[0];
+    var tc = d.querySelector('.header-teacher-img') || imgs(/teacher|vvyZAnr/i)[0];
+    if (!lg || !tc) return null;
+    var h = lg.parentElement; while (h && h !== d.body && !h.contains(tc)) h = h.parentElement;
+    return h && h !== d.body ? { h: h, lg: lg, tc: tc } : null;
+  }
+  function bar() {
+    var els = d.querySelectorAll('span,div,p,strong,b');
+    for (var i = 0; i < els.length; i++) { var e = els[i]; if (e.children.length) continue; var m = /^\s*UNIT\s*(\d+)\s*:\s*([A-Z]*)/i.exec(e.textContent); if (m) { H0.setAttribute('data-lu-unit', m[1]); if (+m[1] <= 5) H0.setAttribute('data-lu-old', ''); var b = e.parentElement; while (b && b.children.length < 2) b = b.parentElement; return b; } }
+    return null;
+  }
+  function childOf(h, x) { while (x && x.parentElement !== h) x = x.parentElement; return x; }
+  function frameUp(el) { if (!H0.hasAttribute('data-lu-old')) return; for (var a = el.parentElement; a && a !== d.body && a !== H0; a = a.parentElement) add(a, 'frame'); }
+  function place(el) {
+    el.style.removeProperty('margin-left'); el.style.removeProperty('width'); el.style.removeProperty('max-width');
+    var p = el.parentElement, cs = getComputedStyle(p), pr = p.getBoundingClientRect();
+    var cl = pr.left + parseFloat(cs.paddingLeft) + parseFloat(cs.borderLeftWidth);
+    var vw = H0.clientWidth, w = Math.min(SHEET, vw), left = Math.max(0, (vw - w) / 2);
+    el.style.setProperty('margin-left', Math.round(left - cl) + 'px', 'important');
+    el.style.setProperty('margin-right', '0px', 'important');
+    el.style.setProperty('width', w + 'px', 'important');
+    el.style.setProperty('max-width', 'none', 'important');
+  }
+  function tidyTop(H) { var top = H.getBoundingClientRect().top + scrollY; if (Math.abs(top) > 0.5) H.style.setProperty('margin-top', (parseFloat(getComputedStyle(H).marginTop) - top) + 'px', 'important'); }
+  function joinBar(H, B) {
+    if (!B || H.contains(B)) return; B.style.removeProperty('margin-top');
+    var g = B.getBoundingClientRect().top - H.getBoundingClientRect().bottom;
+    if (Math.abs(g) > 0.5) B.style.setProperty('margin-top', (parseFloat(getComputedStyle(B).marginTop) - g) + 'px', 'important');
+  }
+  function firstTop(el) {
+    var best = Infinity, top0 = el.getBoundingClientRect().top, all = [el].concat([].slice.call(el.querySelectorAll('*')));
+    for (var i = 0; i < all.length && i < 400; i++) { var e = all[i]; if (!vis(e)) continue; var cs = getComputedStyle(e); var paint = e.children.length === 0 || cs.backgroundColor !== 'rgba(0, 0, 0, 0)' || cs.backgroundImage !== 'none' || cs.borderTopWidth !== '0px' || cs.boxShadow !== 'none' || e.tagName === 'BUTTON'; if (paint) best = Math.min(best, Math.max(top0, e.getBoundingClientRect().top)); } /* GAPFIX-2026-11-18: text scrolled out of sight inside a box (the passage) sits above the box; it must not push the box down */
+    return best;
+  }
+  function gapBelow(B) {
+    /* the skill layer sets --lu-gap: the space between the info bar and the first thing under it */
+    var G = parseFloat(getComputedStyle(H0).getPropertyValue('--lu-gap')); if (!isFinite(G)) return; if (!vis(B)) { var X0 = header(); B = X0 && X0.h; if (!B) return; } /* HIDDENBAR-2026-11-18: the bar is hidden (results page): measure from the header instead, so the results band keeps the same gap under the header and does not move with the scroll */
+    var x = B, n = null;
+    while (x && x !== d.body) { n = x.nextElementSibling; while (n && (!vis(n) || /^(SCRIPT|STYLE)$/.test(n.tagName))) n = n.nextElementSibling; if (n) break; x = x.parentElement; }
+    if (!n) return;
+    var cur = parseFloat(getComputedStyle(n).marginTop) || 0, t = firstTop(n); if (!isFinite(t)) return;
+    var g = t - B.getBoundingClientRect().bottom;
+    if (Math.abs(g - G) > 0.5) n.style.setProperty('margin-top', (cur + G - g) + 'px', 'important');
+  }
+  function title(H) {
+    var leaves = [].slice.call(H.querySelectorAll('*')).filter(function (e) { return e.children.length === 0 || [].every.call(e.children, function (k) { return /^(BR|SPAN|B|STRONG|EM)$/.test(k.tagName) && !k.children.length; }); });
+    var t1 = leaves.find(function (e) { return /^English2BAC Quizzes$/i.test(txt(e)); });
+    var t2 = leaves.find(function (e) { return /^Learn\s*•\s*Practice\s*•\s*Succeed$/i.test(txt(e)); });
+    var t3 = leaves.find(function (e) { return /^with Teacher\.?\s*Soufiane$/i.test(txt(e)); });
+    if (t1) add(t1, 't1'); if (t2) add(t2, 't2'); if (t3) add(t3, 't3');
+    var tb = t1 && childOf(H, t1); if (tb) add(tb, 'htitle');
+  }
+  function flatCards() {
+    /* Units 1-5 only: outer cards and page-wide wrappers lose their own frame, as on the reference quizzes */
+    if (!H0.hasAttribute('data-lu-old')) return;
+    var col = d.querySelector('[data-fit~="col"]'); if (col) { add(col, 'frame'); frameUp(col); }
+    var vw = H0.clientWidth, cw = Math.min(760, vw);
+    [].slice.call(d.body.querySelectorAll('div,section,article,main,form,aside')).forEach(function (e) {
+      if (e.closest('[data-look~="hdr"],[data-look~="bar"],[role="dialog"],[class*="modal"],[class*="overlay"],[data-lu-keep]')) return;
+      var cs = getComputedStyle(e); if (!/^(static|relative)$/.test(cs.position)) return;
+      var r = e.getBoundingClientRect();
+      if (vw >= 900 && r.width > 800 && r.height > 60) { add(e, 'frame'); return; }
+      if (cs.boxShadow !== 'none' && r.width >= cw * 0.9 - 30 && r.height > 120) add(e, 'flat');
+    });
+  }
+  var busy = false;
+  function run() {
+    if (busy) return; busy = true;
+    try {
+      var B = bar();
+      var X = header(); if (!X) return;
+      var H = X.h; add(H, 'hdr'); add(X.lg, 'himg'); add(X.tc, 'himg');
+      [X.lg, X.tc].forEach(function (im) { var c = childOf(H, im); if (c && c !== im) add(c, 'hbox'); });
+      title(H); frameUp(H);
+      if (B && !H.contains(B)) { add(B, 'bar'); frameUp(B); }
+      flatCards();
+      place(H); if (B && !H.contains(B)) place(B);
+      tidyTop(H); joinBar(H, B);
+      if (B && !H.contains(B)) gapBelow(B);
+    } catch (e) { } finally { busy = false; }
+  }
+  var timer = 0; function soon() { clearTimeout(timer); timer = setTimeout(run, 60); }
+  run();
+  d.addEventListener('DOMContentLoaded', run); window.addEventListener('load', run); window.addEventListener('resize', soon);
+  [300, 1000, 2500].forEach(function (t) { setTimeout(run, t); });
+  /* 2026-11-15: re-place only when the page width changes (window resize or a scrollbar appearing), not on every change inside the quiz (the timer changed the page every second) */
+  try { var luW = H0.clientWidth; new ResizeObserver(function () { if (H0.clientWidth !== luW) { luW = H0.clientWidth; soon(); } }).observe(H0); } catch (x) { }
+})();
+</script>
+<style id="lu-skin-listening-2026-11-14">
+/* LU-SKIN Listening 2026-11-14: one look for every Listening quiz.
+   Reference: Unit 10 Listening (Expressing Regret), values measured from it at 1366px and 360px.
+   Applies to Units 1-5 pages (html[data-lu-old], set by LU-COMMON); Units 6-10 Listening quizzes already have these values. */
+html[data-lu-old]{--lu-gap:14px;background:linear-gradient(90deg,#f4f7fb 0,#f4f7fb calc(50% - 550px),#fff calc(50% - 550px),#fff calc(50% + 550px),#f4f7fb calc(50% + 550px))!important;background-color:#fff!important}
+html[data-lu-old] body{background:transparent!important;color:#1e3a5f;min-height:100vh}
+html[data-lu-old] [data-fit~="col"]{max-width:760px!important;margin-left:auto!important;margin-right:auto!important}
+/* instruction strip: navy, rounded 10px, white capitals 16px/700, left */
+html[data-lu-old] :is(.instruction,.instruction-box,.ibox,.instr-box,.question-instruction){background:#123d70!important;color:#fff!important;border:0!important;border-radius:10px!important;padding:12px 14px!important;margin:0 0 12px!important;box-shadow:none!important;font-family:Poppins,Arial,sans-serif!important;font-size:16px!important;font-weight:700!important;line-height:24px!important;letter-spacing:normal!important;text-align:left!important;text-transform:uppercase!important;min-height:0!important}
+html[data-lu-old] :is(.instruction,.instruction-box,.ibox,.instr-box,.question-instruction) *{color:#fff!important;font-size:inherit!important;font-weight:inherit!important;line-height:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important;text-align:inherit!important;background:none!important;border:0!important;box-shadow:none!important;margin:0!important;padding:0!important}
+/* question: 16px/700, centred, no box (15px on a phone) */
+html[data-lu-old] :is(.task,.task-area,.task-text,.task-panel,#task-text,#taskText){background:none!important;border:0!important;box-shadow:none!important;padding:0!important;margin:6px 0 10px!important;font-family:Poppins,Arial,sans-serif!important;font-size:16px!important;font-weight:700!important;line-height:24px!important;color:#1e3a5f!important;text-align:center!important;min-height:0!important}
+html[data-lu-old] :is(.task,.task-area,.task-text,.task-panel,#task-text,#taskText) :is(span,strong,b,em){font-size:inherit!important;line-height:inherit!important;color:inherit!important;text-align:inherit!important}
+/* answers: two columns, gap 8px; long answers one column on a phone */
+html[data-lu-old] :is(.choices,.choice-list,.answer-grid,.choice-grid,#answerArea,.choices-grid,.answers-grid,.tiles):has(>button){display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;margin:0!important}
+html[data-lu-old] :is(.choices,.choice-list,.answer-grid,.choice-grid,#answerArea,.choices-grid,.answers-grid,.tiles)>button{border-radius:10px!important;border-width:2px!important;border-style:solid!important;padding:10px 12px!important;min-height:44px!important;height:auto!important;font-family:Poppins,Arial,sans-serif!important;font-size:16px!important;font-weight:500!important;line-height:1.35!important;text-align:left!important;margin:0!important;box-shadow:none!important;width:100%!important}
+html[data-lu-old] :is(.choices,.choice-list,.answer-grid,.choice-grid,#answerArea,.choices-grid,.answers-grid,.tiles)>button:not([class*="correct"]):not([class*="wrong"]):not([class*="right"]):not([class*="select"]):not([class*="active"]):not([class*="chosen"]):not([class*="picked"]):not([class*="error"]):not([class*="success"]):not([aria-pressed="true"]):not([style*="background"]):not([style*="border"]):not(.ok):not(.bad):not(.no):not(.yes):not([class*="good"]):not([class*="miss"]):not([class*="answer-"]):not([data-state]){background:#fff!important;border-color:#d8e5f4!important;color:#1e3a5f!important}
+/* word cards to drag or tap (pools and trays): rounded 12px */
+html[data-lu-old] :is(.tile-pool,.chip-tray,.tray,.pool)>button{border-radius:12px!important;border-width:2px!important;border-style:solid!important;padding:6px 12px!important;min-height:44px!important;font-family:Poppins,Arial,sans-serif!important;font-size:16px!important;font-weight:500!important;line-height:1.35!important;box-shadow:none!important}
+/* feedback, statistics, navigation row */
+html[data-lu-old] :is(.feedback,.feedback-panel,.feedback-box,.feedback-area,#explanationArea,#feedbackSlot,#single-feedback){margin-top:12px!important;padding:10px 12px!important;border-radius:10px!important;line-height:1.5!important}
+html[data-lu-old] :is(.stats,.stats-row,.stats-bar,.stats-card,.stat-row,#stats){display:flex!important;flex-wrap:nowrap!important;justify-content:space-between!important;align-items:center!important;gap:8px!important;margin-top:10px!important;padding:10px!important;background:#f1f5f9!important;border:0!important;border-radius:10px!important;box-shadow:none!important;font-family:Poppins,Arial,sans-serif!important;font-size:14px!important;font-weight:600!important;color:#1e3a5f!important;width:auto!important;min-height:0!important}
+html[data-lu-old] :is(.stats,.stats-row,.stats-bar,.stats-card,.stat-row,#stats) :is(div,span,strong,b,p,section){background:none!important;border:0!important;box-shadow:none!important;font-size:14px!important;color:inherit!important}
+html[data-lu-old] :is(.stats,.stats-row,.stats-bar,.stats-card,.stat-row,#stats)>*{padding:0!important;margin:0!important}
+html[data-lu-old] :is(.stats,.stats-row,.stats-bar,.stats-card,.stat-row,#stats) :is(.stats,.stats-row,.stat-row){padding:0!important;margin:0!important;background:none!important}
+html[data-lu-old] :is(.nav-row,.navigation,.navigation-row,.nav,.navrow,.bottom-nav){margin-top:10px!important}
+@media (max-width:640px){
+  html[data-lu-old] :is(.task,.task-area,.task-text,.task-panel,#task-text,#taskText){font-size:15px!important;line-height:20.25px!important}
+  html[data-lu-old] :is(.choices,.choice-list,.answer-grid,.choice-grid,#answerArea,.choices-grid,.answers-grid,.tiles)>button{font-size:15px!important;padding:10px 12px!important;min-height:44px!important}
+  html[data-lu-old] [data-fit~="opts1"]:is(.choices,.choice-list,.answer-grid,.choice-grid,#answerArea,.choices-grid,.answers-grid,.tiles){grid-template-columns:minmax(0,1fr)!important;gap:6px!important}
+  html[data-lu-old] [data-fit~="opts1"]>button{padding:8px 12px!important}
+  html[data-lu-old] :is(.tile-pool,.chip-tray,.tray,.pool)>button{padding:6px 9px!important;font-size:15px!important}
+  html[data-lu-old] :is(.stats,.stats-row,.stats-bar,.stats-card,.stat-row,#stats){flex-wrap:wrap!important;justify-content:center!important}
+}
+</style>
+<script>
+/* PHONEFIT-2026-11-17: on a phone, a screen that is a little taller than the screen is shrunk a little so it fits.
+   Never below 0.9, and only when that makes it fit completely; otherwise the page is left as it is. */
+(function(){
+  var app=document.getElementById('app'); if(!app) return;
+  var busy=false;
+  function fit(){
+    if(busy) return; busy=true;
+    /* phone and laptop (2026-11-18). WIDTH-2026-11-18: a shrunk page still fills the whole width (body, header and info bar widened by 1/zoom) */
+    var b=document.body, H=document.documentElement, bleed=document.querySelectorAll('[data-look~="hdr"],[data-look~="bar"]');
+    function apply(z){
+      b.style.zoom=z||''; b.style.width=z?(H.clientWidth/z)+'px':'';
+      [].forEach.call(bleed,function(e){ if(e.__w0===undefined||e.style.width!==e.__wSet){ if(!parseFloat(e.style.width)) return; e.__w0=e.style.width; } e.style.setProperty('width',z?(parseFloat(e.__w0)/z)+'px':e.__w0,'important'); e.__wSet=e.style.width; });
+    }
+    apply(0);
+    var need=H.scrollHeight, have=window.innerHeight;
+    if(need>have){ var z=Math.floor(have/need*1000)/1000, tries=[z,z-0.01,z-0.02,0.9], ok=false;
+      for(var t=0;t<tries.length&&!ok;t++){ if(tries[t]<0.9) continue; apply(tries[t]); ok=H.scrollHeight<=have; }
+      if(!ok) apply(0); }
+    busy=false;
+  }
+  var prev=window.__fitMove; window.__fitMove=function(){ if(prev) prev(); fit(); };
+  new MutationObserver(function(){ setTimeout(fit,0); }).observe(app,{childList:true});
+  window.addEventListener('resize',function(){ setTimeout(fit,50); });
+  /* the shared header script resets the header / info-bar width on resize: fit again when it does */
+  var mo=new MutationObserver(function(){ var again=false; [].forEach.call(document.querySelectorAll('[data-look~="hdr"],[data-look~="bar"]'),function(e){ if(e.__wSet!==undefined&&e.style.width!==e.__wSet) again=true; }); if(again) setTimeout(fit,0); });
+  [].forEach.call(document.querySelectorAll('[data-look~="hdr"],[data-look~="bar"]'),function(e){ mo.observe(e,{attributes:true,attributeFilter:['style']}); });
+  fit();
+})();
+</script>
+<style>
+/* LISTEN-FIRST-2026-11-18 (teacher): in While-listening the answers stay locked until the student has listened to the whole conversation once */
+#app.lockans{position:relative}
+#app.lockans>:not(.task-label):not(.instruction):not(#taskText):not(.nav-row):not(.stats-row):not(.listen-lock){opacity:.35;filter:grayscale(1);pointer-events:none;user-select:none}
+.listen-lock{position:absolute;left:8px;right:8px;z-index:5;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.listen-lock span{display:block;max-width:420px;background:#fff;border:2px solid #2563eb;border-radius:14px;padding:10px 14px;box-shadow:0 6px 18px rgba(15,40,80,.18);color:#0f2a4f;font-weight:700;font-size:15px;line-height:1.35;text-align:center}
+.listen-lock small{display:block;margin-top:4px;font-weight:600;color:#475569;font-size:13px}
+</style>
+<script>
+(function(){
+  var Q=window.__quiz, app=document.getElementById('app'), a=document.getElementById('audio'); if(!Q||!app||!a) return;
+  var E=Q.engine, heard=false, seen={}, last=null;
+  function gated(){ var q=E.question&&E.question(); return !heard && q && /^WHILE-LISTENING/.test(q.phase||''); }
+  /* count only seconds that were really played (a jump forward does not count) */
+  a.addEventListener('seeking',function(){ last=null; });
+  a.addEventListener('timeupdate',function(){
+    var t=a.currentTime||0;
+    if(!a.paused&&last!==null){ var d=t-last; if(d>0&&d<1.5*Math.max(1,a.playbackRate||1)){ for(var s=Math.floor(last);s<=Math.floor(t);s++) seen[s]=1; } }
+    last=t; paintLeft();
+  });
+  a.addEventListener('ended',function(){
+    var n=Math.floor(a.duration||0), got=0; for(var s=0;s<n;s++) if(seen[s]) got++;
+    if(n>0&&got>=n*0.9){ heard=true; Q.render(); }
+    else paintLeft(true);
+  });
+  a.addEventListener('error',function(){ heard=true; Q.render(); }); /* no audio: the teacher gives the transcript, so never block */
+  function pct(){ var n=Math.floor(a.duration||0), got=0; if(!n) return 0; for(var s=0;s<n;s++) if(seen[s]) got++; return Math.min(100,Math.round(got/n*100)); }
+  function paintLeft(missed){ var el=app.querySelector('.listen-lock small'); if(!el) return; el.textContent=missed?'Some parts were skipped. Listen to the whole conversation.':'Listened: '+pct()+'%'; }
+  /* the engine refuses answers while locked (taps, drags and keyboard shortcuts all go through it) */
+  ['choose','toggle','move','moveTo','assign','place','selectEvidence','setText','check','act','reset'].forEach(function(k){
+    var f=E[k]; if(typeof f!=='function') return; E[k]=function(){ if(gated()) return false; return f.apply(E,arguments); };
+  });
+  var rs=E.restart; E.restart=function(){ heard=false; seen={}; last=null; return rs.apply(E,arguments); };
+  function paint(){
+    var old=app.querySelector('.listen-lock'); if(old) old.parentNode.removeChild(old);
+    var on=gated(); app.classList.toggle('lockans',on);
+    [].forEach.call(app.children,function(c){ if(c.matches('.task-label,.instruction,#taskText,.nav-row,.stats-row')) return; if(on) c.setAttribute('inert',''); else c.removeAttribute('inert'); });
+    if(!on) return;
+    var kids=[].filter.call(app.children,function(c){ return !c.matches('.task-label,.instruction,#taskText,.nav-row,.stats-row'); });
+    if(!kids.length) return;
+    var top=kids[0].offsetTop, bot=kids[kids.length-1].offsetTop+kids[kids.length-1].offsetHeight;
+    var box=document.createElement('div'); box.className='listen-lock'; box.setAttribute('role','status');
+    box.style.top=top+'px'; box.style.height=Math.max(60,bot-top)+'px';
+    box.innerHTML='<span>🎧 Listen to the whole conversation first.<br>Then you can answer.<small></small></span>';
+    app.appendChild(box); paintLeft();
+  }
+  var prev=window.__fitMove; window.__fitMove=function(){ if(prev) prev(); paint(); };
+  window.addEventListener('resize',function(){ setTimeout(paint,120); });
+  window.__listenGate={ get heard(){return heard;}, pct:pct };
+  paint();
+})();
+</script>
+<style id="u6fit-2026-11-18">
+/* U6FIT-2026-11-18: two Unit 6 screens were still a little too tall on a phone after the Unit 10 rules */
+@media (max-width:640px){
+  #app .stats-row{padding:5px 8px!important;gap:2px 10px!important;margin-top:8px!important}
+  /* sorting: while the expressions are still in the list, the empty columns are shorter */
+  #tray ~ #cols{gap:6px!important}
+  #tray ~ #cols .col{min-height:44px!important;padding:5px 6px!important}
+  #tray ~ #cols .col h3{font-size:13.5px!important;line-height:1.25!important;margin-bottom:3px!important}
+}
+</style>
+<style id="speakers-2026-11-18">
+/* SPEAKERS-2026-11-18 (teacher): two portraits beside the player, the boy on the left and the girl on the right.
+   The one who is speaking glows and shows sound bars; the other one is faded. During the intro nobody is highlighted. */
+#audioMount #speakers{display:none!important}
+.stage{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px;margin:0 0 8px}
+.stage>.player{margin:0!important;min-width:0}
+.spk{margin:0;display:flex;flex-direction:column;align-items:center;gap:3px;position:relative;width:84px}
+.spk img{display:block;width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid #dbeafe;background:#eaf4ff;transition:transform .2s,box-shadow .2s,filter .25s,opacity .25s,border-color .2s}
+.spk figcaption{font:700 13px/1.2 Poppins,Arial,sans-serif;color:#123d70;transition:color .2s}
+.stage.talking .spk:not(.on) img{opacity:.5;filter:grayscale(.6)}
+.stage.talking .spk:not(.on) figcaption{color:#94a3b8}
+.spk.on img{border-color:#2563eb;transform:scale(1.07);animation:spkPulse 1.1s ease-out infinite}
+.spk.on figcaption{color:#2563eb}
+@keyframes spkPulse{0%{box-shadow:0 0 0 0 rgba(37,99,235,.55)}100%{box-shadow:0 0 0 13px rgba(37,99,235,0)}}
+.spk .waves{position:absolute;top:24px;display:flex;align-items:center;gap:2px;height:26px;opacity:0;transition:opacity .2s}
+.spk-left .waves{right:-10px}.spk-right .waves{left:-10px}
+.spk .waves i{display:block;width:3px;height:30%;border-radius:2px;background:#2563eb}
+.spk.on .waves{opacity:1}
+.spk.on .waves i{animation:spkBar .55s ease-in-out infinite alternate}
+.spk.on .waves i:nth-child(2){animation-delay:.18s}.spk.on .waves i:nth-child(3){animation-delay:.36s}
+@keyframes spkBar{from{height:25%}to{height:100%}}
+@media (max-width:640px){
+  .stage{gap:6px;padding:0 4px}
+  .spk{width:58px;gap:1px}
+  .spk.on img{transform:scale(1.04)}
+  /* compact player between the two portraits: ◀10 | Play | 10▶, then time + progress bar */
+  #stage>.player{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto;gap:5px 6px;align-items:center;padding:5px 6px!important}
+  #stage>.player>#audBack{grid-column:1;grid-row:1}
+  #stage>.player>#audPlay{grid-column:2;grid-row:1}
+  #stage>.player>#audFwd{grid-column:3;grid-row:1}
+  #stage>.player>#audTime{grid-column:1;grid-row:2;font-size:12px;line-height:1}
+  #stage>.player>.track{grid-column:2/4;grid-row:2;width:auto}
+  #stage>.player>#audMsg{grid-column:1/-1}
+  #stage>.player>button{min-height:40px!important;height:40px;padding:0 8px!important;min-width:0!important;margin:0!important;font-size:14px!important}
+  #stage>.player>#audPlay{padding:0 6px!important;white-space:nowrap}
+  .spk img{width:50px;height:50px;border-width:2px}
+  .spk figcaption{font-size:11.5px}
+  .spk .waves{top:14px;height:22px}
+  .spk-left .waves{right:-6px}.spk-right .waves{left:-6px}
+}
+@media (prefers-reduced-motion:reduce){.spk.on img,.spk.on .waves i{animation:none}}
+</style>
+<script>
+(function(){
+  var cfg=window.QUIZ_CONFIG||{}, a=document.getElementById('audio'), player=document.getElementById('player');
+  var list=(cfg.speakers||[]).filter(function(s){ return s.img; }); if(!a||!player||list.length<2) return;
+  var turns=cfg.turns||[];
+  var stage=document.createElement('div'); stage.className='stage'; stage.id='stage';
+  function fig(s){
+    var f=document.createElement('figure'); f.className='spk spk-'+(s.side||'left'); f.dataset.who=String(cfg.speakers.indexOf(s));
+    var im=document.createElement('img'); im.alt=s.name; im.src=s.img; im.onerror=function(){ f.style.visibility='hidden'; };
+    var w=document.createElement('span'); w.className='waves'; w.setAttribute('aria-hidden','true'); w.innerHTML='<i></i><i></i><i></i>';
+    var c=document.createElement('figcaption'); c.textContent=s.name;
+    f.appendChild(im); f.appendChild(w); f.appendChild(c); return f;
+  }
+  var L=list.filter(function(s){ return s.side!=='right'; })[0]||list[0], R=list.filter(function(s){ return s.side==='right'; })[0]||list[1];
+  player.parentNode.insertBefore(stage,player);
+  stage.appendChild(fig(L)); stage.appendChild(player); stage.appendChild(fig(R));
+  var figs=[].slice.call(stage.querySelectorAll('.spk')), now=-1;
+  function who(t){ for(var i=0;i<turns.length;i++){ var x=turns[i]; if(t>=x[0]-0.15&&t<=x[1]+0.3) return x[2]; } return -1; }
+  function paint(){
+    var w=a.paused?-1:who(a.currentTime||0); if(w===now) return; now=w;
+    stage.classList.toggle('talking',w>=0);
+    figs.forEach(function(f){ f.classList.toggle('on',String(w)===f.dataset.who); });
+  }
+  var raf=0; function loop(){ paint(); raf=a.paused?0:requestAnimationFrame(loop); }
+  ['play','playing','pause','ended','seeked','timeupdate'].forEach(function(e){ a.addEventListener(e,function(){ if(!a.paused&&!raf) raf=requestAnimationFrame(loop); paint(); }); });
+  window.__speakers={ who:who, paint:paint };
+})();
+</script>
+</body>
+</html>
