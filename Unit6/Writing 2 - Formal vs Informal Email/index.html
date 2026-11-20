@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<!-- Unit 6 · Writing · Formal vs Informal Email · Quiz 2 (5 parts, out of 20). Unit 10 Writing page + shared Writing engine since 2026-11-19.
+     Static HTML/CSS/JS for GitHub Pages; embeddable in LearnWorlds.
+     Files: index.html (layout + styles), data/quiz.js (content), app.js (logic), assets/.
+     Progress is kept in this browser only (localStorage). -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formal vs Informal Email | Level UP 2BAC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#123d70;--navy2:#0b2a52;--blue:#2563eb;--teal:#0f8b8d;--teal2:#e0f4f4;--gold:#d4a017;--gold2:#fdf3d7;--ink:#1e3a5f;--muted:#64748b;--ok:#15803d;--okbg:#dcfce7;--bad:#dc2626;--badbg:#fee2e2;--line:#d8e5f4;--bg:#f4f7fb}
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;width:100%;min-height:100vh;background:var(--bg);color:var(--ink);font-family:Poppins,Arial,sans-serif;line-height:1.5}
+.quiz-container{width:100%;max-width:100%;min-height:100vh}
+.quiz-card{width:100%;max-width:1100px;margin:0 auto;background:#fff;min-height:100vh}
+/* frozen header + info bar (teacher's template) */
+.quiz-header{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#eaf4ff;padding:10px 14px}
+.header-teacher-img,.header-logo-img{height:64px;width:auto;max-width:none;object-fit:contain;flex:none}
+@media (min-width:600px){.header-teacher-img,.header-logo-img{height:80px}}
+@media (min-width:1024px){.header-teacher-img,.header-logo-img{height:96px}}
+@media (max-width:640px){.header-teacher-img,.header-logo-img{height:45px}.quiz-header{padding:8px 12px}}
+img[data-broken]{display:none}
+.header-title{flex:1;min-width:0;text-align:center;line-height:1.2}
+.title-line1{font-family:'Poppins',sans-serif;font-size:26px;font-weight:800;color:#1e3a5f}
+.title-line2{font-family:'Poppins',sans-serif;font-size:18px;font-weight:400;color:#2563eb}
+.title-line3{font-family:'Poppins',sans-serif;font-size:14px;font-weight:400;color:#64748b}
+@media (max-width:640px){.title-line1{font-size:16px}.title-line2{font-size:12px}.title-line3{font-size:10px}}
+.info-bar{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;background:var(--navy);color:#fff;font-size:13px;font-weight:600;padding:8px 14px}
+/* general */
+.main{padding:14px}
+#app{max-width:760px;margin:0 auto}
+.instruction{background:var(--navy);color:#fff;font-weight:700;border-radius:10px;padding:12px 14px;text-transform:uppercase;margin:0 0 12px}
+.task{font-weight:700;text-align:center;margin:12px 0}
+.lead{margin:0 0 10px}
+.btn{font:inherit;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:10px 14px;min-height:44px;cursor:pointer}
+.btn.primary{background:var(--teal);border-color:var(--teal);color:#fff}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:#1b1b1b}
+.btn.danger{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:focus-visible,.tile:focus-visible,.lt:focus-visible,.word:focus-visible,.typein:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.fatal{margin:20px;padding:16px;background:var(--badbg);border-radius:10px;white-space:pre-wrap}
+.warn{font-size:13px;background:var(--gold2);color:#7a5a00;border-radius:10px;padding:8px 10px;margin:12px 0}
+.note{font-size:13px;color:var(--muted);margin:8px 0 0}
+.actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:16px;flex-wrap:wrap}
+.pill{display:inline-block;background:var(--gold2);color:#7a5a00;border-radius:999px;padding:1px 10px;font-size:13px;font-weight:700;margin:2px 0}
+.section-title{font-size:17px;font-weight:800;margin:18px 0 8px;color:var(--navy)}
+/* hero, intro */
+.hero{text-align:center;background:linear-gradient(135deg,var(--navy2),var(--navy) 55%,var(--teal));color:#fff;border-radius:14px;padding:18px 14px;margin:0 0 14px;border-bottom:4px solid var(--gold);animation:pop .35s ease-out}
+.hero small{display:block;font-weight:700;letter-spacing:1px;color:var(--gold);font-size:12px}
+.hero h1{margin:2px 0 0;font-size:26px;font-weight:800;letter-spacing:.5px}
+.hero h1 span{color:var(--gold)}
+.hero p{margin:4px 0 0;opacity:.92}
+@media (max-width:640px){.hero{padding:12px 10px}.hero h1{font-size:20px}.hero p{font-size:13px}}
+.cats4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0 0 12px}
+@media (max-width:640px){.cats4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cats4 span{background:var(--teal2);color:var(--teal);font-weight:700;border-radius:12px;padding:8px;text-align:center;font-size:14px}
+.rules{margin:0 0 12px;padding-left:20px}.rules li{margin:4px 0}
+.glist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media (max-width:640px){.glist{grid-template-columns:1fr}}
+.gitem{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:12px;padding:8px 10px}
+.gitem b{flex:1;font-size:15px}
+.num,.gnum{display:inline-block;background:var(--navy);color:#fff;font-weight:700;font-size:13px;border-radius:999px;padding:2px 10px;flex:none}
+.num{width:26px;height:26px;padding:0;text-align:center;line-height:26px}
+/* play */
+.gamebar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 8px;color:var(--navy)}
+.gamebar b{font-size:17px}
+.gnum{background:var(--gold);color:#1b1b1b}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:0 0 6px;font-weight:600;font-size:14px;flex-wrap:wrap}
+.progress{height:8px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin:0 0 6px}.progress span{display:block;height:100%;background:var(--teal);transition:width .3s}
+.grouptag{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:1px 10px;background:var(--teal2);color:var(--teal);margin-bottom:6px}
+.metarow{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 8px}
+.metarow .grouptag{margin:0}
+.worth{font-size:13px;font-weight:600;color:var(--muted);margin-left:auto}
+.nav-row{flex-wrap:nowrap;margin-top:12px}
+.nav-row .btn{white-space:nowrap}
+@media (max-width:400px){.nav-row .btn{padding:10px 10px;font-size:14px;white-space:normal;line-height:1.15;flex:0 1 auto;min-width:0}}
+.sentence{font-size:19px;text-align:center;margin:10px 0 16px;font-weight:600}
+.sentence.left{text-align:left;line-height:2.1}
+@media (max-width:640px){.sentence{font-size:17px}}
+.gap{display:inline-block;min-width:60px;border-bottom:3px solid var(--teal);margin:0 3px}
+.hl{color:var(--teal);background:var(--teal2);border-radius:6px;padding:0 4px}
+.tiles{display:grid;grid-template-columns:1fr;gap:10px}
+.tiles.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tile{font:inherit;font-size:17px;text-align:center;font-weight:700;background:#fff;border:2px solid var(--line);border-radius:12px;padding:12px;min-height:48px;cursor:pointer;color:var(--ink);overflow-wrap:anywhere;transition:transform .1s,border-color .15s}
+.tile:hover:not(:disabled){border-color:var(--teal);background:#f7fcfc}
+.tile:active:not(:disabled){transform:scale(.98)}
+.tile.correct{border-color:var(--ok);background:var(--okbg)}
+.tile.wrong{border-color:var(--bad);background:var(--badbg)}
+.tile:disabled{cursor:default;color:var(--ink)}
+.mk{font-weight:800}
+.feedback{margin-top:12px;padding:10px 12px;border-radius:10px;animation:pop .25s ease-out}
+.feedback.good{background:var(--okbg)}.feedback.badf{background:var(--badbg)}.feedback.part{background:var(--gold2)}
+.fbl{margin:4px 0 0;padding-left:18px}
+/* typing */
+.typerow{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.typein{font:inherit;font-size:18px;min-height:48px;border:2px solid var(--teal);border-radius:12px;padding:8px 12px;width:min(100%,320px);color:var(--ink)}
+.typein.ok{border-color:var(--ok);background:var(--okbg)}.typein.no{border-color:var(--bad);background:var(--badbg)}
+/* match, sort, detective, boss */
+.match{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+@media (max-width:700px){.match{grid-template-columns:1fr}}
+.mrows{display:flex;flex-direction:column;gap:8px}
+.mrow{border:2px solid var(--line);border-radius:12px;padding:8px 10px}
+.mrow.correct{border-color:var(--ok);background:var(--okbg)}.mrow.wrong{border-color:var(--bad);background:var(--badbg)}
+.mverb{display:block;font-size:17px;color:var(--navy);margin-bottom:6px}
+.letters{display:flex;gap:6px;flex-wrap:wrap}
+.lt{font:inherit;font-weight:800;min-width:48px;min-height:44px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);cursor:pointer;padding:4px 10px}
+.lt.wide,.lt.cat{font-weight:600;font-size:15px}
+/* every answer row: word on the left, its buttons beside it (wraps only when there is no room) */
+.mrows{gap:6px}
+.mrow{display:flex;align-items:center;gap:6px 8px;flex-wrap:wrap;padding:6px 8px}
+.mverb{flex:1 1 90px;min-width:0;margin:0;line-height:1.2}
+.letters{flex:0 1 auto}
+.catbtns{display:grid;grid-template-columns:repeat(5,auto)}
+.lt.cat{padding:4px 6px;font-size:14px;line-height:1.2}
+@media (max-width:640px){.catbtns{width:100%;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}.catbtns .lt.cat{min-width:0;padding:2px 1px;font-size:12px;letter-spacing:-.2px;line-height:1.1;white-space:normal;overflow-wrap:normal}
+.catbtns{gap:3px;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,.8fr) minmax(0,1.3fr) minmax(0,1.15fr)}
+.mrow.sortrow{flex-wrap:nowrap;gap:6px;padding:5px 5px}.sortrow .mverb{flex:0 0 60px;font-size:14.5px;overflow-wrap:break-word}.sortrow .catbtns{flex:1 1 auto;width:auto}}
+@media (max-width:350px){.mrow.sortrow{flex-wrap:wrap}.sortrow .mverb{flex:1 1 100%}.sortrow .catbtns{width:100%}}
+.lt.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.lt.right{box-shadow:0 0 0 3px var(--ok)}
+.lt:disabled{cursor:default}
+.meanings{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.meanings li{border:1px solid var(--line);border-radius:12px;padding:6px 10px;background:#f8fbff;display:flex;gap:10px;align-items:center;font-size:15px}
+.ml{flex:none;display:inline-block;width:28px;height:28px;line-height:28px;text-align:center;border-radius:50%;background:var(--navy);color:#fff;font-weight:800}
+/* Match-Up: answers as horizontal chips, one compact row per form; one centred column on every screen */
+.match{grid-template-columns:1fr;max-width:620px;margin:0 auto}
+.match .meanings{flex-direction:row;flex-wrap:wrap;gap:6px;align-content:flex-start;justify-content:center}
+.match .meanings li{display:inline-flex;padding:4px 10px 4px 4px;border-radius:999px;gap:6px;font-size:15px;font-weight:600}
+.match .ml{width:26px;height:26px;line-height:26px;font-size:14px}
+.match .mrows{gap:6px}
+.match .mrow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:6px 8px}
+.match .mverb{flex:1 1 72px;min-width:0;margin:0;font-size:16px;line-height:1.2;hyphens:auto}
+.match .letters{flex:none;gap:4px;flex-wrap:nowrap}
+.match .lt{min-width:40px;width:40px;padding:0}
+.match{gap:12px}
+@media (max-width:400px){.main{padding:12px}.match .mrow{padding:6px}.match .mverb{font-size:15px}.match .lt{min-width:34px;width:34px}}
+.frame{font-weight:700;color:var(--muted);margin:6px 0 4px}
+.quote{font-size:19px;font-weight:600;background:var(--gold2);border-left:5px solid var(--gold);border-radius:0 12px 12px 0;padding:10px 12px;margin:0 0 12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.word{font:inherit;font-size:18px;font-weight:600;border:2px solid #e5d8b0;border-radius:10px;background:#fff;min-height:44px;padding:4px 10px;cursor:pointer;color:var(--ink)}
+.word.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.word.correct{border-color:var(--ok);background:var(--okbg)}
+.word.wrong{border-color:var(--bad);background:var(--badbg)}
+.word.missed{border:2px dashed var(--bad);background:#fff}
+.word:disabled{cursor:default;color:var(--ink)}
+.punct{font-size:19px}
+/* Change Detective step 2 and the Boss: compact sentence, one line per word (all screens) */
+.quote.done,.quote.bq{font-size:17px;padding:4px 10px;gap:4px;margin-bottom:6px}.quote.done .word{font-size:17px;min-height:32px;padding:2px 7px}.quote.done .punct{font-size:17px}
+.mrows.boss{margin-top:-6px}.quote.bq+.frame+.sentence.left{margin:4px 0 8px;line-height:1.9}
+.feedback.s1{margin-top:2px;padding:4px 10px;font-size:14px;line-height:1.35}.quote.done{margin-bottom:4px}
+.feedback.s1+.task{font-size:15px;margin:4px 0}
+.mrows.detect{gap:4px}
+.mrows.detect .mrow{flex-wrap:nowrap;padding:4px 6px}
+.mrows.detect .mverb{flex:0 0 96px;font-size:16px;overflow-wrap:break-word}
+.mrows.detect .letters{flex:1 1 auto;min-width:0;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px}
+.mrows.detect .lt.wide{min-width:0;min-height:40px;padding:2px 6px;font-size:15px;line-height:1.15}
+@media (max-width:640px){
+.quote.done,.quote.bq,.quote.done .word,.quote.done .punct{font-size:16px}
+.mrows.detect .mverb{flex-basis:74px;font-size:15px}.mrows.boss .mverb{flex-basis:52px}
+.mrows.detect .lt.wide{padding:2px 4px;font-size:13.5px}
+.quote.bq{margin-bottom:2px}.quote.bq+.frame{margin:2px 0}
+}
+.slotg{display:inline-block;min-width:54px;border-bottom:3px solid var(--teal);background:var(--teal2);border-radius:6px 6px 0 0;padding:0 6px;margin:0 2px;text-align:center;color:var(--navy)}
+.slotg.ok{background:var(--okbg);border-color:var(--ok)}.slotg.no{background:var(--badbg);border-color:var(--bad)}
+/* results + review */
+.result{text-align:center}
+.badge{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:150px;height:150px;border-radius:50%;background:var(--navy);color:#fff;font-size:34px;font-weight:800;margin:12px;border:5px solid var(--gold);animation:pop .4s ease-out}
+.badge.sm{width:120px;height:120px;font-size:28px}
+.badge small{font-size:14px;font-weight:600}
+.remark{font-size:22px;font-weight:800;min-height:34px;margin:4px 0}
+.band-Fail{color:var(--bad)}.band-Excellent{color:var(--ok)}
+.review-item{border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin:8px 0;text-align:left}
+.skillrow{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,2fr) auto;gap:8px;align-items:center;margin:6px 0;font-size:14px}
+@media (max-width:480px){.skillrow{grid-template-columns:1fr auto}.skillrow .sbar{grid-column:1 / -1;grid-row:2}}
+.sbar{height:12px;background:#e2e8f0;border-radius:999px;overflow:hidden}.sbar span{display:block;height:100%;background:var(--teal)}
+.sbar span.low{background:var(--gold)}
+.rec{border-left:4px solid var(--teal);background:var(--teal2);padding:8px 12px;border-radius:0 10px 10px 0;margin:10px 0}
+.vt{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+.vt th,.vt td{border-bottom:1px solid var(--line);padding:6px 4px;text-align:left;vertical-align:top}
+.vt th{color:var(--muted);font-size:12px;font-weight:600}
+.confirm{display:inline-flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;background:var(--badbg);border-radius:10px;padding:8px}
+@keyframes pop{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* STYLE-2026-11-13: one look for every quiz (template blue, same buttons, same answer cards, same column) */
+:root{--teal:#2563eb;--teal2:#dbeafe;--sel:#dbeafe}
+#app{max-width:760px;margin-left:auto;margin-right:auto}
+#app .btn{border-radius:10px;font-weight:600}
+#app .tile{border-radius:10px;font-weight:500;text-align:left;font-size:16px}
+#app .tile:hover:not(:disabled){border-color:var(--blue)}
+@media (max-width:640px){#app .tile{font-size:15px}}
+#app .tile{line-height:1.35}
+/* QUIZ2: reported statements - sentence options, builder, typed gaps, exam rewriting */
+#app .tiles .tile{font-size:16px}
+.quote.bq{display:block}
+.examtag{background:var(--gold2)!important;color:#7a5a00!important}
+.bline{display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-height:56px;border:2px dashed var(--teal);border-radius:12px;padding:6px;background:#f8fbff;margin:0 0 10px}
+.bline.ok{border-style:solid;border-color:var(--ok);background:var(--okbg)}.bline.no{border-style:solid;border-color:var(--bad);background:var(--badbg)}
+.bhint{color:var(--muted);font-size:14px;padding:0 6px}
+.bpool{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.btile{font:inherit;font-size:16px;font-weight:600;min-height:44px;padding:6px 12px;border:2px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none}
+.bline .btile{border-color:var(--teal);background:var(--teal2)}
+.btile:disabled{cursor:default;color:var(--ink)}
+.btile.dragging{opacity:.35}
+.btile.ghost{position:fixed;z-index:1000;pointer-events:none;box-shadow:0 6px 18px rgba(0,0,0,.18);border-color:var(--teal);background:#fff}
+.gsent{line-height:2.3;font-weight:500}
+.gapin{font:inherit;font-size:16px;font-weight:600;min-height:38px;max-width:100%;border:0;border-bottom:3px solid var(--teal);background:var(--teal2);border-radius:6px 6px 0 0;padding:2px 6px;margin:0 2px;color:var(--navy)}
+.gapin.ok{border-color:var(--ok);background:var(--okbg)}.gapin.no{border-color:var(--bad);background:var(--badbg)}
+.exrow{display:flex;flex-direction:column;gap:6px}
+.exframe{font-weight:700;color:var(--navy);font-size:17px}
+.examin{font:inherit;font-size:17px;width:100%;min-height:76px;border:2px solid var(--teal);border-radius:12px;padding:8px 12px;color:var(--ink);resize:vertical}
+.examin.ok{border-color:var(--ok);background:var(--okbg)}.examin.part{border-color:var(--gold);background:var(--gold2)}.examin.no{border-color:var(--bad);background:var(--badbg)}
+.hintrow{margin:8px 0 0;text-align:right}
+.btn.small{min-height:40px;padding:6px 12px;font-size:14px}
+.hintbox{margin:8px 0 0;padding:6px 10px;border-radius:10px;background:var(--gold2);color:#5c4300;font-size:15px}
+.rubric{display:flex;flex-wrap:wrap;gap:4px;margin:4px 0}
+.rb{font-size:13px;font-weight:600;border-radius:999px;padding:1px 8px;line-height:1.5}.rb.y{background:#fff;color:var(--ok);border:1px solid var(--ok)}.rb.n{background:#fff;color:var(--bad);border:1px solid var(--bad)}
+.examdone{margin:0;padding:6px 10px;border-radius:10px;border:2px solid var(--line);font-size:16px;line-height:1.4}
+.examdone.ok{border-color:var(--ok);background:var(--okbg)}.examdone.part{border-color:var(--gold);background:var(--gold2)}.examdone.no{border-color:var(--bad);background:var(--badbg)}
+#app .frame{margin:4px 0 2px;font-size:14px}
+#app .quote.bq{margin-bottom:6px}
+#app .feedback{line-height:1.4}
+.feedback .note{font-size:13.5px}
+@media (max-width:640px){#app .tiles .tile{font-size:15px;padding:9px 10px}.btile{font-size:15px;padding:5px 10px}.examin{font-size:16px}.exframe{font-size:16px}.gsent{font-size:16px}}
+.match .mverb{font-weight:600;font-size:15px}
+.match .meanings li{font-weight:500;font-size:14.5px;border-radius:12px}
+#app .tiles{gap:6px}
+.feedback.s1{margin-bottom:6px}
+@media (max-width:640px){.gamebar{flex-wrap:nowrap}.gamebar b{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.topbar{font-size:12.5px;flex-wrap:nowrap}.topbar span{white-space:nowrap}#app .tiles .tile{padding:8px 10px;min-height:44px}.examdone{font-size:15px}}/* QUIZ3: Question Type Detective - sentence above its three group buttons on a phone, beside them on a laptop */
+.mrow.sortrow{flex-wrap:wrap!important;gap:6px 10px!important;padding:6px 8px!important}
+.sortrow .mverb{flex:1 1 220px!important;font-size:16px!important;font-weight:600!important}
+.sortrow .catbtns{flex:0 0 auto!important;width:auto!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important}
+.sortrow .lt.cat{min-width:84px!important;font-size:14.5px!important;padding:4px 8px!important;min-height:44px!important;white-space:nowrap!important}
+@media (max-width:640px){.mrow.sortrow{gap:2px 8px!important;padding:3px 6px 4px!important}.sortrow .mverb{flex-basis:100%!important;font-size:14.5px!important;letter-spacing:-.15px;line-height:1.25}.sortrow .catbtns{width:100%!important;gap:5px!important}.sortrow .lt.cat{min-width:0!important;font-size:14px!important;padding:2px 4px!important}}
+/* six intro chips: one row on a laptop, two per row on a phone */
+.cats4{grid-template-columns:repeat(6,minmax(0,1fr))}
+/* NCAT-2026-11-19 (Writing, Units 1-10): a sort shows its groups in one row of --ncat buttons (set by app.js); on a phone --ncatp (more than 4 groups: rows of 3) */
+.sortrow .catbtns{grid-template-columns:repeat(var(--ncat,3),minmax(0,1fr))!important}
+.sortrow .lt.cat{min-width:96px!important}
+@media (max-width:640px){.cats4{grid-template-columns:repeat(2,minmax(0,1fr))}.sortrow .catbtns{grid-template-columns:repeat(var(--ncatp,3),minmax(0,1fr))!important;gap:5px!important}.sortrow .lt.cat{min-width:0!important;font-size:14px!important;padding:2px 4px!important;white-space:normal!important;line-height:1.1!important}}
+/* ONLY2-2026-11-19 (Writing, phone): after Check only the right answer and the student's wrong pick stay on screen (as in the Unit 10 exam steps); all four are in "Review my mistakes" */
+#app .tiles.small .tile[disabled]:not(.correct):not(.wrong),#app .tiles.emails .tile[disabled]:not(.correct):not(.wrong){display:none}
+@media (max-width:640px){#app .tiles .tile[disabled]:not(.correct):not(.wrong){display:none}
+  /* q.small (long sentences as options): the skin's 15px rule is !important, so this one is too */
+  html #app .tiles.small>.tile{font-size:13.5px!important;line-height:1.25!important;padding:5px 8px!important;min-height:40px!important}}
+/* FIXHDR-2026-11-19 (teacher: the header must never move): the scrollbar is always there, so the page width - and the header - stay exactly the same */
+html{overflow-y:scroll!important}
+/* q.pos ordering: each placed card is marked right or wrong after Check */
+.bline .btile.bok{border-color:#16a34a;background:#dcfce7}
+.bline .btile.bno{border-color:#dc2626;background:#fee2e2}
+/* Paragraph Linker Challenge: drop-down gaps inside the paragraph */
+.gsent.para{line-height:2.25;text-align:justify}
+/* Email Builder (build items with q.long): sentence cards, compact so a whole email fits one phone screen */
+.email .btile{border-radius:12px;min-height:40px;padding:4px 10px;font-size:15px}
+@media (max-width:640px){.email .btile{font-size:13.5px;line-height:1.25;padding:3px 8px;min-height:36px}.bline.email,.bpool.email{gap:5px}}
+/* QUIZ 2: an email extract in the question (q.pre) and four whole emails as options (q.emails) */
+.quote.pre{display:block;white-space:pre-line;font-size:15px;font-weight:500;line-height:1.35}
+#app .tiles.emails .tile{white-space:pre-line;font-size:14px;line-height:1.3;padding:6px 10px}
+@media (min-width:900px){#app .tiles.emails,#app .tiles.small{grid-template-columns:1fr 1fr}#app .tiles.emails .tile{font-size:13.5px}}
+@media (max-width:640px){#app .tiles.emails .tile,#app .tiles.small .tile{white-space:normal;font-size:13.5px;line-height:1.25;padding:5px 8px;min-height:40px}#app .tiles.emails .tile{font-size:13px;line-height:1.2}.quote.pre{font-size:13.5px;padding:5px 9px;line-height:1.25}
+/* every question is worth 1 point (said on the start page), so the phone gives the whole row to the question title */
+.metarow .worth{display:none}
+/* after Check, Q20 keeps only the right email and the student's wrong pick on a phone (all four are in "Review my mistakes") */
+#app .tiles.emails .tile[disabled]:not(.correct):not(.wrong){display:none}}
+.formula{margin:0 0 12px;padding:10px 12px;border-radius:12px;background:var(--teal2);color:var(--teal);font-weight:800;font-size:17px;text-align:center}
+select.gapsel{font:inherit;font-size:15px;font-weight:600;min-height:40px;max-width:100%;padding:2px 4px;cursor:pointer}
+select.gapsel:disabled{opacity:1;cursor:default}
+.gapno{font-size:11px;font-weight:800;color:var(--teal);margin-right:1px}
+@media (max-width:640px){.gsent.para{font-size:15px;line-height:2.15;text-align:left}select.gapsel{font-size:14.5px;min-height:38px;padding:1px 2px}}
+</style>
+</head>
+<body>
+<div class="quiz-container"><div class="quiz-card">
+  <header class="quiz-header">
+    <img class="header-teacher-img" id="teacherImg" src="assets/teacher.png" alt="Teacher Soufiane">
+    <div class="header-title"><div class="title-line1">English2BAC Quizzes</div><div class="title-line2">Learn • Practice • Succeed</div><div class="title-line3">with Teacher.Soufiane</div></div>
+    <img class="header-logo-img" id="logoImg" src="assets/logo.png" alt="Level-UP 2BAC">
+  </header>
+  <div class="info-bar"><span>UNIT6: WRITING</span><span>FORMAL VS INFORMAL EMAIL</span><span>QUIZ-2</span></div>
+  <div class="main"><div id="app"><p>Loading…</p></div><div id="liveMsg" class="sr-only" role="status" aria-live="polite"></div></div>
+</div></div>
+<script>
+['teacherImg', 'logoImg'].forEach(function (id) { var im = document.getElementById(id); im.onerror = function () { im.setAttribute('data-broken', ''); }; if (im.complete && !im.naturalWidth) im.setAttribute('data-broken', ''); });
+</script>
+<script src="data/quiz.js?v=20261120c"></script>
+<script src="app.js?v=20261120c"></script>
+<script>
+window.addEventListener('load', function () { if (!window.__rsqReady) { var a = document.getElementById('app'); if (a && !a.querySelector('.fatal')) a.innerHTML = '<div class="fatal" role="alert">This quiz could not start: a file did not load. Please reload the page.</div>'; } });
+</script>
+<noscript><p class="fatal">This quiz needs JavaScript.</p></noscript>
+<script id="fit-2026-11-19">
+/* FIT-2026-11-19 (same as the Grammar page; Writing version: "Activity N / M"). Only the quiz area (#app) shrinks, between 0.9
+   and 1: the header and the blue bar never move. The size is chosen ONCE when a question appears, with room kept for the feedback
+   that comes after the answer (PROBE: the real wrong-answer feedback is built in place, hidden, and measured). Choosing an answer
+   never changes the size. Intro, activity-end and results pages shrink only when 0.9 is enough, otherwise they scroll. */
+(function () {
+  var app = null, box = null, sig = '', room = 140, learned = 0, before = 0;
+  function sigOf() {
+    var m = (app.innerText || '').match(/(?:Game|Activity) \d+ \/ \d+[\s\S]{0,90}?Question \d+ of \d+/);
+    return m ? m[0].replace(/\s+/g, ' ') : '';
+  }
+  function measure() {
+    app.style.zoom = '';
+    var r = app.getBoundingClientRect(), c = box.getBoundingClientRect();
+    return { top: r.top + window.scrollY, own: r.height, tail: Math.max(0, c.bottom - r.bottom) + 2 };
+  }
+  function k(m, extra) { return (window.innerHeight - m.top - m.tail) / (m.own + extra); }
+  function apply(v) { app.style.zoom = v >= 1 ? '' : String(Math.floor(v * 1000) / 1000); }
+  function probe(s) {
+    try {
+      var g = +((s.match(/(?:Game|Activity) (\d+)/) || [])[1]), G = window.RS_QUIZ && window.RS_QUIZ.games[g - 1];
+      if (!G) return 0;
+      var txt = app.textContent, tiles = [].map.call(app.querySelectorAll('[data-act=pick]'), function (b) { return b.textContent; }).join('|');
+      var qs = G.qs.filter(function (q) { var s0 = q.p || q.d; return s0 ? txt.indexOf(s0.slice(0, 50)) > -1 && (!q.o || tiles.indexOf(q.o[0].slice(0, 40)) > -1) : !!(q.o && tiles.indexOf(q.o[0]) > -1); });
+      if (qs.length !== 1) { var bt = [].map.call(app.querySelectorAll('.btile'), function (b) { return b.textContent; }).join('|'); var qb = G.qs.filter(function (q) { return q.key && bt.indexOf(q.key[0]) > -1; }); qs = qb.length === 1 ? qb : qs.length > 1 ? qs : G.qs; }
+      var nav = app.querySelector('.nav-row'), d = document.createElement('div'), max = 0, isErr = !!app.querySelector('[data-act=tok]') && !app.querySelector('[data-act=pick]');
+      d.className = 'feedback badf'; d.style.visibility = 'hidden';
+      qs.forEach(function (q) {
+        d.textContent = ''; var b = document.createElement('b'); b.textContent = '✘ Not correct'; d.appendChild(b);
+        d.appendChild(document.createTextNode(' · 0 / 1 · ' + (isErr ? 'Step 1 ✘ · Step 2 ✘ ' : '')));
+        if (q.t === 'build' && !q.pos) { d.appendChild(document.createTextNode('Correct: ')); var kb = document.createElement('b'); kb.textContent = q.long ? q.key.map(function (x) { return x.split(' ').slice(0, 2).join(' ') + '…'; }).join(' → ') : q.key.join(' ') + '.'; d.appendChild(kb); d.appendChild(document.createElement('br')); }
+        if (q.t === 'gapt' && q.s) { var gs = q.s.filter(function (x) { return x && typeof x === 'object'; }); d.appendChild(document.createTextNode('Correct: ')); var gb = document.createElement('b'); gb.textContent = (q.bank || gs.length >= 3) ? gs.map(function (x, i) { return (i + 1) + ' ' + x.a[0]; }).join(' · ') : q.s.map(function (x) { return typeof x === 'object' ? x.a[0] : x; }).join(''); d.appendChild(gb); d.appendChild(document.createElement('br')); }
+        d.appendChild(document.createTextNode(q.t === 'match' ? 'The right letter is circled in green on each wrong row. ' + (q.e || '') : q.t === 'sort' ? 'Green = the right group. ' + (G.tip || '') : (q.e || '')));
+        if (nav) app.insertBefore(d, nav); else app.appendChild(d);
+        var cs = getComputedStyle(d), h = d.getBoundingClientRect().height + parseFloat(cs.marginTop) + parseFloat(cs.marginBottom);
+        /* a two-step item shows its answer tiles only after step 1, so their room is kept too */
+        if (isErr && q.o) { var t2 = document.createElement('div'); t2.className = 'tiles'; t2.style.visibility = 'hidden'; q.o.slice().sort(function (x, y) { return y.length - x.length; }).slice(0, 2).forEach(function (o) { var bt2 = document.createElement('button'); bt2.className = 'tile'; bt2.textContent = o + ' ✘'; t2.appendChild(bt2); }); app.insertBefore(t2, nav || null); var c2 = getComputedStyle(t2); h += t2.getBoundingClientRect().height + parseFloat(c2.marginTop) + parseFloat(c2.marginBottom); t2.parentNode.removeChild(t2); }
+        if (h > max) max = h;
+        d.parentNode.removeChild(d);
+      });
+      /* choices: the ✔ / ✘ mark added to the tiles can wrap one more line */
+      return max ? max + 8 + (app.querySelector('[data-act=pick]') ? 22 : 0) : 0;
+    } catch (e) { return 0; }
+  }
+  function fit(force) {
+    app = app || document.getElementById('app'); box = box || (app && app.parentElement) || document.body;
+    if (!app) return;
+    var s = sigOf(), answered = !!app.querySelector('.feedback:not(.s1)');
+    if (s && s === sig && !force) {
+      if (answered && before) { var a = app.style.zoom; var m1 = measure(); learned = Math.max(learned, m1.own - before); room = Math.max(40, learned); before = 0; app.style.zoom = a; }
+      return;
+    }
+    sig = s;
+    var m = measure();
+    if (s) {
+      if (!answered) before = m.own;
+      var v = k(m, answered ? 0 : (probe(s) || room));
+      apply(v >= 1 ? 1 : Math.max(0.9, v));
+    } else {
+      var w = k(m, 0);
+      apply(w >= 1 ? 1 : (w >= 0.9 ? w : 1));
+    }
+  }
+  new MutationObserver(function () { fit(false); }).observe(document.body, { childList: true, subtree: true, characterData: true });
+  var lastW = window.innerWidth;
+  function later() { if (window.innerWidth !== lastW) { lastW = window.innerWidth; learned = 0; room = 140; } setTimeout(function () { fit(true); }, 30); }
+  window.addEventListener('resize', later);
+  window.addEventListener('load', later);
+  later();
+})();
+</script>
+<script>/* SIGHT-2026-11-13: after Next / Previous, keep the whole question in sight (align its top with the top of the screen when needed) */
+window.__inSight=function(){var app=document.getElementById('app');if(!app)return;var top=app.querySelector('.gamebar')||app.querySelector('.topbar')||app;var navs=app.querySelectorAll('.nav-row'),nav=navs[navs.length-1];var r=top.getBoundingClientRect();if(r.top<0||(nav&&nav.getBoundingClientRect().bottom>window.innerHeight)){try{top.scrollIntoView({block:'start'});}catch(e){window.scrollTo(0,0);}}};
+</script>
+<!-- NAVSAME-2026-11-13 BEGIN (CSS only since 2026-11-15) -->
+<style id="navsame-2026-11-13">
+/* NAVSAME-2026-11-13: Previous and Next identical (teacher, 13 Nov 2026): dark blue, white text, same width and height, label centred. Check keeps the template blue.
+   2026-11-15: the equal size comes from CSS (both buttons grow from 0 up to the same cap; the row stretches them to one height).
+   The old script measured both buttons and wrote inline sizes after every change to the page; it is gone. */
+#app .nav-row{display:flex!important;flex-wrap:nowrap!important;align-items:stretch!important;justify-content:space-between!important;gap:8px!important}
+#app .nav-row>[data-act="prev"],#app .nav-row>[data-act="next"],#app .nav-row>[data-act="nextboard"]{flex:1 1 0!important;min-width:0!important;max-width:12.5rem!important;min-height:44px!important;box-sizing:border-box!important;background:#1e3a5f!important;border:1px solid #1e3a5f!important;color:#fff!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;white-space:normal!important;line-height:1.15!important;box-shadow:none!important;transition:opacity .2s!important}
+#app .nav-row>:not([data-act="prev"]):not([data-act="next"]):not([data-act="nextboard"]){flex:0 0 auto!important;align-self:center!important}
+#app [data-act="prev"]:hover:not(:disabled),#app [data-act="next"]:hover:not(:disabled),#app [data-act="nextboard"]:hover:not(:disabled){background:#16304f!important;border-color:#16304f!important}
+</style>
+<!-- NAVSAME-2026-11-13 END -->
+<style id="lu-common-2026-11-14">
+/* LU-COMMON-2026-11-14: the same header and info bar on every Level UP 2BAC quiz (all skills, Units 1-10).
+   Frozen header values (teacher's template) + the Units 6-10 navy info bar. Everything below the bar is set by the skill layer. */
+[data-look~="frame"]{background:transparent!important;box-shadow:none!important;border-color:transparent!important;border-radius:0!important;margin-top:0!important;padding-top:0!important}
+@media (min-width:900px){[data-look~="frame"]{overflow:visible!important}}
+body{margin-top:0!important;padding-top:0!important}
+[data-look~="hdr"]{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;flex-wrap:nowrap!important;background:#eaf4ff!important;padding:10px 14px!important;border:0!important;border-radius:0!important;box-shadow:none!important;min-height:0!important;height:auto!important;box-sizing:border-box!important;margin-top:0!important;margin-bottom:0!important;position:relative!important;top:auto!important}
+[data-look~="hdr"]>*{margin:0!important}
+[data-look~="htitle"]{flex:1 1 auto!important;min-width:0!important;text-align:center!important;line-height:1.2!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
+[data-look~="himg"]{height:96px!important;width:auto!important;max-width:none!important;object-fit:contain!important;flex:none!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important;background:none!important}
+[data-look~="hbox"]{flex:none!important;margin:0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important;width:auto!important;height:auto!important;min-width:0!important}
+[data-look~="t1"],[data-look~="t2"],[data-look~="t3"]{display:block!important;font-family:Poppins,Arial,sans-serif!important;line-height:1.2!important;margin:0!important;padding:0!important;text-align:center!important;letter-spacing:normal!important;text-transform:none!important;text-shadow:none!important;background:none!important}
+[data-look~="t1"]{font-size:26px!important;font-weight:800!important;color:#1e3a5f!important}
+[data-look~="t2"]{font-size:18px!important;font-weight:400!important;color:#2563eb!important}
+[data-look~="t3"]{font-size:14px!important;font-weight:400!important;color:#64748b!important}
+[data-look~="bar"]{display:flex!important;flex-direction:row!important;justify-content:space-between!important;align-items:center!important;gap:8px!important;flex-wrap:nowrap!important;background:#123d70!important;color:#fff!important;font:600 13px/1.5 Poppins,Arial,sans-serif!important;padding:8px 14px!important;border:0!important;border-radius:0!important;box-shadow:none!important;min-height:36px!important;height:auto!important;box-sizing:border-box!important;margin-top:0!important;margin-bottom:0!important;text-transform:uppercase!important;letter-spacing:normal!important;position:relative!important;top:auto!important}
+[data-look~="bar"]>*{color:#fff!important;font:inherit!important;background:none!important;padding:0!important;margin:0!important;border:0!important;box-shadow:none!important;text-transform:inherit!important;letter-spacing:normal!important;flex:0 0 auto!important;white-space:nowrap!important;text-align:left!important;width:auto!important}
+[data-look~="bar"]>:not(:first-child):not(:last-child){flex:1 1 auto!important;min-width:0!important;white-space:normal!important;text-align:center!important}
+[data-look~="bar"]>:last-child:not(:first-child){text-align:right!important}
+[data-look~="flat"]{box-shadow:none!important;border-color:transparent!important;background:transparent!important}
+@media (min-width:600px) and (max-width:1023px){[data-look~="himg"]{height:80px!important}}
+@media (max-width:640px){
+  [data-look~="himg"]{height:45px!important}
+  [data-look~="hdr"]{padding:8px 12px!important}
+  [data-look~="t1"]{font-size:16px!important}[data-look~="t2"]{font-size:12px!important}[data-look~="t3"]{font-size:10px!important}
+  [data-look~="bar"]{font-size:11.5px!important;padding:6px 10px!important;min-height:32px!important;gap:6px!important}
+}
+</style>
+<script id="lu-common-2026-11-14-js">
+(function () {
+  if (window.__luCommon) return; window.__luCommon = true;
+  var SHEET = 1100, d = document, H0 = d.documentElement;
+  function txt(e) { return (e.textContent || '').replace(/\s+/g, ' ').trim(); }
+  function add(e, t) { var v = (e.getAttribute('data-look') || '').split(' ').filter(Boolean); if (v.indexOf(t) < 0) { v.push(t); e.setAttribute('data-look', v.join(' ')); } }
+  function vis(e) { if (!e || !e.getBoundingClientRect) return false; var r = e.getBoundingClientRect(); return r.width > 1 && r.height > 1 && getComputedStyle(e).display !== 'none' && getComputedStyle(e).visibility !== 'hidden'; }
+  function imgs(re) { return [].slice.call(d.images).filter(function (i) { return re.test((i.getAttribute('src') || '') + ' ' + i.className + ' ' + (i.alt || '')); }); }
+  function header() {
+    var lg = d.querySelector('.header-logo-img') || imgs(/logo|XPOYllA/i)[0];
+    var tc = d.querySelector('.header-teacher-img') || imgs(/teacher|vvyZAnr/i)[0];
+    if (!lg || !tc) return null;
+    var h = lg.parentElement; while (h && h !== d.body && !h.contains(tc)) h = h.parentElement;
+    return h && h !== d.body ? { h: h, lg: lg, tc: tc } : null;
+  }
+  function bar() {
+    var els = d.querySelectorAll('span,div,p,strong,b');
+    for (var i = 0; i < els.length; i++) { var e = els[i]; if (e.children.length) continue; var m = /^\s*UNIT\s*(\d+)\s*:\s*([A-Z]*)/i.exec(e.textContent); if (m) { H0.setAttribute('data-lu-unit', m[1]); if (+m[1] <= 5) H0.setAttribute('data-lu-old', ''); var b = e.parentElement; while (b && b.children.length < 2) b = b.parentElement; return b; } }
+    return null;
+  }
+  function childOf(h, x) { while (x && x.parentElement !== h) x = x.parentElement; return x; }
+  function frameUp(el) { if (!H0.hasAttribute('data-lu-old')) return; for (var a = el.parentElement; a && a !== d.body && a !== H0; a = a.parentElement) add(a, 'frame'); }
+  function place(el) {
+    el.style.removeProperty('margin-left'); el.style.removeProperty('width'); el.style.removeProperty('max-width');
+    var p = el.parentElement, cs = getComputedStyle(p), pr = p.getBoundingClientRect();
+    var cl = pr.left + parseFloat(cs.paddingLeft) + parseFloat(cs.borderLeftWidth);
+    var vw = H0.clientWidth, w = Math.min(SHEET, vw), left = Math.max(0, (vw - w) / 2);
+    el.style.setProperty('margin-left', Math.round(left - cl) + 'px', 'important');
+    el.style.setProperty('margin-right', '0px', 'important');
+    el.style.setProperty('width', w + 'px', 'important');
+    el.style.setProperty('max-width', 'none', 'important');
+  }
+  function tidyTop(H) { var top = H.getBoundingClientRect().top + scrollY; if (Math.abs(top) > 0.5) H.style.setProperty('margin-top', (parseFloat(getComputedStyle(H).marginTop) - top) + 'px', 'important'); }
+  function joinBar(H, B) {
+    if (!B || H.contains(B)) return; B.style.removeProperty('margin-top');
+    var g = B.getBoundingClientRect().top - H.getBoundingClientRect().bottom;
+    if (Math.abs(g) > 0.5) B.style.setProperty('margin-top', (parseFloat(getComputedStyle(B).marginTop) - g) + 'px', 'important');
+  }
+  function firstTop(el) {
+    var best = Infinity, top0 = el.getBoundingClientRect().top, all = [el].concat([].slice.call(el.querySelectorAll('*')));
+    for (var i = 0; i < all.length && i < 400; i++) { var e = all[i]; if (!vis(e)) continue; var cs = getComputedStyle(e); var paint = e.children.length === 0 || cs.backgroundColor !== 'rgba(0, 0, 0, 0)' || cs.backgroundImage !== 'none' || cs.borderTopWidth !== '0px' || cs.boxShadow !== 'none' || e.tagName === 'BUTTON'; if (paint) best = Math.min(best, Math.max(top0, e.getBoundingClientRect().top)); } /* GAPFIX-2026-11-18: text scrolled out of sight inside a box (the passage) sits above the box; it must not push the box down */
+    return best;
+  }
+  function gapBelow(B) {
+    /* the skill layer sets --lu-gap: the space between the info bar and the first thing under it */
+    var G = parseFloat(getComputedStyle(H0).getPropertyValue('--lu-gap')); if (!isFinite(G)) return; if (!vis(B)) { var X0 = header(); B = X0 && X0.h; if (!B) return; } /* HIDDENBAR-2026-11-18: the bar is hidden (results page): measure from the header instead, so the results band keeps the same gap under the header and does not move with the scroll */
+    var x = B, n = null;
+    while (x && x !== d.body) { n = x.nextElementSibling; while (n && (!vis(n) || /^(SCRIPT|STYLE)$/.test(n.tagName))) n = n.nextElementSibling; if (n) break; x = x.parentElement; }
+    if (!n) return;
+    var cur = parseFloat(getComputedStyle(n).marginTop) || 0, t = firstTop(n); if (!isFinite(t)) return;
+    var g = t - B.getBoundingClientRect().bottom;
+    if (Math.abs(g - G) > 0.5) n.style.setProperty('margin-top', (cur + G - g) + 'px', 'important');
+  }
+  function title(H) {
+    var leaves = [].slice.call(H.querySelectorAll('*')).filter(function (e) { return e.children.length === 0 || [].every.call(e.children, function (k) { return /^(BR|SPAN|B|STRONG|EM)$/.test(k.tagName) && !k.children.length; }); });
+    var t1 = leaves.find(function (e) { return /^English2BAC Quizzes$/i.test(txt(e)); });
+    var t2 = leaves.find(function (e) { return /^Learn\s*•\s*Practice\s*•\s*Succeed$/i.test(txt(e)); });
+    var t3 = leaves.find(function (e) { return /^with Teacher\.?\s*Soufiane$/i.test(txt(e)); });
+    if (t1) add(t1, 't1'); if (t2) add(t2, 't2'); if (t3) add(t3, 't3');
+    var tb = t1 && childOf(H, t1); if (tb) add(tb, 'htitle');
+  }
+  function flatCards() {
+    /* Units 1-5 only: outer cards and page-wide wrappers lose their own frame, as on the reference quizzes */
+    if (!H0.hasAttribute('data-lu-old')) return;
+    var col = d.querySelector('[data-fit~="col"]'); if (col) { add(col, 'frame'); frameUp(col); }
+    var vw = H0.clientWidth, cw = Math.min(760, vw);
+    [].slice.call(d.body.querySelectorAll('div,section,article,main,form,aside')).forEach(function (e) {
+      if (e.closest('[data-look~="hdr"],[data-look~="bar"],[role="dialog"],[class*="modal"],[class*="overlay"],[data-lu-keep]')) return;
+      var cs = getComputedStyle(e); if (!/^(static|relative)$/.test(cs.position)) return;
+      var r = e.getBoundingClientRect();
+      if (vw >= 900 && r.width > 800 && r.height > 60) { add(e, 'frame'); return; }
+      if (cs.boxShadow !== 'none' && r.width >= cw * 0.9 - 30 && r.height > 120) add(e, 'flat');
+    });
+  }
+  var busy = false;
+  function run() {
+    if (busy) return; busy = true;
+    try {
+      var B = bar();
+      var X = header(); if (!X) return;
+      var H = X.h; add(H, 'hdr'); add(X.lg, 'himg'); add(X.tc, 'himg');
+      [X.lg, X.tc].forEach(function (im) { var c = childOf(H, im); if (c && c !== im) add(c, 'hbox'); });
+      title(H); frameUp(H);
+      if (B && !H.contains(B)) { add(B, 'bar'); frameUp(B); }
+      flatCards();
+      place(H); if (B && !H.contains(B)) place(B);
+      tidyTop(H); joinBar(H, B);
+      if (B && !H.contains(B)) gapBelow(B);
+    } catch (e) { } finally { busy = false; }
+  }
+  var timer = 0; function soon() { clearTimeout(timer); timer = setTimeout(run, 60); }
+  run();
+  d.addEventListener('DOMContentLoaded', run); window.addEventListener('load', run); window.addEventListener('resize', soon);
+  [300, 1000, 2500].forEach(function (t) { setTimeout(run, t); });
+  /* 2026-11-15: re-place only when the page width changes (window resize or a scrollbar appearing), not on every change inside the quiz (the timer changed the page every second) */
+  try { var luW = H0.clientWidth; new ResizeObserver(function () { if (H0.clientWidth !== luW) { luW = H0.clientWidth; soon(); } }).observe(H0); } catch (x) { }
+})();
+</script>
+<style id="lu-skin-writing-2026-11-14">
+/* LU-SKIN Writing 2026-11-14: one look for every Writing quiz.
+   Reference: Unit 10 Writing (Article, Block Method), in-game screens, values measured from it at 1366px and 360px.
+   Applies to Units 1-5 pages (html[data-lu-old], set by LU-COMMON); Units 6-10 Writing quizzes already have these values. */
+html[data-lu-old]{--lu-gap:14px;background:linear-gradient(90deg,#f4f7fb 0,#f4f7fb calc(50% - 550px),#fff calc(50% - 550px),#fff calc(50% + 550px),#f4f7fb calc(50% + 550px))!important;background-color:#fff!important}
+html[data-lu-old] body{background:transparent!important;color:#1e3a5f;min-height:100vh}
+html[data-lu-old] [data-fit~="col"]{max-width:760px!important;margin-left:auto!important;margin-right:auto!important}
+/* instruction strip: navy, rounded 10px, white capitals 16px/700, left */
+html[data-lu-old] :is(.instruction,.instruction-box,.ibox,.instr-box,.question-instruction){background:#123d70!important;color:#fff!important;border:0!important;border-radius:10px!important;padding:12px 14px!important;margin:0 0 12px!important;box-shadow:none!important;font-family:Poppins,Arial,sans-serif!important;font-size:16px!important;font-weight:700!important;line-height:24px!important;letter-spacing:normal!important;text-align:left!important;text-transform:uppercase!important;min-height:0!important}
+html[data-lu-old] :is(.instruction,.instruction-box,.ibox,.instr-box,.question-instruction) *{color:#fff!important;font-size:inherit!important;font-weight:inherit!important;line-height:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important;text-align:inherit!important;background:none!important;border:0!important;box-shadow:none!important;margin:0!important;padding:0!important}
+/* question: the sentence, 19px/600, centred, no box (17px on a phone) */
+html[data-lu-old] :is(.task,.task-area,.task-text,.task-panel,#task-text,#taskText){background:none!important;border:0!important;box-shadow:none!important;padding:0!important;margin:10px 0 16px!important;font-family:Poppins,Arial,sans-serif!important;font-size:19px!important;font-weight:600!important;line-height:1.5!important;color:#1e3a5f!important;text-align:center!important;min-height:0!important}
+html[data-lu-old] :is(.task,.task-area,.task-text,.task-panel,#task-text,#taskText) :is(span,strong,b,em){font-size:inherit!important;line-height:inherit!important;color:inherit!important;text-align:inherit!important}
+/* answers: one column, gap 6px */
+html[data-lu-old] :is(.choices,.choice-list,.answer-grid,.choice-grid,#answerArea,.choices-grid,.answers-grid,.tiles):has(>button){display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:6px!important;margin:0!important}
+html[data-lu-old] :is(.choices,.choice-list,.answer-grid,.choice-grid,#answerArea,.choices-grid,.answers-grid,.tiles)>button{border-radius:10px!important;border-width:2px!important;border-style:solid!important;padding:12px!important;min-height:48px!important;height:auto!important;font-family:Poppins,Arial,sans-serif!important;font-size:16px!important;font-weight:500!important;line-height:1.35!important;text-align:left!important;margin:0!important;box-shadow:none!important;width:100%!important}
+html[data-lu-old] :is(.choices,.choice-list,.answer-grid,.choice-grid,#answerArea,.choices-grid,.answers-grid,.tiles)>button:not([class*="correct"]):not([class*="wrong"]):not([class*="right"]):not([class*="select"]):not([class*="active"]):not([class*="chosen"]):not([class*="picked"]):not([class*="error"]):not([class*="success"]):not([aria-pressed="true"]):not([style*="background"]):not([style*="border"]):not(.ok):not(.bad):not(.no):not(.yes):not([class*="good"]):not([class*="miss"]):not([class*="answer-"]):not([data-state]){background:#fff!important;border-color:#d8e5f4!important;color:#1e3a5f!important}
+/* word cards to drag or tap (pools and trays): rounded 12px */
+html[data-lu-old] :is(.tile-pool,.chip-tray,.tray,.pool)>button{border-radius:12px!important;border-width:2px!important;border-style:solid!important;padding:6px 12px!important;min-height:44px!important;font-family:Poppins,Arial,sans-serif!important;font-size:16px!important;font-weight:500!important;line-height:1.35!important;box-shadow:none!important}
+/* feedback, statistics, navigation row */
+html[data-lu-old] :is(.feedback,.feedback-panel,.feedback-box,.feedback-area,#explanationArea,#feedbackSlot,#single-feedback){margin-top:12px!important;padding:10px 12px!important;border-radius:10px!important;line-height:1.4!important}
+html[data-lu-old] :is(.stats,.stats-row,.stats-bar,.stats-card,.stat-row,#stats){display:flex!important;flex-wrap:nowrap!important;justify-content:space-between!important;align-items:center!important;gap:8px!important;margin-top:10px!important;padding:10px!important;background:#f1f5f9!important;border:0!important;border-radius:10px!important;box-shadow:none!important;font-family:Poppins,Arial,sans-serif!important;font-size:14px!important;font-weight:600!important;color:#1e3a5f!important;width:auto!important;min-height:0!important}
+html[data-lu-old] :is(.stats,.stats-row,.stats-bar,.stats-card,.stat-row,#stats) :is(div,span,strong,b,p,section){background:none!important;border:0!important;box-shadow:none!important;font-size:14px!important;color:inherit!important}
+html[data-lu-old] :is(.stats,.stats-row,.stats-bar,.stats-card,.stat-row,#stats)>*{padding:0!important;margin:0!important}
+html[data-lu-old] :is(.stats,.stats-row,.stats-bar,.stats-card,.stat-row,#stats) :is(.stats,.stats-row,.stat-row){padding:0!important;margin:0!important;background:none!important}
+html[data-lu-old] :is(.nav-row,.navigation,.navigation-row,.nav,.navrow,.bottom-nav){margin-top:12px!important}
+@media (max-width:640px){
+  html[data-lu-old] :is(.task,.task-area,.task-text,.task-panel,#task-text,#taskText){font-size:17px!important;line-height:1.45!important}
+  html[data-lu-old] :is(.choices,.choice-list,.answer-grid,.choice-grid,#answerArea,.choices-grid,.answers-grid,.tiles)>button{font-size:15px!important;padding:8px 10px!important;min-height:44px!important}
+  
+  html[data-lu-old] :is(.tile-pool,.chip-tray,.tray,.pool)>button{padding:6px 9px!important;font-size:15px!important}
+  html[data-lu-old] :is(.stats,.stats-row,.stats-bar,.stats-card,.stat-row,#stats){flex-wrap:wrap!important;justify-content:center!important}
+}
+</style>
+</body>
+</html>
