@@ -230,7 +230,7 @@ const audioPlayer={
   this.loading=true;
   try{
    this.context??=new (window.AudioContext||window.webkitAudioContext)();
-   const response=await fetch('audio/Unit3_Expressing_Purpose_Quiz1_Audio1_Final.mp3');
+   const response=await fetch('audio/Unit3%20Expressing%20Purpose%20-%20with%20intro.m4a');
    if(!response.ok)throw Error('Audio request failed');
    this.buffer=await this.context.decodeAudioData(await response.arrayBuffer());
    this.duration=this.buffer.duration;this.loaded=true;this.error(false);
@@ -1196,7 +1196,7 @@ html[data-lu-old] #quizView .navrow{padding:0!important}
 </script>
 <script>/* SPEAKERS-2026-11-18 config: who speaks when ([start, end, 0=boy/1=girl] in seconds of the audio this page plays). */
 window.__SPKCFG={panel:'#audioPanel',hide:'.avatars',people:function(){return [{name:"Youssef",img:"speaker-youssef.jpg"},{name:"Sara",img:"speaker-sara.jpg"}];},
-  turns:function(){ return [[10.94,14.33,0],[14.87,20.49,1],[21.08,25.42,0],[26.04,31.60,1],[32.19,36.84,0],[37.54,42.01,1],[42.64,46.66,0],[47.22,51.43,1],[52.11,58.06,0],[58.69,62.79,1],[63.42,67.01,0],[67.66,73.60,1],[74.25,78.62,0],[79.32,83.67,1],[84.24,88.95,0],[89.63,94.88,1],[95.47,99.81,0],[100.45,105.86,1],[106.52,110.48,0],[111.17,116.76,1],[117.46,120.51,0],[121.19,126.40,1],[126.97,131.03,0],[131.71,136.12,1],[136.85,141.05,0],[141.67,145.64,1],[146.27,149.24,0],[149.87,155.03,1]]; },
+  turns:function(){ return [[16.37,19.76,0],[20.30,25.92,1],[26.51,30.85,0],[31.47,37.03,1],[37.62,42.27,0],[42.97,47.44,1],[48.07,52.09,0],[52.65,56.86,1],[57.54,63.49,0],[64.12,68.22,1],[68.85,72.44,0],[73.09,79.03,1],[79.68,84.05,0],[84.75,89.10,1],[89.67,94.38,0],[95.06,100.31,1],[100.90,105.24,0],[105.88,111.29,1],[111.95,115.91,0],[116.60,122.19,1],[122.89,125.94,0],[126.62,131.83,1],[132.40,136.46,0],[137.14,141.55,1],[142.28,146.48,0],[147.10,151.07,1],[151.70,154.67,0],[155.30,160.46,1]]; },
   time:function(){ return audioPlayer.time(); }, playing:function(){ return !!audioPlayer.playing; }};</script>
 <style id="speakers-2026-11-18">
 /* SPEAKERS-2026-11-18 (teacher): two portraits beside the player, the boy on the left and the girl on the right.
